@@ -1,4 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
+import NavBar from "~/components/NavBar";
+import Hero from "~/sections/hero/hero";
+import Products from "~/sections/products/products";
+import Services from "~/sections/services/services";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,16 +13,16 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to XoulTec</h1>
-      <p>Homepage is under construction.</p>
-      <p>
-        If you are looking to pay your bill, please visit our{" "}
-        <a href="https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE">
-          customer portal
-        </a>
-        .
-      </p>
+    <div
+      className="flex flex-col items-center w-full"
+      style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}
+    >
+      <NavBar />
+      <main className="w-full">
+        <Hero />
+        <Products />
+        <Services />
+      </main>
     </div>
   );
 }
