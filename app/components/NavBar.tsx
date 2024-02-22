@@ -12,7 +12,7 @@ export default function NavBar() {
         <div>
           <ul className="flex flex-row">
             <li className="ml-4 nav-link">
-              <a href="#contact">Contact Us</a>
+              <a href="#contact-us">Contact Us</a>
             </li>
             <li className="ml-4 nav-link">
               <a href="https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE">
