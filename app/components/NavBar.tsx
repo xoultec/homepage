@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import Logo from "./Logo";
 
 export default function NavBar() {
   return (
@@ -6,7 +7,7 @@ export default function NavBar() {
       <div className="w-full max-w-[1024px] flex flex-row justify-between items-center p-5">
         <div className="text-xl font-medium">
           <Link to="/" className="logo">
-            XoulTec
+            <Logo />
           </Link>
         </div>
         <div>
