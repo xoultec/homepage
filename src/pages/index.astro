@@ -1,0 +1,29 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Hero from '../components/sections/Hero';
+import Products from '../components/sections/Products';
+import Services from '../components/sections/Services';
+import Contact from '../components/sections/Contact';
+import "../styles/global.css";
+---
+
+<html lang="en" data-theme="corporate">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>XoulTec</title>
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <NavBar />
+  
+  <main>
+    <Hero client:load />
+    <Products client:load />
+    <Services client:load />
+    <Contact client:load />
+  </main>
+</body>
+</html>
