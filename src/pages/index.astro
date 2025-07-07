@@ -1,7 +1,7 @@
 ---
 import NavBar from '../components/NavBar.astro';
 import Hero from '../components/sections/Hero';
-import Products from '../components/sections/Products';
+import Products from '../components/sections/Products.astro';
 import Services from '../components/sections/Services';
 import Contact from '../components/sections/Contact';
 import "../styles/global.css";
@@ -21,7 +21,7 @@ import "../styles/global.css";
   
   <main>
     <Hero client:load />
-    <Products client:load />
+    <Products />
     <Services client:load />
     <Contact client:load />
   </main>
