@@ -1,0 +1,270 @@
+---
+import NavBar from '../components/NavBar.astro';
+---
+
+<html lang="en" data-theme="corporate">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Contact Us - XoulTec</title>
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <NavBar />
+  
+  <main>
+    <!-- Header Section -->
+    <section class="py-20 bg-gradient-to-b from-primary/10 to-base-100">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
+        <p class="text-xl md:text-2xl mb-8 text-base-content/80 max-w-3xl mx-auto">
+          Ready to transform your ideas into reality? Let's start the conversation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          
+          <!-- Contact Form -->
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-3xl mb-6">Send us a Message</h2>
+              
+              <form id="contact-form" class="space-y-4">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Name *</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Your full name" 
+                    class="input input-bordered w-full" 
+                    required 
+                  />
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Email *</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="your.email@example.com" 
+                    class="input input-bordered w-full" 
+                    required 
+                  />
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Company</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="company"
+                    placeholder="Your company name" 
+                    class="input input-bordered w-full" 
+                  />
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Project Type</span>
+                  </label>
+                  <select name="projectType" class="select select-bordered w-full">
+                    <option disabled selected>Choose a project type</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="mobile-app">Mobile Application</option>
+                    <option value="erp-system">ERP System</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Budget Range</span>
+                  </label>
+                  <select name="budget" class="select select-bordered w-full">
+                    <option disabled selected>Select budget range</option>
+                    <option value="under-5k">Under $5,000</option>
+                    <option value="5k-15k">$5,000 - $15,000</option>
+                    <option value="15k-50k">$15,000 - $50,000</option>
+                    <option value="50k-plus">$50,000+</option>
+                    <option value="discuss">Let's discuss</option>
+                  </select>
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-semibold">Message *</span>
+                  </label>
+                  <textarea 
+                    name="message"
+                    class="textarea textarea-bordered h-32" 
+                    placeholder="Tell us about your project, goals, and requirements..."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-control pt-4">
+                  <button type="submit" class="btn btn-primary btn-lg w-full">
+                    <span class="loading loading-spinner loading-sm hidden" id="submit-spinner"></span>
+                    <span id="submit-text">Send Message</span>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Success/Error Messages -->
+              <div id="form-success" class="alert alert-success hidden mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Thank you! Your message has been sent successfully.</span>
+              </div>
+
+              <div id="form-error" class="alert alert-error hidden mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="error-message">Something went wrong. Please try again.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="space-y-8">
+            <!-- Direct Contact -->
+            <div class="card bg-base-100 shadow-xl">
+              <div class="card-body">
+                <h3 class="card-title text-2xl mb-4">Get in Touch</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="avatar">
+                      <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                        <span class="text-primary-content text-xl">📞</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-semibold">Phone</div>
+                      <a href="tel:+18169193349" class="text-primary hover:underline">
+                        +1 (816) 919-3349
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center space-x-3">
+                    <div class="avatar">
+                      <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                        <span class="text-primary-content text-xl">✉️</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-semibold">Email</div>
+                      <a href="mailto:support@xoultec.com" class="text-primary hover:underline">
+                        support@xoultec.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="card bg-base-100 shadow-xl">
+              <div class="card-body">
+                <h3 class="card-title text-2xl mb-4">Business Hours</h3>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span class="font-semibold">9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Saturday</span>
+                    <span class="font-semibold">10:00 AM - 4:00 PM</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Sunday</span>
+                    <span class="text-base-content/70">Closed</span>
+                  </div>
+                  <div class="text-sm text-base-content/70 mt-2">
+                    * All times are in Central Standard Time (CST)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Response Time -->
+            <div class="card bg-primary text-primary-content shadow-xl">
+              <div class="card-body">
+                <h3 class="card-title text-2xl mb-4">Quick Response</h3>
+                <p class="mb-2">We typically respond within:</p>
+                <ul class="space-y-1">
+                  <li>• <strong>1-2 hours</strong> during business hours</li>
+                  <li>• <strong>24 hours</strong> for detailed project inquiries</li>
+                  <li>• <strong>Same day</strong> for urgent support requests</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      const submitBtn = document.getElementById('submit-text');
+      const spinner = document.getElementById('submit-spinner');
+      const successAlert = document.getElementById('form-success');
+      const errorAlert = document.getElementById('form-error');
+      const errorMessage = document.getElementById('error-message');
+
+      // Show loading state
+      if (submitBtn) submitBtn.textContent = 'Sending...';
+      spinner?.classList.remove('hidden');
+      successAlert?.classList.add('hidden');
+      errorAlert?.classList.add('hidden');
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          // Success
+          successAlert?.classList.remove('hidden');
+          form.reset();
+        } else {
+          // Error
+          throw new Error(result.error || 'Failed to send message');
+        }
+      } catch (error) {
+        console.error('Contact form error:', error);
+        if (errorMessage) {
+          errorMessage.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+        }
+        errorAlert?.classList.remove('hidden');
+      } finally {
+        // Reset button state
+        if (submitBtn) submitBtn.textContent = 'Send Message';
+        spinner?.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
