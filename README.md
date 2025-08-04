@@ -1,134 +1,145 @@
-# XoulTec Website - Astro 5
+# XoulTec Website - React + TanStack Router
 
-A modern, fast business website built with Astro 5, React, TypeScript, and Tailwind CSS 4.
+A modern, responsive website built with React, Vite, TanStack Router, TailwindCSS, and DaisyUI.
 
-## 🚀 Features
+## 🚀 Migration Complete
 
-- **Static-first** with server-side API routes for forms
-- **Astro Islands** - React components load only when needed
-- **Tailwind CSS 4** - Latest version with modern features
+This project has been successfully migrated from Astro to React + TanStack Router while maintaining:
+- ✅ All existing functionality and design
+- ✅ TailwindCSS v4 and DaisyUI v5 styling
+- ✅ Custom corporate theme
+- ✅ Contact form with enhanced UX
+- ✅ Responsive design and components
+- ✅ Type-safe routing with TanStack Router
+
+## 🛠️ Tech Stack
+
+- **React 18** - Modern React with hooks
+- **TanStack Router** - Type-safe, file-based routing
+- **TanStack Form** - Powerful form management with validation
+- **Vite** - Fast build tool and dev server
 - **TypeScript** - Full type safety
-- **Secure contact forms** - Mailgun integration with server-side API
-- **Responsive design** - Mobile-first approach
-- **SEO optimized** - Fast loading and search engine friendly
+- **TailwindCSS v4** - Utility-first CSS
+- **DaisyUI v5** - Beautiful component library
 
 ## 📁 Project Structure
 
+```text
+/
+├── public/           # Static assets (images, favicon, etc.)
+├── src/
+│   ├── components/   # Reusable React components
+│   │   ├── NavBar.tsx
+│   │   └── sections/
+│   │       ├── Hero.tsx
+│   │       ├── Products.tsx
+│   │       ├── Services.tsx
+│   │       └── Contact.tsx
+│   ├── routes/       # File-based routing
+│   │   ├── __root.tsx
+│   │   ├── index.tsx
+│   │   ├── portfolio.tsx
+│   │   └── contact.tsx
+│   ├── index.css     # Global styles with DaisyUI theme
+│   ├── main.tsx      # App entry point
+│   └── router.tsx    # Router configuration
+├── index.html        # HTML template
+└── package.json
 ```
-src/
-├── components/          # React components (islands)
-│   ├── ContactForm.tsx  # Interactive contact form
-│   ├── QuoteForm.tsx    # Interactive quote request form
-│   ├── NavBar.tsx       # Navigation component
-│   └── ...
-├── layouts/
-│   └── Layout.astro     # Base layout template
-├── pages/
-│   ├── index.astro      # Home page
-│   ├── services.astro   # Services page
-│   ├── portfolio.astro  # Portfolio page
-│   ├── contact.astro    # Contact page
-│   └── api/            # Server-side API routes
-│       ├── contact.ts  # Contact form handler
-│       └── quote.ts    # Quote request handler
-└── styles/
-    └── global.css      # Global styles with Tailwind
+
+## 🧞 Commands
+
+All commands are run from the root of the project:
+
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Install dependencies                        |
+| `npm run dev`     | Start dev server at `http://localhost:3000` |
+| `npm run build`   | Build for production to `./dist/`          |
+| `npm run preview` | Preview production build locally            |
+| `npm run lint`    | Run ESLint                                  |
+
+## 🎨 Features
+
+### Routing
+- File-based routing with TanStack Router
+- Type-safe navigation
+- Route-level code splitting
+- Built-in devtools
+
+### Styling
+- Custom DaisyUI corporate theme
+- Responsive design with Tailwind
+- Consistent branding and colors
+- Modern UI components
+
+### Components
+- **NavBar**: Responsive navigation with routing
+- **Hero**: Eye-catching landing section
+- **Products**: Showcase of company products
+- **Services**: Business services overview
+- **Contact**: Enhanced contact form with validation
+
+### Contact Form (TanStack Form)
+- **Advanced validation** - Real-time field validation as you type
+- **Type-safe form handling** - Full TypeScript support
+- **Smart form state management** - Automatic dirty/pristine tracking
+- **DaisyUI integration** - Beautiful error states and styling
+- **Field-level validation** - Name, email, and message validation
+- **Form submission handling** - Loading states and success/error feedback
+
+## 🔧 Configuration
+
+### Environment Variables
+Copy `.env.example` to `.env` and configure:
+
+```env
+VITE_MAILGUN_API_KEY=your_mailgun_api_key
+VITE_MAILGUN_DOMAIN=your_mailgun_domain  
+VITE_TO_EMAIL=support@xoultec.com
+VITE_DISCORD_WEBHOOK_URL=your_discord_webhook_url
 ```
 
-## 🔧 Setup
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Configure environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` and add your Mailgun credentials:
-   ```env
-   MAILGUN_API_KEY=your_mailgun_api_key
-   MAILGUN_DOMAIN=your_domain.com
-   TO_EMAIL=support@xoultec.com
-   ```
-
-3. **Development:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build:**
-   ```bash
-   npm run build
-   ```
-
-## 📧 Mailgun Setup
-
-1. Sign up at [Mailgun](https://www.mailgun.com/)
-2. Add and verify your domain
-3. Get your API key from the dashboard
-4. Add the credentials to your `.env` file
+### Theme Customization
+The DaisyUI corporate theme is configured in `src/index.css` with custom colors and styling.
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+Build the project and deploy the `dist/` folder to your hosting provider:
+
+```bash
+npm run build
+```
+
+The built files are optimized and ready for production deployment.
+
+### Deployment Options
+
+#### Vercel (Recommended)
 1. Connect your repository to Vercel
 2. Add environment variables in Vercel dashboard
 3. Deploy automatically on push
 
-### Netlify
+#### Netlify
 1. Connect your repository to Netlify
 2. Add environment variables in site settings
 3. Build command: `npm run build`
 4. Publish directory: `dist`
 
-### Node.js Server
-1. Build the project: `npm run build`
-2. Upload `dist/` folder to your server
-3. Run: `node dist/server/entry.mjs`
-4. Set environment variables on your server
+#### Static Hosting
+Deploy the `dist/` folder to any static hosting provider (GitHub Pages, AWS S3, etc.)
 
-## 🔒 Security
+## 📞 Contact
 
-- API keys are stored as environment variables
-- Server-side API routes protect sensitive operations
-- Form validation on both client and server
-- No sensitive data exposed to the browser
-
-## 📊 Performance
-
-- **Static pages** for maximum speed
-- **Island architecture** - minimal JavaScript
-- **Tailwind CSS 4** optimizations
-- **Modern build tools** (Vite + Astro)
-
-## 🛠️ Commands
-
-| Command                | Action                           |
-| :--------------------- | :------------------------------- |
-| `npm install`          | Install dependencies             |
-| `npm run dev`          | Start dev server at `localhost:4321` |
-| `npm run build`        | Build production site to `./dist/` |
-| `npm run preview`      | Preview build locally            |
-| `npm run astro ...`    | Run CLI commands like `astro add` |
-
-## 📞 Contact Forms
-
-The website includes two interactive contact forms:
-
-1. **General Inquiry** - For general questions and support
-2. **Quote Request** - For service quotes with detailed project information
-
-Both forms:
-- Validate input on client and server
-- Send emails via Mailgun API
-- Provide real-time feedback to users
-- Include loading states and error handling
+- **Phone**: +1 (816) 919-3349
+- **Email**: support@xoultec.com
+- **Website**: [xoultec.com](https://xoultec.com)
 
 ## 🔗 Learn More
 
-- [Astro Documentation](https://docs.astro.build)
+- [TanStack Router Documentation](https://tanstack.com/router/latest)
+- [TanStack Form Documentation](https://tanstack.com/form/latest)
 - [React Documentation](https://react.dev)
-- [Tailwind CSS Documentation](https://tailwindcss.com)
-- [Mailgun Documentation](https://documentation.mailgun.com)
+- [Vite Documentation](https://vitejs.dev)
+- [TailwindCSS Documentation](https://tailwindcss.com)
+- [DaisyUI Documentation](https://daisyui.com)
