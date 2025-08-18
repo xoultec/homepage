@@ -21,6 +21,11 @@ export default function NavBar() {
             </Link>
           </li>
           <li>
+            <Link to="/templates" className="btn btn-ghost">
+              Templates
+            </Link>
+          </li>
+          <li>
             <Link to="/contact" className="btn btn-ghost">
               Contact
             </Link>
