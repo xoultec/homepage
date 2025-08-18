@@ -28,6 +28,7 @@ export interface LemonSqueezyProduct {
   price: number
   currency: string
   image_url: string | null
+  images?: string[]
   buy_now_url: string
   category?: string
   tags?: string[]
@@ -60,6 +61,7 @@ export async function fetchProducts(): Promise<LemonSqueezyProduct[]> {
       console.log('First product structure:', JSON.stringify(response.data.data[0], null, 2))
       console.log('Product attributes:', response.data.data[0].attributes)
       console.log('Product relationships:', response.data.data[0].relationships)
+      console.log('API included data:', response.data.included)
     }
 
     return response.data.data.map((product: any) => {
@@ -150,13 +152,44 @@ export async function fetchProducts(): Promise<LemonSqueezyProduct[]> {
 
       console.log(`Final price for ${product.attributes.name}: $${price}`);
 
+      const mainImage = product.attributes.large_thumb_url || product.attributes.thumb_url || null;
+      
+      // Extract all available image URLs from product attributes
+      const productImages: string[] = [];
+      
+      // Add main image (large version) if available
+      if (product.attributes.large_thumb_url) {
+        productImages.push(product.attributes.large_thumb_url);
+      }
+      
+      // Check for additional image fields that might exist in the API response
+      const imageFields = ['thumb_url', 'image_url', 'preview_url', 'screenshot_url', 'banner_url', 'cover_image_url', 'gallery_images'];
+      imageFields.forEach(field => {
+        if (product.attributes[field] && !productImages.includes(product.attributes[field])) {
+          // Handle both single URLs and arrays of URLs
+          if (Array.isArray(product.attributes[field])) {
+            product.attributes[field].forEach((url: string) => {
+              if (url && !productImages.includes(url)) {
+                productImages.push(url);
+              }
+            });
+          } else if (typeof product.attributes[field] === 'string') {
+            productImages.push(product.attributes[field]);
+          }
+        }
+      });
+      
+      console.log(`Images found for ${product.attributes.name}:`, productImages);
+      console.log('Available product attributes:', Object.keys(product.attributes));
+      
       return {
         id: product.id,
         name: product.attributes.name,
         description: (product.attributes.description || product.attributes.excerpt || '').replace(/<[^>]*>/g, ''),
         price: price,
         currency: 'USD',
-        image_url: product.attributes.large_thumb_url || product.attributes.thumb_url || null,
+        image_url: mainImage,
+        images: productImages.length > 0 ? productImages : (mainImage ? [mainImage] : []),
         buy_now_url: product.attributes.buy_now_url || `https://xoultec.lemonsqueezy.com/checkout/buy/${product.id}`,
         category: product.attributes.category || 'Templates',
         tags: product.attributes.tags ? product.attributes.tags.split(',').map((tag: string) => tag.trim()) : [],
@@ -215,6 +248,11 @@ function getMockProducts(): LemonSqueezyProduct[] {
       price: 89,
       currency: 'USD',
       image_url: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop',
+      images: [
+        'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop'
+      ],
       buy_now_url: 'https://xoultec.lemonsqueezy.com/checkout/buy/1',
       category: 'Templates',
       tags: ['React', 'TypeScript', 'Dashboard', 'Charts', 'Admin']
