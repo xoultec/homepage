@@ -6,6 +6,7 @@
 
 import { useEffect, useRef } from "react";
 import type { LemonSqueezyProduct } from "../../services/lemonsqueezy";
+import ImageGallery from "./ImageGallery";
 
 interface ProductDetailModalProps {
   product: LemonSqueezyProduct | null;
@@ -128,31 +129,13 @@ export default function ProductDetailModal({
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:h-full lg:items-start">
             {/* Left Column - Image and Purchase */}
             <div className="flex flex-col lg:h-full lg:overflow-visible">
-              {/* Product Image */}
+              {/* Product Image Gallery */}
               <div className="mb-4 flex-shrink-0">
-                {product.image_url ? (
-                  <img
-                    src={product.image_url}
-                    alt={`${product.name} Template`}
-                    className="w-full h-64 object-cover rounded-lg"
-                  />
-                ) : (
-                  <div className="w-full h-64 bg-base-200 rounded-lg flex items-center justify-center">
-                    <div className="text-base-content/40">
-                      <svg
-                        className="w-16 h-16"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                )}
+                <ImageGallery
+                  images={product.images && product.images.length > 0 ? product.images : (product.image_url ? [product.image_url] : [])}
+                  alt={`${product.name} Template`}
+                  className=""
+                />
               </div>
 
               {/* Category Badge */}
