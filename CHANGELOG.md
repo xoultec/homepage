@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.1] - 2026-03-01
+- ci: remove old Remix README causing Vercel framework misdetection
+
 ## [1.1.0] - 2026-03-01
 - feat(seo): add Open Graph metadata, favicon, and title template
 
