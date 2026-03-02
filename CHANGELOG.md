@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.2] - 2026-03-02
+- fix(i18n): correct typo "Anos" → "Años" in homepage
+
 ## [1.1.1] - 2026-03-01
 - ci: remove old Remix README causing Vercel framework misdetection
 
