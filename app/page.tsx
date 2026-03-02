@@ -47,7 +47,7 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-6 w-72">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-secondary">20+</div>
-                  <div className="text-gray-400 text-sm">{t('Anos de Experiencia', 'Years of Experience')}</div>
+                  <div className="text-gray-400 text-sm">{t('Años de Experiencia', 'Years of Experience')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-secondary">100%</div>
