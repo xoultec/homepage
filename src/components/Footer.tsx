@@ -28,13 +28,15 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">{t('Productos', 'Products')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/productos/eclinic" className="hover:text-white transition">eClinic</Link></li>
-              <li><Link href="/productos/eduapp" className="hover:text-white transition">EduApp</Link></li>
-              <li><Link href="/productos/fri" className="hover:text-white transition">FRI</Link></li>
-              <li><Link href="/productos/nomina" className="hover:text-white transition">{t('Nomina', 'Payroll')}</Link></li>
               <li><Link href="/productos/pventa" className="hover:text-white transition">PVenta</Link></li>
               <li><Link href="/productos/easypos" className="hover:text-white transition">EasyPOS</Link></li>
+              <li><Link href="/productos/eclinic" className="hover:text-white transition">eClinic</Link></li>
+              <li><Link href="/productos/dental" className="hover:text-white transition">eClinic Dental</Link></li>
               <li><Link href="/productos/autoshop" className="hover:text-white transition">AutoShop Pro</Link></li>
+              <li><Link href="/productos/nomina" className="hover:text-white transition">{t('Nómina', 'Payroll')}</Link></li>
+              <li><Link href="/productos/eloan" className="hover:text-white transition">eLoan</Link></li>
+              <li><Link href="/productos/eduapp" className="hover:text-white transition">EduApp</Link></li>
+              <li><Link href="/productos/fri" className="hover:text-white transition">FRI</Link></li>
             </ul>
           </div>
 
