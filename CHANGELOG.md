@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.0] - 2026-03-01
+- feat(seo): add Open Graph metadata, favicon, and title template
+
 ## [1.0.0] - 2026-03-01
 - feat: migrate website from TanStack Start to Next.js 16
 - Dynamic product routing with [slug] pattern (9 products)
