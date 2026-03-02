@@ -1,6 +1,7 @@
 node_modules
-
-/.cache
-/build
-/public/build
+.next
+out
 .env
+.env.*
+*.tsbuildinfo
+next-env.d.ts
