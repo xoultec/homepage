@@ -72,7 +72,8 @@ The project version lives in `package.json` (`"version"`) and follows [Semantic 
 | `feat` | **Minor** (1.0.0 → 1.1.0) |
 | `fix`, `perf` | **Patch** (1.0.0 → 1.0.1) |
 | `BREAKING CHANGE` in body/footer | **Major** (1.0.0 → 2.0.0) |
-| `chore`, `ci`, `docs`, `refactor`, `test` | **Patch** (1.0.0 → 1.0.1) |
+| `chore`, `refactor` | **Patch** (1.0.0 → 1.0.1) |
+| `ci`, `docs`, `test` | **No bump** |
 
 ### Pre-Push Workflow (MUST FOLLOW)
 
