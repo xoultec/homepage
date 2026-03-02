@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.3] - 2026-03-02
+- fix(footer): add missing eLoan and eClinic Dental products
+
 ## [1.1.2] - 2026-03-02
 - fix(i18n): correct typo "Anos" → "Años" in homepage
 
