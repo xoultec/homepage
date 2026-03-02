@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.4] - 2026-03-02
+- fix(contact): add missing eLoan and eClinic Dental to product dropdown
+
 ## [1.1.3] - 2026-03-02
 - fix(footer): add missing eLoan and eClinic Dental products
 
