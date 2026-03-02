@@ -81,8 +81,10 @@ export function ContactForm() {
                   <option value="PVenta ERP">PVenta ERP</option>
                   <option value="EasyPOS">EasyPOS</option>
                   <option value="eClinic">eClinic</option>
+                  <option value="eClinic Dental">eClinic Dental</option>
                   <option value="AutoShop Pro">AutoShop Pro</option>
-                  <option value="Nomina">{t('Nomina', 'Payroll')}</option>
+                  <option value="Nomina">{t('Nómina', 'Payroll')}</option>
+                  <option value="eLoan">eLoan</option>
                   <option value="EduApp">EduApp</option>
                   <option value="FRI">FRI</option>
                 </select>
