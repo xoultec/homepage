@@ -43,7 +43,13 @@
       "mcp__github__list_commits",
       "mcp__github__search_code",
       "mcp__fly__fly-machine-exec",
-      "mcp__fly__fly-machine-start"
+      "mcp__fly__fly-machine-start",
+      "Bash(npx next:*)",
+      "Bash(pnpm:*)",
+      "Bash(start chrome:*)",
+      "Bash(grep \"\"version\"\":*)",
+      "Bash(sed:*)",
+      "Bash(git config:*)"
     ]
   }
 }
