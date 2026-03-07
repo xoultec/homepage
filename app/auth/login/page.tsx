@@ -41,10 +41,10 @@ function LoginContent() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex">
+    <div className="fixed inset-0 z-50 flex overflow-x-hidden overflow-y-auto">
       {/* Left side - Login form */}
-      <div className="w-full md:w-1/2 lg:w-[45%] bg-white flex flex-col justify-center px-8 sm:px-12 lg:px-16">
-        <div className="w-full max-w-md mx-auto">
+      <div className="w-full md:w-1/2 lg:w-[45%] bg-white flex flex-col justify-center px-5 sm:px-12 lg:px-16">
+        <div className="w-full max-w-md mx-auto pb-48 md:pb-0">
           {/* App branding */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
@@ -183,8 +183,8 @@ function LoginContent() {
       </div>
 
       {/* Mobile promo section */}
-      <div className={`md:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-t ${theme.gradient} p-4 z-50`}>
-        <PromoCarousel promos={promos} />
+      <div className={`md:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-t ${theme.gradient} p-3 z-50`}>
+        <PromoCarousel promos={promos} compact />
       </div>
     </div>
   )
