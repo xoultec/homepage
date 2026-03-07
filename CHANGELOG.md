@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0] - 2026-03-07
+- feat(promos): add promos API, data and carousel component
+- feat(auth): add SSO login page with app-themed branding
+- feat(chat): add CORS headers to chat API
+- chore(deps): pin lucide-react and typescript versions
+
 ## [1.1.4] - 2026-03-02
 - fix(contact): add missing eLoan and eClinic Dental to product dropdown
 
