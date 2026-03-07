@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.5] - 2026-03-07
+- fix(chat): clarify both numbers available on WhatsApp
+
 ## [1.2.4] - 2026-03-07
 - fix(chat): improve bot contact info with clickable links and correct WhatsApp label
 
