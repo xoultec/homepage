@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.3] - 2026-03-07
+- fix(contact): label USA number as WhatsApp-only and simplify portal URL in chat prompt
+
 ## [1.2.2] - 2026-03-07
 - fix(contact): update USA phone number to +1 (913) 413-6583
 
