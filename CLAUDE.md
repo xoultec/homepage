@@ -109,7 +109,7 @@ Environment variables (secrets) are managed in the Vercel dashboard. Never commi
 
 ## Key Info
 
-- **Contact**: sales@xoultec.com, +1(816)919-3349 (USA), +1(809)252-4007 (RD)
+- **Contact**: sales@xoultec.com, +1(913)413-6583 (USA), +1(809)252-4007 (RD)
 - **Stripe Portal**: https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE
 - **Tailwind colors**: primary=#1e3a5f, secondary=#f59e0b, accent=#10b981, dark=#0f172a
 - **Country flags**: Use flagcdn.com URLs (emoji flags don't render consistently)

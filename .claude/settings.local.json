@@ -49,7 +49,14 @@
       "Bash(start chrome:*)",
       "Bash(grep \"\"version\"\":*)",
       "Bash(sed:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(rm:*)",
+      "Bash(NEXT_TURBOPACK=0 npx next:*)",
+      "Bash(git:*)",
+      "Bash(gh run:*)",
+      "Read(//c/Data/4Claude/Repositorios/pventa-repo/**)",
+      "Read(//c/Data/4Claude/Repositorios/**)",
+      "Bash(ipconfig:*)"
     ]
   }
 }

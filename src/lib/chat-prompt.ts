@@ -31,7 +31,7 @@ ${features}`
 ## Company Info
 - Company: XoulTec
 - Email: sales@xoultec.com
-- Phone USA: +1 (816) 919-3349
+- Phone USA: +1 (913) 413-6583
 - Phone RD: +1 (809) 252-4007
 - WhatsApp: Same phone numbers
 - Client Portal: https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE
