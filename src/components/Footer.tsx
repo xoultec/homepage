@@ -44,7 +44,7 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">{t('Contacto', 'Contact')}</h4>
             <ul className="space-y-2 text-sm">
               <li>sales@xoultec.com</li>
-              <li><img src="https://flagcdn.com/16x12/us.png" alt="USA" className="inline align-middle mr-1" />+1 (913) 413-6583</li>
+              <li><img src="https://flagcdn.com/16x12/us.png" alt="USA" className="inline align-middle mr-1" />+1 (913) 413-6583 <span className="text-xs text-green-400">(Solo WhatsApp)</span></li>
               <li><img src="https://flagcdn.com/16x12/do.png" alt="RD" className="inline align-middle mr-1" />+1 (809) 252-4007</li>
             </ul>
           </div>
