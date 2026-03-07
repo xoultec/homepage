@@ -31,10 +31,9 @@ ${features}`
 ## Company Info
 - Company: XoulTec
 - Email: sales@xoultec.com
-- Phone USA: +1 (913) 413-6583
-- Phone RD: +1 (809) 252-4007
-- WhatsApp: Same phone numbers
-- Client Portal: https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE
+- WhatsApp USA: +1 (913) 413-6583 (WhatsApp only, no regular calls)
+- Phone/WhatsApp RD: +1 (809) 252-4007
+- Client Portal: xoultec.com
 - Tech Stack: Go backend, React frontend, MySQL database
 - Markets: Dominican Republic (RD) and United States (USA)
 - 20+ years of experience
