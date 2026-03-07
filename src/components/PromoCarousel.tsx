@@ -12,7 +12,7 @@ const typeIcons: Record<Promo['type'], React.ComponentType<{ className?: string 
   offer: Tag,
 }
 
-export function PromoCarousel({ promos }: { promos: Promo[] }) {
+export function PromoCarousel({ promos, compact = false }: { promos: Promo[]; compact?: boolean }) {
   const { t } = useLanguage()
   const [current, setCurrent] = useState(0)
 
@@ -36,11 +36,11 @@ export function PromoCarousel({ promos }: { promos: Promo[] }) {
   const Icon = typeIcons[promo.type]
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-sm">
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 w-full border border-white/20 transition-all duration-500">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
-            <Icon className="w-5 h-5 text-white" />
+    <div className={`flex flex-col items-center w-full max-w-sm ${compact ? 'gap-2' : 'gap-6'}`}>
+      <div className={`bg-white/10 backdrop-blur-sm rounded-2xl w-full border border-white/20 transition-all duration-500 ${compact ? 'p-4' : 'p-8'}`}>
+        <div className={`flex items-center gap-3 ${compact ? 'mb-2' : 'mb-4'}`}>
+          <div className={`rounded-lg bg-white/20 flex items-center justify-center ${compact ? 'w-8 h-8' : 'w-10 h-10'}`}>
+            <Icon className={`text-white ${compact ? 'w-4 h-4' : 'w-5 h-5'}`} />
           </div>
           <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
             {promo.type === 'cross-sell' && t('Producto XoulTec', 'XoulTec Product')}
@@ -50,8 +50,8 @@ export function PromoCarousel({ promos }: { promos: Promo[] }) {
           </span>
         </div>
 
-        <div className="flex items-center gap-2 mb-2">
-          <h3 className="text-2xl font-bold text-white">
+        <div className="flex items-center gap-2 mb-1">
+          <h3 className={`font-bold text-white ${compact ? 'text-lg' : 'text-2xl'}`}>
             {t(promo.titleEs, promo.titleEn)}
           </h3>
           {promo.market === 'rd' && (
@@ -74,7 +74,7 @@ export function PromoCarousel({ promos }: { promos: Promo[] }) {
             </span>
           )}
         </div>
-        <p className="text-white/70 text-sm leading-relaxed mb-6">
+        <p className={`text-white/70 text-sm leading-relaxed ${compact ? 'mb-3' : 'mb-6'}`}>
           {t(promo.descEs, promo.descEn)}
         </p>
 
