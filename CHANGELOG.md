@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.1] - 2026-03-07
+- fix(auth): improve login page mobile layout and compact promo carousel
+
 ## [1.2.0] - 2026-03-07
 - feat(promos): add promos API, data and carousel component
 - feat(auth): add SSO login page with app-themed branding
