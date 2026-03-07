@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.4] - 2026-03-07
+- fix(chat): improve bot contact info with clickable links and correct WhatsApp label
+
 ## [1.2.3] - 2026-03-07
 - fix(contact): label USA number as WhatsApp-only and simplify portal URL in chat prompt
 
