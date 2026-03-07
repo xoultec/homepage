@@ -10,6 +10,16 @@ type ChatInput = {
   lang: 'es' | 'en'
 }
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: corsHeaders })
+}
+
 export async function POST(request: Request) {
   const data: ChatInput = await request.json()
 
@@ -19,7 +29,7 @@ export async function POST(request: Request) {
       reply: data.lang === 'es'
         ? 'El asistente no esta configurado todavia. Contacta a sales@xoultec.com para ayuda.'
         : 'The assistant is not configured yet. Contact sales@xoultec.com for help.',
-    })
+    }, { headers: corsHeaders })
   }
 
   try {
@@ -47,7 +57,7 @@ export async function POST(request: Request) {
     }
 
     const result = await response.json()
-    return Response.json({ reply: result.choices?.[0]?.message?.content ?? '' })
+    return Response.json({ reply: result.choices?.[0]?.message?.content ?? '' }, { headers: corsHeaders })
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error'
     console.error('Chat API error:', message)
@@ -55,6 +65,6 @@ export async function POST(request: Request) {
       reply: data.lang === 'es'
         ? 'Lo siento, hubo un error al procesar tu mensaje. Intenta de nuevo.'
         : 'Sorry, there was an error processing your message. Please try again.',
-    })
+    }, { headers: corsHeaders })
   }
 }
