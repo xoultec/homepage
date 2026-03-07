@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.2] - 2026-03-07
+- fix(contact): update USA phone number to +1 (913) 413-6583
+
 ## [1.2.1] - 2026-03-07
 - fix(auth): improve login page mobile layout and compact promo carousel
 
