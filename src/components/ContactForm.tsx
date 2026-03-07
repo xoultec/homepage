@@ -48,7 +48,7 @@ export function ContactForm() {
                 </div>
                 <div>
                   <div className="font-semibold text-dark">WhatsApp</div>
-                  <div className="text-gray-600 text-sm"><img src="https://flagcdn.com/16x12/us.png" alt="USA" className="inline align-middle mr-1" />+1 (816) 919-3349</div>
+                  <div className="text-gray-600 text-sm"><img src="https://flagcdn.com/16x12/us.png" alt="USA" className="inline align-middle mr-1" />+1 (913) 413-6583</div>
                   <div className="text-gray-600 text-sm"><img src="https://flagcdn.com/16x12/do.png" alt="RD" className="inline align-middle mr-1" />+1 (809) 252-4007</div>
                 </div>
               </div>
