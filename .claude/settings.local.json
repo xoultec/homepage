@@ -56,7 +56,18 @@
       "Bash(gh run:*)",
       "Read(//c/Data/4Claude/Repositorios/pventa-repo/**)",
       "Read(//c/Data/4Claude/Repositorios/**)",
-      "Bash(ipconfig:*)"
+      "Bash(ipconfig:*)",
+      "Bash(for repo in Fri eLoan dental eClinic Nomina)",
+      "Bash(do echo \"=== $repo ===\")",
+      "Read(//c/data/4claude/repositorios/$repo/apps/web/src/routes/**)",
+      "Bash(do)",
+      "Bash(file=\"/c/data/4claude/repositorios/$repo/apps/web/src/routes/login.tsx\")",
+      "Bash(echo \"=== $repo ===\")",
+      "Read(//c/data/4claude/repositorios/xoultec-website/**)",
+      "Bash(for repo in Colegio fix-point)",
+      "Bash(file=\"/c/data/4claude/repositorios/$repo/frontend/app/routes/login.tsx\")",
+      "Read(//c/data/4claude/repositorios/$repo/frontend/app/routes/**)",
+      "Bash(do:*)"
     ]
   }
 }
