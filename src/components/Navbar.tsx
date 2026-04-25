@@ -17,7 +17,7 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 w-full z-50 bg-dark/90 backdrop-blur-sm transition-all duration-300 ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <nav className={`fixed top-10 w-full z-50 bg-dark/90 backdrop-blur-sm transition-all duration-300 ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">

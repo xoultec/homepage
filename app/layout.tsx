@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Providers } from './providers'
+import { PrivacyBanner } from '~/components/PrivacyBanner'
 import { Navbar } from '~/components/Navbar'
 import { Footer } from '~/components/Footer'
 import { ChatWidget } from '~/components/ChatWidget'
@@ -26,8 +27,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es">
       <body className="bg-white text-gray-800">
         <Providers>
+          <PrivacyBanner />
           <Navbar />
-          {children}
+          <div className="pt-10">{children}</div>
           <Footer />
           <ChatWidget />
         </Providers>
