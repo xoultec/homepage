@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.3.0] - 2026-04-25
+- feat(legal): add Política de Protección de Datos page and footer link
+
 ## [1.2.5] - 2026-03-07
 - fix(chat): clarify both numbers available on WhatsApp
 
