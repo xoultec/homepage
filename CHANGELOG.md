@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.5.0] - 2026-04-25
+- feat(home): add country flags and e-invoicing badge to hero
+
 ## [1.4.0] - 2026-04-25
 - feat(privacy): add site-wide privacy banner and redesign policy page hero with multi-jurisdiction legal framework
 
