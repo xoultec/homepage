@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.4.0] - 2026-04-25
+- feat(privacy): add site-wide privacy banner and redesign policy page hero with multi-jurisdiction legal framework
+
 ## [1.3.0] - 2026-04-25
 - feat(legal): add Política de Protección de Datos page and footer link
 
