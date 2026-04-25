@@ -1,5 +1,6 @@
 'use client'
 
+import { ShieldCheck, Lock, FileText, UserCheck } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 
 export default function PoliticaProteccionDatosPage() {
@@ -7,37 +8,105 @@ export default function PoliticaProteccionDatosPage() {
 
   return (
     <main className="bg-white">
-      <section className="hero-gradient py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            {t('Política de Protección de Datos Personales', 'Personal Data Protection Policy')}
-          </h1>
-          <p className="text-gray-300 text-sm">
-            {t('Fecha de última actualización: 01 de enero de 2025', 'Last updated: January 1, 2025')}
-          </p>
+      <section className="hero-gradient pt-16 pb-12 md:pt-20 md:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
+                <ShieldCheck className="w-4 h-4" />
+                {t('Centro de Privacidad', 'Privacy Center')}
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
+                {t('Protección de datos y privacidad', 'Data protection and privacy')}
+              </h1>
+              <p className="text-base md:text-lg text-gray-300 mb-7 max-w-xl">
+                {t(
+                  'En XoulTec valoramos, protegemos y defendemos tu privacidad. Conoce cómo recopilamos, usamos y protegemos tu información personal en cumplimiento con la legislación de protección de datos aplicable en cada jurisdicción donde operamos.',
+                  'At XoulTec we value, protect, and defend your privacy. Learn how we collect, use, and protect your personal information in compliance with the data protection laws applicable in each jurisdiction where we operate.'
+                )}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="#politica"
+                  className="inline-flex items-center gap-2 bg-secondary text-dark px-6 py-3 rounded-lg font-bold hover:bg-yellow-400 transition"
+                >
+                  {t('Leer la política', 'Read the policy')}
+                </a>
+              </div>
+              <p className="text-gray-400 text-xs mt-5">
+                {t('Última actualización: 01 de enero de 2025', 'Last updated: January 1, 2025')}
+              </p>
+            </div>
+
+            <div className="hidden md:flex justify-center">
+              <div className="relative w-80 h-80">
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl flex items-center justify-center">
+                  <ShieldCheck className="w-40 h-40 text-secondary" strokeWidth={1.2} />
+                </div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl flex items-center justify-center">
+                  <Lock className="w-8 h-8 text-accent" />
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-secondary/20 backdrop-blur-sm border border-secondary/30 rounded-xl flex items-center justify-center">
+                  <UserCheck className="w-8 h-8 text-secondary" />
+                </div>
+                <div className="absolute -top-4 right-8 w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex flex-wrap gap-x-8 gap-y-2 py-4 text-sm font-medium text-gray-700">
+            <a href="#politica" className="hover:text-primary transition">{t('Política', 'Policy')}</a>
+            <a href="#derechos" className="hover:text-primary transition">{t('Tus Derechos (ARCO)', 'Your Rights (ARCO)')}</a>
+            <a href="#seguridad" className="hover:text-primary transition">{t('Seguridad', 'Security')}</a>
+            <a href="#contacto" className="hover:text-primary transition">{t('Contacto', 'Contact')}</a>
+          </nav>
+        </div>
+      </section>
+
+      <section id="politica" className="py-12 md:py-16 scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 p-4 bg-gray-50 border border-gray-200 rounded-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <p className="text-sm text-gray-700">
-              {t(
-                'Puedes consultar y descargar el documento oficial en formato PDF.',
-                'You can view and download the official document in PDF format.'
-              )}
-            </p>
-            <a
-              href="/legal/politica-proteccion-datos.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition whitespace-nowrap"
-            >
-              {t('Descargar PDF', 'Download PDF')}
-            </a>
-          </div>
 
           <article className="prose prose-slate max-w-none text-gray-800 leading-relaxed">
+            <div className="bg-blue-50 border-l-4 border-primary p-5 rounded mb-8">
+              <h2 className="text-lg font-bold text-dark mt-0 mb-2">
+                {t('Marco Legal Aplicable', 'Applicable Legal Framework')}
+              </h2>
+              <p className="text-sm text-gray-700 mb-2">
+                {t(
+                  'XoulTec opera en múltiples jurisdicciones y aplica esta política conforme a la normativa vigente en cada país:',
+                  'XoulTec operates in multiple jurisdictions and applies this policy in accordance with the regulations in force in each country:'
+                )}
+              </p>
+              <ul className="text-sm text-gray-700 list-disc pl-6 space-y-1 mb-0">
+                <li>
+                  <strong>{t('República Dominicana:', 'Dominican Republic:')}</strong>{' '}
+                  {t(
+                    'Ley núm. 172-13 sobre Protección de Datos de Carácter Personal.',
+                    'Law No. 172-13 on Personal Data Protection.'
+                  )}
+                </li>
+                <li>
+                  <strong>{t('Estados Unidos:', 'United States:')}</strong>{' '}
+                  {t(
+                    'Leyes federales y estatales aplicables (incluyendo CCPA/CPRA cuando corresponda).',
+                    'Applicable federal and state laws (including CCPA/CPRA where applicable).'
+                  )}
+                </li>
+                <li>
+                  {t(
+                    'Para usuarios de otras jurisdicciones, aplicamos los principios generales de protección de datos reconocidos internacionalmente.',
+                    'For users in other jurisdictions, we apply the generally recognized international data protection principles.'
+                  )}
+                </li>
+              </ul>
+            </div>
+
             <h2 className="text-2xl font-bold text-dark mt-8 mb-4">
               {t('1. Responsable del Tratamiento de Datos', '1. Data Controller')}
             </h2>
@@ -82,7 +151,7 @@ export default function PoliticaProteccionDatosPage() {
               <li>{t('Mejorar la calidad de nuestros productos y servicios.', 'Improve the quality of our products and services.')}</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-dark mt-8 mb-4">
+            <h2 id="derechos" className="text-2xl font-bold text-dark mt-8 mb-4 scroll-mt-24">
               {t('4. Derechos de los Titulares (ARCO)', '4. Rights of Data Subjects (ARCO)')}
             </h2>
             <p>
@@ -119,7 +188,7 @@ export default function PoliticaProteccionDatosPage() {
               <li>{t('Se trate de proveedores de servicios que actúan en nombre de XOULTEC bajo acuerdos de confidencialidad y protección de datos.', 'They are service providers acting on behalf of XOULTEC under confidentiality and data protection agreements.')}</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-dark mt-8 mb-4">
+            <h2 id="seguridad" className="text-2xl font-bold text-dark mt-8 mb-4 scroll-mt-24">
               {t('6. Seguridad de la Información', '6. Information Security')}
             </h2>
             <p>
@@ -149,7 +218,7 @@ export default function PoliticaProteccionDatosPage() {
               )}
             </p>
 
-            <h2 className="text-2xl font-bold text-dark mt-8 mb-4">
+            <h2 id="contacto" className="text-2xl font-bold text-dark mt-8 mb-4 scroll-mt-24">
               {t('9. Contacto', '9. Contact')}
             </h2>
             <p>
