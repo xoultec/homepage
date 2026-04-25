@@ -50,7 +50,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm space-y-2">
+          <p>
+            <Link href="/politica-de-proteccion-de-datos" className="hover:text-white transition">
+              {t('Política de Protección de Datos', 'Data Protection Policy')}
+            </Link>
+          </p>
           <p>&copy; 2025 XoulTec. {t('Todos los derechos reservados.', 'All rights reserved.')}</p>
         </div>
       </div>
