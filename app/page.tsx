@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Code2, Database, Layers, ArrowRightLeft, Globe, Building2, Hexagon, Atom, Wind, Zap, CreditCard } from 'lucide-react'
+import { Code2, Database, Layers, ArrowRightLeft, Globe, Building2, Hexagon, Atom, Wind, Zap, CreditCard, FileCheck } from 'lucide-react'
 import * as icons from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 import { ContactForm } from '~/components/ContactForm'
@@ -14,12 +14,18 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section id="inicio" className="hero-gradient h-screen flex items-center pt-16">
+      <section id="inicio" className="hero-gradient min-h-screen flex items-center pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="fade-in visible">
-              <div className="inline-block bg-secondary/20 text-secondary px-4 py-1 rounded-full text-sm font-semibold mb-4">
-                {t('Software Empresarial', 'Enterprise Software')}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="inline-block bg-secondary/20 text-secondary px-4 py-1 rounded-full text-sm font-semibold">
+                  {t('Software Empresarial', 'Enterprise Software')}
+                </span>
+                <span className="inline-flex items-center gap-1.5 bg-accent/20 text-accent px-4 py-1 rounded-full text-sm font-semibold">
+                  <FileCheck className="w-3.5 h-3.5" />
+                  {t('Facturación Electrónica Integrada', 'Integrated E-Invoicing')}
+                </span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                 {t(
@@ -40,6 +46,36 @@ export default function HomePage() {
                 <a href="#contacto" className="border-2 border-white text-white px-7 py-2.5 rounded-lg font-bold hover:bg-white hover:text-dark transition">
                   {t('Contactanos', 'Contact Us')}
                 </a>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">
+                  {t('Presencia en 9 países', 'Present in 9 countries')}
+                </p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {[
+                    { code: 'us', es: 'Estados Unidos', en: 'United States' },
+                    { code: 'do', es: 'República Dominicana', en: 'Dominican Republic' },
+                    { code: 'ar', es: 'Argentina', en: 'Argentina' },
+                    { code: 'co', es: 'Colombia', en: 'Colombia' },
+                    { code: 'cr', es: 'Costa Rica', en: 'Costa Rica' },
+                    { code: 'es', es: 'España', en: 'Spain' },
+                    { code: 'mx', es: 'México', en: 'Mexico' },
+                    { code: 'pa', es: 'Panamá', en: 'Panama' },
+                    { code: 'pe', es: 'Perú', en: 'Peru' },
+                  ].map(c => (
+                    <img
+                      key={c.code}
+                      src={`https://flagcdn.com/32x24/${c.code}.png`}
+                      alt={t(c.es, c.en)}
+                      title={t(c.es, c.en)}
+                      width={32}
+                      height={24}
+                      loading="lazy"
+                      className="rounded shadow-md hover:scale-110 transition-transform cursor-default"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
