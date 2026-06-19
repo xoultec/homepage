@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.6.1] - 2026-06-18
+- fix(ofertas): el formulario de leads registra el canal real (`utm_source`: pventa_login, instagram, facebook…) en vez de un valor fijo, para medir de dónde viene cada lead
+
 ## [1.6.0] - 2026-06-18
 - feat(ofertas): mobile landing at /ofertas (products, offers, contact CTA) reachable from the QR on the PVenta login, with a lead-capture form that returns a unique discount code via the PVenta leads API
 

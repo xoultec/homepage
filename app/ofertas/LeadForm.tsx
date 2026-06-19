@@ -31,11 +31,15 @@ export function LeadForm() {
     if (!form.nombre.trim() || !form.email.trim()) return
     setStatus('sending')
     setErrMsg('')
+    // Track the channel that brought the visitor: utm_source from the QR
+    // (pventa_login) or from social links (instagram/facebook). Falls back to
+    // "ofertas" for direct visits.
+    const source = new URLSearchParams(window.location.search).get('utm_source') || 'ofertas'
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'pventa_login', lang }),
+        body: JSON.stringify({ ...form, source, lang }),
       })
       const data = await res.json().catch(() => ({}))
       if (res.ok && data.codigo) {
