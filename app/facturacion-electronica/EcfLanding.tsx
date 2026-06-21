@@ -110,20 +110,14 @@ export function EcfLanding() {
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 max-w-3xl mx-auto leading-tight">
           {t(
-            'Factura electrónica e-CF lista ante la DGII — y todo tu negocio en un solo sistema',
-            'DGII-ready e-CF electronic invoicing — and your whole business in one system',
+            'Factura e-CF ante la DGII — y todo tu negocio en un sistema',
+            'DGII e-CF invoicing — and your whole business in one system',
           )}
         </h1>
-        <p className="text-white font-semibold text-lg max-w-2xl mx-auto mb-3">
+        <p className="text-white font-semibold text-lg max-w-2xl mx-auto mb-8">
           {t(
-            'Factura electrónicamente en minutos: tú creas la factura y PVenta se encarga de todo lo demás.',
-            'Invoice electronically in minutes: you create the invoice and PVenta takes care of everything else.',
-          )}
-        </p>
-        <p className="text-white/80 max-w-2xl mx-auto mb-8">
-          {t(
-            'Cumple con la facturación electrónica obligatoria y, en la misma plataforma, maneja ventas, inventario, cuentas por cobrar y contabilidad. Sin pagar cuatro suscripciones por separado.',
-            'Meet the mandatory e-invoicing requirement and, on the same platform, run sales, inventory, receivables and accounting. Without paying four separate subscriptions.',
+            'Factura en minutos. Tú creas la factura; PVenta hace el resto.',
+            'Invoice in minutes. You create it; PVenta does the rest.',
           )}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
