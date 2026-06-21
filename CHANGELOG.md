@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.8.1] - 2026-06-21
+- fix(landing): hero de la landing e-CF más conciso para móvil (titular más corto, sin el párrafo extra)
+
 ## [1.8.0] - 2026-06-21
 - feat(facturacion-electronica): planes competitivos — Emprendedor US$19 (solo e-CF) y Todo Incluido US$49 (precio de lanzamiento) + US$3 por usuario adicional (2 incluidos), ERP completo, bodegas ilimitadas y sin tope de ingresos; banner "1 mes gratis" y comparativa actualizada (usuarios US$3, bodegas ilimitadas)
 - feat(nomina): nueva landing de campaña `/nomina` (RD + USA, US$4 por empleado sin cuota base, comparativa por capacidad, cross-sell a PVenta) integrada al catálogo de productos vía `Product.landingPath`
