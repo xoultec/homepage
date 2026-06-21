@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.8.0] - 2026-06-21
+- feat(facturacion-electronica): planes competitivos — Emprendedor US$19 (solo e-CF) y Todo Incluido US$49 (precio de lanzamiento) + US$3 por usuario adicional (2 incluidos), ERP completo, bodegas ilimitadas y sin tope de ingresos; banner "1 mes gratis" y comparativa actualizada (usuarios US$3, bodegas ilimitadas)
+- feat(nomina): nueva landing de campaña `/nomina` (RD + USA, US$4 por empleado sin cuota base, comparativa por capacidad, cross-sell a PVenta) integrada al catálogo de productos vía `Product.landingPath`
+
 ## [1.7.0] - 2026-06-21
 - feat(facturacion-electronica): nueva landing `/facturacion-electronica` (Ley 32-23 / e-CF) con hero de urgencia (15-nov-2026), precios (Emprendedor US$35 / Todo Abierto US$125 + US$6 por usuario), comparativa "una suscripción, no cuatro", cómo funciona, features e-CF reales y captura de leads (`source=ecf_campaign`); incluye el plus "certificación como emisor electrónico ante la DGII gratis"
 - feat(home): la página de inicio ahora lidera con la landing e-CF (info + registro directo), conservando Productos, Nosotros y Contacto debajo
