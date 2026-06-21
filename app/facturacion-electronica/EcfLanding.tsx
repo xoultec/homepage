@@ -170,7 +170,7 @@ export function EcfLanding() {
               🔥 {t('Promo de lanzamiento: 1 mes gratis. Migra antes del 15 de noviembre de 2026.', 'Launch promo: 1 month free. Migrate before November 15, 2026.')}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Emprendedor — solo e-CF */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg text-dark">{t('Emprendedor', 'Starter')}</h3>
@@ -211,12 +211,12 @@ export function EcfLanding() {
                 <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
               <p className="text-gray-500 text-xs mb-5">
-                {t('Incluye 2 usuarios · +US$3 por usuario adicional', 'Includes 2 users · +US$3 per extra user')}
+                {t('Incluye 2 usuarios · +US$3 c/u, hasta 8', 'Includes 2 users · +US$3 each, up to 8')}
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
                   t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
-                  t('Inventario y POS · bodegas ilimitadas', 'Inventory & POS · unlimited warehouses'),
+                  t('Inventario y POS · hasta 3 bodegas', 'Inventory & POS · up to 3 warehouses'),
                   t('Contabilidad y bancos', 'Accounting & banking'),
                   t('Cuentas por cobrar y pagar', 'Accounts receivable & payable'),
                   t('Sin tope de ingresos', 'No income cap'),
@@ -227,6 +227,36 @@ export function EcfLanding() {
                 ))}
               </ul>
             </div>
+            {/* Enterprise — a cotizar */}
+            <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+              <h3 className="font-bold text-lg text-dark">Enterprise</h3>
+              <p className="text-gray-500 text-sm mt-1">
+                {t('Para empresas grandes o alto volumen', 'For large or high-volume businesses')}
+              </p>
+              <div className="mt-4 mb-5">
+                <span className="text-3xl font-extrabold text-dark">{t('A cotizar', 'Custom')}</span>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                {[
+                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
+                  t('Todo el ERP completo', 'The complete ERP'),
+                  t('Usuarios ilimitados', 'Unlimited users'),
+                  t('Bodegas ilimitadas', 'Unlimited warehouses'),
+                  t('Multi-sucursal', 'Multi-branch'),
+                  t('Soporte dedicado', 'Dedicated support'),
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#registro"
+                className="mt-5 block text-center text-sm font-semibold text-primary border border-primary rounded-lg py-2 hover:bg-primary hover:text-white transition"
+              >
+                {t('Habla con ventas', 'Talk to sales')}
+              </a>
+            </div>
           </div>
           <p className="text-center text-gray-500 text-sm mt-6 flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4 text-accent" />
@@ -235,6 +265,36 @@ export function EcfLanding() {
               'Start with Starter and grow to All Included without switching systems or losing your data.',
             )}
           </p>
+        </section>
+
+        {/* What the ERP includes */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-2">
+            {t('Todo el ERP, en un solo sistema', 'The whole ERP, in one system')}
+          </h2>
+          <p className="text-gray-600 text-center text-sm mb-6">
+            {t('Esto incluye el plan Todo Incluido:', "Here's what the All Included plan covers:")}
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+            {[
+              t('Facturación e-CF', 'e-CF invoicing'),
+              t('Ventas y cotizaciones', 'Sales & quotes'),
+              t('Inventario', 'Inventory'),
+              t('POS', 'POS'),
+              t('Cuentas por cobrar', 'Accounts receivable'),
+              t('Cuentas por pagar', 'Accounts payable'),
+              t('Compras', 'Purchasing'),
+              t('Contabilidad', 'Accounting'),
+              t('Bancos', 'Banking'),
+            ].map(m => (
+              <span
+                key={m}
+                className="inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-3 py-1.5 text-sm text-dark"
+              >
+                <Check className="w-3.5 h-3.5 text-emerald-600" /> {m}
+              </span>
+            ))}
+          </div>
         </section>
 
         {/* Comparison: one subscription vs four */}
@@ -282,7 +342,7 @@ export function EcfLanding() {
             <ComparisonRow
               label={t('Bodegas / almacenes', 'Warehouses')}
               alegra={t('Limitadas por plan (2/10/100)', 'Capped per tier (2/10/100)')}
-              pventa={t('Ilimitadas', 'Unlimited')}
+              pventa={t('3 · ilimitadas en Enterprise', '3 · unlimited in Enterprise')}
             />
           </div>
         </section>
