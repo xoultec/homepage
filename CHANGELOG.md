@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.8.2] - 2026-06-21
+- feat(facturacion-electronica): plan Enterprise (a cotizar) para empresas grandes / alto volumen; Todo Incluido limitado a hasta 3 bodegas y hasta 8 usuarios (más → Enterprise); nueva sección con los módulos del ERP; hero más conciso para móvil
+
 ## [1.8.1] - 2026-06-21
 - fix(landing): hero de la landing e-CF más conciso para móvil (titular más corto, sin el párrafo extra)
 
