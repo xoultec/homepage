@@ -69,7 +69,7 @@ export default function OfertasPage() {
               return (
                 <Link
                   key={product.slug}
-                  href={`/productos/${product.slug}`}
+                  href={product.landingPath ?? `/productos/${product.slug}`}
                   className="product-card block bg-white rounded-2xl p-5 shadow-sm"
                 >
                   <div className="flex items-center gap-3 mb-3">
