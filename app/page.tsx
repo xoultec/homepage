@@ -75,7 +75,7 @@ export default function HomePage() {
               }
 
               return (
-                <Link key={product.slug} href={`/productos/${product.slug}`} className="block">
+                <Link key={product.slug} href={product.landingPath ?? `/productos/${product.slug}`} className="block">
                   <div className="product-card bg-white rounded-2xl p-6 shadow-md fade-in visible">
                     {head}
                     <div className="flex flex-wrap gap-2">

@@ -168,18 +168,23 @@ export function EcfLanding() {
       <div className="max-w-5xl mx-auto px-4 py-14 space-y-16">
         {/* Pricing */}
         <section>
-          <h2 className="text-2xl font-bold text-dark text-center mb-8">
+          <h2 className="text-2xl font-bold text-dark text-center mb-4">
             {t('Precios claros, sin letra chica', 'Clear pricing, no fine print')}
           </h2>
+          <div className="max-w-3xl mx-auto mb-8 bg-secondary/15 border border-secondary/40 rounded-xl px-5 py-3 text-center">
+            <p className="text-sm font-semibold text-dark">
+              🔥 {t('Promo de lanzamiento: 1 mes gratis. Migra antes del 15 de noviembre de 2026.', 'Launch promo: 1 month free. Migrate before November 15, 2026.')}
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {/* Emprendedor */}
+            {/* Emprendedor — solo e-CF */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg text-dark">{t('Emprendedor', 'Starter')}</h3>
               <p className="text-gray-500 text-sm mt-1">
-                {t('Para empezar a cumplir con e-CF', 'To start complying with e-CF')}
+                {t('Solo necesitas facturar', 'You just need to invoice')}
               </p>
               <div className="mt-4 mb-5">
-                <span className="text-3xl font-extrabold text-dark">US$35</span>
+                <span className="text-3xl font-extrabold text-dark">US$19</span>
                 <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-700">
@@ -195,27 +200,32 @@ export function EcfLanding() {
                 ))}
               </ul>
             </div>
-            {/* Todo Abierto */}
+            {/* Todo Incluido — ERP completo (recomendado) */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-md border-2 border-secondary relative">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
                 {t('Recomendado', 'Recommended')}
               </span>
-              <h3 className="font-bold text-lg text-dark">{t('Todo Abierto', 'All Open')}</h3>
+              <h3 className="font-bold text-lg text-dark">{t('Todo Incluido', 'All Included')}</h3>
               <p className="text-gray-500 text-sm mt-1">
-                {t('Todo el ERP, sin topes', 'The full ERP, no caps')}
+                {t('Todo el ERP, sin límites', 'The full ERP, no limits')}
               </p>
-              <div className="mt-4 mb-5">
-                <span className="text-3xl font-extrabold text-dark">US$125</span>
-                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')} + US$6 /{t('usuario', 'user')}</span>
+              <p className="text-secondary text-xs font-bold uppercase tracking-wide mt-3">
+                {t('Precio de lanzamiento', 'Launch price')}
+              </p>
+              <div className="mt-1 mb-1">
+                <span className="text-3xl font-extrabold text-dark">US$49</span>
+                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
+              <p className="text-gray-500 text-xs mb-5">
+                {t('Incluye 2 usuarios · +US$3 por usuario adicional', 'Includes 2 users · +US$3 per extra user')}
+              </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
-                  t('Todo lo del plan Emprendedor', 'Everything in Starter'),
-                  t('Inventario y POS', 'Inventory and POS'),
+                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
+                  t('Inventario y POS · bodegas ilimitadas', 'Inventory & POS · unlimited warehouses'),
+                  t('Contabilidad y bancos', 'Accounting & banking'),
                   t('Cuentas por cobrar y pagar', 'Accounts receivable & payable'),
-                  t('Contabilidad y bancos', 'Accounting and banking'),
                   t('Sin tope de ingresos', 'No income cap'),
-                  t('Usuarios a US$6 c/u', 'Users at US$6 each'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
@@ -227,8 +237,8 @@ export function EcfLanding() {
           <p className="text-center text-gray-500 text-sm mt-6 flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4 text-accent" />
             {t(
-              'Empieza con Emprendedor y crece a Todo Abierto sin migrar de sistema ni perder tus datos.',
-              'Start with Starter and grow to All Open without switching systems or losing your data.',
+              'Empieza con Emprendedor y crece a Todo Incluido sin migrar de sistema ni perder tus datos.',
+              'Start with Starter and grow to All Included without switching systems or losing your data.',
             )}
           </p>
         </section>
@@ -263,7 +273,7 @@ export function EcfLanding() {
             <ComparisonRow
               label={t('Usuarios', 'Users')}
               alegra={t('Incluidos por plan (1 a 8)', 'Bundled per tier (1 to 8)')}
-              pventa={t('US$6 c/u, los que necesites', 'US$6 each, as many as you need')}
+              pventa={t('US$3 c/u (2 incluidos)', 'US$3 each (2 included)')}
             />
             <ComparisonRow
               label={t('e-CF DGII', 'DGII e-CF')}
@@ -274,6 +284,11 @@ export function EcfLanding() {
               label={t('Inventario, CxC/CxP, bancos', 'Inventory, AR/AP, banking')}
               alegra={t('Según el plan / producto', 'Depends on plan / product')}
               pventa={t('Todo abierto', 'All open')}
+            />
+            <ComparisonRow
+              label={t('Bodegas / almacenes', 'Warehouses')}
+              alegra={t('Limitadas por plan (2/10/100)', 'Capped per tier (2/10/100)')}
+              pventa={t('Ilimitadas', 'Unlimited')}
             />
           </div>
         </section>

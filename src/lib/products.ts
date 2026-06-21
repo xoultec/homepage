@@ -17,6 +17,9 @@ export interface Product {
   market: Market
   color: string
   icon: string
+  // Optional campaign landing; when set, catalog cards link here instead of
+  // the default /productos/[slug] detail page.
+  landingPath?: string
   descEs: string
   descEn: string
   cardDescEs: string
@@ -178,6 +181,7 @@ export const products: Product[] = [
     market: 'both',
     color: 'amber',
     icon: 'Banknote',
+    landingPath: '/nomina',
     descEs: 'Sistema de nomina multi-pais con motor de calculo fiscal inteligente. Procesa nominas para Republica Dominicana y Estados Unidos con las regulaciones de cada pais.',
     descEn: 'Multi-country payroll system with intelligent tax calculation engine. Process payroll for the Dominican Republic and the United States with each country\'s regulations.',
     cardDescEs: 'Sistema de nomina multi-pais. Calculo automatico de impuestos, deducciones, liquidaciones y reportes fiscales para RD y USA.',
