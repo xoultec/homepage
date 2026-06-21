@@ -1,0 +1,357 @@
+'use client'
+
+import { useEffect } from 'react'
+import { Check, AlertTriangle, MessageCircle, ShieldCheck, FilePlus2, Send, QrCode, Award } from 'lucide-react'
+import { useLanguage } from '~/lib/i18n'
+import type { Feature } from '~/lib/products'
+import { FeatureCard } from '~/components/FeatureCard'
+import { LeadForm } from '../ofertas/LeadForm'
+
+// Real, verifiable e-CF capabilities of PVenta (matches the ecf module: 9 doc
+// types, DGII signing/submission with polling, security code + QR, sequence
+// management, RNC validation, demo mode).
+const ecfFeatures: Feature[] = [
+  {
+    icon: 'FileCheck',
+    titleEs: '9 tipos de comprobantes',
+    titleEn: '9 e-CF document types',
+    descEs: 'Factura de Crédito Fiscal (31), Consumo (32), Notas de Crédito/Débito (33/34), Compras (41), Gastos Menores (43), Regímenes Especiales (44), Gubernamental (45) y Exportación (46).',
+    descEn: 'Tax Credit Invoice (31), Consumer (32), Credit/Debit Notes (33/34), Purchases (41), Minor Expenses (43), Special Regimes (44), Government (45) and Export (46).',
+  },
+  {
+    icon: 'Send',
+    titleEs: 'Firma y envío a la DGII',
+    titleEn: 'Signing & DGII submission',
+    descEs: 'Firma digital, envío automático y seguimiento del estado en la DGII en tiempo real: aceptado, rechazado o aceptado condicional.',
+    descEn: 'Digital signature, automatic submission and real-time DGII status tracking: accepted, rejected or conditionally accepted.',
+  },
+  {
+    icon: 'QrCode',
+    titleEs: 'Código de seguridad + QR',
+    titleEn: 'Security code + QR',
+    descEs: 'Cada comprobante lleva su código de seguridad y QR de la DGII, listos en la representación impresa.',
+    descEn: 'Every document carries its DGII security code and QR, ready on the printed representation.',
+  },
+  {
+    icon: 'ListOrdered',
+    titleEs: 'Secuencias NCF gestionadas',
+    titleEn: 'Managed NCF sequences',
+    descEs: 'Control de rangos autorizados, alerta de agotamiento y vencimiento, asignación atómica sin duplicados.',
+    descEn: 'Authorized range control, exhaustion and expiry alerts, atomic allocation with no duplicates.',
+  },
+  {
+    icon: 'BadgeCheck',
+    titleEs: 'Validación de RNC',
+    titleEn: 'RNC validation',
+    descEs: 'Verificación del RNC contra la DGII (activo/suspendido) antes de emitir, para evitar rechazos.',
+    descEn: 'RNC verification against DGII (active/suspended) before issuing, to avoid rejections.',
+  },
+  {
+    icon: 'Award',
+    titleEs: 'Te certificamos ante la DGII — gratis',
+    titleEn: 'We certify you before DGII — free',
+    descEs: 'Hacemos por ti todo el proceso de certificación como emisor electrónico ante la DGII, sin costo. Tú solo gestionas tu firma digital.',
+    descEn: 'We handle the entire electronic-issuer certification process before DGII for you, at no cost. You only manage your own digital signature.',
+    highlight: true,
+    badge: 'Gratis',
+  },
+  {
+    icon: 'FlaskConical',
+    titleEs: 'Modo demo para probar',
+    titleEn: 'Demo mode to try it',
+    descEs: 'Prueba el flujo completo de e-CF sin enviar nada real a la DGII — ideal para conocer el sistema antes de migrar.',
+    descEn: 'Try the full e-CF flow without sending anything real to DGII — perfect to explore before migrating.',
+    highlight: true,
+    badge: 'Demo',
+  },
+]
+
+function ComparisonRow({
+  label,
+  alegra,
+  pventa,
+  pventaGood = true,
+}: {
+  label: string
+  alegra: string
+  pventa: string
+  pventaGood?: boolean
+}) {
+  return (
+    <div className="grid grid-cols-3 gap-2 px-4 py-3 border-t border-gray-100 text-sm">
+      <div className="font-medium text-dark">{label}</div>
+      <div className="text-gray-500">{alegra}</div>
+      <div className={`flex items-start gap-1.5 font-medium ${pventaGood ? 'text-emerald-700' : 'text-gray-700'}`}>
+        {pventaGood && <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" />}
+        <span>{pventa}</span>
+      </div>
+    </div>
+  )
+}
+
+export function EcfLanding() {
+  const { t, lang, toggleLanguage } = useLanguage()
+
+  // Honor ?lang= from ad links / QR so the page opens in the visitor's language.
+  useEffect(() => {
+    const qp = new URLSearchParams(window.location.search).get('lang')
+    if (qp === 'en' && lang === 'es') toggleLanguage()
+    if (qp === 'es' && lang === 'en') toggleLanguage()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="hero-gradient text-white px-4 py-16 text-center">
+        <span className="inline-flex items-center gap-2 bg-secondary/20 text-secondary font-semibold text-xs px-3 py-1 rounded-full mb-4">
+          <AlertTriangle className="w-4 h-4" />
+          {t('Ley 32-23 · Fecha límite 15 de noviembre de 2026', 'Law 32-23 · Deadline November 15, 2026')}
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 max-w-3xl mx-auto leading-tight">
+          {t(
+            'Factura electrónica e-CF lista ante la DGII — y todo tu negocio en un solo sistema',
+            'DGII-ready e-CF electronic invoicing — and your whole business in one system',
+          )}
+        </h1>
+        <p className="text-white font-semibold text-lg max-w-2xl mx-auto mb-3">
+          {t(
+            'Factura electrónicamente en minutos: tú creas la factura y PVenta se encarga de todo lo demás.',
+            'Invoice electronically in minutes: you create the invoice and PVenta takes care of everything else.',
+          )}
+        </p>
+        <p className="text-white/80 max-w-2xl mx-auto mb-8">
+          {t(
+            'Cumple con la facturación electrónica obligatoria y, en la misma plataforma, maneja ventas, inventario, cuentas por cobrar y contabilidad. Sin pagar cuatro suscripciones por separado.',
+            'Meet the mandatory e-invoicing requirement and, on the same platform, run sales, inventory, receivables and accounting. Without paying four separate subscriptions.',
+          )}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="#registro"
+            className="cta-pulse inline-flex items-center justify-center px-6 py-3 bg-secondary text-white font-bold rounded-xl hover:opacity-90 transition"
+          >
+            {t('Solicita tu demo y descuento', 'Request your demo & discount')}
+          </a>
+          <a
+            href="https://wa.me/18092524007"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition"
+          >
+            <MessageCircle className="w-5 h-5" /> {t('Habla con un asesor', 'Talk to an advisor')}
+          </a>
+        </div>
+
+        <div className="mt-7 max-w-2xl mx-auto inline-flex items-start gap-3 bg-white/10 border border-accent/40 rounded-xl px-5 py-3 text-left">
+          <Award className="w-7 h-7 text-accent shrink-0" />
+          <p className="text-sm text-white/90">
+            <b className="text-accent">{t('Gratis: ', 'Free: ')}</b>
+            {t(
+              'te dejamos listo ante la DGII — hacemos por ti todo el proceso de certificación como emisor electrónico.',
+              'we get you ready with DGII — we handle your entire electronic-issuer certification process for you.',
+            )}
+          </p>
+        </div>
+      </section>
+
+      {/* Deadline urgency strip */}
+      <section className="bg-amber-50 border-y border-amber-200 px-4 py-4">
+        <p className="max-w-3xl mx-auto text-center text-sm text-amber-900">
+          {t(
+            'Las micro, pequeñas empresas y contribuyentes no clasificados deben emitir e-CF antes del 15 de noviembre de 2026. Vencido el plazo, no cumplir conlleva multas de 5 a 50 salarios mínimos. No esperes al último día.',
+            'Micro, small businesses and unclassified taxpayers must issue e-CF before November 15, 2026. After the deadline, non-compliance carries fines of 5 to 50 minimum wages. Don’t wait until the last day.',
+          )}
+        </p>
+      </section>
+
+      <div className="max-w-5xl mx-auto px-4 py-14 space-y-16">
+        {/* Pricing */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-8">
+            {t('Precios claros, sin letra chica', 'Clear pricing, no fine print')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* Emprendedor */}
+            <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+              <h3 className="font-bold text-lg text-dark">{t('Emprendedor', 'Starter')}</h3>
+              <p className="text-gray-500 text-sm mt-1">
+                {t('Para empezar a cumplir con e-CF', 'To start complying with e-CF')}
+              </p>
+              <div className="mt-4 mb-5">
+                <span className="text-3xl font-extrabold text-dark">US$35</span>
+                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                {[
+                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
+                  t('Ventas y clientes', 'Sales and customers'),
+                  t('1 usuario', '1 user'),
+                  t('Soporte local', 'Local support'),
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Todo Abierto */}
+            <div className="pricing-card bg-white rounded-2xl p-7 shadow-md border-2 border-secondary relative">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                {t('Recomendado', 'Recommended')}
+              </span>
+              <h3 className="font-bold text-lg text-dark">{t('Todo Abierto', 'All Open')}</h3>
+              <p className="text-gray-500 text-sm mt-1">
+                {t('Todo el ERP, sin topes', 'The full ERP, no caps')}
+              </p>
+              <div className="mt-4 mb-5">
+                <span className="text-3xl font-extrabold text-dark">US$125</span>
+                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')} + US$6 /{t('usuario', 'user')}</span>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                {[
+                  t('Todo lo del plan Emprendedor', 'Everything in Starter'),
+                  t('Inventario y POS', 'Inventory and POS'),
+                  t('Cuentas por cobrar y pagar', 'Accounts receivable & payable'),
+                  t('Contabilidad y bancos', 'Accounting and banking'),
+                  t('Sin tope de ingresos', 'No income cap'),
+                  t('Usuarios a US$6 c/u', 'Users at US$6 each'),
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-gray-500 text-sm mt-6 flex items-center justify-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-accent" />
+            {t(
+              'Empieza con Emprendedor y crece a Todo Abierto sin migrar de sistema ni perder tus datos.',
+              'Start with Starter and grow to All Open without switching systems or losing your data.',
+            )}
+          </p>
+        </section>
+
+        {/* Comparison: one subscription vs four */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-2">
+            {t('Una suscripción, no cuatro', 'One subscription, not four')}
+          </h2>
+          <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
+            {t(
+              'En otros sistemas, cada módulo (facturación, contabilidad, POS, nómina) es una suscripción aparte que se suma — y cada plan tiene tope de ingresos. En PVenta todo está abierto en un solo lugar.',
+              'In other systems each module (invoicing, accounting, POS, payroll) is a separate subscription that stacks — and every plan has an income cap. In PVenta everything is open in one place.',
+            )}
+          </p>
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-2 px-4 py-3 bg-gray-50 text-xs font-bold uppercase tracking-wide text-gray-500">
+              <div></div>
+              <div>{t('Otros', 'Others')}</div>
+              <div className="text-primary">PVenta XoulTec</div>
+            </div>
+            <ComparisonRow
+              label={t('Modelo', 'Model')}
+              alegra={t('Una suscripción por producto', 'One subscription per product')}
+              pventa={t('Una sola, todo incluido', 'A single one, all included')}
+            />
+            <ComparisonRow
+              label={t('Tope de ingresos', 'Income cap')}
+              alegra={t('Sí — subes de plan al crecer', 'Yes — you move up tiers as you grow')}
+              pventa={t('Sin tope', 'No cap')}
+            />
+            <ComparisonRow
+              label={t('Usuarios', 'Users')}
+              alegra={t('Incluidos por plan (1 a 8)', 'Bundled per tier (1 to 8)')}
+              pventa={t('US$6 c/u, los que necesites', 'US$6 each, as many as you need')}
+            />
+            <ComparisonRow
+              label={t('e-CF DGII', 'DGII e-CF')}
+              alegra={t('Incluido', 'Included')}
+              pventa={t('Incluido e ilimitado', 'Included and unlimited')}
+            />
+            <ComparisonRow
+              label={t('Inventario, CxC/CxP, bancos', 'Inventory, AR/AP, banking')}
+              alegra={t('Según el plan / producto', 'Depends on plan / product')}
+              pventa={t('Todo abierto', 'All open')}
+            />
+          </div>
+        </section>
+
+        {/* How it works — "you invoice, we handle the rest" */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-8">
+            {t('Tú facturas, nosotros nos encargamos del resto', 'You invoice, we handle the rest')}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                Icon: FilePlus2,
+                es: 'Creas tu factura',
+                en: 'Create your invoice',
+                dEs: 'Como siempre, en segundos.',
+                dEn: 'As always, in seconds.',
+              },
+              {
+                Icon: Send,
+                es: 'La firmamos y enviamos a la DGII',
+                en: 'We sign and submit it to DGII',
+                dEs: 'Firma digital y validación en línea, automáticas.',
+                dEn: 'Automatic digital signature and online validation.',
+              },
+              {
+                Icon: QrCode,
+                es: 'Recibes tu e-CF',
+                en: 'You get your e-CF',
+                dEs: 'Con código de seguridad y QR, listo para imprimir.',
+                dEn: 'With security code and QR, ready to print.',
+              },
+            ].map((s, i) => (
+              <div key={s.es} className="text-center">
+                <div className="feature-icon bg-cyan-100 text-cyan-600 mx-auto mb-3">
+                  <s.Icon className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-dark mb-1">
+                  {i + 1}. {t(s.es, s.en)}
+                </h3>
+                <p className="text-gray-600 text-sm">{t(s.dEs, s.dEn)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* e-CF features */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-2">
+            {t('Facturación electrónica de verdad', 'Real electronic invoicing')}
+          </h2>
+          <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
+            {t(
+              'PVenta ya emite e-CF en producción, conectado a la DGII.',
+              'PVenta already issues e-CF in production, connected to DGII.',
+            )}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ecfFeatures.map(f => (
+              <FeatureCard key={f.titleEs} feature={f} color="cyan" />
+            ))}
+          </div>
+        </section>
+
+        {/* Lead form */}
+        <section id="registro" className="max-w-xl mx-auto scroll-mt-20">
+          <LeadForm
+            defaultSource="ecf_campaign"
+            defaultProducto="pventa"
+            titleEs="Solicita tu demo y descuento"
+            titleEn="Request your demo & discount"
+            subtitleEs="Déjanos tus datos y te contactamos para mostrarte PVenta y darte un código de descuento."
+            subtitleEn="Leave your details and we’ll reach out to show you PVenta and give you a discount code."
+            ctaEs="Quiero cumplir con e-CF"
+            ctaEn="I want to comply with e-CF"
+          />
+        </section>
+      </div>
+    </>
+  )
+}

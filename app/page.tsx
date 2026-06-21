@@ -1,127 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { Code2, Database, Layers, ArrowRightLeft, Globe, Building2, Hexagon, Atom, Wind, Zap, CreditCard, FileCheck } from 'lucide-react'
+import { Database, Layers, ArrowRightLeft, Globe, Building2, Hexagon, Atom, Wind, Zap, CreditCard } from 'lucide-react'
 import * as icons from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 import { ContactForm } from '~/components/ContactForm'
 import { MarketBadge } from '~/components/MarketBadge'
 import { products } from '~/lib/products'
+import { EcfLanding } from './facturacion-electronica/EcfLanding'
 
 export default function HomePage() {
   const { t } = useLanguage()
 
   return (
     <>
-      {/* Hero */}
-      <section id="inicio" className="hero-gradient min-h-screen flex items-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="fade-in visible">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-block bg-secondary/20 text-secondary px-4 py-1 rounded-full text-sm font-semibold">
-                  {t('Software Empresarial', 'Enterprise Software')}
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-accent/20 text-accent px-4 py-1 rounded-full text-sm font-semibold">
-                  <FileCheck className="w-3.5 h-3.5" />
-                  {t('Facturación Electrónica Integrada', 'Integrated E-Invoicing')}
-                </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                {t(
-                  <>Soluciones de software que <span className="text-secondary">impulsan</span> tu negocio</>,
-                  <>Software solutions that <span className="text-secondary">power</span> your business</>
-                )}
-              </h1>
-              <p className="text-base text-gray-300 mb-6 max-w-lg">
-                {t(
-                  'Desarrollamos sistemas empresariales robustos para Republica Dominicana y Estados Unidos. Desde POS hasta nomina, tenemos la solucion perfecta para tu empresa.',
-                  'We build robust enterprise systems for the Dominican Republic and the United States. From POS to payroll, we have the perfect solution for your business.'
-                )}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a href="#productos" className="bg-secondary text-dark px-7 py-2.5 rounded-lg font-bold hover:bg-yellow-400 transition cta-pulse">
-                  {t('Ver Productos', 'View Products')}
-                </a>
-                <a href="#contacto" className="border-2 border-white text-white px-7 py-2.5 rounded-lg font-bold hover:bg-white hover:text-dark transition">
-                  {t('Contactanos', 'Contact Us')}
-                </a>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">
-                  {t('Presencia en 9 países', 'Present in 9 countries')}
-                </p>
-                <div className="flex items-center gap-2 flex-wrap">
-                  {[
-                    { code: 'us', es: 'Estados Unidos', en: 'United States' },
-                    { code: 'do', es: 'República Dominicana', en: 'Dominican Republic' },
-                    { code: 'ar', es: 'Argentina', en: 'Argentina' },
-                    { code: 'co', es: 'Colombia', en: 'Colombia' },
-                    { code: 'cr', es: 'Costa Rica', en: 'Costa Rica' },
-                    { code: 'es', es: 'España', en: 'Spain' },
-                    { code: 'mx', es: 'México', en: 'Mexico' },
-                    { code: 'pa', es: 'Panamá', en: 'Panama' },
-                    { code: 'pe', es: 'Perú', en: 'Peru' },
-                  ].map(c => (
-                    <img
-                      key={c.code}
-                      src={`https://flagcdn.com/32x24/${c.code}.png`}
-                      alt={t(c.es, c.en)}
-                      title={t(c.es, c.en)}
-                      width={32}
-                      height={24}
-                      loading="lazy"
-                      className="rounded shadow-md hover:scale-110 transition-transform cursor-default"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="fade-in visible hidden md:flex flex-col items-center gap-5">
-              <div className="grid grid-cols-2 gap-6 w-72">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary">20+</div>
-                  <div className="text-gray-400 text-sm">{t('Años de Experiencia', 'Years of Experience')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary">100%</div>
-                  <div className="text-gray-400 text-sm">{t('Tecnologia Moderna', 'Modern Technology')}</div>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="w-72 h-72 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-6 flex flex-col gap-3">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="space-y-2.5 flex-1">
-                    <div className="h-3 bg-white/20 rounded w-3/4" />
-                    <div className="h-3 bg-secondary/40 rounded w-1/2" />
-                    <div className="h-3 bg-white/20 rounded w-5/6" />
-                    <div className="h-7 bg-accent/30 rounded w-full mt-3" />
-                    <div className="grid grid-cols-3 gap-2 mt-3">
-                      <div className="h-14 bg-white/10 rounded" />
-                      <div className="h-14 bg-secondary/20 rounded" />
-                      <div className="h-14 bg-white/10 rounded" />
-                    </div>
-                    <div className="h-3 bg-white/20 rounded w-2/3 mt-3" />
-                    <div className="h-3 bg-white/15 rounded w-1/2" />
-                  </div>
-                </div>
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-secondary/20 rounded-xl backdrop-blur-sm border border-secondary/30 flex items-center justify-center">
-                  <Code2 className="w-8 h-8 text-secondary" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-accent/20 rounded-xl backdrop-blur-sm border border-accent/30 flex items-center justify-center">
-                  <Database className="w-7 h-7 text-accent" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* e-CF campaign landing leads the home: direct compliance pitch + signup,
+          so visitors convert without hunting routes. */}
+      <div id="inicio">
+        <EcfLanding />
+      </div>
 
       {/* Products */}
       <section id="productos" className="py-10 scroll-mt-16 bg-gray-50">
@@ -143,8 +40,9 @@ export default function HomePage() {
               const Icon = (icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[product.icon]
               const isPVenta = product.slug === 'pventa'
 
-              const card = (
-                <div className={`product-card bg-white rounded-2xl p-6 shadow-md fade-in visible block ${isPVenta ? 'cursor-pointer' : ''}`} key={product.slug}>
+              // The product image/title/description links to the product page.
+              const head = (
+                <>
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`feature-icon bg-${product.color}-100 text-${product.color}-600`}>
                       {Icon && <Icon className="w-6 h-6" />}
@@ -159,12 +57,27 @@ export default function HomePage() {
                   <p className="text-gray-600 text-sm mb-4">
                     {t(product.cardDescEs, product.cardDescEn)}
                   </p>
-                  {isPVenta ? (
+                </>
+              )
+
+              // PVenta has its own store links (anchors), so the card wrapper must
+              // not be an anchor too — only the head links to the product page.
+              if (isPVenta) {
+                return (
+                  <div key={product.slug} className="product-card bg-white rounded-2xl p-6 shadow-md fade-in visible">
+                    <Link href={`/productos/${product.slug}`} className="block">{head}</Link>
                     <div className="flex flex-wrap gap-2">
-                      <a href="https://play.google.com/store/apps/details?id=sim.cliente.pventa" target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-xs bg-gray-900 text-white px-2 py-1 rounded font-semibold hover:bg-gray-700 transition">▶ Google Play</a>
-                      <a href="https://apps.apple.com/us/app/pventa-mobile/id6449156165" target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-xs bg-gray-900 text-white px-2 py-1 rounded font-semibold hover:bg-gray-700 transition"> App Store</a>
+                      <a href="https://play.google.com/store/apps/details?id=sim.cliente.pventa" target="_blank" rel="noopener noreferrer" className="text-xs bg-gray-900 text-white px-2 py-1 rounded font-semibold hover:bg-gray-700 transition">▶ Google Play</a>
+                      <a href="https://apps.apple.com/us/app/pventa-mobile/id6449156165" target="_blank" rel="noopener noreferrer" className="text-xs bg-gray-900 text-white px-2 py-1 rounded font-semibold hover:bg-gray-700 transition"> App Store</a>
                     </div>
-                  ) : (
+                  </div>
+                )
+              }
+
+              return (
+                <Link key={product.slug} href={`/productos/${product.slug}`} className="block">
+                  <div className="product-card bg-white rounded-2xl p-6 shadow-md fade-in visible">
+                    {head}
                     <div className="flex flex-wrap gap-2">
                       {product.tags.map((tag, i) => (
                         <span key={i} className={`text-xs bg-${product.color}-50 text-${product.color}-600 px-2 py-1 rounded`}>
@@ -175,13 +88,7 @@ export default function HomePage() {
                         <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded font-semibold">HIPAA</span>
                       )}
                     </div>
-                  )}
-                </div>
-              )
-
-              return (
-                <Link key={product.slug} href={`/productos/${product.slug}`} className="block">
-                  {card}
+                  </div>
                 </Link>
               )
             })}

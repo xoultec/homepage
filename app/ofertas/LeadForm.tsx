@@ -12,11 +12,39 @@ type FormState = {
   productoInteres: string
 }
 
-const EMPTY: FormState = { nombre: '', email: '', telefono: '', empresa: '', productoInteres: '' }
+interface LeadFormProps {
+  // Lead attribution when the visitor arrives without a ?utm_source (a utm_source
+  // in the URL always wins). Defaults to "ofertas" so the /ofertas page is unchanged.
+  defaultSource?: string
+  // Preselect the product of interest (e.g. "pventa" on the e-CF campaign landing).
+  defaultProducto?: string
+  // Optional copy overrides so a campaign landing can tune the form heading/CTA.
+  titleEs?: string
+  titleEn?: string
+  subtitleEs?: string
+  subtitleEn?: string
+  ctaEs?: string
+  ctaEn?: string
+}
 
-export function LeadForm() {
+export function LeadForm({
+  defaultSource = 'ofertas',
+  defaultProducto = '',
+  titleEs = 'Regístrate y obtén un descuento',
+  titleEn = 'Sign up and get a discount',
+  subtitleEs = 'Déjanos tus datos y recibe un código de descuento único.',
+  subtitleEn = 'Leave your details and get a unique discount code.',
+  ctaEs = 'Obtener mi descuento',
+  ctaEn = 'Get my discount',
+}: LeadFormProps = {}) {
   const { t, lang } = useLanguage()
-  const [form, setForm] = useState<FormState>(EMPTY)
+  const [form, setForm] = useState<FormState>({
+    nombre: '',
+    email: '',
+    telefono: '',
+    empresa: '',
+    productoInteres: defaultProducto,
+  })
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [code, setCode] = useState('')
   const [errMsg, setErrMsg] = useState('')
@@ -32,9 +60,9 @@ export function LeadForm() {
     setStatus('sending')
     setErrMsg('')
     // Track the channel that brought the visitor: utm_source from the QR
-    // (pventa_login) or from social links (instagram/facebook). Falls back to
-    // "ofertas" for direct visits.
-    const source = new URLSearchParams(window.location.search).get('utm_source') || 'ofertas'
+    // (pventa_login) or from social links (instagram/facebook). Falls back to the
+    // page's defaultSource for direct visits.
+    const source = new URLSearchParams(window.location.search).get('utm_source') || defaultSource
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
@@ -81,15 +109,8 @@ export function LeadForm() {
 
   return (
     <form onSubmit={submit} className="bg-white rounded-2xl p-6 shadow-md space-y-3">
-      <h3 className="font-bold text-xl text-dark">
-        {t('Regístrate y obtén un descuento', 'Sign up and get a discount')}
-      </h3>
-      <p className="text-gray-600 text-sm">
-        {t(
-          'Déjanos tus datos y recibe un código de descuento único.',
-          'Leave your details and get a unique discount code.',
-        )}
-      </p>
+      <h3 className="font-bold text-xl text-dark">{t(titleEs, titleEn)}</h3>
+      <p className="text-gray-600 text-sm">{t(subtitleEs, subtitleEn)}</p>
       <input
         required
         value={form.nombre}
@@ -136,9 +157,7 @@ export function LeadForm() {
         disabled={status === 'sending'}
         className="w-full py-2.5 bg-secondary text-white font-bold rounded-lg hover:opacity-90 transition disabled:opacity-50"
       >
-        {status === 'sending'
-          ? t('Enviando...', 'Sending...')
-          : t('Obtener mi descuento', 'Get my discount')}
+        {status === 'sending' ? t('Enviando...', 'Sending...') : t(ctaEs, ctaEn)}
       </button>
     </form>
   )
