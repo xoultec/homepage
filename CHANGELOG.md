@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.7.0] - 2026-06-21
+- feat(facturacion-electronica): nueva landing `/facturacion-electronica` (Ley 32-23 / e-CF) con hero de urgencia (15-nov-2026), precios (Emprendedor US$35 / Todo Abierto US$125 + US$6 por usuario), comparativa "una suscripción, no cuatro", cómo funciona, features e-CF reales y captura de leads (`source=ecf_campaign`); incluye el plus "certificación como emisor electrónico ante la DGII gratis"
+- feat(home): la página de inicio ahora lidera con la landing e-CF (info + registro directo), conservando Productos, Nosotros y Contacto debajo
+- fix(home): corrige anchors anidados en la tarjeta de PVenta (botones de tienda) que causaban error de hidratación
+
 ## [1.6.1] - 2026-06-18
 - fix(ofertas): el formulario de leads registra el canal real (`utm_source`: pventa_login, instagram, facebook…) en vez de un valor fijo, para medir de dónde viene cada lead
 
