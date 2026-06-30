@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.9.0] - 2026-06-30
+- feat(solicitar-apertura): nueva página pública `/solicitar-apertura` para que un prospecto solicite la apertura de su empresa (empresa, país DO/US, estado, RNC/EIN, tipo comercial/clínica, contacto), bilingüe es/en; proxy server-side `/api/signup` que reenvía la solicitud al portal operador (`OPERATOR_SIGNUP_URL`) para revisión/aprobación
+
 ## [1.8.2] - 2026-06-21
 - feat(facturacion-electronica): plan Enterprise (a cotizar) para empresas grandes / alto volumen; Todo Incluido limitado a hasta 3 bodegas y hasta 8 usuarios (más → Enterprise); nueva sección con los módulos del ERP; hero más conciso para móvil
 
