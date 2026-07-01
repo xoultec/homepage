@@ -41,7 +41,13 @@ El monitoreo es un "loop": el asistente se despierta cada cierto tiempo, revisa 
 2. Chrome **logueado en la cuenta de Instagram / Meta Business Suite de XoulTec** (Rubén debe iniciar sesión aquí una vez; el asistente NO ingresa contraseñas).
 
 **Instrucciones del loop (lo que debe hacer el asistente al despertar):**
-> Verifica la hora. Si ya pasaron las horas de los posts (o en el chequeo diario), entra a instagram.com/xoultec, abre los posts y revisa comentarios/DMs nuevos. Si hay actividad nueva, reporta a Rubén con resumen + respuestas listas (usa `banco-respuestas.md`). Si no hay nada nuevo, no envíes reporte vacío: solo reprograma. Si Chrome NO está logueado en Instagram, avisa a Rubén. Cadencia: alrededor de 9am y 6pm, luego diario. Sigue reprogramando para mantener el monitoreo activo. NUNCA enviar comentarios/DMs sin el OK de Rubén.
+> Verifica la hora. Si ya pasaron las horas de los posts (o en el chequeo diario), entra a instagram.com/xoultec, abre los posts y revisa comentarios/DMs nuevos. Si hay actividad nueva, reporta a Rubén con resumen + respuestas listas (usa `banco-respuestas.md`). Si no hay nada nuevo, no envíes reporte vacío: solo reprograma. Si Chrome NO está logueado en Instagram, avisa a Rubén. Cadencia: alrededor de 9am y 6pm, luego diario. Sigue reprogramando para mantener el monitoreo activo.
+
+**Autorización de respuestas (Rubén, 28-jun-2026):** El asistente está autorizado a **responder solo** (sin pedir OK cada vez) los comentarios/DMs **positivos y las preguntas estándar ya guionadas** en `banco-respuestas.md` (precio→DM, ¿sirve para mi negocio?, app, DGII/e-CF, demo, ubicación, "me interesa", felicitaciones/emojis). Siempre deja registro de lo enviado.
+> **Excepciones que SIEMPRE se escalan a Rubén (NO auto-enviar):**
+> - **Comentarios negativos / críticas / quejas** → avisar de inmediato con el texto completo, extraer el aprendizaje (qué mejorar) y dejar borrador de respuesta calmada, pero **esperar el OK de Rubén**. Los negativos ayudan a mejorar: requieren su atención.
+> - Fuera de guion: negociación de precios, temas legales, reclamos de clientes actuales, preguntas técnicas muy específicas, prensa/colaboraciones, o cualquier caso ambiguo.
+> - DMs que avanzan al cierre de venta → llevar a WhatsApp/correo, donde Rubén cierra.
 
 ## 5. Cómo lo activa Rubén en la otra PC
 1. `git pull` para traer este repo actualizado.
