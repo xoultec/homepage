@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.10.0] - 2026-07-01
+- feat(email): banners de agradecimiento para el pie de los correos de PVenta (ES/EN), 1200×300 (~18 KB), en ubicación fija `public/email/campana-{es,en}.png` (servidos en `xoultec.com/email/`); incluye HTML fuente re-renderizable en `marketing/email-banner-src/`
+
 ## [1.9.0] - 2026-06-30
 - feat(solicitar-apertura): nueva página pública `/solicitar-apertura` para que un prospecto solicite la apertura de su empresa (empresa, país DO/US, estado, RNC/EIN, tipo comercial/clínica, contacto), bilingüe es/en; proxy server-side `/api/signup` que reenvía la solicitud al portal operador (`OPERATOR_SIGNUP_URL`) para revisión/aprobación
 
