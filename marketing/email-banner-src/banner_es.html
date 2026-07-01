@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:300px; overflow:hidden; }
+  .banner{
+    width:1200px; height:300px; position:relative;
+    background:linear-gradient(180deg,#20416a 0%,#152b47 100%);
+    font-family:'Poppins','Segoe UI',sans-serif;
+    display:flex; align-items:center; gap:48px;
+    padding:0 64px; color:#fff;
+    border-bottom:6px solid #f59e0b;
+  }
+  /* --- logo --- */
+  .logo{ display:flex; align-items:center; gap:18px; flex-shrink:0; }
+  .logo .box{
+    width:84px; height:84px; background:#f59e0b; border-radius:18px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:54px; color:#0f172a; line-height:1;
+  }
+  .logo .word{ font-weight:800; font-size:42px; letter-spacing:-.5px; }
+  .logo .word b{ color:#f59e0b; }
+  /* --- hook --- */
+  .hook{ flex:1; padding-left:48px; border-left:2px solid rgba(255,255,255,.15); }
+  .hook h1{
+    font-weight:800; font-size:52px; line-height:1.08; letter-spacing:-1px;
+    white-space:nowrap;
+  }
+  .hook h1 span{ color:#f59e0b; }
+  .hook .tag{ margin-top:6px; font-weight:600; font-size:23px; color:#8ecbff; }
+  /* --- cta --- */
+  .cta{ flex-shrink:0; text-align:center; }
+  .cta .pill{
+    display:inline-block; background:#f59e0b; color:#0f172a;
+    font-weight:800; font-size:29px; padding:15px 26px; border-radius:12px;
+    letter-spacing:-.3px; white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="logo">
+      <div class="box">X</div>
+      <div class="word">Xoul<b>Tec</b></div>
+    </div>
+    <div class="hook">
+      <h1><span>Gracias</span> por crecer<br>junto a ti</h1>
+      <div class="tag">Seguimos evolucionando contigo</div>
+    </div>
+    <div class="cta">
+      <span class="pill">xoultec.com</span>
+    </div>
+  </div>
+</body>
+</html>
