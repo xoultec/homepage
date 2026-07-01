@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.10.1] - 2026-07-01
+- chore: usar webpack en `next dev`; ignorar `Thumbs.db`; documentación de marketing (guías de WhatsApp, brief del banner de email y assets de campaña)
+
 ## [1.10.0] - 2026-07-01
 - feat(email): banners de agradecimiento para el pie de los correos de PVenta (ES/EN), 1200×300 (~18 KB), en ubicación fija `public/email/campana-{es,en}.png` (servidos en `xoultec.com/email/`); incluye HTML fuente re-renderizable en `marketing/email-banner-src/`
 
