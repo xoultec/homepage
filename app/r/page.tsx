@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguage } from '~/lib/i18n'
-import { SignupForm } from '../solicitar-apertura/SignupForm'
+import { LeadForm } from '../ofertas/LeadForm'
 
 // Referral landing. A seller shares /r?t=<companyRNC>&u=<sellerUser> (QR from the
-// PVenta mobile app). We read the referrer from the query and forward it through the
-// signup so a converted request can be credited to that seller for commission.
+// PVenta mobile app). A referral has had NO sales negotiation yet, so this is a LEAD
+// (sales follows up), NOT an apertura/provisioning request. The referrer is forwarded
+// with the lead so a converted referral can be credited to the seller for commission.
 export default function ReferralPage() {
   const { t, lang, toggleLanguage } = useLanguage()
   const [ref, setRef] = useState<{ rnc: string; user: string }>({ rnc: '', user: '' })
@@ -14,7 +15,6 @@ export default function ReferralPage() {
   useEffect(() => {
     const q = new URLSearchParams(window.location.search)
     setRef({ rnc: q.get('t') || '', user: q.get('u') || '' })
-    // Honor ?lang= from the inbound link.
     const qp = q.get('lang')
     if (qp === 'en' && lang === 'es') toggleLanguage()
     if (qp === 'es' && lang === 'en') toggleLanguage()
@@ -32,14 +32,25 @@ export default function ReferralPage() {
         </h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
           {t(
-            'Empieza a facturar con PVenta. Déjanos tus datos y nuestro equipo te activa, listo ante la DGII.',
-            'Start invoicing with PVenta. Leave your details and our team gets you set up, ready with the DGII.',
+            'Déjanos los datos de tu empresa y nuestro equipo de ventas te contacta — sin compromiso.',
+            'Leave your company details and our sales team will reach out — no commitment.',
           )}
         </p>
       </section>
 
       <div className="max-w-xl mx-auto px-4 py-8">
-        <SignupForm referrerRnc={ref.rnc} referrerUser={ref.user} />
+        <LeadForm
+          defaultSource="pventa_ref"
+          defaultProducto="pventa"
+          referrerRnc={ref.rnc}
+          referrerUser={ref.user}
+          titleEs="Cuéntanos de tu empresa"
+          titleEn="Tell us about your company"
+          subtitleEs="Un asesor te contacta para mostrarte PVenta. Recibes además un código de descuento."
+          subtitleEn="An advisor will contact you to show you PVenta. You'll also get a discount code."
+          ctaEs="Quiero que me contacten"
+          ctaEn="Have someone contact me"
+        />
         <p className="text-gray-400 text-xs mt-6 text-center">xoultec.com</p>
       </div>
     </main>

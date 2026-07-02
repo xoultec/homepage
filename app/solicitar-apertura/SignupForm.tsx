@@ -17,15 +17,7 @@ type FormState = {
 // Field contract mirrors the operator portal's public POST /api/signup
 // (xoultec-operator/signup.go handleCapture): companyName + country (DO/US) are
 // required upstream; archetype defaults to "comercial" unless "clinica".
-//
-// referrerRnc / referrerUser identify the seller who referred this signup (from the
-// /r referral link). They are forwarded through the proxy to the operator portal so a
-// converted signup can be credited to that seller for commission. Empty when the form
-// is opened directly (not via a referral link).
-export function SignupForm({
-  referrerRnc = '',
-  referrerUser = '',
-}: { referrerRnc?: string; referrerUser?: string } = {}) {
+export function SignupForm() {
   const { t } = useLanguage()
   const [form, setForm] = useState<FormState>({
     companyName: '',
@@ -63,8 +55,6 @@ export function SignupForm({
           contactName: form.contactName,
           contactEmail: form.contactEmail,
           contactPhone: form.contactPhone,
-          referrerRnc,
-          referrerUser,
         }),
       })
       if (res.ok) {
