@@ -8,7 +8,7 @@ import { useLanguage } from '~/lib/i18n'
 import { products } from '~/lib/products'
 import { promos } from '~/lib/promos'
 import { MarketBadge } from '~/components/MarketBadge'
-import { LeadForm } from './LeadForm'
+import { DmCta } from '~/components/DmCta'
 
 export default function OfertasPage() {
   const { t, lang, toggleLanguage } = useLanguage()
@@ -36,7 +36,7 @@ export default function OfertasPage() {
       </section>
 
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-10">
-        <LeadForm />
+        <DmCta />
 
         {topPromos.length > 0 && (
           <section>

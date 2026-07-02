@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguage } from '~/lib/i18n'
-import { LeadForm } from '../ofertas/LeadForm'
+import { DmCta } from '~/components/DmCta'
 
 // Referral landing. A seller shares /r?t=<companyRNC>&u=<sellerUser> (QR from the
 // PVenta mobile app). A referral has had NO sales negotiation yet, so this is a LEAD
@@ -39,18 +39,7 @@ export default function ReferralPage() {
       </section>
 
       <div className="max-w-xl mx-auto px-4 py-8">
-        <LeadForm
-          defaultSource="pventa_ref"
-          defaultProducto="pventa"
-          referrerRnc={ref.rnc}
-          referrerUser={ref.user}
-          titleEs="Cuéntanos de tu empresa"
-          titleEn="Tell us about your company"
-          subtitleEs="Un asesor te contacta para mostrarte PVenta. Recibes además un código de descuento."
-          subtitleEn="An advisor will contact you to show you PVenta. You'll also get a discount code."
-          ctaEs="Quiero que me contacten"
-          ctaEn="Have someone contact me"
-        />
+        <DmCta referrerUser={ref.user} referrerRnc={ref.rnc} />
         <p className="text-gray-400 text-xs mt-6 text-center">xoultec.com</p>
       </div>
     </main>
