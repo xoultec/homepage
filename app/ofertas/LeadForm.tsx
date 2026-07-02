@@ -25,6 +25,10 @@ interface LeadFormProps {
   subtitleEn?: string
   ctaEs?: string
   ctaEn?: string
+  // Referral attribution (from the /r link): forwarded to the lead so a converted
+  // referral can be credited to the seller. Empty on non-referral pages.
+  referrerRnc?: string
+  referrerUser?: string
 }
 
 export function LeadForm({
@@ -36,6 +40,8 @@ export function LeadForm({
   subtitleEn = 'Leave your details and get a unique discount code.',
   ctaEs = 'Obtener mi descuento',
   ctaEn = 'Get my discount',
+  referrerRnc = '',
+  referrerUser = '',
 }: LeadFormProps = {}) {
   const { t, lang } = useLanguage()
   const [form, setForm] = useState<FormState>({
@@ -67,7 +73,7 @@ export function LeadForm({
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source, lang }),
+        body: JSON.stringify({ ...form, source, lang, referrerRnc, referrerUser }),
       })
       const data = await res.json().catch(() => ({}))
       if (res.ok && data.codigo) {
