@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.13.0] - 2026-07-02
+- feat(leads): mientras el form de captura está fuera (falta `LEADS_API_KEY` en Vercel), `/r` (referido de la app móvil "Referir a cliente") y `/ofertas` redirigen al **DM de Instagram** (`ig.me/m/xoultec`) con un mensaje copiable que incluye al vendedor referidor, en vez del formulario roto — nuevo componente `DmCta`; WhatsApp como respaldo. Se revierte a `<LeadForm />` cuando se configure `LEADS_API_KEY`
+
 ## [1.12.0] - 2026-07-02
 - fix(referidos): la landing `/r` ahora captura un **lead** (para que el equipo de ventas contacte al prospecto) en vez de una solicitud de apertura — así un referido no genera la apertura de una empresa sin negociación previa; el vendedor referidor viaja con el lead para su atribución
 
