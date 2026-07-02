@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.12.0] - 2026-07-02
+- fix(referidos): la landing `/r` ahora captura un **lead** (para que el equipo de ventas contacte al prospecto) en vez de una solicitud de apertura — así un referido no genera la apertura de una empresa sin negociación previa; el vendedor referidor viaja con el lead para su atribución
+
 ## [1.11.0] - 2026-07-02
 - feat(referidos): landing `/r` que captura al vendedor referidor (t=RNC, u=usuario) del QR de la app móvil de PVenta y lo reenvía por el formulario de apertura para atribuir la comisión
 
