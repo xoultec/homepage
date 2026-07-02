@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.11.0] - 2026-07-02
+- feat(referidos): landing `/r` que captura al vendedor referidor (t=RNC, u=usuario) del QR de la app móvil de PVenta y lo reenvía por el formulario de apertura para atribuir la comisión
+
 ## [1.10.1] - 2026-07-01
 - chore: usar webpack en `next dev`; ignorar `Thumbs.db`; documentación de marketing (guías de WhatsApp, brief del banner de email y assets de campaña)
 
