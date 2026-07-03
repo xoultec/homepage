@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:100vw;height:100vh;overflow:hidden;color:#fff;
+    background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 100%);
+    display:flex;flex-direction:column;justify-content:center;padding:0 90px;position:relative}
+  .top{position:absolute;top:60px;left:90px;display:flex;align-items:center;gap:16px}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  .num{font-size:230px;font-weight:900;color:#f59e0b;line-height:.9;margin-bottom:10px}
+  .errlabel{font-size:40px;font-weight:800;color:#f59e0b;letter-spacing:1px;margin-bottom:18px}
+  h1{font-size:76px;font-weight:900;line-height:1.06;margin-bottom:26px}
+  h1 .g{color:#10b981}
+  .sub{font-size:44px;line-height:1.3;opacity:.9;font-weight:500}
+  .hook-icon{font-size:120px;margin-bottom:20px}
+  .foot{position:absolute;bottom:70px;left:90px;right:90px;font-size:30px;opacity:.75}
+  .cta{display:inline-block;background:#f59e0b;color:#0f172a;font-weight:900;font-size:46px;
+    padding:22px 46px;border-radius:999px;margin-top:20px}
+  .swipe{position:absolute;bottom:70px;right:90px;font-size:34px;opacity:.8;font-weight:700}
+  .check{color:#10b981}
+</style></head>
+<body>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div id="content"></div>
+  <script>
+    const s = new URLSearchParams(location.search).get('s') || '1';
+    const slides = {
+      '1': `<div class="hook-icon">🧾</div>
+            <h1>3 errores al emitir<br>tu <span class="g">e-CF</span></h1>
+            <div class="sub">…y cómo evitarlos 👇</div>
+            <div class="swipe">Desliza →</div>`,
+      '2': `<div class="errlabel">ERROR 1</div>
+            <div class="num">1</div>
+            <h1>RNC/cédula del cliente<br>mal validado</h1>
+            <div class="sub">→ la DGII te <b>rechaza</b> el comprobante.</div>
+            <div class="swipe">Desliza →</div>`,
+      '3': `<div class="errlabel">ERROR 2</div>
+            <div class="num">2</div>
+            <h1>Tipo de e-CF<br>equivocado</h1>
+            <div class="sub">Crédito fiscal (31) <b>≠</b> Consumo (32).<br>Cada uno tiene su uso.</div>
+            <div class="swipe">Desliza →</div>`,
+      '4': `<div class="errlabel">ERROR 3</div>
+            <div class="num">3</div>
+            <h1>No guardar el acuse<br>de la DGII</h1>
+            <div class="sub">→ líos al reportar <b>606/607</b>.</div>
+            <div class="swipe">Desliza →</div>`,
+      '5': `<h1><span class="check">✓</span> Con <span class="g">PVenta</span>,<br>tus e-CF salen<br>validados y en regla</h1>
+            <div class="sub">Automático, sin dolores de cabeza — en regla con la DGII.</div>
+            <div class="cta">🎁 Primer mes GRATIS</div>
+            <div class="foot">DM: "MES GRATIS" · WhatsApp (809) 252-4007 · xoultec.com</div>`
+    };
+    document.getElementById('content').innerHTML = slides[s] || slides['1'];
+  </script>
+</body></html>

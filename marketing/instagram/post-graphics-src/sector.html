@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:100vw;height:100vh;overflow:hidden;color:#fff;
+    display:flex;flex-direction:column;justify-content:center;padding:0 90px;position:relative}
+  .top{position:absolute;top:60px;left:90px;display:flex;align-items:center;gap:16px}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  .prod{position:absolute;top:70px;right:90px;font-size:34px;font-weight:800;opacity:.9}
+  .icon{font-size:110px;margin-bottom:6px}
+  h1{font-size:82px;font-weight:900;line-height:1.05;margin-bottom:40px}
+  ul{list-style:none;display:flex;flex-direction:column;gap:26px;margin-bottom:44px}
+  li{font-size:46px;font-weight:600;display:flex;align-items:center;gap:22px}
+  .cta{display:inline-block;background:#f59e0b;color:#0f172a;font-weight:900;font-size:44px;
+    padding:22px 46px;border-radius:999px}
+  .foot{position:absolute;bottom:66px;left:90px;right:90px;font-size:30px;opacity:.78}
+</style></head>
+<body>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div class="prod" id="prod"></div>
+  <div id="content"></div>
+  <script>
+    const t = new URLSearchParams(location.search).get('type') || 'resto';
+    const data = {
+      resto: { bg:'linear-gradient(160deg,#0f172a 0%,#4c1d4b 55%,#831843 100%)', prod:'EasyPOS',
+        icon:'🍽️', title:'Tu restaurante,<br>sin caos en hora pico.',
+        items:['🔥 Pantalla de cocina (KDS) en vivo','🪑 Plano de mesas interactivo','🛵 Delivery y propinas','📊 Reportes de venta al instante'] },
+      clinica: { bg:'linear-gradient(160deg,#0f172a 0%,#0c4a6e 100%)', prod:'eClinic',
+        icon:'🩺', title:'Tu clínica,<br>ordenada y al día.',
+        items:['🗓️ Citas y agenda','📋 Expediente y diagnósticos','🛡️ Seguros y HIPAA','🧾 Facturación e-CF integrada'] }
+    };
+    const d = data[t] || data.resto;
+    document.body.style.background = d.bg;
+    document.getElementById('prod').textContent = d.prod;
+    document.getElementById('content').innerHTML =
+      `<div class="icon">${d.icon}</div><h1>${d.title}</h1>`+
+      `<ul>${d.items.map(i=>`<li>${i}</li>`).join('')}</ul>`+
+      `<div class="cta">🎁 Primer mes GRATIS</div>`+
+      `<div class="foot">DM: "MES GRATIS" · WhatsApp (809) 252-4007 · xoultec.com</div>`;
+  </script>
+</body></html>
