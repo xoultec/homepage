@@ -28,7 +28,7 @@ export default function ReferralPage() {
           {t('Vienes recomendado 🎉', "You've been referred 🎉")}
         </span>
         <h1 className="text-2xl font-extrabold mb-2">
-          {t('Un cliente de XoulTec te recomendó PVenta', 'A XoulTec client recommended PVenta to you')}
+          {t('Un cliente de XoulTec te recomendó PVenta ERP', 'A XoulTec client recommended PVenta ERP to you')}
         </h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
           {t(

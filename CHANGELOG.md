@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.13.2] - 2026-07-02
+- fix(referidos): el título de `/r` ahora dice "…te recomendó **PVenta ERP**" (marca consistente con la campaña)
+
 ## [1.13.1] - 2026-07-02
 - fix(leads): el CTA de `/r` y `/ofertas` ya no obliga a usar Instagram — ahora ofrece **WhatsApp RD + USA** (principal, con el mensaje/referido pre-cargado) e Instagram DM como opción, para no perder a quien no tenga IG
 
