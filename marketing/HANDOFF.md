@@ -2,7 +2,7 @@
 
 Documento para que **otra computadora (siempre activa)** retome el trabajo de marketing de Instagram y el **monitoreo de comentarios** mientras Rubén viaja.
 
-> Para el asistente (Claude) que abra este repo en la otra PC: **lee este archivo + `marketing/README.md` + `marketing/campana-sea-cual-sea-tu-negocio.md`** para cargar todo el contexto, y luego retoma el monitoreo (sección 4).
+> Para el asistente (Claude) que abra este repo: **lee este archivo completo** (sobre todo la sección 3 "Estado actual") **+ `marketing/instagram/posts-programar.md` + `marketing/instagram/briefs-diseno.md` + los logs de estado** (`bienvenidas-enviadas.md`, `prospectos-follow.md`, `agenda-leads.md`). `CLAUDE.md` y `MEMORY.md` se cargan solos. Luego retoma el monitoreo (sección 4) y relanza el `/loop`.
 
 ---
 
@@ -24,14 +24,26 @@ Contexto completo y reutilizable ya en el repo:
 5. **Escalabilidad** — "De 1 a 1000 usuarios, el mismo XoulTec".
 Extra: **Portal de Autogestión** — los clientes hacen sus pedidos/pagan/ven su cuenta solos, 24/7.
 
-## 3. Estado actual (al 28-jun-2026)
-**Posts programados en Meta Business Suite:**
-- **Post #1** (intro de marca) → **28-jun 9:00 AM**.
-- **Aniversario Nifarmed** (lealtad desde 1997) → **28-jun 6:00 PM**.
+## 3. Estado actual (al 3-jul-2026)
 
-**Regla de permisos:** solo **@surprise_morning** requiere OK explícito antes de destacarlo (Collab pendiente de su respuesta). Todos los demás clientes se pueden destacar/etiquetar libremente.
+### 3a. Pipeline de LEADS del promo "Primer mes gratis" (IMPORTANTE — cambió)
+- El form automático de `/ofertas` y `/r` está **en pausa**: falta `LEADS_API_KEY` en Vercel y **no hay acceso a Vercel por ~2 semanas** (hasta ~mediados de julio). El backend de pventa (Fly) YA tiene sus secrets.
+- **Pivote temporal (deployado, v1.13.2):** `/ofertas` y `/r` ahora muestran el componente **`DmCta`** → botones **WhatsApp RD/USA (principal) + Instagram DM**. El referido (vendedor/RNC) va embebido en el mensaje. Título de `/r`: "…te recomendó **PVenta ERP**".
+- Bio de IG tiene CTA **"DM: MES GRATIS"**. **Leads por IG DM → los capturo yo** (banco → `agenda-leads.md` → replico a **nunezd.ruben@gmail.com** desde sales@ en Roundcube → escalo a Rubén para cerrar por WhatsApp). **Leads por WhatsApp → los maneja Rubén.**
+- **Cuando vuelva Vercel:** poner `LEADS_API_KEY = d9231b47e169bdf6ddb929e1dc95124c3f028e1b9aaf681e28c53de77b53e702` y revertir `/r` y `/ofertas` a `<LeadForm />` (el archivo sigue intacto).
 
-**Pendientes:** activar testimonios ya autorizados (Nifarmed, Don Bululo, Galería Vitral, sector médico) espaciados; revisar resultados del Post #1 tras las 9am; respuesta de @surprise_morning.
+### 3b. Contenido de la semana (generado y listo)
+- **8 imágenes generadas** en `marketing/instagram/`: `restaurantes.png`, `4julio.png`, `clinicas.png`, `ecf-1..5.png` (carrusel). **Cómo se hicieron:** HTML en `post-graphics-src/` (`4julio.html`, `ecf-carousel.html`, `sector.html`) → render a PNG con **Chrome headless** (`chrome.exe --headless=new --screenshot=out.png --window-size=1080,1350 file://...`). Editar el HTML y re-renderizar para cambios. (Nota: emojis de bandera 🇺🇸🇩🇴 NO renderizan en headless.)
+- **Captions** (ES/EN + hashtags): `posts-programar.md`. **Briefs de diseño:** `briefs-diseno.md`.
+- **Calendario:** Vie 3 Restaurantes 9am · Sáb 4 4-Julio 9am · Lun 6 Carrusel e-CF **12:15pm** · Mié 8 Reel PVenta app (VIDEO, lo graba Rubén) · Vie 10 Clínicas 9am.
+- **Business Suite:** hay **2 borradores guardados** (Restaurantes + 4 de Julio, con caption). ⚠️ El **upload de imágenes locales no se puede automatizar** (limitación de la herramienta) → **Rubén arrastra el PNG + pone Schedule**. Revisar que el borrador del 4-Jul no tenga "#photoshoot" colado.
+
+### 3c. Estado del monitoreo IG
+- **Bienvenidas** (`bienvenidas-enviadas.md`): 6 enviadas, cola vacía. Regla: **no saludar cuentas privadas**.
+- **Follows** (`prospectos-follow.md`): RD primero, máx ~10-15/día, pausado, verificar pública/activa/negocio real.
+- **Agenda leads** (`agenda-leads.md`): sin leads aún (CTA recién live).
+
+**Regla de permisos:** solo **@surprise_morning** requiere OK explícito antes de destacarlo. Los demás clientes se pueden destacar/etiquetar libremente.
 
 ## 4. MONITOREO — cómo retomarlo en esta PC
 El monitoreo es un "loop": el asistente se despierta cada cierto tiempo, revisa comentarios/DMs nuevos en @xoultec y reporta a Rubén con respuestas redactadas.
