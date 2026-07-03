@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.13.1] - 2026-07-02
+- fix(leads): el CTA de `/r` y `/ofertas` ya no obliga a usar Instagram — ahora ofrece **WhatsApp RD + USA** (principal, con el mensaje/referido pre-cargado) e Instagram DM como opción, para no perder a quien no tenga IG
+
 ## [1.13.0] - 2026-07-02
 - feat(leads): mientras el form de captura está fuera (falta `LEADS_API_KEY` en Vercel), `/r` (referido de la app móvil "Referir a cliente") y `/ofertas` redirigen al **DM de Instagram** (`ig.me/m/xoultec`) con un mensaje copiable que incluye al vendedor referidor, en vez del formulario roto — nuevo componente `DmCta`; WhatsApp como respaldo. Se revierte a `<LeadForm />` cuando se configure `LEADS_API_KEY`
 
