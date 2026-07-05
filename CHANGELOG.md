@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.14.0] - 2026-07-04
+- feat(email): el banner del footer de los correos (factura, estado de cuenta, cotización) pasa de branding a **CTA de referido** — "¿Necesitas un ERP así? · 🌱 Digital, menos papel más planeta · 1er mes GRATIS" (ES/EN), enlazando a `/ofertas` con UTM. Enciende el motor de boca en boca (P1) en cada correo que ya envía la cartera activa.
+
 ## [1.13.2] - 2026-07-02
 - fix(referidos): el título de `/r` ahora dice "…te recomendó **PVenta ERP**" (marca consistente con la campaña)
 
