@@ -190,7 +190,7 @@ Less paperwork, more chair time with your patients.
 
 ---
 
-## 📅 PROMO · eDental — "Primer mes GRATIS" (oferta como protagonista)
+## 📅 PROMO · eDental — "Primer mes GRATIS" (oferta como protagonista) — ✅ PUBLICADO 2026-07-16 en @xoultec (caption ES+EN, 1.707 chars)
 **Formato:** Imagen 1080×1350 (4:5). **Color:** sky/azul + ámbar.
 **Imagen generada:** ✅ `marketing/instagram/dental-promo.png` (2160×2700). Fuente: `post-graphics-src/dental-promo.html` (render Chrome headless `--window-size=1080,1350 --force-device-scale-factor=2`).
 _Oferta elegida por Rubén (16-jul): Primer mes GRATIS. Complementa al post de sector de eDental de arriba._
