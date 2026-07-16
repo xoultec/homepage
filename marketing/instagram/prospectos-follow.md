@@ -62,6 +62,13 @@ _(Verificar cada una al momento de seguir: pública, activa, negocio real de RD.
 | 2026-07-02 10:34 | calipsord | Tienda de ropa Santiago RD, nueva (3 posts, 31 seg.). Early-stage. |
 | 2026-07-02 10:35 | pao.storerd | Pao Store RD, carteras/moda Santiago, muy activa (504 posts, 1,546 seg.). |
 | 2026-07-02 12:37 | made_nail_studio | Estudio de uñas, muy activo (3,103 posts, 3,003 seg.); seguido por pao.storerd (red RD). |
+| 2026-07-03 19:5x | marytierra.rd | Mar & Tierra Restaurante, Los Pepines Santiago RD. Muy activo (958 posts, 1,448 seg.), tel 809. Fit EasyPOS. Ronda "restaurantes" (sinergia con el post de Restaurantes de hoy). |
+| 2026-07-03 19:5x | puroasado.rd | Puro Asado, Restaurante/Bar Santiago RD **PRÓXIMAMENTE** (0 posts, 10.1K seg., dir+tel 809 reales). Timing: restaurante por abrir = necesita POS antes de arrancar. |
+| 2026-07-03 19:5x | yakasushird | Yaka Sushi, restaurante asiático Santiago RD (@thecircusfoodpark). Activo (135 posts, 5,100 seg.), tel 849, delivery. Fit EasyPOS. |
+| 2026-07-03 19:5x | cafeconaromademujer.rd | Café con Aroma de Mujer, Restaurante & Rooftop Santiago RD. Activo (130 posts, 2,713 seg.), dir. Calle Club Rotario. Fit EasyPOS. |
+| 2026-07-03 19:5x | r7clubrd | Club R7, Bar/Restaurante/Cigar Lounge/nightclub Santiago RD. Activo (22 posts, 2,484 seg.), menú fusión mediterránea + reservas. Fit EasyPOS. |
+| 2026-07-11 | pequeropa16 | PEQUE ROPA, ropa de bebé/niños RD, muy activa (1,665 posts, 4,974 seg.), envíos por **Vimenpaq** (courier RD → confirma zona), pública. Fit retail/POS/inventario. |
+| 2026-07-16 | dentactics | Dentactics: Dental CE / Reválida Dental (INBDE Prep), educación para dentistas hispanos que ejercen en **EEUU** (desde 2014). Establecida (325 posts, 13.9K seg.), pública, revalidadental.com. Pedido directo de Rubén. Fit indirecto: audiencia = dentistas USA → sinergia con **eDental** (HIPAA + verificación de seguros = mercado USA). |
 
 ## Saltados (con motivo)
 | Handle | Motivo |
@@ -71,3 +78,6 @@ _(Verificar cada una al momento de seguir: pública, activa, negocio real de RD.
 | pure_boutique_santiago_rd | Privada + muy delgada (3 posts, 265 siguiendo/34 seg.). |
 | colmado_plazareal | Fuera de zona: es de **Puerto Rico** (Caparra Terrace, Ave de Diego; postea SJU→MCO). "Colmado" también se usa en PR. |
 | ferreteria_rd | Fuera de zona: es de **Puerto Madryn, Chubut (ARGENTINA)**, tel 2804. El "RD" no es República Dominicana. ¡Verificar ubicación siempre, incluso con sufijo _rd! |
+| solymarena.0 | **0 posts** (sin contenido / inactiva) pese a 1K seg. No cumple "negocio activo con contenido visible". (2026-07-11) |
+| elcolmadoblanes | Fuera de zona: **Blanes, España** (bio en catalán, dir. Passeig de Cortils i Vieta 11, 17300 Girona). Otra trampa de "colmado". (2026-07-11) |
+| el_colmado_bar | Fuera de zona: **Puerto Rico** (bio "PR", posts con El Capitolio de PR). 3ª trampa "colmado" → la lista nombrada de colmados no sirve; mejor usar la veta "Suggested for you" de cuentas RD ya seguidas. (2026-07-14) |
