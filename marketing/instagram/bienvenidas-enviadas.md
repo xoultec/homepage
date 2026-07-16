@@ -28,6 +28,13 @@ Autorizado por Rubén (1-jul-2026): saludar a los que empiezan a seguir, **pausa
 |---------|--------|
 | lizairajimenez | Ya comentó y le respondimos (enganchada) |
 | jomapefri | Cuenta privada, sin botón "Message" (follow-back pendiente) |
+| kapuca1579 | Cuenta **privada** (Karina Pujols Castillo, personal). Follow-back ya "Requested". (2026-07-11) |
+| claraj.vasquez | Cuenta **privada** → no se saluda (regla). (2026-07-11) |
+
+## Interacciones (comentarios/otros)
+| Fecha | Acción |
+|-------|--------|
+| 2026-07-11 | Respondido comentario de **@lizairajimenez** ("Duro 🙌") en post e-CF "3 errores": _"@lizairajimenez ¡Gracias! 🙌💙"_ |
 
 ## Pendientes (por enviar, espaciados)
 - _(ninguno — cola al día al 2-jul 20:52)_
