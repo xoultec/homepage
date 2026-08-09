@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.15.0] - 2026-08-09
+- feat(analytics): integra Vercel Web Analytics para medir visitas por página (tráfico por URL, países, dispositivos y referrers)
+- feat(facturacion-electronica): destaca la app móvil para la fuerza de ventas — callout "incluida" y nueva fila en la comparativa
+
 ## [1.14.0] - 2026-07-04
 - feat(email): el banner del footer de los correos (factura, estado de cuenta, cotización) pasa de branding a **CTA de referido** — "¿Necesitas un ERP así? · 🌱 Digital, menos papel más planeta · 1er mes GRATIS" (ES/EN), enlazando a `/ofertas` con UTM. Enciende el motor de boca en boca (P1) en cada correo que ya envía la cartera activa.
 
