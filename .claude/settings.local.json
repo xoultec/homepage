@@ -67,7 +67,13 @@
       "Bash(for repo in Colegio fix-point)",
       "Bash(file=\"/c/data/4claude/repositorios/$repo/frontend/app/routes/login.tsx\")",
       "Read(//c/data/4claude/repositorios/$repo/frontend/app/routes/**)",
-      "Bash(do:*)"
+      "Bash(do:*)",
+      "Skill(loop)",
+      "Bash(wmic logicaldisk *)",
+      "Bash(powershell -NoProfile -Command 'Get-PSDrive -PSProvider FileSystem | Select-Object Name,@{N='\\\\''FreeGB'\\\\'';E={[math]::Round\\($_.Free/1GB,1\\)}},Root | Format-Table -AutoSize')",
+      "Bash(gh auth *)",
+      "Read(//c//**)",
+      "Bash(ssh -T -o StrictHostKeyChecking=no -o BatchMode=yes git@github.com)"
     ]
   }
 }
