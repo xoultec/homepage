@@ -4,6 +4,7 @@ import { PrivacyBanner } from '~/components/PrivacyBanner'
 import { Navbar } from '~/components/Navbar'
 import { Footer } from '~/components/Footer'
 import { ChatWidget } from '~/components/ChatWidget'
+import { Analytics } from '@vercel/analytics/next'
 import '~/styles.css'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="pt-10">{children}</div>
           <Footer />
           <ChatWidget />
+          <Analytics />
         </Providers>
       </body>
     </html>
