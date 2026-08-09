@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Check, AlertTriangle, MessageCircle, ShieldCheck, FilePlus2, Send, QrCode, Award } from 'lucide-react'
+import { Check, AlertTriangle, MessageCircle, ShieldCheck, FilePlus2, Send, QrCode, Award, Smartphone } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 import type { Feature } from '~/lib/products'
 import { FeatureCard } from '~/components/FeatureCard'
@@ -295,6 +295,16 @@ export function EcfLanding() {
               </span>
             ))}
           </div>
+          <div className="max-w-3xl mx-auto mt-8 bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 flex items-start gap-3">
+            <Smartphone className="w-7 h-7 text-primary shrink-0 hidden sm:block" />
+            <p className="text-sm text-dark">
+              <b>{t('App para tu fuerza de ventas — incluida.', 'Sales-force app — included.')}</b>{' '}
+              {t(
+                'Tus vendedores toman pedidos y cotizaciones desde el celular, en la calle.',
+                'Your reps take orders and quotes from their phone, in the field.',
+              )}
+            </p>
+          </div>
         </section>
 
         {/* Comparison: one subscription vs four */}
@@ -343,6 +353,11 @@ export function EcfLanding() {
               label={t('Bodegas / almacenes', 'Warehouses')}
               alegra={t('Limitadas por plan (2/10/100)', 'Capped per tier (2/10/100)')}
               pventa={t('3 · ilimitadas en Enterprise', '3 · unlimited in Enterprise')}
+            />
+            <ComparisonRow
+              label={t('App móvil de ventas', 'Mobile sales app')}
+              alegra={t('App general', 'General app')}
+              pventa={t('Para tu fuerza de ventas · incluida', 'For your sales force · included')}
             />
           </div>
         </section>
