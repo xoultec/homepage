@@ -271,6 +271,11 @@ NO *vigilar al empleado*. La diferencia la nota el que compra y también el que 
 ---
 
 ## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** (P1, el más fuerte)
+
+> 📅 **PRÓXIMO EN LA COLA — publicar el 14-ago-2026 por la mañana** (Rubén, 13-ago).
+> Aprobado con el copy de abajo **ya sin la línea de MES GRATIS**. Después de publicar:
+> estado en **los dos** WhatsApp y sellar `--latido-post`.
+
 **Formato:** Reel vertical 1080×1920, 12-20s.
 🎬 **VIDEO LISTO (13-ago-2026): `gps-tv-reel.mp4`** — 1080×1920, 20 s, 30 fps, 556 KB.
 Fuente: `post-graphics-src/gps-tv-simulado.html` (TV **simulado**). Preview fijo: `gps-tv-preview.png`.
