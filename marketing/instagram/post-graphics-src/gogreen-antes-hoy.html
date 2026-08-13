@@ -99,12 +99,17 @@
         hoy:  { icon:'📲', h:'El pedido entra<br>desde el <span class="hl">celular</span>', s:'El vendedor lo toma frente al cliente<br>y ya está en el sistema.' } }
     ];
 
+    const p = new URLSearchParams(location.search);
+
     // ---- Láminas de apertura y cierre del carrusel completo (?slide=) ----
+    // ⚠️ Instagram corta el carrusel en 10 láminas, así que la serie no cabe entera
+    // en un post. El número de la portada es parámetro (?docs=Cuatro) porque tiene que
+    // coincidir con las entregas que realmente van en ESE carrusel.
     const ESPECIALES = {
       portada: {
         html: `<span class="icon">🌱</span>
                <h1>Lo que tu negocio<br>ya dejó de <span class="hl">imprimir</span></h1>
-               <div class="sub">Seis documentos que antes eran papel.<br>Ninguno se dejó de hacer.<br>Solo dejaron de imprimirse.</div>`,
+               <div class="sub">${p.get('docs') || 'Seis'} documentos que antes eran papel.<br>Ninguno se dejó de hacer.<br>Solo dejaron de imprimirse.</div>`,
         foot: `<div class="tag">🌱 #DigitalEsVerde</div><div class="swipe">Desliza →</div>`,
       },
       cierre: {
@@ -115,7 +120,6 @@
       },
     };
 
-    const p = new URLSearchParams(location.search);
     const especial = ESPECIALES[p.get('slide')];
     if (especial) {
       document.body.classList.add('hoy');

@@ -473,7 +473,25 @@ solo señalamos una consecuencia directa del producto.
 
 ---
 
-## 🌱 Serie "antes/hoy" COMPLETA — **CARRUSEL de 14 láminas** 1080×1350
+## ✅ PUBLICADO — 2026-08-13 · Serie verde "antes/hoy", primera mitad
+`Db-5WWLDtXO` · 10 láminas: portada + entregas **2, 3, 4 y 5** + cierre. Recorte 4:5, filtro Original,
+sin ubicación ni colaboradores. Caption 473/2.200 car.
+
+### 🔧 INSTAGRAM CORTA EL CARRUSEL EN 10 LÁMINAS
+El plan era sacar la serie entera (14 láminas) en un post. **No cabe: el web trunca en 10 sin avisar.**
+Se detectó a tiempo porque el borrador terminaba en un **ANTES sin su HOY** — el peor corte posible
+para esta serie. Rubén eligió un post de 10 bien cerrado en vez de partirlo en dos.
+
+⚠️ **La portada lleva el número de documentos como parámetro** (`?slide=portada&docs=Cuatro`) justo
+por esto: tiene que coincidir con las entregas que van en ESE carrusel. Si se arma otro, hay que
+re-renderizarla con su número.
+
+**Pendiente:** entregas **6** (estado de cuenta → portal 24/7) y **7** (pedido en papel → celular)
+para el próximo post verde, con su propia portada (`docs=Dos`) y el mismo cierre.
+
+---
+
+## 🌱 Serie "antes/hoy" — **CARRUSEL** 1080×1350 (guion completo)
 
 > ✅ **APROBADO (Rubén, 12-ago-2026).** Pidió sacar la serie completa de una vez. Se resolvió como
 > **un solo carrusel** en vez de 7 posts seguidos: así sale entera y sigue contando como **1 post
