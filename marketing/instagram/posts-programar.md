@@ -326,11 +326,13 @@ Your whole group of companies on one monitor.
 ✅ **GRÁFICA LISTA:** `comisiones.png` — fuente `post-graphics-src/comisiones.html`.
 **Color:** ámbar/dorado sobre navy. Contraste de dos tarjetas: volante legible ✅ / volante borroso 🚫.
 
-> ✅ **APROBADA SIN OFERTA (Rubén, 12-ago-2026).** Se le quitó el botón `📲 DM: "MES GRATIS"` de la
-> gráfica y la línea equivalente del caption (ES y EN). Motivo textual: **"ya tenemos mucho con oferta
-> abierta; el que quiera, que se comunique"**. Los dos WhatsApp del pie bastan como vía de contacto.
-> La versión con botón sigue disponible renderizando `comisiones.html?cta=1`, pero **no es la default**.
-> Con esto la pieza queda **publicable sin consultar**.
+> ❌ **DESCARTADA (Rubén, 13-ago-2026).** *"ya esto no va"*. **No proponer esta pieza.** No se
+> publica, no entra en la cola y no se ofrece como alternativa cuando falte contenido.
+> La gráfica y el guion se conservan solo como registro.
+>
+> _Historial: el 12-ago se había aprobado sin oferta — se le quitó el botón `📲 DM: "MES GRATIS"` de
+> la gráfica y del caption (ES y EN) por "ya tenemos mucho con oferta abierta". Esa aprobación quedó
+> sin efecto._
 
 **El gancho es una frase, no una lista.** Esto es lo que diferencia a PVenta de cualquier ERP de caja.
 
