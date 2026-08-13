@@ -474,8 +474,19 @@ solo señalamos una consecuencia directa del producto.
 ---
 
 ## ✅ PUBLICADO — 2026-08-13 · Serie verde "antes/hoy", primera mitad
-`Db-5WWLDtXO` · 10 láminas: portada + entregas **2, 3, 4 y 5** + cierre. Recorte 4:5, filtro Original,
-sin ubicación ni colaboradores. Caption 473/2.200 car.
+
+| Canal | Estado |
+|---|---|
+| IG `Db-5WWLDtXO` | 10 láminas: portada + entregas **2, 3, 4 y 5** + cierre. Recorte 4:5, filtro Original, sin ubicación. Caption 473/2.200 car. |
+| Estado WhatsApp **809** | ✅ 9:22 AM — portada + línea que remite al carrusel en @xoultec |
+| Estado WhatsApp **913** | ✅ 9:2x AM — mismo contenido |
+
+📌 **El estado de WhatsApp va en LOS DOS números, siempre.** Es parte de publicar, no un extra:
+cada número tiene su propio estado y su propia audiencia.
+
+**Ese mismo día** se quitó del bio de IG la línea `🎁 1er mes GRATIS → DM: "MES GRATIS"` —
+era la última oferta abierta visible— y el WhatsApp del bio pasó a llevar **los dos números**:
+`📲 WhatsApp RD 809 252-4007 · USA 913 413-6583`.
 
 ### 🔧 INSTAGRAM CORTA EL CARRUSEL EN 10 LÁMINAS
 El plan era sacar la serie entera (14 láminas) en un post. **No cabe: el web trunca en 10 sin avisar.**
