@@ -22,6 +22,9 @@
     padding:22px 46px;border-radius:999px;margin-top:20px}
   .swipe{position:absolute;bottom:70px;right:90px;font-size:34px;opacity:.8;font-weight:700}
   .check{color:#10b981}
+  body.green{background:linear-gradient(160deg,#064e3b 0%,#065f46 55%,#047857 100%)}
+  h1 .lg{color:#6ee7b7}
+  .leaf{position:absolute;top:60px;right:80px;font-size:70px;opacity:.9}
 </style></head>
 <body>
   <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
@@ -51,8 +54,14 @@
       '5': `<h1><span class="check">✓</span> Con <span class="g">PVenta</span>,<br>tus e-CF salen<br>validados y en regla</h1>
             <div class="sub">Automático, sin dolores de cabeza — en regla con la DGII.</div>
             <div class="cta">🎁 Primer mes GRATIS</div>
-            <div class="foot">DM: "MES GRATIS" · WhatsApp (809) 252-4007 · xoultec.com</div>`
+            <div class="foot">DM: "MES GRATIS" · WhatsApp (809) 252-4007 · xoultec.com</div>`,
+      '6': `<div class="leaf">🌱</div>
+            <div class="hook-icon">🌱</div>
+            <h1>Bonus: cada <span class="lg">e-CF</span><br>es papel que <span class="lg">no<br>se imprime</span></h1>
+            <div class="sub">Menos papel, más planeta.<br>Digitalizar también es cuidar<br>lo que nos rodea.</div>
+            <div class="foot">🌱 #MenosPapelMásPlaneta · #NegocioVerde</div>`
     };
     document.getElementById('content').innerHTML = slides[s] || slides['1'];
+    if (s === '6') document.body.classList.add('green');
   </script>
 </body></html>
