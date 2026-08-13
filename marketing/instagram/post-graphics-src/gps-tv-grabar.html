@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/><title>TV GPS simulado — listo para grabar</title>
+<!--
+  Envoltorio SOLO para grabar el reel del TV simulado.
+  gps-tv-simulado.html mide 1080×1920 fijos: a pantalla completa en un monitor
+  horizontal solo se vería la mitad de arriba. Esto lo escala a la altura de la
+  pantalla y lo centra sobre negro, dejando un recuadro 9:16 exacto que grabar.
+
+  Uso: abrir a pantalla completa (F11) y grabar ~20 s. La ficha rota sola cada 2.6 s.
+  El contenido es ficticio — NO usar el TV real (gps.xoultec.com), que muestra
+  razones sociales y vendedores de tenants vivos.
+-->
+<style>
+  *{margin:0;padding:0}
+  html,body{width:100%;height:100%;background:#000;overflow:hidden}
+  #marco{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  iframe{width:1080px;height:1920px;border:0;transform-origin:center center;display:block}
+</style></head>
+<body>
+  <div id="marco"><iframe id="tv" src="gps-tv-simulado.html"></iframe></div>
+  <script>
+    // Escala para que los 1920 px de alto quepan en la pantalla, sin deformar.
+    function ajustar() {
+      const s = Math.min(window.innerWidth / 1080, window.innerHeight / 1920);
+      document.getElementById('tv').style.transform = `scale(${s})`;
+    }
+    ajustar();
+    window.addEventListener('resize', ajustar);
+  </script>
+</body></html>

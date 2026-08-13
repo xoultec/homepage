@@ -1,6 +1,11 @@
 # Posts listos para programar — @xoultec
 
-CTA alineado al flujo actual de leads: **DM "MES GRATIS" + WhatsApp** (el form de /ofertas está en pausa hasta Vercel).
+⚠️ **SIN OFERTA ABIERTA — regla vigente desde el 13-ago-2026.** El `🎁 1er mes GRATIS → DM "MES GRATIS"`
+se quitó del bio de IG y no va en piezas nuevas. Motivo de Rubén: *"ya tenemos mucho con oferta abierta;
+el que quiera, que se comunique"*. **Muchos captions de abajo son anteriores a esta regla y todavía la
+llevan: hay que quitarles esa línea antes de reutilizarlos.**
+Vía de contacto por defecto: `📲 WhatsApp RD (809) 252-4007 · USA (913) 413-6583` — **los dos números**,
+porque llegan clientes de ambos países por cualquiera de ellos.
 Rubén pone la imagen/pantalla y programa en Meta Business Suite. El copy está listo.
 
 ---
@@ -267,8 +272,18 @@ NO *vigilar al empleado*. La diferencia la nota el que compra y también el que 
 
 ## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** (P1, el más fuerte)
 **Formato:** Reel vertical 1080×1920, 12-20s.
-✅ **ASSET LISTO:** `post-graphics-src/gps-tv-simulado.html` — TV **simulado**, ya a 1080×1920.
-Preview fijo: `gps-tv-preview.png`. **Grabar la pantalla ~20 s** con el HTML abierto en Chrome.
+🎬 **VIDEO LISTO (13-ago-2026): `gps-tv-reel.mp4`** — 1080×1920, 20 s, 30 fps, 556 KB.
+Fuente: `post-graphics-src/gps-tv-simulado.html` (TV **simulado**). Preview fijo: `gps-tv-preview.png`.
+
+**Se generó sin grabar pantalla**, con `post-graphics-src/grabar-tv.js`: Chrome headless a 1080×1920 +
+CDP `Page.captureScreenshot` en bucle, y ffmpeg arma el video respetando la marca de tiempo de cada
+fotograma. Para rehacerlo: `node grabar-tv.js [segundos] [fps]`.
+⚠️ No usar `Page.startScreencast`: en headless solo entrega fotograma cuando la página repinta — en
+una prueba de 22 s llegaron **3**.
+
+🚫 **La grabación del TV REAL no se usa.** Rubén grabó `gps.xoultec.com/gps/101797802` (tenant
+NIFARMED): salen razón social, vendedores y clientes visitados reales. Va contra la regla del 9-ago y
+en un reel queda archivado y descargable. **Esa grabación se descarta.**
 
 **Por qué simulado y no el TV real:** `gps.xoultec.com` muestra las razones sociales de tenants vivos y,
 en día hábil, nombres de vendedores y clientes visitados. Nada de eso puede salir en un reel. Además,
@@ -294,7 +309,7 @@ El mapa te lo dice sin que preguntes:
 
 Todo el grupo de empresas en un solo monitor.
 
-📲 DM "MES GRATIS" o WhatsApp (809) 252-4007.
+📲 WhatsApp RD (809) 252-4007 · USA (913) 413-6583.
 
 🌱 Rutas mejor repartidas son menos vueltas y menos combustible.
 
@@ -313,7 +328,7 @@ The map answers before you ask:
 
 Your whole group of companies on one monitor.
 
-📲 DM "MES GRATIS" or WhatsApp (913) 413-6583.
+📲 WhatsApp USA (913) 413-6583 · DR (809) 252-4007.
 
 🌱 Better routes mean fewer miles and less fuel.
 
