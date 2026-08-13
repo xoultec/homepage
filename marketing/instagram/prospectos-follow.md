@@ -12,9 +12,23 @@ verificar zona/calidad, y seguir pausado (~10-15/día máx). No hace falta pedir
 **Fit ideal:** negocios que venden productos o servicios y necesitan POS / ERP / facturación
 electrónica (e-CF/DGII) / inventario / nómina — el core de PVenta y módulos XoulTec.
 
+## 🚫 COLMADOS FUERA (Rubén, 2026-08-09)
+**"No me interesan colmados."** No seguir más colmados ni buscarlos como veta. Los ya seguidos
+(`colmado_nona`) se quedan, pero el rubro sale del criterio. Esto además cierra la trampa recurrente
+de "colmado" (España / Puerto Rico) que costó 3 descartes.
+
+## 🇺🇸 XoulTec es internacional — la matriz está en EE.UU. (Rubén, 2026-08-12)
+**"No es un negocio en RD" NO es motivo de descarte.** Es un error que ya cometí una vez: descarté a
+**@amand_atofel** razonando que no había a quién venderle en RD, cuando la empresa vende en Estados
+Unidos y `eDental` está construido precisamente para ese mercado (HIPAA + verificación de seguros).
+
+"RD primero" es una **prioridad de esfuerzo**, no una frontera. Un prospecto de EE.UU. entra por
+derecho propio; lo que se descarta es el que no tiene negocio, no el que no está en la isla.
+
 ## Criterio de filtrado (qué SÍ, qué NO)
 - ✅ Negocio activo, con productos/servicios visibles, cuenta pública, zona objetivo.
-- ✅ Sectores: retail/colmados/tiendas/distribuidoras, clínicas/farmacias, restaurantes/salones/servicios, talleres, ferreterías, etc.
+- ✅ Sectores: retail/tiendas/distribuidoras, clínicas/farmacias, restaurantes/salones/servicios, talleres, ferreterías, etc.
+- ❌ **Colmados** (decisión de Rubén, 9-ago-2026).
 - ❌ Cuentas inactivas, personales sin negocio, fuera de zona, competencia directa de software, cuentas privadas (no seguir a ciegas).
 - ❌ Nada de follow masivo. Pausado siempre.
 
@@ -31,13 +45,15 @@ Buscar "farmacia/tienda **santo domingo**" trae negocios de **México (Zacatecas
 en el handle/nombre, y verificar en bio marcadores RD: tel **809/829/849**, RD$, DGII, RNC, provincias RD.
 
 ## Prospectos (por revisar / seguir — pausado)
+> **⚠️ COLA VACÍA al 9-ago-2026.** De las 5 que quedaban aquí: 3 ya estaban descartadas más abajo
+> (`el_colmado_bar` = PR, `elcolmadoblanes` = España, `solymarena.0` = 0 posts), `pequeropa16` ya se
+> siguió el 11-jul, y `chula_nails` nunca se verificó el handle. **No hay nada que seguir sin abrir
+> una ronda nueva de búsqueda.** Antes de invertir ahí, ver la memoria "boca en boca": el canal que
+> convierte son referidos, no el tanteo de follows en IG.
+
 | Handle | Negocio / tipo | Zona | Fit | Estado |
 |--------|----------------|------|-----|--------|
-| chula_nails (verificar handle) | Nail salon | RD (verificar) | Servicios/citas | Por seguir (sugerido) |
-| el_colmado_bar | Colmado/bar | RD (verificar) | Retail/POS | Por seguir |
-| elcolmadoblanes | El Colmado | RD (verificar) | Retail/POS | Por seguir |
-| solymarena.0 | Women's store | RD (verificar) | Retail/POS | Por seguir (sugerido) |
-| pequeropa16 | Ropita de bebé | RD (verificar) | Retail/POS | Por seguir (sugerido) |
+| chula_nails (handle sin verificar) | Nail salon | RD (verificar) | Servicios/citas | Sin verificar — único resto de la cola |
 
 _Tip: el panel "Suggested for you" que aparece tras seguir una cuenta RD es una buena veta — muestra cuentas similares del mismo nicho/zona._
 
@@ -69,6 +85,7 @@ _(Verificar cada una al momento de seguir: pública, activa, negocio real de RD.
 | 2026-07-03 19:5x | r7clubrd | Club R7, Bar/Restaurante/Cigar Lounge/nightclub Santiago RD. Activo (22 posts, 2,484 seg.), menú fusión mediterránea + reservas. Fit EasyPOS. |
 | 2026-07-11 | pequeropa16 | PEQUE ROPA, ropa de bebé/niños RD, muy activa (1,665 posts, 4,974 seg.), envíos por **Vimenpaq** (courier RD → confirma zona), pública. Fit retail/POS/inventario. |
 | 2026-07-16 | dentactics | Dentactics: Dental CE / Reválida Dental (INBDE Prep), educación para dentistas hispanos que ejercen en **EEUU** (desde 2014). Establecida (325 posts, 13.9K seg.), pública, revalidadental.com. Pedido directo de Rubén. Fit indirecto: audiencia = dentistas USA → sinergia con **eDental** (HIPAA + verificación de seguros = mercado USA). |
+| 2026-07-17 09:21 | perezypujols | Pérez y Pujols — insumos médicos, Santo Domingo RD. **NO es prospecto: es CLIENTE de XoulTec** (Rubén, 10-ago). Estaba mal clasificado aquí. Se queda seguido, pero **fuera del guion de prospección**: lo que va con él es trato de cliente. |
 
 ## Saltados (con motivo)
 | Handle | Motivo |

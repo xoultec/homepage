@@ -240,3 +240,417 @@ Try it a full month. Love it? Stay. If not, you paid nothing.
 
 #eDental #DentalSoftware #DentalTech #HIPAA #FirstMonthFree #XoulTec #HealthTech #PracticeManagement #GoGreen #GoPaperless
 ```
+
+---
+
+# 🚚 TANDA "FUERZA DE VENTAS" (redactada 9-ago-2026)
+
+Basada en features **ya en producción** de PVenta (repo `pventa-repo`, v1.365.0). Ángulo distinto al de
+toda la cuenta hasta ahora: dejamos de hablarle al dueño de un colmado o una tienda y le hablamos al
+que **maneja gente en la calle** — distribuidoras, farmacéuticas, consumo masivo. Ticket más alto.
+
+⚠️ **NO publicar precios.** El precio del monitor GPS se sacó del repo a propósito. Si alguien pregunta
+en comentarios → DM, como todo lo demás.
+
+🚫 **NADA DE DATOS REALES DE CLIENTES (Rubén, 9-ago-2026).** Ni nombres de las empresas del grupo, ni
+posiciones reales de vendedores, ni el mapa de recuperación por plaza. **Todo lo que se publique va
+inferido/simulado.** El TV real muestra razones sociales de tenants vivos — no se graba y no se
+fotografía. Esto aplica igual al mapa de zonas.
+
+🚫 **No mostrar la franja de "Espacio publicitario"** (Rubén, 9-ago-2026) — la barra inferior del TV
+con el anuncio y el QR queda fuera de todo material.
+
+⚠️ **Encuadre del GPS:** el mensaje es *supervisión y logística* (dimensionar rutas, verificar la visita),
+NO *vigilar al empleado*. La diferencia la nota el que compra y también el que lo ve en el feed.
+
+---
+
+## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** (P1, el más fuerte)
+**Formato:** Reel vertical 1080×1920, 12-20s.
+✅ **ASSET LISTO:** `post-graphics-src/gps-tv-simulado.html` — TV **simulado**, ya a 1080×1920.
+Preview fijo: `gps-tv-preview.png`. **Grabar la pantalla ~20 s** con el HTML abierto en Chrome.
+
+**Por qué simulado y no el TV real:** `gps.xoultec.com` muestra las razones sociales de tenants vivos y,
+en día hábil, nombres de vendedores y clientes visitados. Nada de eso puede salir en un reel. Además,
+el domingo que se revisó marcaba **0 vendedores en calle** — no había nada que grabar.
+
+**Lo que hace el simulado:** 8 vendedores inventados de 3 empresas inventadas, colores por empresa,
+borde por antigüedad de señal (en vivo / demorado / frío), halo pulsante en los que están en vivo,
+recorridos punteados, y **la ficha rotando sola cada 2.6 s** — que es exactamente el gancho: el TV se
+supervisa solo. Lleva el sello **"SIMULACIÓN · DATOS FICTICIOS"** en el encabezado y **no incluye la
+franja de espacio publicitario**. `?static=1` congela la rotación para sacar un frame fijo.
+
+⚠️ La silueta del mapa es **estilizada y decorativa**, no cartografía.
+
+**Caption ES:**
+```
+📍 ¿Tu gente está en la calle ahora mismo?
+
+El mapa te lo dice sin que preguntes:
+🗺️ Dónde está cada vendedor, en vivo
+🛣️ El recorrido que hizo hoy
+✅ Si la visita coincide con lo que facturó
+📺 En el televisor de la oficina se supervisa solo
+
+Todo el grupo de empresas en un solo monitor.
+
+📲 DM "MES GRATIS" o WhatsApp (809) 252-4007.
+
+🌱 Rutas mejor repartidas son menos vueltas y menos combustible.
+
+#FuerzaDeVentas #GPS #Distribuidoras #RutasDeVenta #PVenta #XoulTec #PymesRD #SoftwareEmpresarial #RepublicaDominicana #NegocioVerde
+```
+
+**Caption EN:**
+```
+📍 Is your team actually out there right now?
+
+The map answers before you ask:
+🗺️ Every rep's live position
+🛣️ Today's route
+✅ Whether the visit matches what they invoiced
+📺 On the office TV it supervises itself
+
+Your whole group of companies on one monitor.
+
+📲 DM "MES GRATIS" or WhatsApp (913) 413-6583.
+
+🌱 Better routes mean fewer miles and less fuel.
+
+#SalesForce #GPS #FieldSales #RouteManagement #PVenta #XoulTec #BusinessSoftware #GoGreen
+```
+
+---
+
+## 🅱️ Comisiones — **IMAGEN** 1080×1350 (P1)
+✅ **GRÁFICA LISTA:** `comisiones.png` — fuente `post-graphics-src/comisiones.html`.
+**Color:** ámbar/dorado sobre navy. Contraste de dos tarjetas: volante legible ✅ / volante borroso 🚫.
+
+> ✅ **APROBADA SIN OFERTA (Rubén, 12-ago-2026).** Se le quitó el botón `📲 DM: "MES GRATIS"` de la
+> gráfica y la línea equivalente del caption (ES y EN). Motivo textual: **"ya tenemos mucho con oferta
+> abierta; el que quiera, que se comunique"**. Los dos WhatsApp del pie bastan como vía de contacto.
+> La versión con botón sigue disponible renderizando `comisiones.html?cta=1`, pero **no es la default**.
+> Con esto la pieza queda **publicable sin consultar**.
+
+**El gancho es una frase, no una lista.** Esto es lo que diferencia a PVenta de cualquier ERP de caja.
+
+**Caption ES:**
+```
+💰 La comisión se gana cuando el dinero entra al banco. No antes.
+
+Suena obvio. Casi ningún sistema lo hace:
+🧾 El vendedor fotografía el volante → el sistema lee la fecha que imprimió el banco
+🚫 ¿Volante borroso? Se rechaza ahí mismo, con él todavía en el banco
+🚫 ¿Fotografió el cheque en vez del volante? También lo detecta
+📅 Un cheque a fecha no comisiona hasta que se pueda depositar
+
+Se acabó pagar comisión por plata que todavía no llegó.
+
+📲 ¿Te suena conocido? Escríbenos por DM o al WhatsApp (809) 252-4007.
+
+🌱 El volante viaja como foto, no como papel que alguien archiva.
+
+#Comisiones #FuerzaDeVentas #Cobros #Distribuidoras #PVenta #XoulTec #PymesRD #GestionEmpresarial #MenosPapelMásPlaneta
+```
+
+**Caption EN:**
+```
+💰 Commission is earned when the money hits the bank. Not before.
+
+Sounds obvious. Almost no system does it:
+🧾 Rep photographs the deposit slip → the system reads the date the bank printed
+🚫 Blurry slip? Rejected on the spot, while they're still at the bank
+🚫 Photographed the check instead of the slip? Caught too
+📅 A post-dated check doesn't pay commission until it can be deposited
+
+No more paying commission on money that hasn't arrived.
+
+📲 Sound familiar? DM us or WhatsApp (913) 413-6583.
+
+🌱 The slip travels as a photo, not as paper someone files away.
+
+#Commissions #FieldSales #Collections #PVenta #XoulTec #BusinessSoftware #GoPaperless
+```
+
+---
+
+## 🅲 Capacidad de ruta — **CARRUSEL** 1080×1350, 4 láminas (P2)
+✅ **GRÁFICAS LISTAS:** `ruta-1.png` … `ruta-4.png` — fuente `post-graphics-src/ruta-carousel.html?s=N`.
+**Color:** azul PVenta + lámina 4 verde.
+
+**Láminas:**
+1. 🚚 `¿Cuántos clientes le caben a tu vendedor en un día?` — "si no lo sabes, repartir la cartera es adivinar"
+2. `Cierre semanal · viernes 7 PM` → las 4 métricas (paradas, duración, traslado, capacidad)
+3. `13` vs `4` clientes/día — "la misma cartera rinde el triple según a quién se la des"
+4. 🌱 `Una ruta bien repartida es menos kilómetros` + CTA
+
+⚠️ **Los números 13 y 4 de la lámina 3 van rotulados como ejemplo ilustrativo**, no como medición. Salían
+de una semana real de un tenant y por la regla de no publicar datos de clientes se presentan como
+ilustración de la brecha, no como dato medido.
+
+**Caption ES:**
+```
+📊 Repartir una cartera sin saber la capacidad de cada quien es adivinar.
+
+Cada viernes a las 7 PM llega el cierre semanal con la matriz vendedor × día
+— lo que un cierre diario nunca te puede enseñar — y el ritmo de cada uno:
+cuántas paradas hace, cuánto dura con el cliente, cuánto tarda en llegar al próximo
+y cuántos clientes le caben en su jornada.
+
+Con ese número en la mano, las rutas se reparten. No se adivinan.
+
+📲 DM "MES GRATIS" o WhatsApp (809) 252-4007.
+
+🌱 Una ruta bien dimensionada es menos kilómetros y menos combustible.
+
+#FuerzaDeVentas #RutasDeVenta #Productividad #Distribuidoras #PVenta #XoulTec #PymesRD #NegocioVerde #GoGreenRD
+```
+
+---
+
+## 💡 Cuarta idea (en banco, no redactada)
+**Auditoría de cartera:** mover un cliente de un vendedor a otro mueve **cartera y comisión**. En PVenta
+solo lo hace un administrador y **queda registrado** — si la anotación no se puede guardar, el cambio no
+se aplica. Post corto, tono "detalle que nadie piensa hasta que pasa". Bueno para rotar en 2-3 semanas.
+
+---
+
+# 🌱 CAMPAÑA GO GREEN — Semana 1 (redactada 9-ago-2026)
+
+Plan completo en `marketing/campana-go-green.md`. Pilar: **reflexión**. Es el lanzamiento de la idea madre.
+
+## 🌱 Sem 1 · "Digitalizar también es conservar" — IMAGEN 1080×1350
+✅ **GRÁFICA LISTA:** `gogreen-1.png` — fuente `post-graphics-src/gogreen-1-lanzamiento.html`.
+**Color:** verde profundo (`#064e3b → #047857`), acento menta `#6ee7b7`.
+
+⚠️ **SIN CTA de venta, a propósito.** Es post de reflexión: pide pensar, no comprar. La conversión de
+esta campaña vive en la Semana 6 (referido). Meterle "DM MES GRATIS" aquí lo convierte en otro anuncio
+y le quita lo único que lo hace funcionar. Solo van hashtag y sitio.
+
+⚠️ **Sin cifras.** La pregunta se deja abierta al lector — no damos un número nuestro. Cualquier dato de
+huella/CO₂/árboles sin fuente citable mata la campaña.
+
+**Caption ES:**
+```
+🌱 Digitalizar también es conservar.
+
+No hay que cambiar nada. Si tu negocio ya factura electrónico, ya lo está haciendo:
+
+📄 Una factura que no se imprime.
+🗂️ Un expediente que no va a una carpeta.
+🛣️ Un viaje que nadie tuvo que hacer.
+
+Nadie compra un sistema de gestión para cuidar el planeta. Pero ordenar tu negocio y dejar una huella más ligera terminan siendo la misma cosa.
+
+¿Cuánto papel dejó de imprimir tu negocio este año? 👇
+
+#DigitalEsVerde #MenosPapelMásPlaneta #NegocioVerde #GoGreenRD #SostenibilidadRD #XoulTec #PymesRD #RepublicaDominicana #SoftwareEmpresarial #SeaCualSeaTuNegocio
+```
+
+**Caption EN:**
+```
+🌱 Going digital is going green.
+
+Nothing to change. If your business already invoices electronically, you're already doing it:
+
+📄 An invoice that never gets printed.
+🗂️ A file that never goes into a folder.
+🛣️ A trip nobody had to make.
+
+Nobody buys business software to save the planet. But running a tidy operation and leaving a lighter footprint turn out to be the same thing.
+
+How much paper did your business stop printing this year? 👇
+
+#GoingGreen #GoPaperless #GreenBusiness #Sustainability #XoulTec #SmallBusiness #BusinessSoftware
+```
+
+**Nota de moderación:** la pregunta final invita a responder. Los comentarios que lleguen son
+**positivos/guionados** → se responden con el banco. Si alguien acusa greenwashing, **escalar a Rubén**
+(es crítica, va por la regla de negativos) — y la respuesta honesta existe: no vendemos compensaciones,
+solo señalamos una consecuencia directa del producto.
+
+---
+
+## 🌱 Serie "antes/hoy" COMPLETA — **CARRUSEL de 14 láminas** 1080×1350
+
+> ✅ **APROBADO (Rubén, 12-ago-2026).** Pidió sacar la serie completa de una vez. Se resolvió como
+> **un solo carrusel** en vez de 7 posts seguidos: así sale entera y sigue contando como **1 post
+> verde**, sin romper la regla de dosis de `campana-go-green.md:70` (1 dedicado por semana; el motivo
+> escrito ahí es que una cuenta que solo habla de verde deja de ser creíble como empresa de software).
+
+**Orden del carrusel (14):**
+`gogreen-ah-portada.png` → `ah-2-1` `ah-2-2` → `ah-3-1` `ah-3-2` → `ah-4-1` `ah-4-2` →
+`ah-5-1` `ah-5-2` → `ah-6-1` `ah-6-2` → `ah-7-1` `ah-7-2` → `gogreen-ah-cierre.png`
+
+**Portada y cierre son nuevas** (12-ago): `gogreen-antes-hoy.html?slide=portada|cierre`. Existen solo
+para el carrusel largo — entrar en frío a "el expediente en carpeta" y terminar en seco no se lee como
+serie. No van en las entregas sueltas.
+
+⚠️ **La entrega 1 (talonario → e-CF) NO va**: ya se publicó el 10-ago (`Db3PC-ljq7e`). Por eso el
+carrusel dice **seis** documentos, no siete.
+
+⚠️ **Sin CTA de venta, a propósito** — es post de reflexión, misma regla que la Sem 1. La conversión
+de la campaña vive en la Sem 6.
+
+**Caption ES:**
+```
+🌱 Lo que tu negocio ya dejó de imprimir.
+
+No hubo que cambiar nada. Si ya trabajas digital, esto ya te está pasando: el expediente del paciente, el volante del banco, el 606/607, el recibo escrito a mano, el estado de cuenta que se ensobraba, el pedido que se anotaba en la calle.
+
+Ninguno se dejó de hacer. Solo dejaron de imprimirse.
+
+¿Cuál de estos todavía se imprime en el tuyo? 👇
+
+#DigitalEsVerde #MenosPapelMásPlaneta #NegocioVerde #GoGreenRD #SostenibilidadRD #XoulTec #PymesRD #RepublicaDominicana #SoftwareEmpresarial #SeaCualSeaTuNegocio
+```
+
+**Caption EN:**
+```
+🌱 What your business already stopped printing.
+
+Nothing had to change. If you already work digitally, it's already happening: the patient chart, the bank deposit slip, the tax report, the handwritten receipt, the statement that used to go in an envelope, the order written down out on the route.
+
+None of them stopped being done. They just stopped being printed.
+
+Which of these still gets printed at yours? 👇
+
+#GoingGreen #GoPaperless #GreenBusiness #Sustainability #XoulTec #SmallBusiness #BusinessSoftware
+```
+
+**Nota de moderación:** la pregunta final invita a responder — mismos criterios que la Sem 1. Positivos
+y guionados se responden con el banco; una acusación de greenwashing **se escala a Rubén**.
+
+---
+
+## 🌱 Sem 6 · "Recomienda un negocio" — IMAGEN 1080×1350 (cierre + conversión)
+✅ **GRÁFICA LISTA:** `gogreen-6.png` — fuente `post-graphics-src/gogreen-6-referido.html`.
+
+**Mecanismo real, verificado en el código (no inventar otro):**
+- El enlace de referido es `xoultec.com/r?t=<RNC-de-la-empresa>&u=<usuario>` — **lleva quién refirió**.
+- Se comparte como **enlace o QR desde la app móvil de PVenta**: `/m/referir` → "Referir cliente"
+  (también desde la consola del Agente de Marketing). Además viaja embebido en facturas, cotizaciones,
+  estados de cuenta y recordatorios que el cliente envía, y en el footer de los correos de PVenta.
+- Al provisionarse la empresa referida se acredita una **"referral star"** al que la trajo
+  (tabla `referrals` del master — `apps/api/cmd/provision/main.go`).
+
+⚠️ **NO se promete una recompensa concreta, a propósito.** En el repo el programa se describe como
+"se gana por cada empresa referida que se suma", pero **no encontré monto, porcentaje ni premio
+documentado**. Publicar una cifra inventada en un post es crear una obligación con clientes. Si existe
+una recompensa definida, Rubén la pone y se ajusta la lámina 3 y el caption.
+
+⚠️ **Mandar a `xoultec.com/r` pelado pierde la atribución** (sin `?t=` ni `?u=` nadie queda acreditado).
+Por eso el post le dice al cliente que saque **su** enlace de la app, y el `/r` del pie es solo para
+quien llega sin referidor.
+
+**Caption ES:**
+```
+🌱 Ya digitalizaste tu negocio. El siguiente lo digitaliza tu recomendación.
+
+Toda esta campaña se resume en algo simple: cada empresa que deja el papel es papel que nadie vuelve a imprimir. Y eso no crece con publicidad — crece cuando alguien que ya lo vive se lo cuenta a otro.
+
+Si eres cliente, tu enlace de referido está en la app 👇
+1️⃣ Abre "Referir cliente" en PVenta móvil
+2️⃣ Compártelo por WhatsApp o muéstrale el QR
+3️⃣ Si esa empresa entra, queda acreditada a ti
+
+¿Todavía no eres cliente y te recomendaron? Escríbenos por DM o al WhatsApp (809) 252-4007 y te atendemos.
+
+¿Conoces un negocio que todavía lo imprime todo? Etiquétalo o mándale esto. 👇
+
+#DigitalEsVerde #MenosPapelMásPlaneta #NegocioVerde #GoGreenRD #Referidos #XoulTec #PVenta #PymesRD #RepublicaDominicana #SeaCualSeaTuNegocio
+```
+
+**Caption EN:**
+```
+🌱 You already went digital. Your recommendation is what takes the next business there.
+
+This whole campaign comes down to something simple: every business that drops paper is paper nobody prints again. And that doesn't grow through ads — it grows when someone who already lives it tells someone else.
+
+If you're a client, your referral link is in the app 👇
+1️⃣ Open "Refer a client" in the PVenta mobile app
+2️⃣ Share it on WhatsApp or show them the QR
+3️⃣ If that company signs up, it's credited to you
+
+Not a client yet and someone referred you? DM us or WhatsApp +1 (913) 413-6583.
+
+Know a business that still prints everything? Tag them or send this their way. 👇
+
+#GoingGreen #GoPaperless #Referrals #GreenBusiness #XoulTec #PVenta #SmallBusiness
+```
+
+**Nota de moderación:** este post pide etiquetar. Los etiquetados son **prospectos que llegaron por
+recomendación** — el canal que sí convierte. Cada etiqueta se registra en `agenda-leads.md` y se escala
+a Rubén; **no se les manda DM en frío**, se espera a que ellos escriban o que el que etiquetó los
+presente.
+
+---
+
+## ✅ PUBLICADO — 2026-08-09 · Go Green Sem 1
+`gogreen-1.png` publicado en @xoultec el **domingo 9-ago-2026 ~19:15** (10 posts en la cuenta).
+Rompe 24 días de silencio: el post anterior era la promo eDental del 16-jul.
+Recorte **4:5**, filtro Original, caption ES (602/2.200 car.), sin ubicación ni colaboradores.
+
+### 🔧 EL UPLOAD SÍ SE AUTOMATIZA (corrige el HANDOFF)
+La nota de que "el upload de imágenes locales no se puede automatizar → Rubén arrastra el PNG" **ya no
+aplica**. El PNG se sube directo al `<input type="file">` del formulario.
+
+**La trampa que costaba el bloqueo:** el botón **"Select from computer" abre el selector de archivos de
+Windows**, que el navegador no puede ver ni cerrar — y ahí se congela el renderizador (pasó 2 veces el
+9-ago, con timeouts de screenshot). **NUNCA hacer clic en ese botón.** Localizar el input con `find`
+y subirle el archivo directamente.
+
+### ✅ "Schedule content" DISPONIBLE en la cuenta
+Interruptor en el mismo paso del caption, junto a Ubicación y Colaboradores. **Se puede programar la
+semana completa desde instagram.com**, sin Business Suite (que además está deslogueado).
+
+### Receta que funciona
+1. `instagram.com` → esperar a que el feed cargue **del todo** (las coordenadas se corren si no).
+2. Menú **Create → Post** (clic por coordenada tras screenshot fresco; `find` no ve el menú).
+3. `find` "file input" → `file_upload` con la ruta del PNG.
+4. **Crop → 4:5** (por defecto recorta a 1:1 y decapita el diseño).
+5. Next → Next → pegar caption → aquí está "Schedule content".
+6. Share (o programar).
+
+---
+
+## ✅ PUBLICADO — 2026-08-11 · Capacidad de ruta
+| Pieza | IG | Estado WhatsApp |
+|---|---|---|
+| `ruta-1..3` (capacidad de ruta), carrusel 3 | `Db53kpwDiaY` · 10:0x AM | ✅ 10:07 AM |
+
+**Se publicó ruta y NO la entrega 2 de antes/hoy, a propósito.** La entrega 1 salió el 10-ago;
+sacar la 2 hoy habría puesto dos posts verdes en dos días, contra la regla de dosis de
+`campana-go-green.md:70` (**1 post verde dedicado por semana, máximo**, para que la cuenta no deje
+de parecer una empresa de software). El orden de la cola sigue siendo 1→7; lo que se respeta es la
+**cadencia**, no el turno. Próxima entrega verde: ~17-ago.
+
+⚠️ **Dos ajustes al publicar, ambos por la regla de "nada con oferta":**
+1. **Solo láminas 1–3.** La 4 lleva `📲 DM: "MES GRATIS"`.
+2. **Se le quitó al caption la línea `📲 DM "MES GRATIS" o WhatsApp (809) 252-4007.`** El resto va
+   idéntico al guion de la sección 🅲.
+
+🔧 **`ruta-4.png` re-renderizada SIN el botón DM (12-ago-2026, orden de Rubén).** Se le dio a
+`ruta-carousel.html` el mismo parámetro que ya tenía `comisiones.html`: sin oferta por defecto,
+`?cta=1` para recuperarla. ⚠️ **Pero el carrusel de ruta ya salió cerrado en la lámina 3**, así que
+la 4 ya no puede unírsele: hoy es una **pieza suelta**, y al ser verde compite por el turno semanal
+de la campaña. No sacarla la misma semana que el carrusel "antes/hoy".
+
+🔧 **`ruta-3.png` se volvió a renderizar.** Las tres láminas terminaban en "Desliza →", así que sin
+la 4 la última invitaba a deslizar hacia nada. Se agregó el parámetro `&end=1` a
+`ruta-carousel.html`, que quita el "Desliza →" de la lámina que cierra el carrusel.
+
+---
+
+## ✅ PUBLICADO — 2026-08-10 · Sector farma
+| Pieza | IG | Estado WhatsApp |
+|---|---|---|
+| antes/hoy entrega 1 (talonario → e-CF), carrusel 2 | `Db3PC-ljq7e` · 9:30 AM | ✅ |
+| `lote-vence.png` (el lote que vence primero) | `Db4UtpnjkJW` · 7:35 PM | ✅ 7:44 PM |
+
+Dos posts el mismo día (el segundo a pedido de Rubén), rompiendo la regla de uno diario.
+`lote-vence.png` es la primera pieza **sectorial** de la cuenta: le habla solo a distribuidoras
+farma/médico, no a "cualquier negocio". Plan en `marketing/campana-sector-farma.md`.
+
+⚠️ **Su función real no es el feed:** es la apertura de las 16 conversaciones de
+`marketing/lista-16-farma-referidos.md`. Publicarla es la parte fácil y la que menos rinde.
