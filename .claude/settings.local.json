@@ -73,7 +73,78 @@
       "Bash(powershell -NoProfile -Command 'Get-PSDrive -PSProvider FileSystem | Select-Object Name,@{N='\\\\''FreeGB'\\\\'';E={[math]::Round\\($_.Free/1GB,1\\)}},Root | Format-Table -AutoSize')",
       "Bash(gh auth *)",
       "Read(//c//**)",
-      "Bash(ssh -T -o StrictHostKeyChecking=no -o BatchMode=yes git@github.com)"
+      "Bash(ssh -T -o StrictHostKeyChecking=no -o BatchMode=yes git@github.com)",
+      "PowerShell(powercfg *)",
+      "Bash(py --version)",
+      "Bash(python *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(ffmpeg -version)",
+      "Read(//r/4Claude/Repositorios/**)",
+      "Read(//r/4Claude/**)",
+      "PowerShell(Get-ScheduledTask *)",
+      "Bash(mkdir -p marketing/email-banner-src)",
+      "Bash(cp __TRACKED_VAR__/banner_es.html marketing/email-banner-src/banner_es.html)",
+      "Bash(cp __TRACKED_VAR__/banner_en.html marketing/email-banner-src/banner_en.html)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'feat\\(email\\): add PVenta email footer campaign banners \\(ES/EN\\) *)",
+      "Bash(git commit *)",
+      "Bash(git stash *)",
+      "Bash(cp __TRACKED_VAR__/logo-xoultec-1.5in.png marketing/logo-xoultec-1.5x1.5-300dpi.png)",
+      "Bash(cp __TRACKED_VAR__/logo_hires.png marketing/logo-xoultec-square-1350px.png)",
+      "PowerShell(Resolve-DnsName *)",
+      "Bash(fly secrets *)",
+      "Bash(flyctl secrets *)",
+      "PowerShell(flyctl auth *)",
+      "Bash(gh api *)",
+      "Bash(echo \"=== tsc exit: $? ===\")",
+      "PowerShell(try { Get-NetTCPConnection -LocalPort 8899 -ErrorAction Stop | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"servidor 8899 detenido\" } catch { \"no había servidor en 8899\" })",
+      "Bash(grep -o -i -E \"\\\\\"display\\\\\":\\\\\"[^\\\\\"]{0,300}\" history.jsonl)",
+      "PowerShell(foreach \\($n in @\\('XoulTec - Monitor campana','XoulTec - Resumen campana'\\)\\) { $t = Get-ScheduledTask -TaskName $n; $i = Get-ScheduledTaskInfo -TaskName $n; \"=== $n ===\"; \"State: $\\($t.State\\)\"; \"LastRunTime : $\\($i.LastRunTime\\)\"; \"LastResult  : $\\($i.LastTaskResult\\)\"; \"NextRunTime : $\\($i.NextRunTime\\)\"; \"NumMissed   : $\\($i.NumberOfMissedRuns\\)\"; \"Triggers:\"; $t.Triggers | ForEach-Object { $_ | Format-List | Out-String -Width 200 }; \"Actions:\"; $t.Actions | ForEach-Object { \"  Exec: $\\($_.Execute\\)\"; \"  Args: $\\($_.Arguments\\)\"; \"  Dir : $\\($_.WorkingDirectory\\)\" }; \"\" })",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\comisiones.png\" --window-size=1080,1350 --virtual-time-budget=4000 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/comisiones.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\gogreen-1.png\" --window-size=1080,1350 --virtual-time-budget=4000 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/gogreen-1-lanzamiento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\gps-tv-preview.png\" --window-size=1080,1920 --virtual-time-budget=3000 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/gps-tv-simulado.html?static=1\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\gogreen-6.png\" --window-size=1080,1350 --virtual-time-budget=3500 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/gogreen-6-referido.html\")",
+      "Bash(claude --version)",
+      "Bash(timeout 90 claude mcp list)",
+      "Read(//c/Users/Ruben/**)",
+      "Bash(timeout 180 claude -p \"Responde SOLO con una de estas dos palabras: SI \\(si tienes disponible alguna herramienta cuyo nombre empiece con mcp__claude-in-chrome__\\) o NO \\(si no la tienes\\). Nada mas.\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\lote-vence.png\" --window-size=1080,1350 --virtual-time-budget=3500 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/lote-vence.html\")",
+      "Bash(awk -F'|' 'NR>1 && $5==\"A-mayorista\"{n++; if\\($3!=\"\"\\)nc++} END{print \"mayoristas:\",n,\"con nombre comercial:\",nc}' CENSO-CRUZADO-CLIENTES.csv)",
+      "Bash(awk -F'|' 'NR>1 && $5==\"A-mayorista\"{print $4}' CENSO-CRUZADO-CLIENTES.csv)",
+      "Bash(awk -F'|' 'NR>1 && $5==\"A-mayorista\"{print substr\\($1,1,3\\)}' CENSO-CRUZADO-CLIENTES.csv)",
+      "PowerShell(Get-Date *)",
+      "PowerShell(node C:\\\\Data\\\\4Claude\\\\Repositorios\\\\Apify\\\\monitor.js --latido-ig \"12-ago tarde: 4 bandejas vacias \\(Primary/General/Requests/Hidden\\), 0 DMs. Nuevo seguidor @amand_atofel \\(tutoring INBDE/TOEFL, no es prospecto\\) - saltado. Like de @lizairajimenez al carrusel de ruta. Nada que responder. Sin publicar: ventana de manana ya paso.\")",
+      "PowerShell(node C:\\\\Data\\\\4Claude\\\\Repositorios\\\\Apify\\\\monitor.js --nota \"IG @xoultec 12-ago 7pm: revisado, todo limpio \\(0 DMs, 0 comentarios\\). Hoy no salio nada: publicar es solo en la ventana de la manana y paso vacia. Ojo con lo que viene: de aqui al ~17-ago la cola aprobada y SIN oferta esta vacia. Lo unico que queda aprobado es la serie verde antes/hoy \\(entregas 2-7\\) y la regla de 1 post verde por semana la manda al 17. Todo lo demas en stock lleva CTA de venta: comisiones.png, ruta-4, gogreen-6. O sea: 4 dias sin publicar salvo que me digas algo. Opciones, tu eliges: \\(a\\) sacar las 7 entregas verdes seguidas -es lo que te pregunte ayer-, \\(b\\) autorizarme comisiones.png tal cual con su CTA, o \\(c\\) dejarlo asi y retomar el 17. Tambien esta pendiente que grabes el TV simulado del GPS para el reel.\")",
+      "Bash(gh pr *)",
+      "Skill(update-config)",
+      "Bash(jq --version)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\ruta-4.png\" --window-size=1080,1350 --virtual-time-budget=3500 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/ruta-carousel.html?s=4\")",
+      "PowerShell(Start-Process \"chrome.exe\" -ArgumentList '--profile-directory=\"Profile 1\"'; Start-Sleep -Seconds 6; \"chrome lanzado \\(Profile 1 - Ruben\\)\")"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Data/4Claude/Repositorios/xoultec-website/.claude/hooks/recordar-monitoreo-ig.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Data/4Claude/Repositorios/xoultec-website/.claude/hooks/recordar-monitoreo-ig.js\"",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }

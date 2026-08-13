@@ -6,3 +6,9 @@ out
 *.tsbuildinfo
 next-env.d.ts
 Thumbs.db
+
+# Datos locales de clientes/tenants (NO subir — RNC, exports, listas de trabajo)
+data/
+
+# Bandera del monitoreo de IG: dice si ESTA maquina lleva el loop (ver marketing/HANDOFF.md §4)
+.claude/ig-loop.on

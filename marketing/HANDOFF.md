@@ -52,6 +52,41 @@ El monitoreo es un "loop": el asistente se despierta cada cierto tiempo, revisa 
 1. Google Chrome con la **extensión de Claude (claude-in-chrome)** instalada y activa.
 2. Chrome **logueado en la cuenta de Instagram / Meta Business Suite de XoulTec** (Rubén debe iniciar sesión aquí una vez; el asistente NO ingresa contraseñas).
 
+### ⚠️ El loop es frágil por diseño — y ya murió una vez
+El loop **no es una tarea programada**: vive en la memoria de una sesión de Claude Code.
+Si se cierra la ventana, se hace `/clear` o se reinicia Claude, **el loop muere y no avisa**.
+Que la PC esté encendida no lo sostiene: lo que tiene que seguir viva es la *sesión*.
+
+Pasó el **20-jul-2026 ~12:05pm**: el último latido se programó y ahí se cortó.
+**Nadie lo notó hasta el 9-ago** — 20 días sin revisar DMs.
+
+**Hombre muerto (instalado 9-ago-2026):** la tarea programada de Windows
+`XoulTec - Monitor campana` (`C:\Data\4Claude\Repositorios\Apify\monitor.js`, cada 20 min)
+vigila el latido del monitoreo de IG y **avisa por Telegram si pasan >24h sin chequeo**,
+recordando cada 6h mientras siga mudo. Es un centinela de verdad: vive fuera de la sesión
+que vigila, igual que `pventa-sentinel` en Fly.
+
+> **Obligación del asistente:** después de CADA chequeo real de @xoultec, sellar el latido:
+> ```
+> node C:\Data\4Claude\Repositorios\Apify\monitor.js --latido-ig "resumen corto de lo visto"
+> ```
+> Si no lo sellas, a las 24h Rubén recibe una alarma falsa. Si lo sellas sin haber
+> chequeado, apagas el único centinela que hay. Sellar = "lo revisé de verdad".
+
+**Recordatorio dentro de la sesión (instalado 12-ago-2026):** el hombre muerto tarda 24h en
+gritar; el loop muere en el instante en que se hace `/clear` o `/compact`. Para cerrar ese
+hueco hay un hook en `.claude/settings.local.json` (`SessionStart` + `PostCompact`) que corre
+`.claude/hooks/recordar-monitoreo-ig.js`: si existe la bandera **`.claude/ig-loop.on`**
+(local, gitignored), reinyecta las instrucciones del loop + la edad de los dos latidos, y le
+muestra a Rubén un aviso de que hay que rearmarlo. Sin la bandera el hook no dice nada, así
+que es inofensivo en máquinas que no llevan el monitoreo.
+- **Prender el monitoreo en una PC:** crear `.claude/ig-loop.on` (el contenido son las
+  instrucciones que se reinyectan) y lanzar el loop.
+- **Apagarlo:** borrar `.claude/ig-loop.on`.
+- Ojo: el hook trae la ruta absoluta de esta PC; en otra máquina hay que ajustarla.
+- Sigue sin ser automático: tras un `/clear` el recordatorio aparece, pero el loop sólo se
+  rearma cuando Rubén escribe algo (después de `/compact` sí sigue solo).
+
 **Instrucciones del loop (lo que debe hacer el asistente al despertar):**
 > Verifica la hora. Si ya pasaron las horas de los posts (o en el chequeo diario), entra a instagram.com/xoultec, abre los posts y revisa comentarios/DMs nuevos. Si hay actividad nueva, reporta a Rubén con resumen + respuestas listas (usa `banco-respuestas.md`). Si no hay nada nuevo, no envíes reporte vacío: solo reprograma. Si Chrome NO está logueado en Instagram, avisa a Rubén. Cadencia: alrededor de 9am y 6pm, luego diario. Sigue reprogramando para mantener el monitoreo activo.
 
@@ -69,6 +104,6 @@ El monitoreo es un "loop": el asistente se despierta cada cierto tiempo, revisa 
 
 ## 6. Honestidad sobre límites (no es 100% automático)
 - La otra PC **no se configura sola** del todo: alguien debe abrir Claude ahí y pedirle que lea este handoff una vez. A partir de ahí, sí se auto-organiza.
-- El monitoreo depende de que **Chrome siga logueado**; si la sesión cae, el asistente lo avisa y hay que reabrirla.
-- El asistente solo "vive" mientras esa sesión/loop esté activa en esa PC.
+- El monitoreo depende de que **Chrome siga logueado**; si la sesión cae, el asistente lo avisa y hay que reabrirla. (Pasó: al 9-ago Chrome estaba deslogueado de IG y Rubén tuvo que entrar a mano.)
+- El asistente solo "vive" mientras esa sesión/loop esté activa en esa PC. **Esto no se arregló** — lo que se arregló es que ahora su muerte **hace ruido** (ver el hombre muerto en la sección 4).
 - El asistente **nunca publica, comenta ni envía DMs sin permiso de Rubén**.
