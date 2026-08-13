@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<!--
+  TV SIMULADO — Mapa de la Fuerza de Ventas (para el reel de IG).
+
+  ⚠️ TODO EL CONTENIDO ES INVENTADO. Empresas, vendedores, clientes y posiciones son ficticios.
+     NO grabar el TV real (gps.xoultec.com): muestra razones sociales de tenants vivos.
+  ⚠️ SIN la franja de "Espacio publicitario" — decisión de Rubén (9-ago-2026).
+  ⚠️ La silueta del mapa es ESTILIZADA, decorativa. No es cartografía.
+
+  Uso:  abrir en Chrome (ventana 1080x1920) y grabar ~20 s.
+        ?static=1  congela la rotación de la ficha, para sacar un frame fijo.
+
+  Mapa y pines viven en el MISMO viewBox (0 0 1000 560): mover la silueta no descuadra los pines.
+-->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1920px;overflow:hidden}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(circle at 50% 32%,#122036 0%,#0b1220 70%);color:#fff;position:relative}
+
+  /* ---------- encabezado ---------- */
+  .hdr{position:absolute;top:0;left:0;right:0;z-index:6;
+    padding:46px 48px 0;display:flex;align-items:flex-start;justify-content:space-between}
+  .brandrow{display:flex;align-items:center;gap:16px}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  .sim{margin-top:14px;font-size:19px;font-weight:800;letter-spacing:.16em;opacity:.34}
+  .count{text-align:right}
+  .count .n{font-size:64px;font-weight:900;line-height:1;color:#34d399}
+  .count .l{font-size:25px;opacity:.72;font-weight:600;margin-top:8px}
+
+  /* ---------- mapa ---------- */
+  .stage{position:absolute;top:430px;left:0;right:0;height:530px;z-index:2}
+  .stage svg{width:100%;height:100%}
+  .land{fill:#17293f;stroke:#2c4a6b;stroke-width:2.5;
+    filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+  .trail{fill:none;stroke:rgba(52,211,153,.55);stroke-width:2.6;stroke-dasharray:7 9;
+    stroke-linecap:round}
+  .halo{fill:none;stroke:#34d399;stroke-width:2.5;opacity:.85;
+    animation:pulse 2.6s ease-out infinite}
+  @keyframes pulse{0%{r:9;opacity:.85}100%{r:46;opacity:0}}
+  .pin{stroke-width:3.4}
+  .pin.live{stroke:#34d399}.pin.warm{stroke:#fbbf24}.pin.cold{stroke:#94a3b8}
+
+  /* ---------- ficha rotativa ---------- */
+  .card{position:absolute;left:48px;right:48px;bottom:196px;z-index:7;
+    background:rgba(12,20,34,.94);border:1px solid rgba(255,255,255,.16);
+    border-radius:30px;padding:38px 42px;box-shadow:0 24px 70px rgba(0,0,0,.65)}
+  .who{display:flex;align-items:center;gap:20px;margin-bottom:24px}
+  .dot{width:26px;height:26px;border-radius:50%;flex:none}
+  .nm{font-size:46px;font-weight:900;line-height:1.05}
+  .co{font-size:28px;opacity:.66;font-weight:600;margin-top:4px}
+  .rows{display:flex;flex-direction:column;gap:16px}
+  .r{display:flex;align-items:center;gap:18px;font-size:32px}
+  .r .k{opacity:.58;width:215px;flex:none;font-weight:600}
+  .r .v{font-weight:800}
+  .badge{display:inline-block;font-size:24px;font-weight:900;letter-spacing:.07em;
+    padding:9px 20px;border-radius:999px;background:rgba(52,211,153,.16);
+    border:1px solid rgba(52,211,153,.5);color:#34d399}
+
+  /* ---------- leyenda ---------- */
+  .legend{position:absolute;bottom:68px;left:48px;right:48px;z-index:7;
+    display:flex;gap:34px;align-items:center;font-size:25px;font-weight:600;opacity:.85}
+  .lg{display:flex;align-items:center;gap:11px}
+  .sw{width:22px;height:22px;border-radius:50%}
+  .sw.live{border:4px solid #34d399}.sw.warm{border:4px solid #fbbf24}.sw.cold{border:4px solid #94a3b8}
+  .upd{margin-left:auto;opacity:.55;font-size:23px}
+</style></head>
+<body>
+  <div class="hdr">
+    <div>
+      <div class="brandrow"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+      <div class="sim">SIMULACIÓN · DATOS FICTICIOS</div>
+    </div>
+    <div class="count"><div class="n">8</div><div class="l">vendedores en calle</div></div>
+  </div>
+
+  <div class="stage">
+    <svg viewBox="0 0 1000 598" preserveAspectRatio="xMidYMid meet">
+      <!-- Contorno y pines se dibujan por proyección desde lat/lng reales. Ver script. -->
+      <path class="land" id="land"></path>
+      <g id="trails"></g>
+      <g id="pins"></g>
+    </svg>
+  </div>
+
+  <div class="card" id="card"></div>
+
+  <div class="legend">
+    <div class="lg"><span class="sw live"></span>En vivo</div>
+    <div class="lg"><span class="sw warm"></span>Demorado</div>
+    <div class="lg"><span class="sw cold"></span>Frío</div>
+    <div class="upd">Actualizado 10:42 a.m.</div>
+  </div>
+
+  <script>
+    // ===== GEOGRAFÍA REAL, GENTE FICTICIA =====
+    // Las coordenadas de plaza salen de pventa-repo → apps/api/internal/shared/drplaces/places.go
+    // (tabla de plazas dominicanas con lat/lng). Es geografía, no dato de cliente.
+    // Empresas, vendedores y clientes visitados son INVENTADOS.
+    const PLAZAS = {
+      'SANTIAGO':                 [19.4517, -70.6970],
+      'MOCA':                     [19.3947, -70.5236],
+      'LA VEGA':                  [19.2225, -70.5294],
+      'BONAO':                    [18.9386, -70.4093],
+      'SAN FRANCISCO DE MACORIS': [19.3000, -70.2528],
+      'PUERTO PLATA':             [19.7900, -70.6883],
+      'SANTO DOMINGO':            [18.4861, -69.9312],
+      'SAN CRISTOBAL':            [18.4167, -70.1000],
+      'BANI':                     [18.2800, -70.3319],
+      'SAN PEDRO DE MACORIS':     [18.4539, -69.3086],
+      'LA ROMANA':                [18.4273, -68.9728],
+      'HIGUEY':                   [18.6153, -68.7075],
+      'AZUA':                     [18.4539, -70.7351],
+      'BARAHONA':                 [18.2085, -71.1008]
+    };
+
+    // Contorno costero de RD, en [lat, lng] reales. Simplificado a ~26 vértices.
+    const COSTA = [
+      [19.85,-71.65],[19.90,-71.28],[19.83,-70.95],[19.79,-70.69],[19.75,-70.10],
+      [19.64,-69.90],[19.38,-69.85],[19.33,-69.55],[19.29,-69.16],[19.21,-69.33],
+      [19.23,-69.61],[19.10,-69.50],[19.06,-69.39],
+      [18.98,-69.05],[18.85,-68.60],[18.68,-68.37],[18.50,-68.34],[18.40,-68.60],
+      [18.43,-68.97],[18.45,-69.31],[18.49,-69.93],[18.28,-70.33],[18.25,-70.73],
+      [18.30,-71.02],[18.21,-71.10],[17.95,-71.32],[18.04,-71.74],[18.49,-71.85],
+      [18.88,-71.70],[19.55,-71.71]
+    ];
+
+    // Proyección equirectangular con corrección por latitud (lon comprimido por cos φ).
+    const LON0 = -72.0, LON1 = -68.2, LAT0 = 17.85, LAT1 = 20.0, W = 1000, H = 598;
+    const project = ([lat, lng]) => [
+      (lng - LON0) / (LON1 - LON0) * W,
+      (LAT1 - lat) / (LAT1 - LAT0) * H
+    ];
+    const at = (plaza) => project(PLAZAS[plaza]);
+
+    // ---- vendedores: plaza real, persona inventada ----
+    const COLORS = { c1:'#3b82f6', c2:'#ec4899', c3:'#a3e635' };
+    const V = [
+      { nm:'Ramón Peña',     co:'Distribuidora del Norte', c:'c1', st:'live', pl:'SANTIAGO',                 cli:'Farmacia La Altagracia', hace:'hace 3 min',  vis:7, ver:true },
+      { nm:'Yamile Rosario', co:'Distribuidora del Norte', c:'c1', st:'live', pl:'LA VEGA',                  cli:'Minimarket El Progreso', hace:'hace 8 min',  vis:5, ver:true },
+      { nm:'Elvis Grullón',  co:'Suplidora Cibao',         c:'c2', st:'live', pl:'SANTO DOMINGO',            cli:'Ferretería Los Robles',  hace:'hace 2 min',  vis:9, ver:true },
+      { nm:'Carla Betances', co:'Suplidora Cibao',         c:'c2', st:'warm', pl:'SAN PEDRO DE MACORIS',     cli:'Salón Mía',              hace:'hace 47 min', vis:4, ver:true },
+      { nm:'Iván Mercedes',  co:'Importadora Caribe',      c:'c3', st:'live', pl:'MOCA',                     cli:'Repuestos JM',           hace:'hace 6 min',  vis:6, ver:true },
+      { nm:'Noelia Cabrera', co:'Importadora Caribe',      c:'c3', st:'live', pl:'HIGUEY',                   cli:'Colmadón Doña Fela',     hace:'hace 4 min',  vis:8, ver:true },
+      { nm:'Héctor Ureña',   co:'Distribuidora del Norte', c:'c1', st:'warm', pl:'SAN CRISTOBAL',            cli:'Panadería El Trigal',    hace:'hace 62 min', vis:3, ver:true },
+      { nm:'Sandra Polanco', co:'Suplidora Cibao',         c:'c2', st:'cold', pl:'PUERTO PLATA',             cli:'—',                      hace:'hace 3 h',    vis:1, ver:false }
+    ];
+
+    // Recorridos del día: corredores reales del país.
+    const RUTAS = [
+      ['SANTIAGO','MOCA','LA VEGA','BONAO'],
+      ['SANTO DOMINGO','SAN CRISTOBAL','BANI']
+    ];
+
+    const NS = 'http://www.w3.org/2000/svg';
+
+    // contorno
+    document.getElementById('land').setAttribute('d',
+      COSTA.map((p, i) => (i ? 'L' : 'M') + project(p).map(n => n.toFixed(1)).join(',')).join(' ') + ' Z');
+
+    // rutas
+    const tg = document.getElementById('trails');
+    RUTAS.forEach(r => {
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('class', 'trail');
+      p.setAttribute('d', r.map((pl, i) => (i ? 'L' : 'M') + at(pl).map(n => n.toFixed(1)).join(',')).join(' '));
+      tg.appendChild(p);
+    });
+
+    // pines
+    const g = document.getElementById('pins');
+    V.forEach((v, i) => {
+      const [x, y] = at(v.pl);
+      if (v.st === 'live') {
+        const h = document.createElementNS(NS, 'circle');
+        h.setAttribute('class', 'halo');
+        h.setAttribute('cx', x); h.setAttribute('cy', y); h.setAttribute('r', 9);
+        h.style.animationDelay = (i * 0.34) + 's';
+        g.appendChild(h);
+      }
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('class', 'pin ' + v.st);
+      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 9);
+      c.setAttribute('fill', COLORS[v.c]);
+      g.appendChild(c);
+    });
+
+    const card = document.getElementById('card');
+    function render(i) {
+      const v = V[i];
+      card.innerHTML = `
+        <div class="who">
+          <span class="dot" style="background:${COLORS[v.c]}"></span>
+          <div><div class="nm">${v.nm}</div><div class="co">${v.co}</div></div>
+        </div>
+        <div class="rows">
+          <div class="r"><span class="k">Última señal</span><span class="v">${v.hace}</span></div>
+          <div class="r"><span class="k">Visitando</span><span class="v">${v.cli}</span></div>
+          <div class="r"><span class="k">Visitas hoy</span><span class="v">${v.vis}</span></div>
+          <div class="r"><span class="k">Ubicación</span>
+            ${v.ver ? '<span class="badge">✓ COINCIDE CON LO FACTURADO</span>'
+                    : '<span class="v" style="opacity:.55">sin actividad</span>'}</div>
+        </div>`;
+    }
+    render(0);
+    if (new URLSearchParams(location.search).get('static') !== '1') {
+      let i = 0;
+      setInterval(() => { i = (i + 1) % V.length; render(i); }, 2600);
+    }
+  </script>
+</body></html>

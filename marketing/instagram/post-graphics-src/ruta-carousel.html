@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:100vw;height:100vh;overflow:hidden;color:#fff;
+    background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 100%);
+    display:flex;flex-direction:column;justify-content:center;padding:0 90px;position:relative}
+  .top{position:absolute;top:60px;left:90px;display:flex;align-items:center;gap:16px}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  .prod{position:absolute;top:70px;right:90px;font-size:34px;font-weight:800;opacity:.9}
+  .hook-icon{font-size:120px;margin-bottom:24px}
+  h1{font-size:78px;font-weight:900;line-height:1.06;margin-bottom:26px}
+  h1.sm{font-size:64px;line-height:1.1}
+  h1 .am{color:#f59e0b}
+  h1 .g{color:#10b981}
+  .sub{font-size:42px;line-height:1.32;opacity:.9;font-weight:500}
+  .kicker{font-size:36px;font-weight:800;color:#f59e0b;letter-spacing:.05em;
+    text-transform:uppercase;margin-bottom:20px}
+  .rows{display:flex;flex-direction:column;gap:22px;margin-top:8px}
+  .row{display:flex;align-items:center;gap:24px;background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:26px 30px}
+  .row .em{font-size:52px;flex:none}
+  .row .tx{font-size:38px;font-weight:600;line-height:1.2}
+  .pair{display:flex;gap:30px;margin-bottom:30px}
+  .box{flex:1;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);
+    border-radius:26px;padding:38px 20px;text-align:center}
+  .box .n{font-size:150px;font-weight:900;color:#f59e0b;line-height:.92}
+  .box .l{font-size:32px;font-weight:600;opacity:.88;margin-top:10px;line-height:1.25}
+  .note{font-size:27px;opacity:.6;font-weight:500;margin-top:20px;line-height:1.3}
+  .swipe{position:absolute;bottom:70px;right:90px;font-size:34px;opacity:.8;font-weight:700}
+  .foot{position:absolute;bottom:70px;left:90px;right:300px;font-size:29px;opacity:.75}
+  .cta{display:inline-block;background:#f59e0b;color:#0f172a;font-weight:900;font-size:46px;
+    padding:22px 46px;border-radius:999px;margin-top:26px}
+  body.green{background:linear-gradient(160deg,#064e3b 0%,#065f46 55%,#047857 100%)}
+  h1 .lg{color:#6ee7b7}
+  .leaf{position:absolute;top:64px;right:86px;font-size:70px;opacity:.9}
+</style></head>
+<body>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div id="prod" class="prod">PVenta</div>
+  <div id="content"></div>
+  <script>
+    const s = new URLSearchParams(location.search).get('s') || '1';
+    const slides = {
+      '1': `<div class="hook-icon">🚚</div>
+            <h1>¿Cuántos clientes<br>le <span class="am">caben</span> a tu vendedor<br>en un día?</h1>
+            <div class="sub">Si no lo sabes, repartir la cartera<br>es adivinar. 👇</div>
+            <div class="swipe">Desliza →</div>`,
+      '2': `<div class="kicker">Cierre semanal · viernes 7 PM</div>
+            <h1>El sistema<br>lo <span class="am">mide</span> solo</h1>
+            <div class="rows">
+              <div class="row"><div class="em">📍</div><div class="tx">Cuántas paradas hace al día</div></div>
+              <div class="row"><div class="em">⏱️</div><div class="tx">Cuánto dura con cada cliente</div></div>
+              <div class="row"><div class="em">🛣️</div><div class="tx">Cuánto tarda en llegar al próximo</div></div>
+              <div class="row"><div class="em">🎯</div><div class="tx">Cuántos clientes le caben en la jornada</div></div>
+            </div>
+            <div class="swipe">Desliza →</div>`,
+      '3': `<div class="kicker">Dos vendedores, misma jornada</div>
+            <div class="pair">
+              <div class="box"><div class="n">13</div><div class="l">clientes al día<br>ruta compacta</div></div>
+              <div class="box"><div class="n">4</div><div class="l">clientes al día<br>ruta dispersa</div></div>
+            </div>
+            <h1 class="sm">La misma cartera rinde<br><span class="am">el triple</span> según a quién<br>se la des.</h1>
+            <div class="note">Ejemplo ilustrativo del tipo de brecha que revela el informe.</div>
+            <div class="swipe">Desliza →</div>`,
+      '4': `<div class="leaf">🌱</div>
+            <div class="hook-icon">🌱</div>
+            <h1>Una ruta bien<br>repartida es <span class="lg">menos<br>kilómetros</span></h1>
+            <div class="sub">Menos vueltas, menos combustible.<br>Ordenar tu operación también<br>aligera la huella.</div>
+            <div class="cta" id="cta">📲 DM: "MES GRATIS"</div>
+            <div class="foot">🌱 WhatsApp (809) 252-4007 · xoultec.com</div>`
+    };
+    document.getElementById('content').innerHTML = slides[s] || slides['1'];
+    if (s === '4') { document.body.classList.add('green'); document.getElementById('prod').style.display='none'; }
+    // &end=1 → esta lámina cierra el carrusel: quitar el "Desliza →" que invitaría a nada.
+    // Se usa al publicar 1..3 sin la 4 (la 4 lleva oferta y no se publica sola).
+    if (new URLSearchParams(location.search).get('end')) {
+      const sw = document.querySelector('.swipe'); if (sw) sw.remove();
+    }
+    // Sin oferta por defecto (Rubén, 12-ago-2026), mismo criterio que comisiones.html:
+    // el botón de MES GRATIS es justamente lo que dejó a la lámina 4 sin publicar el 11-ago.
+    // Usar ?cta=1 solo si alguna vez se quiere la versión con oferta.
+    if (!new URLSearchParams(location.search).get('cta')) {
+      const c = document.getElementById('cta'); if (c) c.remove();
+    }
+  </script>
+</body></html>
