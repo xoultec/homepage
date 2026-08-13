@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<!--
+  Tarjetas del CATÁLOGO DE WHATSAPP BUSINESS — una por producto.
+  Uso:  catalogo-wa.html?p=<slug>     slugs: los mismos de src/lib/products.ts
+
+  Por qué existe: el catálogo de WhatsApp estaba desfasado (12-ago-2026) — tenía 5 ítems
+  genéricos y faltaban 8 de los 9 productos. No hay imágenes de producto en public/, así
+  que las tarjetas se generan aquí, con el mismo pipeline headless de las gráficas de IG.
+
+  Cuadrado 1080×1080: es el formato que WhatsApp recorta sin decapitar el diseño.
+  Nombre, descripción y color salen de products.ts — si cambian allá, cambian aquí.
+-->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:1080px;height:1080px;overflow:hidden;position:relative;color:#fff;
+    background:linear-gradient(155deg,#0f172a 0%,#1e3a5f 100%);
+    display:flex;flex-direction:column;justify-content:center;padding:110px 92px}
+
+  /* El color del producto entra como halo, no como fondo: así las 9 tarjetas
+     se ven de la misma familia y aun así cada producto se distingue. */
+  .halo{position:absolute;width:1000px;height:1000px;border-radius:50%;
+    bottom:-380px;right:-320px;opacity:.5}
+
+  .top{position:absolute;top:66px;left:92px;display:flex;align-items:center;gap:16px;z-index:2}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  .market{position:absolute;top:78px;right:92px;font-size:27px;font-weight:700;
+    opacity:.7;letter-spacing:.04em;z-index:2}
+
+  .wrap{position:relative;z-index:2}
+  .icon{font-size:150px;line-height:1;margin-bottom:34px;display:block}
+  h1{font-size:96px;font-weight:900;line-height:1.02;margin-bottom:10px}
+  .accent{font-size:52px;font-weight:800;margin-bottom:26px}
+  .desc{font-size:38px;font-weight:500;line-height:1.32;opacity:.92;max-width:880px}
+
+  .foot{position:absolute;bottom:78px;left:92px;right:92px;display:flex;
+    justify-content:space-between;align-items:center;font-size:29px;z-index:2;opacity:.8}
+  .foot .site{font-weight:700}
+</style></head>
+<body>
+  <div class="halo" id="halo"></div>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div class="market" id="market"></div>
+  <div class="wrap">
+    <span class="icon" id="icon"></span>
+    <h1 id="nombre"></h1>
+    <div class="accent" id="accent"></div>
+    <div class="desc" id="desc"></div>
+  </div>
+  <!-- Sin teléfonos: la tarjeta se ve DENTRO de WhatsApp, ya están hablando contigo. -->
+  <div class="foot">
+    <div class="site" id="url"></div>
+  </div>
+
+  <script>
+    // Color e icono espejan products.ts (color tailwind → hex; icono lucide → emoji,
+    // que es lo que ya usan todas las piezas de la cuenta).
+    const P = {
+      pventa:   { n:'PVenta', a:'ERP', c:'#06b6d4', i:'🧾', m:'both',
+        d:'Sistema ERP de gestión empresarial. Cotizaciones, ventas y facturación electrónica DGII. Ciclo completo con pagos integrados. App móvil disponible.' },
+      easypos:  { n:'EasyPOS', a:'POS para restaurantes', c:'#f43f5e', i:'🍽️', m:'both',
+        d:'POS completo para restaurantes. Órdenes en tiempo real, cocina (KDS), mesas, delivery, inventario y propinas.' },
+      eclinic:  { n:'eClinic', a:'Gestión clínica', c:'#3b82f6', i:'🩺', m:'both',
+        d:'Sistema integral de gestión clínica y médica con cumplimiento HIPAA. Pacientes, citas, diagnósticos, seguros y autorizaciones.' },
+      autoshop: { n:'AutoShop Pro', a:'Talleres y repuestos', c:'#f97316', i:'🔧', m:'both',
+        d:'Sistema para talleres y tiendas de repuestos. Cotizaciones, órdenes de trabajo, inventario de partes, facturación y pagos.' },
+      nomina:   { n:'Nómina', a:'RD + USA', c:'#f59e0b', i:'💵', m:'both',
+        d:'Sistema de nómina multi-país. Cálculo automático de impuestos, deducciones, liquidaciones y reportes fiscales para RD y USA.' },
+      eduapp:   { n:'EduApp', a:'Gestión escolar', c:'#10b981', i:'🎓', m:'rd',
+        d:'Sistema de gestión escolar completo. Estudiantes, calificaciones, cobros, punto de venta y boletines académicos.' },
+      fri:      { n:'FRI', a:'Iglesias', c:'#a855f7', i:'⛪', m:'rd',
+        d:'Gestión de ingresos para iglesias y organizaciones religiosas. Recibos, cuentas contables, iglesias y obreros.' },
+      eloan:    { n:'eLoan', a:'Préstamos y cobranzas', c:'#14b8a6', i:'🏦', m:'rd',
+        d:'Gestión de préstamos y cobranzas. Clientes, cartera, cobros, comisiones de cobradores e integración contable en tiempo real.' },
+      dental:   { n:'eClinic Dental', a:'Clínicas dentales', c:'#0ea5e9', i:'🦷', m:'both',
+        d:'Gestión especializada para clínicas dentales con cumplimiento HIPAA. Odontograma, examen periodontal, planes de tratamiento y verificación de seguros.' },
+    };
+
+    const slug = new URLSearchParams(location.search).get('p') || 'pventa';
+    const p = P[slug] || P.pventa;
+
+    document.getElementById('halo').style.background =
+      `radial-gradient(circle, ${p.c}55 0%, ${p.c}00 70%)`;
+    document.getElementById('icon').textContent = p.i;
+    document.getElementById('nombre').textContent = p.n;
+    const acc = document.getElementById('accent');
+    acc.textContent = p.a; acc.style.color = p.c;
+    document.getElementById('desc').textContent = p.d;
+    // Sin banderas emoji: en Chrome/Windows se dibujan como "DO"/"US" (ver CLAUDE.md).
+    document.getElementById('market').textContent =
+      p.m === 'rd' ? 'República Dominicana' : 'RD · USA';
+    document.getElementById('url').textContent = `xoultec.com/productos/${slug}`;
+  </script>
+</body></html>
