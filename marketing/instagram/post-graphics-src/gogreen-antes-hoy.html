@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<!--
+  PLANTILLA REUTILIZABLE — serie "Antes / Hoy" de la campaña Go Green.
+  Uso:  gogreen-antes-hoy.html?e=<1..7>&s=<1|2>     s=1 → ANTES, s=2 → HOY
+        gogreen-antes-hoy.html?slide=portada|cierre  → láminas de apertura y cierre
+  Para agregar una entrega nueva: sumar un objeto al array ENTRIES. Nada más.
+
+  Portada y cierre existen porque el 12-ago-2026 Rubén pidió sacar la serie completa de
+  una vez: en un carrusel largo, entrar en frío a "el expediente en carpeta" y terminar
+  en seco no se lee como serie. No van en las entregas sueltas.
+  Render de las 14 láminas: ver el bucle en campana-go-green.md / posts-programar.md.
+-->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1350px}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:1080px;height:1350px;overflow:hidden;position:relative;
+    display:flex;flex-direction:column;justify-content:center;padding:190px 90px 130px}
+
+  /* ---------- ANTES: papel viejo, apagado ---------- */
+  body.antes{background:linear-gradient(160deg,#3f3a33 0%,#2b2723 100%);color:#e7e0d4}
+  body.antes .grain{position:absolute;inset:0;opacity:.5;
+    background:radial-gradient(circle at 20% 15%,rgba(220,200,160,.10) 0%,rgba(0,0,0,0) 55%),
+               radial-gradient(circle at 85% 80%,rgba(180,160,120,.09) 0%,rgba(0,0,0,0) 55%)}
+  body.antes .chip{background:rgba(231,224,212,.14);border:1px solid rgba(231,224,212,.30);color:#cfc6b6}
+  body.antes .icon{filter:grayscale(.85) brightness(.9)}
+  body.antes h1{color:#f2ecdf}
+  body.antes .sub{color:#c8bfae}
+
+  /* ---------- HOY: digital, vivo ---------- */
+  body.hoy{background:linear-gradient(160deg,#064e3b 0%,#065f46 55%,#047857 100%);color:#fff}
+  body.hoy .glow{position:absolute;width:900px;height:900px;border-radius:50%;
+    background:radial-gradient(circle,rgba(110,231,183,.17) 0%,rgba(110,231,183,0) 70%);
+    bottom:-300px;right:-260px}
+  body.hoy .chip{background:rgba(110,231,183,.18);border:1px solid rgba(110,231,183,.55);color:#6ee7b7}
+  body.hoy .sub{color:rgba(255,255,255,.9)}
+
+  .top{position:absolute;top:62px;left:90px;display:flex;align-items:center;gap:16px;z-index:2}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:30px;width:56px;height:56px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:34px;font-weight:900}.brand .x{color:#f59e0b}
+  body.antes .brand{opacity:.55}
+  .prod{position:absolute;top:72px;right:90px;font-size:32px;font-weight:800;opacity:.85;z-index:2}
+  body.antes .prod{display:none}
+
+  .wrap{position:relative;z-index:2}
+  .chip{display:inline-block;font-size:32px;font-weight:900;letter-spacing:.16em;
+    padding:14px 32px;border-radius:999px;margin-bottom:34px}
+  .icon{font-size:190px;line-height:1;margin-bottom:30px;display:block}
+  h1{font-size:80px;font-weight:900;line-height:1.04;margin-bottom:24px}
+  h1 .hl{color:#6ee7b7}
+  .sub{font-size:42px;font-weight:600;line-height:1.28}
+
+  .foot{position:absolute;bottom:78px;left:90px;right:90px;display:flex;
+    justify-content:space-between;align-items:center;font-size:31px;z-index:2}
+  .tag{font-weight:900}
+  body.hoy .tag{color:#6ee7b7}
+  body.antes .tag{opacity:.45}
+  .swipe{font-size:34px;font-weight:800;opacity:.75}
+  .site{opacity:.75;font-weight:600}
+</style></head>
+<body>
+  <div class="grain"></div><div class="glow"></div>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div id="prod" class="prod"></div>
+  <div class="wrap" id="content"></div>
+  <div class="foot" id="foot"></div>
+
+  <script>
+    // ---- Las 7 entregas de la serie. Agregar aquí para extenderla. ----
+    const ENTRIES = [
+      { prod:'PVenta',
+        antes:{ icon:'📒', h:'La factura<br>en talonario', s:'Se imprime, se archiva,<br>y algún día hay que buscarla.' },
+        hoy:  { icon:'🧾', h:'e-CF validada<br>con la <span class="hl">DGII</span>', s:'Sale, se envía y queda guardada.<br>Nadie imprimió nada.' } },
+
+      { prod:'eClinic · eDental',
+        antes:{ icon:'🗂️', h:'El expediente<br>en carpeta', s:'Una carpeta por paciente.<br>Un archivo que no deja de crecer.' },
+        hoy:  { icon:'💻', h:'Expediente<br><span class="hl">digital</span>', s:'Todo el historial en pantalla,<br>desde cualquier consultorio.' } },
+
+      { prod:'PVenta · Cobros',
+        antes:{ icon:'🧷', h:'El volante de<br>depósito, archivado', s:'Un papelito que decide<br>una comisión.' },
+        hoy:  { icon:'📸', h:'Una foto que<br>el sistema <span class="hl">lee</span>', s:'La fecha la pone el banco.<br>El papel no viaja a ninguna oficina.' } },
+
+      { prod:'PVenta',
+        antes:{ icon:'🖨️', h:'El 606/607<br>impreso para revisar', s:'Páginas y páginas<br>para cuadrar una vez al mes.' },
+        hoy:  { icon:'📊', h:'En pantalla,<br><span class="hl">exportable</span>', s:'Se revisa donde se genera.<br>Se imprime solo si alguien lo pide.' } },
+
+      { prod:'FRI',
+        antes:{ icon:'📓', h:'El recibo de<br>ofrenda en libreta', s:'Escrito a mano,<br>sumado a mano.' },
+        hoy:  { icon:'📱', h:'Registro<br><span class="hl">digital</span>', s:'Cada aporte queda registrado<br>y cuadra solo.' } },
+
+      { prod:'Portal de Autogestión',
+        antes:{ icon:'✉️', h:'El estado de cuenta<br>que iba por correo', s:'Se imprime, se ensobra,<br>se manda, se pierde.' },
+        hoy:  { icon:'🌐', h:'Portal abierto<br><span class="hl">24/7</span>', s:'El cliente lo consulta cuando quiere.<br>Sin sobre y sin viaje.' } },
+
+      { prod:'PVenta móvil',
+        antes:{ icon:'📋', h:'El pedido escrito<br>en papel', s:'Se anota en la calle y alguien<br>lo digita en la oficina.' },
+        hoy:  { icon:'📲', h:'El pedido entra<br>desde el <span class="hl">celular</span>', s:'El vendedor lo toma frente al cliente<br>y ya está en el sistema.' } }
+    ];
+
+    // ---- Láminas de apertura y cierre del carrusel completo (?slide=) ----
+    const ESPECIALES = {
+      portada: {
+        html: `<span class="icon">🌱</span>
+               <h1>Lo que tu negocio<br>ya dejó de <span class="hl">imprimir</span></h1>
+               <div class="sub">Seis documentos que antes eran papel.<br>Ninguno se dejó de hacer.<br>Solo dejaron de imprimirse.</div>`,
+        foot: `<div class="tag">🌱 #DigitalEsVerde</div><div class="swipe">Desliza →</div>`,
+      },
+      cierre: {
+        html: `<span class="icon">🌱</span>
+               <h1>Nadie hizo esto<br>por el <span class="hl">planeta</span></h1>
+               <div class="sub">Se hizo por orden, por tiempo, por control.<br>Pero el papel que no se imprime<br>no se imprime igual.</div>`,
+        foot: `<div class="tag">🌱 #DigitalEsVerde</div><div class="site">xoultec.com</div>`,
+      },
+    };
+
+    const p = new URLSearchParams(location.search);
+    const especial = ESPECIALES[p.get('slide')];
+    if (especial) {
+      document.body.classList.add('hoy');
+      document.getElementById('prod').style.display = 'none';
+      document.getElementById('content').innerHTML = especial.html;
+      document.getElementById('foot').innerHTML = especial.foot;
+    } else {
+      const e = Math.min(Math.max(parseInt(p.get('e') || '1', 10), 1), ENTRIES.length);
+      const s = (p.get('s') || '1') === '2' ? 'hoy' : 'antes';
+      const entry = ENTRIES[e - 1];
+      const d = entry[s];
+
+      document.body.classList.add(s);
+      document.getElementById('prod').textContent = entry.prod;
+      document.getElementById('content').innerHTML =
+        `<div class="chip">${s === 'antes' ? 'ANTES' : 'HOY'}</div>
+         <span class="icon">${d.icon}</span>
+         <h1>${d.h}</h1>
+         <div class="sub">${d.s}</div>`;
+      document.getElementById('foot').innerHTML = s === 'antes'
+        ? `<div class="tag">#DigitalEsVerde</div><div class="swipe">Desliza →</div>`
+        : `<div class="tag">🌱 #DigitalEsVerde</div><div class="site">xoultec.com</div>`;
+    }
+  </script>
+</body></html>
