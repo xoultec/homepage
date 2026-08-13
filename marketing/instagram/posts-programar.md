@@ -484,6 +484,14 @@ solo señalamos una consecuencia directa del producto.
 📌 **El estado de WhatsApp va en LOS DOS números, siempre.** Es parte de publicar, no un extra:
 cada número tiene su propio estado y su propia audiencia.
 
+### 🔧 SÍ se pueden subir imágenes al estado de WhatsApp (corrige el runbook viejo)
+El runbook del 9-ago dice que *"las imágenes NO se pueden subir a WhatsApp (usa el selector del
+sistema, no hay input de archivo); solo texto con enlace"*. **Es falso.** Probado el 13-ago en los dos
+números: Estados → **+** → *Photos & videos* → `find` el `input[type=file]` → `file_upload` → caption
+→ enviar. Mismo truco que en Instagram: **nunca hacer clic en el botón visible** que abre el diálogo
+de Windows; se localiza el input y se le sube el archivo directamente.
+Un estado con la gráfica rinde mucho más que una línea de texto con un enlace.
+
 **Ese mismo día** se quitó del bio de IG la línea `🎁 1er mes GRATIS → DM: "MES GRATIS"` —
 era la última oferta abierta visible— y el WhatsApp del bio pasó a llevar **los dos números**:
 `📲 WhatsApp RD 809 252-4007 · USA 913 413-6583`.

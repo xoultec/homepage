@@ -51,6 +51,7 @@ Autorizado por Rubén (1-jul-2026): saludar a los que empiezan a seguir, **pausa
 > **qué hace el software y para quién**, no cómo se llama la categoría. Cuatro mensajes se gastaron
 > en un malentendido que una frase concreta habría evitado.
 
+| 2026-08-13 09:3x | **Chequeo de la mañana + publicación.** Primary / General / Requests / Hidden: los cuatro vacíos, cero DMs entrantes (el único "no leído" de Primary es un *like a un mensaje* de @amand_atofel, hilo ya cerrado). Notifications: **@lizairajimenez dio like al carrusel verde 25 min después de publicarlo** — segunda vez que reacciona en 2 días, es la que más engancha con la línea verde. Likes previos de la semana ya registrados (@kapuca1579 privada, @perezypujols cliente). **Nada que responder: son likes, no comentarios.** Publicado el carrusel verde `Db-5WWLDtXO` + estado en los **dos** WhatsApp. |
 | 2026-08-12 19:2x | **Chequeo de tarde.** Primary / General / Requests / Hidden: los cuatro vacíos, cero DMs entrantes. Notifications: un seguidor nuevo (@amand_atofel → saltado, ver arriba) y un like de @lizairajimenez al carrusel de ruta. **Nada que responder.** Sin publicación: la ventana de publicar es la mañana y ya pasó. |
 | 2026-08-10 18:53 | DM cálido a **@perezypujols** (CLIENTE), pedido por Rubén tras su like al post verde — primera señal suya en 24 días. Sin vender nada: agradece la confianza, conecta con el post ("cada comprobante que ya no se imprime es papel que nadie volvió a gastar, y ustedes ya lo están haciendo") y ofrece disponibilidad. |
 
