@@ -542,6 +542,141 @@ problema que el que compra ya tiene, no una lista de features.
 ⚠️ **Encuadre obligado, igual que el GPS:** esto es *cobranza y servicio*, no *vigilar a la
 gestora*. Y el aviso de grabación es argumento de venta, no letra chica — decirlo así.
 
+---
+
+## 🅳 Cartera que se apaga — IMAGEN 1080×1350 (P1)
+
+**Estado:** copy aprobado 17-ago. ⏳ **Falta la gráfica.**
+**Color:** navy PVenta + rojo apagado / verde menta para el contraste dormida/despierta.
+
+**Idea visual:** el tablero de plazas **simulado**, con la misma factura del
+`gps-tv-simulado.html`: empresas y plazas inventadas, sello **"SIMULACIÓN · DATOS FICTICIOS"**.
+Lo que tiene que leerse de un golpe es el contraste: unas plazas apagadas con su contador de
+días dormidas, y una o dos que acaban de despertar.
+🚫 **No renderizar `/gps/{rnc}/zones` de un tenant vivo**, ni siquiera para un frame.
+
+⚠️ Sin cifras propias en la gráfica que parezcan medición. Los números van rotulados como
+ejemplo, igual que se hizo con el 13 vs 4 de la lámina de capacidad de ruta.
+
+**Caption ES:**
+```
+🗺️ ¿Cuántos clientes dejaron de comprarte este trimestre?
+
+No los que se quejaron. Esos avisan.
+
+Los otros: los que simplemente dejaron de aparecer. Una plaza no se apaga de golpe, se apaga cliente por cliente — y nadie lo nota, porque cada vendedor ve solo su ruta.
+
+El tablero la ve completa:
+🔴 Qué plazas están dormidas, y hace cuántos días
+🟢 Cuáles despertaron esta semana
+↩️ Qué clientes volvieron a comprar
+📊 Qué parte de la cartera se está trabajando de verdad
+
+Y cuenta como movimiento la factura o el cobro. Porque una plaza donde ya nadie compra pero todavía entra dinero no está muerta: está a tiempo.
+
+📲 WhatsApp RD (809) 252-4007 · USA (913) 413-6583.
+
+🌱 Recuperar un cliente que ya te conoce cuesta menos —y menos vueltas— que salir a buscar uno nuevo.
+
+#FuerzaDeVentas #Cartera #Cobranza #Distribuidoras #PVenta #XoulTec #PymesRD #SoftwareEmpresarial #RepublicaDominicana #NegocioVerde
+```
+
+**Caption EN:**
+```
+🗺️ How many customers stopped buying from you this quarter?
+
+Not the ones who complained. Those tell you.
+
+The other ones: the ones who simply stopped showing up. A territory doesn't go quiet all at once — it goes quiet one customer at a time, and nobody notices, because each rep only sees their own route.
+
+The board sees the whole thing:
+🔴 Which territories are asleep, and for how many days
+🟢 Which ones woke up this week
+↩️ Which customers came back
+📊 How much of the book is actually being worked
+
+And it counts an invoice or a payment as movement. A territory where nobody buys but money still comes in isn't dead — it's still in time.
+
+📲 WhatsApp USA (913) 413-6583 · DR (809) 252-4007.
+
+🌱 Winning back a customer who already knows you costs less — and fewer miles — than finding a new one.
+
+#FieldSales #Collections #CustomerRetention #PVenta #XoulTec #BusinessSoftware #SmallBusiness
+```
+
+---
+
+## 🅴 El acuerdo que vive en la memoria de alguien — IMAGEN o CARRUSEL 1080×1350 (P1)
+
+**Estado:** copy aprobado 17-ago. ⏳ **Falta la gráfica.**
+**Color:** navy PVenta + ámbar (mismo par que funcionó en la pieza de comisiones).
+
+**El gancho es la primera línea, no la lista.** Es el mismo patrón que hizo fuerte a comisiones
+("la comisión se gana cuando el dinero entra al banco"): nombrar un problema que el que compra
+ya tiene.
+
+**Idea visual:** contraste de dos fichas — a la izquierda una nota manuscrita de "quedó en
+pagar el viernes" con el nombre tachado del que se fue; a la derecha la ficha del sistema con
+la promesa fechada. Alternativa: la ficha de llamada **simulada**, con cliente inventado.
+🚫 Nada de clientes reales, ni de la cola de gestión de un tenant.
+
+**Caption ES:**
+```
+📞 El acuerdo de pago que cerraste por teléfono, ¿dónde vive?
+
+En la memoria del que llamó. Si esa persona se va, se fue con ella.
+
+En PVenta la llamada sale desde la misma pantalla donde está el cliente, y no se cierra sin decir en qué quedó: pedido tomado, promesa de pago, volver a llamar, lo atiende el vendedor, pasó a legal. Y si prometió pagar o pidió que lo llamaran, hay que ponerle fecha — así la próxima llamada se agenda sola.
+
+Antes de que timbre, quien llama ya tiene en pantalla:
+🛒 Qué compra siempre… y qué dejó de comprar
+📅 Cuándo compró por última vez y cuándo PAGÓ por última vez — que no es lo mismo
+💰 La deuda repartida por antigüedad
+🗒️ Todo lo que ya se le dijo antes
+
+Y después, el sistema busca solo si detrás de esa gestión entró una factura o un cobro. Se mide en dinero cobrado, no en llamadas hechas.
+
+📲 WhatsApp RD (809) 252-4007 · USA (913) 413-6583.
+
+🌱 Una llamada a tiempo evita un viaje.
+
+#Cobranza #CuentasPorCobrar #FuerzaDeVentas #Distribuidoras #PVenta #XoulTec #PymesRD #GestionEmpresarial #RepublicaDominicana
+```
+
+**Caption EN:**
+```
+📞 That payment agreement you closed over the phone — where does it live?
+
+In the memory of whoever made the call. If they leave, it leaves with them.
+
+In PVenta the call goes out from the same screen the customer is on, and it doesn't close until you say how it ended: order taken, payment promised, call back, handled by the rep, sent to legal. And if they promised to pay or asked to be called back, it needs a date — so the next call schedules itself.
+
+Before the phone even rings, whoever is calling already has on screen:
+🛒 What they always buy… and what they stopped buying
+📅 When they last bought, and when they last PAID — not the same thing
+💰 The balance broken out by how old it is
+🗒️ Everything that has already been said to them
+
+And afterwards the system works out on its own whether an invoice or a payment followed that call. It's measured in money collected, not calls made.
+
+📲 WhatsApp USA (913) 413-6583 · DR (809) 252-4007.
+
+🌱 A call made in time saves a trip.
+
+#Collections #AccountsReceivable #FieldSales #PVenta #XoulTec #BusinessSoftware #SmallBusiness
+```
+
+**Nota de moderación:** las dos piezas van a traer preguntas de precio en comentarios → DM,
+como todo. Y la de cobranza puede traer el reclamo de "eso es vigilar al empleado": **es
+negativo, se escala a Rubén**, aunque la respuesta honesta exista (mide la gestión contra el
+dinero, no a la persona).
+
+💡 **Tercera pieza posible, no redactada:** la grabación con su aviso. El ángulo no es "grabamos"
+sino **"el aviso queda dentro del audio"** — en modo puente se empieza a grabar antes de unir
+las patas, así que la prueba de que se avisó viaja con la prueba de lo que se dijo. Eso le
+habla a quien ya tuvo un pleito por un acuerdo que nadie puede demostrar. Es terreno legal:
+redactarla solo con Rubén encima.
+
 ⚠️ **La URL que se compartió es de un tenant vivo** (`/gps/101797802/zones`). No entra en
 ninguna pieza, ni como captura ni como texto. Rige la regla del 9-ago: todo lo que se
 publique va **simulado**, como se hizo con `gps-tv-simulado.html` para el reel. Si estas dos
