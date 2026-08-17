@@ -270,20 +270,44 @@ NO *vigilar al empleado*. La diferencia la nota el que compra y también el que 
 
 ---
 
-## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** (P1, el más fuerte)
+## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** — ✅ PUBLICADO 2026-08-17
 
-> 📅 **PRÓXIMO EN LA COLA — publicar el lunes 17-ago-2026** (Rubén, 15-ago).
-> Aprobado con el copy de abajo **ya sin la línea de MES GRATIS**. Después de publicar:
-> estado en **los dos** WhatsApp y sellar `--latido-post`.
->
-> ⚠️ **Se sube A MANO o desde el celular.** Se intentó dos veces por automatización el
-> 14-ago y no funciona: el cargador web de Instagram acepta el archivo en el input pero su
-> interfaz nunca lo procesa — el diálogo se queda en "Drag photos and videos here" con la
-> barra girando, incluso con la página recién recargada. No es un problema de sesión ni de
-> permisos; es su cargador. No perder tiempo reintentándolo por esa vía.
->
-> 📌 Estaba agendado para el 14-ago y se corrió al 17 por decisión de Rubén. El 14 y el 15
-> la cuenta se quedó en 14 posts.
+| Canal | Estado |
+|---|---|
+| IG `DcJCYr6uqKF` | ✅ 7:2x AM · reel 9:16, 20 s. Caption ES 543/2.200 car. Sin ubicación, sin colaboradores, sin etiqueta de IA. La cuenta pasó de 14 a 15 posts. |
+| Estado WhatsApp **809** | ✅ 7:34 AM · el mismo video con caption corto que remite a @xoultec |
+| Estado WhatsApp **913** | ⏳ **PENDIENTE** — ver abajo |
+
+⚠️ **El 913 quedó sin estado.** De los dos Chrome conectados, uno tiene la sesión del 809 y
+el otro **no tiene ninguna sesión de WhatsApp** (muestra el QR de vinculación). El perfil del
+913 no estaba enganchado a la extensión. Vincularlo exige escanear el QR desde el teléfono,
+que es autenticación y la hace Rubén. **Falta ese estado.**
+
+### 🔧 EL REEL SÍ SE SUBE POR AUTOMATIZACIÓN (corrige la nota del 14-ago)
+La nota decía que el cargador web de Instagram acepta el archivo pero nunca lo procesa.
+**El 17-ago funcionó al primer intento**, con la receta de siempre: `find` el `input[type=file]`
+del diálogo "Create new post" → `file_upload`. Lo que había cambiado entremedio es que la
+ventana de Chrome estaba rota/minimizada desde el 16-ago 6pm (capturas fallaban con
+`Failed to deserialize params.clip.scale`, viewport 0x0). **Es razonable que aquel fallo del
+14-ago fuera del mismo estado de ventana y no del cargador.** No dar por imposible la
+automatización de video sin antes verificar que la ventana responde.
+
+⚠️ **El recorte por defecto es 1:1 y decapita el encabezado** (se pierde el sello
+"SIMULACIÓN · DATOS FICTICIOS"). Hay que abrir el selector de proporción y elegir **9:16**.
+
+⚠️ Instagram muestra un aviso previo: *"Video posts are now shared as reels"* — los videos
+salen como reel y quedan abiertos a remix. Es informativo, con un solo botón OK.
+
+### 🔧 WHATSAPP: el input de archivo no existe hasta que se hace clic
+En el estado (Estados → **+** → *Photos & videos*) **no hay `input[type=file]` en el DOM**
+antes del clic, así que `find` no lo encuentra y la receta del 13-ago no arranca. El input se
+crea recién al hacer clic en la opción del menú. Secuencia que funciona:
+1. Clic en **+** → clic en **Photos & videos** (el diálogo nativo de Windows no llegó a
+   bloquear; el input queda en el DOM).
+2. `find` "file input accepting images and video" → aparece con
+   `accept="image/*,video/mp4,video/3gpp,video/quicktime"`.
+3. `file_upload` con la ruta del `.mp4` → se abre el compositor de estado con el video.
+4. Caption → botón de enviar.
 
 **Formato:** Reel vertical 1080×1920, 12-20s.
 🎬 **VIDEO LISTO (13-ago-2026): `gps-tv-reel.mp4`** — 1080×1920, 20 s, 30 fps, 556 KB.
