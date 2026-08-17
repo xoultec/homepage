@@ -272,9 +272,18 @@ NO *vigilar al empleado*. La diferencia la nota el que compra y también el que 
 
 ## 🅰️ Mapa GPS de la Fuerza de Ventas — **REEL** (P1, el más fuerte)
 
-> 📅 **PRÓXIMO EN LA COLA — publicar el 14-ago-2026 por la mañana** (Rubén, 13-ago).
+> 📅 **PRÓXIMO EN LA COLA — publicar el lunes 17-ago-2026** (Rubén, 15-ago).
 > Aprobado con el copy de abajo **ya sin la línea de MES GRATIS**. Después de publicar:
 > estado en **los dos** WhatsApp y sellar `--latido-post`.
+>
+> ⚠️ **Se sube A MANO o desde el celular.** Se intentó dos veces por automatización el
+> 14-ago y no funciona: el cargador web de Instagram acepta el archivo en el input pero su
+> interfaz nunca lo procesa — el diálogo se queda en "Drag photos and videos here" con la
+> barra girando, incluso con la página recién recargada. No es un problema de sesión ni de
+> permisos; es su cargador. No perder tiempo reintentándolo por esa vía.
+>
+> 📌 Estaba agendado para el 14-ago y se corrió al 17 por decisión de Rubén. El 14 y el 15
+> la cuenta se quedó en 14 posts.
 
 **Formato:** Reel vertical 1080×1920, 12-20s.
 🎬 **VIDEO LISTO (13-ago-2026): `gps-tv-reel.mp4`** — 1080×1920, 20 s, 30 fps, 556 KB.
@@ -527,6 +536,65 @@ re-renderizarla con su número.
 
 **Pendiente:** entregas **6** (estado de cuenta → portal 24/7) y **7** (pedido en papel → celular)
 para el próximo post verde, con su propia portada (`docs=Dos`) y el mismo cierre.
+→ ✅ **Armado el 17-ago**, ver la sección de abajo.
+
+---
+
+## 🌱 Serie "antes/hoy" — SEGUNDA MITAD · **CARRUSEL** 1080×1350, 6 láminas — LISTO PARA PUBLICAR
+
+✅ **GRÁFICAS LISTAS.** Orden exacto del carrusel:
+
+`gogreen-ah-portada-dos.png` → `gogreen-ah-6-1.png` → `gogreen-ah-6-2.png` →
+`gogreen-ah-7-1.png` → `gogreen-ah-7-2.png` → `gogreen-ah-cierre.png`
+
+🔧 **La portada es nueva** (`gogreen-ah-portada-dos.png`, 17-ago, 2160×2700). Se re-renderizó con
+`gogreen-antes-hoy.html?slide=portada&docs=Dos` porque la existente dice **"Cuatro"** y es la del
+post del 13-ago. El número tiene que coincidir con las entregas que van en ESE carrusel — por eso
+es parámetro. **No sobrescribir `gogreen-ah-portada.png`**: las dos se conservan.
+
+El cierre se reutiliza sin cambios: es el mismo remate de la serie.
+
+⚠️ **Sin CTA de venta, a propósito** — misma regla que toda la campaña verde. La conversión vive
+en la Sem 6 (referido).
+
+⚠️ **Compite por el turno semanal verde** (`campana-go-green.md:70`: 1 post verde dedicado por
+semana). El anterior fue el **13-ago**, así que a partir del 20-ago está limpio. **No sacarlo el
+mismo día que el reel del GPS.**
+
+**Caption ES:**
+```
+🌱 Dos más que tu negocio ya dejó de imprimir.
+
+El carrusel anterior traía cuatro. Estos dos faltaban:
+
+✉️ El estado de cuenta que se imprimía, se ensobraba y se mandaba. Hoy el cliente lo consulta cuando quiere, sin sobre y sin viaje.
+📋 El pedido que se anotaba en papel en la calle y alguien digitaba en la oficina. Hoy entra desde el celular, frente al cliente.
+
+Ninguno se dejó de hacer. Solo dejaron de imprimirse.
+
+¿Cuál de estos dos todavía se imprime en el tuyo? 👇
+
+#DigitalEsVerde #MenosPapelMásPlaneta #NegocioVerde #GoGreenRD #SostenibilidadRD #XoulTec #PymesRD #RepublicaDominicana #SoftwareEmpresarial #SeaCualSeaTuNegocio
+```
+
+**Caption EN:**
+```
+🌱 Two more your business already stopped printing.
+
+The last carousel had four. These two were missing:
+
+✉️ The statement that used to be printed, stuffed in an envelope and mailed. Today the client checks it whenever they want — no envelope, no trip.
+📋 The order written down on paper out on the route, then typed up back at the office. Today it goes in from the phone, right in front of the client.
+
+Neither one stopped being done. They just stopped being printed.
+
+Which of these two still gets printed at yours? 👇
+
+#GoingGreen #GoPaperless #GreenBusiness #Sustainability #XoulTec #SmallBusiness #BusinessSoftware
+```
+
+**Nota de moderación:** la pregunta final invita a responder — mismos criterios que la Sem 1.
+Positivos y guionados se responden con el banco; una acusación de greenwashing **se escala a Rubén**.
 
 ---
 

@@ -62,18 +62,24 @@ Pasó el **20-jul-2026 ~12:05pm**: el último latido se programó y ahí se cort
 
 **Hombre muerto (instalado 9-ago-2026):** la tarea programada de Windows
 `XoulTec - Monitor campana` (`C:\Data\4Claude\Repositorios\Apify\monitor.js`, cada 20 min)
-vigila el latido del monitoreo de IG y **avisa por Telegram si pasan >24h sin chequeo**,
-recordando cada 6h mientras siga mudo. Es un centinela de verdad: vive fuera de la sesión
+vigila el latido del monitoreo de IG y **avisa por Telegram si pasan >11h sin chequeo**,
+solo entre las 10am y las 10pm (bajado de 24h el 14-ago-2026). Se probó primero con 8h y
+sonó en falso el mismo día con el loop vivo: el hueco nocturno legítimo (6pm→9am) son 15
+horas, así que cualquier umbral por debajo de 13h dispara todas las mañanas. Con 11h y esa
+ventana: un chequeo de las 9am perdido avisa a las 10am (las 11h se cumplen de madrugada,
+con la ventana cerrada), y uno de las 6pm perdido avisa a las 8pm — por eso la ventana
+cierra a las 10pm y no a las 9pm, que dejaba ese caso sin avisar hasta el otro día.
+Recuerda cada 6h mientras siga mudo. Es un centinela de verdad: vive fuera de la sesión
 que vigila, igual que `pventa-sentinel` en Fly.
 
 > **Obligación del asistente:** después de CADA chequeo real de @xoultec, sellar el latido:
 > ```
 > node C:\Data\4Claude\Repositorios\Apify\monitor.js --latido-ig "resumen corto de lo visto"
 > ```
-> Si no lo sellas, a las 24h Rubén recibe una alarma falsa. Si lo sellas sin haber
+> Si no lo sellas, a las 11h Rubén recibe una alarma falsa. Si lo sellas sin haber
 > chequeado, apagas el único centinela que hay. Sellar = "lo revisé de verdad".
 
-**Recordatorio dentro de la sesión (instalado 12-ago-2026):** el hombre muerto tarda 24h en
+**Recordatorio dentro de la sesión (instalado 12-ago-2026):** el hombre muerto tarda 11h en
 gritar; el loop muere en el instante en que se hace `/clear` o `/compact`. Para cerrar ese
 hueco hay un hook en `.claude/settings.local.json` (`SessionStart` + `PostCompact`) que corre
 `.claude/hooks/recordar-monitoreo-ig.js`: si existe la bandera **`.claude/ig-loop.on`**
