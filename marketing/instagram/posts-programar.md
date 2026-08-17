@@ -465,6 +465,27 @@ Con ese número en la mano, las rutas se reparten. No se adivinan.
 
 ---
 
+## 💡 Dos piezas nuevas en banco (anotadas 17-ago-2026, sin redactar)
+
+Rubén avisó que PVenta ya tiene dos cosas que no están en ningún post todavía. Son de la
+misma tanda "fuerza de ventas" y de ticket alto:
+
+1. **Gestor de recuperación de zonas de venta** — vive en el mismo TV del GPS, en
+   `/gps/{tenant}/zones`.
+2. **Gestor de clientes con call center integrado** — la llamada sale desde la pantalla,
+   no desde el teléfono de la máquina (`apps/web/src/components/gestion/call-bar.tsx`).
+
+⚠️ **La URL que se compartió es de un tenant vivo** (`/gps/101797802/zones`). No entra en
+ninguna pieza, ni como captura ni como texto. Rige la regla del 9-ago: todo lo que se
+publique va **simulado**, como se hizo con `gps-tv-simulado.html` para el reel. Si estas dos
+ideas se convierten en post, hay que armarles su propia simulación primero.
+
+⚠️ El call center toca **grabación de llamadas y datos de clientes**. Antes de redactar nada,
+confirmar con Rubén qué se puede decir: el encuadre tiene que ser *gestión y cobranza*, no
+*vigilancia*, igual que se hizo con el GPS.
+
+---
+
 ## 💡 Cuarta idea (en banco, no redactada)
 **Auditoría de cartera:** mover un cliente de un vendedor a otro mueve **cartera y comisión**. En PVenta
 solo lo hace un administrador y **queda registrado** — si la anotación no se puede guardar, el cambio no
