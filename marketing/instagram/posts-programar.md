@@ -506,12 +506,32 @@ contestar, y en modo puente se graba **antes** de unir las patas para que el avi
 del audio. La bitácora ofrece "Escuchar la llamada" y "Leer lo que se dijo"
 (`recording-player.tsx`), con descargo de que la transcripción es automática.
 
-⚠️ **La "inferencia sobre la negociación" no la encontré en el código** (17-ago). Lo que hay
-es grabación + transcripción + los resultados que **teclea el operador**. Puede estar en el
-Agente de Marketing, en otra rama, o ser lo que viene. **Confirmar con Rubén antes de escribir
-una sola línea sobre eso**: publicar una capacidad de IA que todavía no existe crea una promesa
-con clientes, que es exactamente el error que se evitó en la Sem 6 con la recompensa del
-referido.
+**La inferencia sobre la negociación SÍ existe** — está en `interpretation.go` y en el
+briefing, no en el módulo de IA, que es por lo que no apareció buscando "IA" o "LLM":
+
+- **Antes de descolgar** (`CallBriefing`, `types.go:654`): qué compra habitualmente y **qué
+  dejó de comprar**; cuándo compró por última vez y —dato aparte— cuándo **pagó** por última
+  vez; y la deuda repartida por antigüedad (31-60, 61-90, 91-120, 121+). El comentario del
+  código lo dice mejor que cualquier caption: *un cliente puede estar comprando todas las
+  semanas y no pagar hace tres meses, y esos dos hechos juntos son la conversación entera de
+  una llamada de cobro.*
+- **Al documentar** se congela un `Snapshot` del briefing, para que quien lea después vea la
+  situación que el operador **realmente juzgó**, no la de hoy.
+- **Después**, derivados al leer: `InvoiceAfter`, `ReceiptAfter`, `PaidAfter` — si detrás de esa
+  gestión entró una factura o un cobro. Ahí se cierra el círculo: la gestión se mide en dinero,
+  no en llamadas hechas.
+- **El informe de la cola** (`GetQueueInterpretation`) no es un tablero: cada bloque de cifras
+  viene con su **lectura** (`Finding`, en nivel alerta / aviso / ok) y cierra en acciones.
+  Levanta, entre otras, las promesas de pago y devoluciones de llamada **ya vencidas**, y las
+  llamadas documentadas sin nota.
+- **La transcripción** es bajo demanda y solo cuenta ADMIN, igual que escuchar la grabación
+  (`handlers.go:625`, `CallTranscript`). Se guarda al transcribir porque transcribir se paga
+  cada vez.
+
+⚠️ **Precisión que hay que cuidar en el copy:** las lecturas se deciden con **umbrales
+explícitos en el código**, no con un modelo que escucha la conversación. Es una ventaja real
+—no inventa— pero **no se puede escribir "IA que analiza tus llamadas"**. Lo honesto y además
+más fuerte: *el sistema te dice qué encontró y qué hacer*.
 
 💡 **El gancho está en lo que hoy se pierde.** Un acuerdo de pago se pacta por teléfono y vive
 en la memoria del que llamó; si esa persona se va, se fue. Le habla al dueño que ya sospecha
