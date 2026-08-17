@@ -470,10 +470,57 @@ Con ese número en la mano, las rutas se reparten. No se adivinan.
 Rubén avisó que PVenta ya tiene dos cosas que no están en ningún post todavía. Son de la
 misma tanda "fuerza de ventas" y de ticket alto:
 
-1. **Gestor de recuperación de zonas de venta** — vive en el mismo TV del GPS, en
-   `/gps/{tenant}/zones`.
-2. **Gestor de clientes con call center integrado** — la llamada sale desde la pantalla,
-   no desde el teléfono de la máquina (`apps/web/src/components/gestion/call-bar.tsx`).
+### 1. Gestor de recuperación de zonas de venta
+
+TV hermano del mapa del GPS: `apps/web/src/routes/gps_.$rnc.zones.tsx`, alimentado por
+`GET /public/gps/{rnc}/zones` y `/call-center`. **Rota vistas solo**, igual que el otro, y
+cicla empresa por empresa cuando hay grupo.
+
+**No mide visitas — mide territorio que revive.** Una plaza está `alive` / `recovered` /
+`asleep` según haya movimiento, y movimiento es **factura o cobro**. De ahí salen "Por
+despertar", "Despertaron", los días dormida, los clientes que volvieron, el cumplimiento
+contra la meta trimestral, y la salud del libro (`dormant`, `neverBought`, `cold`, `worked`).
+El color del mapa lo decide la porción del libro efectivamente trabajada.
+
+💡 **El ángulo:** no es "dónde está tu gente" (ese fue el reel del GPS) sino **"qué parte de
+tu cartera dejó de comprar sin que nadie lo notara"**. Es la misma pantalla, otro dolor.
+
+⚠️ Es de **solo lectura**. Reasignar zona o vendedor se hace en otras pantallas (`zonas.tsx`).
+No prometer que desde ahí se reparte la cartera.
+
+### 2. Gestor de clientes con call center integrado
+
+`apps/web/src/routes/reportes.agenda.tsx` ("Gestión de Clientes"). Cola servida por el
+backend con un motivo por cliente (`reorder_due`, `balance`, `dormant`, `never_bought`), ficha
+de un cliente a la vez, y cierre obligado con un resultado: pedido tomado, promesa de pago,
+volver a llamar, no contesta, no le interesa, lo atiende el vendedor, pasó a legal, cerró el
+negocio. Promesa de pago y volver a llamar **exigen fecha**, así que la re-llamada queda
+agendada sola.
+
+La llamada sale **por el navegador** (Telnyx WebRTC, `browser-dialer.ts` + `call-bar.tsx`);
+si la central no responde cae al teléfono de la máquina para no perder la llamada.
+
+**Grabación y transcripción: sí, y con el aviso adentro.** Ambas son opcionales por empresa
+(`telephony_recording`, `telephony_notice` en la config del tenant). La grabación arranca al
+contestar, y en modo puente se graba **antes** de unir las patas para que el aviso quede dentro
+del audio. La bitácora ofrece "Escuchar la llamada" y "Leer lo que se dijo"
+(`recording-player.tsx`), con descargo de que la transcripción es automática.
+
+⚠️ **La "inferencia sobre la negociación" no la encontré en el código** (17-ago). Lo que hay
+es grabación + transcripción + los resultados que **teclea el operador**. Puede estar en el
+Agente de Marketing, en otra rama, o ser lo que viene. **Confirmar con Rubén antes de escribir
+una sola línea sobre eso**: publicar una capacidad de IA que todavía no existe crea una promesa
+con clientes, que es exactamente el error que se evitó en la Sem 6 con la recompensa del
+referido.
+
+💡 **El gancho está en lo que hoy se pierde.** Un acuerdo de pago se pacta por teléfono y vive
+en la memoria del que llamó; si esa persona se va, se fue. Le habla al dueño que ya sospecha
+que su cartera depende de lo que cada cobrador recuerde. Mismo tipo de gancho que la pieza de
+comisiones ("la comisión se gana cuando el dinero entra al banco"): una frase que nombra un
+problema que el que compra ya tiene, no una lista de features.
+
+⚠️ **Encuadre obligado, igual que el GPS:** esto es *cobranza y servicio*, no *vigilar a la
+gestora*. Y el aviso de grabación es argumento de venta, no letra chica — decirlo así.
 
 ⚠️ **La URL que se compartió es de un tenant vivo** (`/gps/101797802/zones`). No entra en
 ninguna pieza, ni como captura ni como texto. Rige la regla del 9-ago: todo lo que se
