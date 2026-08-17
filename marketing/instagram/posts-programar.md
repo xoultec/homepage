@@ -276,12 +276,14 @@ NO *vigilar al empleado*. La diferencia la nota el que compra y también el que 
 |---|---|
 | IG `DcJCYr6uqKF` | ✅ 7:2x AM · reel 9:16, 20 s. Caption ES 543/2.200 car. Sin ubicación, sin colaboradores, sin etiqueta de IA. La cuenta pasó de 14 a 15 posts. |
 | Estado WhatsApp **809** | ✅ 7:34 AM · el mismo video con caption corto que remite a @xoultec |
-| Estado WhatsApp **913** | ⏳ **PENDIENTE** — ver abajo |
+| Estado WhatsApp **913** | ✅ 7:40 AM · mismo video y caption, con el número USA primero |
 
-⚠️ **El 913 quedó sin estado.** De los dos Chrome conectados, uno tiene la sesión del 809 y
-el otro **no tiene ninguna sesión de WhatsApp** (muestra el QR de vinculación). El perfil del
-913 no estaba enganchado a la extensión. Vincularlo exige escanear el QR desde el teléfono,
-que es autenticación y la hace Rubén. **Falta ese estado.**
+🔧 **El perfil del 913 hay que ABRIRLO antes.** Al empezar solo había dos Chrome conectados a
+la extensión: el del 809 y uno sin ninguna sesión de WhatsApp (pantalla de QR). El del 913
+no estaba abierto. Rubén lo abrió y apareció como un tercer navegador. **Antes de dar por
+imposible un estado, pedirle que abra ese perfil** — no hace falta re-vincular nada.
+Para saber cuál es cuál sin adivinar: el número real está en Ajustes → perfil → *Phone number*,
+o directamente en la lista de chats (el 913 tiene un chat consigo mismo rotulado `(You)`).
 
 ### 🔧 EL REEL SÍ SE SUBE POR AUTOMATIZACIÓN (corrige la nota del 14-ago)
 La nota decía que el cargador web de Instagram acepta el archivo pero nunca lo procesa.
