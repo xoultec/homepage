@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<!--
+  🅳 "Cartera que se apaga" — 1080×1350. Copy aprobado por Rubén el 17-ago-2026.
+
+  El gancho del caption es una frase, no la lista: "una plaza no se apaga de golpe,
+  se apaga cliente por cliente". La gráfica tiene que dejar ver ESO de un vistazo —
+  varias plazas dormidas con su contador, y una que despertó. Nada más.
+
+  🚫 Plazas y cifras INVENTADAS. No renderizar /gps/{rnc}/zones de un tenant vivo
+  ni para un frame: ahí salen plazas y razones sociales reales.
+  Los números van rotulados como ejemplo, igual que el "13 vs 4" de capacidad de ruta.
+-->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1350px}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    width:1080px;height:1350px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 100%);color:#fff;
+    display:flex;flex-direction:column;justify-content:center;padding:150px 84px 130px}
+
+  .top{position:absolute;top:60px;left:84px;display:flex;align-items:center;gap:15px}
+  .logo{background:#f59e0b;color:#0f172a;font-weight:900;font-size:29px;width:54px;height:54px;
+    border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .brand{font-size:33px;font-weight:900}.brand .x{color:#f59e0b}
+  .sim{position:absolute;top:76px;right:84px;font-size:22px;font-weight:800;
+    letter-spacing:.14em;color:rgba(255,255,255,.45)}
+
+  h1{font-size:74px;font-weight:900;line-height:1.06;margin-bottom:14px}
+  h1 .apaga{color:#f87171}
+  .sub{font-size:38px;font-weight:600;color:rgba(255,255,255,.82);margin-bottom:52px}
+  .sub b{color:#fff;font-weight:800}
+
+  .plazas{display:flex;flex-direction:column;gap:16px}
+  .p{display:flex;align-items:center;gap:22px;padding:22px 28px;border-radius:20px;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+  .punto{width:20px;height:20px;border-radius:50%;flex:none}
+  .nombre{font-size:36px;font-weight:800;flex:1}
+  .estado{font-size:30px;font-weight:700}
+
+  .dormida .punto{background:#f87171;box-shadow:0 0 0 7px rgba(248,113,113,.16)}
+  .dormida .nombre{color:rgba(255,255,255,.62)}
+  .dormida .estado{color:#f87171}
+
+  .viva{background:rgba(16,185,129,.14);border-color:rgba(110,231,183,.45)}
+  .viva .punto{background:#6ee7b7;box-shadow:0 0 0 7px rgba(110,231,183,.20)}
+  .viva .estado{color:#6ee7b7}
+
+  .pie{position:absolute;bottom:76px;left:84px;right:84px;
+    display:flex;justify-content:space-between;align-items:center;font-size:26px}
+  .nota{color:rgba(255,255,255,.45);font-weight:600}
+  .site{font-weight:800;color:rgba(255,255,255,.8)}
+</style></head>
+<body>
+  <div class="top"><div class="logo">X</div><div class="brand"><span class="x">Xoul</span>Tec</div></div>
+  <div class="sim">SIMULACIÓN · DATOS FICTICIOS</div>
+
+  <h1>Una plaza no se<br><span class="apaga">apaga de golpe</span>.</h1>
+  <div class="sub">Se apaga <b>cliente por cliente</b> — y nadie lo nota,<br>porque cada vendedor ve solo su ruta.</div>
+
+  <div class="plazas">
+    <div class="p dormida"><div class="punto"></div><div class="nombre">Villa Prado</div><div class="estado">dormida · 47 días</div></div>
+    <div class="p dormida"><div class="punto"></div><div class="nombre">Los Almendros</div><div class="estado">dormida · 31 días</div></div>
+    <div class="p viva"><div class="punto"></div><div class="nombre">Puerto Chico</div><div class="estado">↩ despertó esta semana</div></div>
+    <div class="p dormida"><div class="punto"></div><div class="nombre">El Naranjal</div><div class="estado">dormida · 22 días</div></div>
+    <div class="p dormida"><div class="punto"></div><div class="nombre">San Isidro</div><div class="estado">dormida · 18 días</div></div>
+  </div>
+
+  <div class="pie">
+    <div class="nota">Plazas y cifras de ejemplo</div>
+    <div class="site">xoultec.com</div>
+  </div>
+</body></html>

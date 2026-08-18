@@ -546,8 +546,14 @@ gestora*. Y el aviso de grabación es argumento de venta, no letra chica — dec
 
 ## 🅳 Cartera que se apaga — IMAGEN 1080×1350 (P1)
 
-**Estado:** copy aprobado 17-ago. ⏳ **Falta la gráfica.**
+**Estado:** copy aprobado 17-ago. ✅ **GRÁFICA LISTA (18-ago): `cartera-apagada.png`** (2160×2700,
+fuente `post-graphics-src/cartera-apagada.html`). ⏳ **Falta el OK de Rubén a la gráfica** — el copy
+ya estaba aprobado, pero la pieza visual es nueva y no la ha visto.
 **Color:** navy PVenta + rojo apagado / verde menta para el contraste dormida/despierta.
+
+La gráfica lleva el gancho del caption como titular (*"una plaza no se apaga de golpe"*), cinco
+plazas **inventadas** con su contador y una que despertó, el sello **SIMULACIÓN · DATOS FICTICIOS**
+y el rótulo "Plazas y cifras de ejemplo" al pie.
 
 **Idea visual:** el tablero de plazas **simulado**, con la misma factura del
 `gps-tv-simulado.html`: empresas y plazas inventadas, sello **"SIMULACIÓN · DATOS FICTICIOS"**.
