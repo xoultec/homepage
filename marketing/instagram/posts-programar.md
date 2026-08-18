@@ -546,9 +546,19 @@ gestora*. Y el aviso de grabación es argumento de venta, no letra chica — dec
 
 ## 🅳 Cartera que se apaga — IMAGEN 1080×1350 (P1)
 
-**Estado:** copy aprobado 17-ago. ✅ **GRÁFICA LISTA (18-ago): `cartera-apagada.png`** (2160×2700,
-fuente `post-graphics-src/cartera-apagada.html`). ⏳ **Falta el OK de Rubén a la gráfica** — el copy
-ya estaba aprobado, pero la pieza visual es nueva y no la ha visto.
+## ✅ PUBLICADO — 2026-08-18 · Cartera que se apaga
+
+| Canal | Estado |
+|---|---|
+| IG `DcLnAYlDslq` | 7:2x AM · recorte 4:5, filtro Original, sin ubicación. Caption 906/2.200 car. |
+| Estado WhatsApp **809** | ✅ 7:28 AM |
+| Estado WhatsApp **913** | ✅ 7:32 AM |
+
+Salió a las 7:2x y no a las 9: Rubén dio el OK a la gráfica esa mañana y pidió publicarla de
+inmediato. Precedente: el reel del GPS también salió 7:28 AM el 17-ago.
+
+**Estado:** copy aprobado 17-ago. ✅ **GRÁFICA: `cartera-apagada.png`** (2160×2700,
+fuente `post-graphics-src/cartera-apagada.html`), aprobada por Rubén el 18-ago.
 **Color:** navy PVenta + rojo apagado / verde menta para el contraste dormida/despierta.
 
 La gráfica lleva el gancho del caption como titular (*"una plaza no se apaga de golpe"*), cinco
