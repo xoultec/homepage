@@ -51,6 +51,30 @@ en el handle/nombre, y verificar en bio marcadores RD: tel **809/829/849**, RD$,
 > una ronda nueva de búsqueda.** Antes de invertir ahí, ver la memoria "boca en boca": el canal que
 > convierte son referidos, no el tanteo de follows en IG.
 
+> **✅ RONDA EJECUTADA el 20-ago-2026 (~8:30am) — ver "Seguidos" y "Saltados" abajo. Resultado: 7 seguidos, 6 descartados de 13 verificados.**
+>
+> **Lo que enseñó la ronda (importante para la próxima):**
+> - **La veta encadenada funcionó mejor que el punto de partida.** `ainsatsrl` (el único contacto de
+>   salud que teníamos) devolvió sugerencias flojas; el salto bueno vino de seguir a `drdelacruzgastro`
+>   y tirar de *sus* sugerencias: el sugeridor de un médico devuelve puros médicos y clínicas. La
+>   táctica es **encadenar** — seguir uno bueno y pedirle sugerencias a él, no exprimir el original.
+> - **El filtro que más descartó no fue la zona: fue la inactividad.** 4 de los 6 descartes son cuentas
+>   dormidas (`mediexpressrd` 7 meses, `drmarzan` 11, `estoestrauma` 6, `dr.genisluisfeliz` 10). En este
+>   rubro hay muchísimo perfil abierto y abandonado. **Verificar la fecha del último post SIEMPRE**, y
+>   ojo: los primeros tiles suelen estar *fijados* y son viejos — hay que abrir el primero **sin** el
+>   pin para saber la fecha real.
+> - **La trampa de zona sigue viva, y ahora con cara nueva:** `dra.esteves.nefrologia` parecía RD por
+>   venir del sugeridor de una clínica dominicana, pero su bio dice **"UBA ~ Hosp. Fernández"** =
+>   Universidad de Buenos Aires. **Argentina.** No tenía sufijo `_rd` que delatara nada: lo que la
+>   descubrió fue leer dónde se formó. `nefroindiraapolo` se descartó por lo contrario — **no se pudo
+>   confirmar** el país, y ante duda no se sigue.
+> - **Dato de calendario:** el **19 de agosto es el Día del Médico Dominicano**. Media RD médica publicó
+>   ese día, lo que hizo trivial separar cuentas vivas de muertas. Buena fecha para futuras rondas.
+> - **`blupharmard` (Blu Pharma, farmacéutica, Santo Domingo) ya la seguíamos** y no estaba registrada
+>   aquí. El registro de seguidos está incompleto: hay follows viejos sin anotar.
+>
+> ---
+>
 > **🔔 RONDA AUTORIZADA (Rubén, 19-ago-2026) — armar el 20-ago por la mañana, a criterio del asistente.**
 > Van ~5 semanas sin follows proactivos (el último fue `dentactics`, 16-jul) y la cola está vacía,
 > así que esto **no es despachar cola: es abrir búsqueda nueva.** Rubén dejó la selección a mi criterio.
@@ -108,6 +132,13 @@ _(Verificar cada una al momento de seguir: pública, activa, negocio real de RD.
 | 2026-07-03 19:5x | r7clubrd | Club R7, Bar/Restaurante/Cigar Lounge/nightclub Santiago RD. Activo (22 posts, 2,484 seg.), menú fusión mediterránea + reservas. Fit EasyPOS. |
 | 2026-07-11 | pequeropa16 | PEQUE ROPA, ropa de bebé/niños RD, muy activa (1,665 posts, 4,974 seg.), envíos por **Vimenpaq** (courier RD → confirma zona), pública. Fit retail/POS/inventario. |
 | 2026-07-16 | dentactics | Dentactics: Dental CE / Reválida Dental (INBDE Prep), educación para dentistas hispanos que ejercen en **EEUU** (desde 2014). Establecida (325 posts, 13.9K seg.), pública, revalidadental.com. Pedido directo de Rubén. Fit indirecto: audiencia = dentistas USA → sinergia con **eDental** (HIPAA + verificación de seguros = mercado USA). |
+| 2026-08-20 08:4x | drdelacruzgastro | Dr. Carlos Alberto De La Cruz Benítez, **gastroenterólogo**, Gastro de la Cruz / Centro Médico Real, Consultorio 104. RD confirmado: dirección Av. Rómulo Betancourt 515, Mirador Norte, Santo Domingo + wa.me/1**809**8857262. Activo (post de hace 22h), 78 posts. Destacados **"Agenda aquí" / "Seguros" / "Consultas"** → fit eClinic directo. **Fue la puerta de entrada de la ronda:** su sugeridor abrió toda la veta médica. |
+| 2026-08-20 08:4x | dr.ezequiellugo | Dr. Ezequiel Lugo, **internista**, Clínica Abreu (Unidad de Cardiología no invasiva, Consultorio #2), Santo Domingo. RD: wa.me/1**829**8468682 + docente **UASD**. Activo (post de hace 6d), 62 posts, 605 seg. Destacados "Seguros Médicos", "Horario", "Servicios". |
+| 2026-08-20 08:5x | careme_rd | **CARE ME** — unidad cardio-renal, metabólica y **hemodiálisis**, MAC Center (El Millón), Santo Domingo. RD: link **cling.do** (TLD dominicano) + tel (**829**) 917-6516. 47 posts; último post 31-may (11 semanas: lenta pero viva). **Es clínica, no médico individual** → mejor ICP (facturación, seguros, expediente). |
+| 2026-08-20 08:5x | dracindyjimenezoncologa | Dra. Cindy Jiménez, **oncóloga clínica / internista**. RD confirmado por su post del **Día del Médico Dominicano** (#médicodominicano). Muy activa (publicó hace 1d), 229 posts, 1.652 seg. Destacados "Citas" y "Pacientes". |
+| 2026-08-20 09:0x | dr.ovallescirugiapiediabetico | Dr. David Ovalles, **cirujano de pie diabético / heridas complejas**. RD confirmado: operativo médico en **Gaspar Hernández, Espaillat** + #RepúblicaDominicana. Activo (4-ago), 43 posts, 1.265 seg. Destacado "Consultas". |
+| 2026-08-20 09:1x | gastroendoscopyrd_ | Dra. Mariel Rojas, **gastroenteróloga endoscopista**, cuenta **verificada**. RD: tel **849**-539-7229 + #DíaDelMédicoDominicano. Activa (hace 2d), **358 posts, 3.732 seg.** Destacados "Pacientes / Consultas / Contactos / Ubicación / Procedimientos". De las más grandes de la ronda. |
+| 2026-08-20 09:2x | drateresandrispm.reuma | Dra. Teresandris Polanco Mora, **reumatóloga** (ecografía musculoesquelética, capilaroscopia), RIC. RD: **Torre Piantini**, Gustavo Mejía Ricart #104 esq. Abraham Lincoln, Santo Domingo. Activa (hace 4d). **La más grande de la ronda: 676 posts, 7.065 seg.** |
 | 2026-07-17 09:21 | perezypujols | Pérez y Pujols — insumos médicos, Santo Domingo RD. **NO es prospecto: es CLIENTE de XoulTec** (Rubén, 10-ago). Estaba mal clasificado aquí. Se queda seguido, pero **fuera del guion de prospección**: lo que va con él es trato de cliente. |
 
 ## Saltados (con motivo)
@@ -120,4 +151,14 @@ _(Verificar cada una al momento de seguir: pública, activa, negocio real de RD.
 | ferreteria_rd | Fuera de zona: es de **Puerto Madryn, Chubut (ARGENTINA)**, tel 2804. El "RD" no es República Dominicana. ¡Verificar ubicación siempre, incluso con sufijo _rd! |
 | solymarena.0 | **0 posts** (sin contenido / inactiva) pese a 1K seg. No cumple "negocio activo con contenido visible". (2026-07-11) |
 | elcolmadoblanes | Fuera de zona: **Blanes, España** (bio en catalán, dir. Passeig de Cortils i Vieta 11, 17300 Girona). Otra trampa de "colmado". (2026-07-11) |
+| dra.esteves.nefrologia | ⚠️ **Fuera de zona: ARGENTINA.** Nefróloga; llegó por el sugeridor de `careme_rd` (clínica RD real), así que todo el contexto apuntaba a RD. Lo que la delató fue la bio: **"UBA ~ Hosp. Fernández"** = Universidad de Buenos Aires + Hospital Fernández (CABA). **Sin sufijo engañoso que avisara** — la pista estuvo en *dónde se formó*, no en el handle. Nueva forma de la trampa de zona: llegar por una veta dominicana no prueba nada. (2026-08-20) |
+| nefroindiraapolo | **Zona no verificable** → no se sigue. Nefróloga, 148 posts, 1.381 seg., activa (6-ago). Bio sin país, sin teléfono, sin dirección; el apellido *Apolo* es muy común en Ecuador. Llegó por el sugeridor de `careme_rd`. **Ante duda no se sigue** — es la regla que evita repetir los descartes de "colmado". (2026-08-20) |
+| mediexpressrd | **Inactiva**: gastables médicos RD, pero sus 21 posts son todos de **enero-2026** (7 meses sin publicar). Aún responde comentarios, pero no cumple "negocio activo con contenido visible". (2026-08-20) |
+| drmarzan | **Inactiva**: nefrólogo, Grupo Médico Mac Center, RD confirmado (tel 809-883-5268). Pero su último post es de **septiembre-2025** (11 meses). 150 posts. Su clínica `careme_rd` sí se siguió. (2026-08-20) |
+| estoestrauma | **Inactiva**: Dr. Carlos Barrera, ortopeda traumatólogo, RD confirmado (Citas 809-350-6453, Traumacare). Último post **25-feb** (6 meses). (2026-08-20) |
+| dr.genisluisfeliz | **Inactivo**: gastroenterólogo, Clínica Alcántara y González, RD confirmado (809-566-2121 / 809-909-9659, Santo Domingo). 252 posts pero el último es de **octubre-2025** (10 meses). ⚠️ Los 2 primeros tiles engañan: hay que abrir el primero sin pin. (2026-08-20) |
+| draabreu_gastro | **1 solo post.** Gastroenteróloga-endoscopista. Mismo criterio que `solymarena.0`: sin contenido visible no hay negocio que evaluar. (2026-08-20) |
+| johnscolash07 | **3 posts.** Dr. Johan M. Escolástico, internista-cardiólogo. Demasiado delgada. (2026-08-20) |
+| hospluisespaillatrd / h_desiderioacosta | **Hospitales públicos** → fuera de ICP (no compran ERP/POS por esta vía). (2026-08-20) |
+| sodogastro | **Sociedad Dominicana de Gastroenterología** — gremio, no negocio que facture. No es prospecto, pero **sí es un nodo de red** interesante si algún día se trabaja el sector por gremios. (2026-08-20) |
 | el_colmado_bar | Fuera de zona: **Puerto Rico** (bio "PR", posts con El Capitolio de PR). 3ª trampa "colmado" → la lista nombrada de colmados no sirve; mejor usar la veta "Suggested for you" de cuentas RD ya seguidas. (2026-07-14) |
