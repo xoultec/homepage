@@ -51,6 +51,29 @@ en el handle/nombre, y verificar en bio marcadores RD: tel **809/829/849**, RD$,
 > una ronda nueva de búsqueda.** Antes de invertir ahí, ver la memoria "boca en boca": el canal que
 > convierte son referidos, no el tanteo de follows en IG.
 
+> **🔔 RONDA AUTORIZADA (Rubén, 19-ago-2026) — armar el 20-ago por la mañana, a criterio del asistente.**
+> Van ~5 semanas sin follows proactivos (el último fue `dentactics`, 16-jul) y la cola está vacía,
+> así que esto **no es despachar cola: es abrir búsqueda nueva.** Rubén dejó la selección a mi criterio.
+>
+> **Rubro elegido: farmacias y depósitos dentales / insumos médicos de RD.** Por qué ese y no otro:
+> es el ICP más fuerte que tenemos (el pipeline de `maeclientes` da ~7.4K negocios de salud; Nifarmed,
+> el cliente más fiel, es de ahí), engancha con tres productos a la vez (PVenta + e-CF, eClinic, eDental),
+> y es una veta **casi sin tocar** — de todo lo seguido solo `ainsatsrl` es de salud, contra 5 ferreterías
+> y 5 restaurantes. Retail/boutiques ya está sobre-trabajado.
+>
+> **Reglas de esta ronda (deliberadamente corta):**
+> - **8-10 cuentas máximo**, no las 15 del techo. Ronda dirigida, no barrido.
+> - **Veta principal: "Suggested for you"** partiendo de `ainsatsrl` — es lo que mejor funcionó
+>   históricamente y evita el buscador por nombre.
+> - ⚠️ **Verificación de zona OBLIGATORIA antes de cada follow.** Este es exactamente el rubro donde
+>   ya se quemaron 2 descartes ("farmacia santo domingo" → México y Argentina). Exigir marcador RD real
+>   en la bio: tel **809/829/849**, RD$, DGII/RNC o provincia RD. El sufijo `_rd` **no basta**
+>   (`ferreteria_rd` resultó ser de Argentina).
+> - **NO usar `lista-40-mayoristas-conversacion.md`** como fuente: ese archivo dice explícitamente que
+>   no es lista de follows y que nadie de ahí se toca directamente. Es material para la conversación
+>   de referido, no para prospección en IG.
+> - Registrar cada follow abajo y los descartes en "Saltados", con el motivo.
+
 | Handle | Negocio / tipo | Zona | Fit | Estado |
 |--------|----------------|------|-----|--------|
 | chula_nails (handle sin verificar) | Nail salon | RD (verificar) | Servicios/citas | Sin verificar — único resto de la cola |
