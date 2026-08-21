@@ -10,6 +10,15 @@ Autorizado por Rubén (1-jul-2026): saludar a los que empiezan a seguir, **pausa
 ## Criterio
 - **NO se saluda a cuentas privadas** (regla de Rubén, 1-jul-2026). Antes de enviar, verificar que el perfil sea público; si es privado, saltar.
 - Se salta a quien ya está enganchado (comentó/DM previo) — el saludo genérico ahí queda raro.
+- **El mensaje va personalizado, no con el guion genérico** (Rubén, 21-ago-2026: _"me parece
+  lo correcto, así parece que un humano se tomó el tiempo"_). Antes de escribir, abrir el perfil
+  y sacar **1-2 datos reales** de esa cuenta. Estructura que funcionó con el Dr. Ovalles:
+  ① gracias + el dato concreto que se notó · ② qué es XoulTec y **qué hace** el producto para
+  ese rubro (expediente, citas, seguros, facturación) — no solo "software de gestión" ·
+  ③ cierre de disponibilidad, **sin precio ni promoción**. El saludo genérico de arriba queda
+  como último recurso, no como default: en una cuenta chica el DM plantillado se lee como
+  automatizado y quema el único primer contacto que hay.
+- **Verificar si ya es cliente antes de saludar** (ver la sección de clientes vs. prospectos).
 
 ## Enviados
 | Fecha/hora | Usuario | Estado |
