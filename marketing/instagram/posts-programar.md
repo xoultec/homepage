@@ -831,6 +831,28 @@ la nota del HANDOFF** que decía que el upload de imágenes locales no se podía
 puede, y sin Business Suite. Lo único que hay que hacer a mano es elegir **4:5**: IG entra en 1:1 y
 corta la lámina.
 
+| Estado WhatsApp **913** | ✅ 5:49 AM · portada `gogreen-ah-portada-dos.png` + línea que remite al carrusel en @xoultec |
+| Estado WhatsApp **809** | ⛔ **NO SALIÓ** — su WhatsApp Web está **deslogueado** (pantalla de QR). Requiere que Rubén re-vincule escaneando el QR; el asistente no vincula dispositivos. |
+
+### 🔧 Cómo subir al estado sin que se abra el diálogo de Windows (21-ago)
+El runbook del 13-ago decía "`find` el `input[type=file]`", pero **ese input no existe hasta que se
+pulsa "Photos & videos"** — y pulsarlo abre el selector nativo de Windows, que **congela la sesión**
+(la extensión deja de recibir comandos). La receta que sí funciona, sin tocar el botón a ciegas:
+
+```js
+// 1) neutralizar la apertura del diálogo nativo
+window.__origClick = HTMLInputElement.prototype.click;
+HTMLInputElement.prototype.click = function () {
+  if (this.type === 'file') return;            // el input se crea, pero no abre nada
+  return window.__origClick.apply(this, arguments);
+};
+// 2) activar el item del menú por código
+[...document.querySelectorAll('li,div[role=button],button,span')]
+  .find(el => el.textContent.trim() === 'Photos & videos').click();
+```
+Entonces sí aparece el `input[type=file]` → `find` → `file_upload` → caption → enviar.
+**Restaurar `HTMLInputElement.prototype.click` al terminar.**
+
 ⚠️ Cierra el turno verde de esta semana. El siguiente post verde no debe salir antes del **28-ago**
 (regla de dosis, `campana-go-green.md:70`).
 
