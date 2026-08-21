@@ -120,7 +120,13 @@
       "Bash(jq --version)",
       "Bash(echo \"exit=$?\")",
       "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\instagram\\\\ruta-4.png\" --window-size=1080,1350 --virtual-time-budget=3500 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/instagram/post-graphics-src/ruta-carousel.html?s=4\")",
-      "PowerShell(Start-Process \"chrome.exe\" -ArgumentList '--profile-directory=\"Profile 1\"'; Start-Sleep -Seconds 6; \"chrome lanzado \\(Profile 1 - Ruben\\)\")"
+      "PowerShell(Start-Process \"chrome.exe\" -ArgumentList '--profile-directory=\"Profile 1\"'; Start-Sleep -Seconds 6; \"chrome lanzado \\(Profile 1 - Ruben\\)\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --screenshot=\"C:\\\\Data\\\\4Claude\\\\Repositorios\\\\xoultec-website\\\\marketing\\\\avatar-xoultec.png\" --window-size=1080,1080 --virtual-time-budget=3000 \"file:///C:/Data/4Claude/Repositorios/xoultec-website/marketing/logo-src/avatar-xoultec.html\")",
+      "Bash(schtasks /query /fo LIST)",
+      "Bash(schtasks /query /fo LIST /v)",
+      "Bash(npm -v)",
+      "Bash(npx *)",
+      "PowerShell(Get-Process *)"
     ]
   },
   "hooks": {
