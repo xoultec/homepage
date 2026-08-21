@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.16.0] - 2026-08-21
+- feat(marketing): campaña **go green** completa — lanzamiento, pieza de referido y la serie "antes/hoy" (digitalizar = conservar), con guía de tono en `marketing/instagram/enfoque-verde.md`
+- feat(marketing): tanda **fuerza de ventas** — comisiones, ruta del vendedor, TV simulado del GPS y la gráfica "Cartera que se apaga" con plazas simuladas
+- feat(marketing): reel del GPS generado **desde el TV simulado**, sin grabar pantalla
+- feat(marketing): sector **farma** — pieza de "lote que vence" y listas de prospección
+- feat(marketing): lámina 6 de cierre verde en el carrusel e-CF
+- feat(marketing): catálogo de WhatsApp con los 9 productos, cargado en los dos números (RD 809 y USA 913)
+- feat(marketing): foto de perfil unificada entre Instagram y WhatsApp
+- chore(claude): hook de `SessionStart`/`PostCompact` que reanuncia el monitoreo de Instagram cuando el loop muere con un `/clear` o `/compact`
+- docs(marketing): registro continuo del monitoreo de @xoultec — bienvenidas, follows, chequeos y las reglas que salieron de ellos (verificar zona antes de seguir, distinguir cliente de prospecto, regla de corte tras una explicación clara, y el DM personalizado como default)
+
 ## [1.15.0] - 2026-08-09
 - feat(analytics): integra Vercel Web Analytics para medir visitas por página (tráfico por URL, países, dispositivos y referrers)
 - feat(facturacion-electronica): destaca la app móvil para la fuerza de ventas — callout "incluida" y nueva fila en la comparativa
