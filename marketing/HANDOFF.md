@@ -79,6 +79,21 @@ que vigila, igual que `pventa-sentinel` en Fly.
 > Si no lo sellas, a las 11h Rubén recibe una alarma falsa. Si lo sellas sin haber
 > chequeado, apagas el único centinela que hay. Sellar = "lo revisé de verdad".
 
+> ⚠️ **Son DOS latidos, no uno** (se olvidó el 21-ago-2026 y saltó una alarma falsa de
+> "@xoultec lleva días sin publicar" con el carrusel `DcTJmXlFk5o` ya publicado esa mañana):
+> ```
+> node C:\Data\4Claude\Repositorios\Apify\monitor.js --latido-ig   "..."   # tras CHEQUEAR
+> node C:\Data\4Claude\Repositorios\Apify\monitor.js --latido-post "..."   # tras PUBLICAR
+> ```
+> Viven en el mismo `monitor.js` pero cuentan cosas distintas y tienen umbrales distintos
+> (IG = 11h; publicación = días). **Un chequeo sella solo el primero; una publicación sella
+> los dos.** El sello de publicación estampa la hora en que se ejecuta, no la del post: si
+> se sella tarde, aclararlo en la nota.
+>
+> La misma regla de honestidad aplica: `--latido-post` **solo** se sella si de verdad se
+> publicó. El propio código lo advierte — sellarlo para callar la alarma escribe una
+> publicación que nunca ocurrió, y el próximo que lea el archivo se lo cree.
+
 **Recordatorio dentro de la sesión (instalado 12-ago-2026):** el hombre muerto tarda 11h en
 gritar; el loop muere en el instante en que se hace `/clear` o `/compact`. Para cerrar ese
 hueco hay un hook en `.claude/settings.local.json` (`SessionStart` + `PostCompact`) que corre
