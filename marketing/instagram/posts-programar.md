@@ -832,7 +832,23 @@ puede, y sin Business Suite. Lo único que hay que hacer a mano es elegir **4:5*
 corta la lámina.
 
 | Estado WhatsApp **913** | ✅ 5:49 AM · portada `gogreen-ah-portada-dos.png` + línea que remite al carrusel en @xoultec |
-| Estado WhatsApp **809** | ⛔ **NO SALIÓ** — su WhatsApp Web está **deslogueado** (pantalla de QR). Requiere que Rubén re-vincule escaneando el QR; el asistente no vincula dispositivos. |
+| Estado WhatsApp **809** | ✅ 5:59 AM · misma portada y mismo texto que el 913 |
+
+### 🔧 El 809 NO estaba deslogueado — estaba en OTRA ventana de Chrome (21-ago)
+Diagnostiqué mal: al ver la pantalla de QR en el Chrome de Instagram di por hecho que la sesión
+del 809 se había caído. **Falso.** El 809 vive en su **propio Chrome, rotulado `XoulTec DR`**, que
+simplemente no estaba enlazado a la extensión. Los tres perfiles son distintos:
+
+| Rótulo del navegador | Qué tiene |
+|---|---|
+| `XoulTec DR` | **WhatsApp 809** (RD, con chats personales de Rubén) |
+| `XoulTec USA` | **WhatsApp 913** (USA, negocio puro) |
+| el tercero | **Instagram @xoultec** — su WhatsApp Web sí está deslogueado, y **da igual** |
+
+📌 **Regla:** con varios Chrome, `list_connected_browsers` **solo ve los que están enlazados**.
+Antes de declarar una sesión caída, usar **`switch_browser`** y pedirle a Rubén que pulse *Connect*
+**en la ventana correcta** — y verificar el número en *Ajustes → Perfil* antes de publicar, que es
+lo que zanjó la confusión (el `(You)` de la lista de chats también sirve).
 
 ### 🔧 Cómo subir al estado sin que se abra el diálogo de Windows (21-ago)
 El runbook del 13-ago decía "`find` el `input[type=file]`", pero **ese input no existe hasta que se
