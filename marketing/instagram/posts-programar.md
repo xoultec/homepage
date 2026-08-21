@@ -818,7 +818,21 @@ para el próximo post verde, con su propia portada (`docs=Dos`) y el mismo cierr
 
 ---
 
-## 🌱 Serie "antes/hoy" — SEGUNDA MITAD · **CARRUSEL** 1080×1350, 6 láminas — LISTO PARA PUBLICAR
+## ✅ PUBLICADO — 2026-08-21 · Serie verde "antes/hoy", segunda mitad
+
+`DcTJmXlFk5o` — publicado en @xoultec el **viernes 21-ago-2026 ~05:4x AM**. Carrusel de **6 láminas**
+en el orden previsto (`portada-dos` → `6-1` `6-2` → `7-1` `7-2` → `cierre`), recorte **4:5**, filtro
+**Original**, caption ES **637/2.200** car. Sin ubicación, sin colaboradores, sin etiqueta de IA.
+La cuenta pasó de 16 a **17 posts**.
+
+🔧 **Subido por el asistente desde instagram.com**, no a mano: el `file_upload` de la extensión sí
+carga las 6 imágenes locales de una vez en el input del diálogo "Create new post". Queda **corregida
+la nota del HANDOFF** que decía que el upload de imágenes locales no se podía automatizar — sí se
+puede, y sin Business Suite. Lo único que hay que hacer a mano es elegir **4:5**: IG entra en 1:1 y
+corta la lámina.
+
+⚠️ Cierra el turno verde de esta semana. El siguiente post verde no debe salir antes del **28-ago**
+(regla de dosis, `campana-go-green.md:70`).
 
 ✅ **GRÁFICAS LISTAS.** Orden exacto del carrusel:
 
