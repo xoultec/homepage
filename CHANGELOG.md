@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.17.0] - 2026-08-21
+- feat(marketing): gráfica "El acuerdo que vive en la memoria de alguien"
+- docs(marketing): publicado el carrusel verde de la segunda mitad (`DcTJmXlFk5o`) y el estado del WhatsApp 913; queda registrada la receta del **upload de imágenes locales a estados**, que sí se puede automatizar
+- docs(marketing): el estado del 809 también salió — el bloqueo era la ventana de Chrome, no la sesión
+- docs(marketing): chequeos de monitoreo del 21-ago — los cuatro buzones vacíos, cero comentarios nuevos desde el 6-jul y el carrusel del día sin engagement en sus primeras 2h
+- docs(marketing): el HANDOFF ahora documenta los **dos** latidos del centinela (`--latido-ig` tras chequear, `--latido-post` tras publicar); solo estaba el primero, y eso disparó una falsa alarma de "lleva días sin publicar"
+- chore(claude): permisos acumulados de la sesión en `settings.local.json`
+
 ## [1.16.0] - 2026-08-21
 - feat(marketing): campaña **go green** completa — lanzamiento, pieza de referido y la serie "antes/hoy" (digitalizar = conservar), con guía de tono en `marketing/instagram/enfoque-verde.md`
 - feat(marketing): tanda **fuerza de ventas** — comisiones, ruta del vendedor, TV simulado del GPS y la gráfica "Cartera que se apaga" con plazas simuladas
