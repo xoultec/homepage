@@ -624,8 +624,21 @@ And it counts an invoice or a payment as movement. A territory where nobody buys
 
 ## 🅴 El acuerdo que vive en la memoria de alguien — IMAGEN o CARRUSEL 1080×1350 (P1)
 
-**Estado:** copy aprobado 17-ago. ⏳ **Falta la gráfica.**
+**Estado:** copy aprobado 17-ago. ✅ **GRÁFICA LISTA** (21-ago) — `acuerdo-memoria.png`, 1080×1350.
 **Color:** navy PVenta + ámbar (mismo par que funcionó en la pieza de comisiones).
+
+🔧 **Fuente re-renderizable:** `post-graphics-src/acuerdo-memoria.html` → Chrome headless
+(`--window-size=1080,1350`), igual que el resto. Lleva el sello **SIMULACIÓN · DATOS FICTICIOS**
+arriba a la derecha, como `cartera-apagada.png`, porque muestra una ficha de cobranza.
+
+**Lo que se resolvió visualmente:** las dos fichas del brief, una al lado de la otra. A la izquierda
+la nota manuscrita (`Colmado Altagracia quedó en pagar el viernes`) con **el nombre del que llamó
+tachado** y el remate abajo *"Kelvin ya no trabaja aquí. El acuerdo se fue con él."*; a la derecha
+la ficha del sistema con la promesa **fechada** (vie 29-ago), última compra vs. **último PAGO** —
+que es el contraste del caption — deuda +60 días y la píldora *"Próxima llamada agendada"*.
+**Cliente y empleado son inventados**, ningún dato sale de un tenant.
+
+⚠️ **Sin CTA de venta** (regla del 13-ago): los dos WhatsApp abajo son la vía de contacto.
 
 **El gancho es la primera línea, no la lista.** Es el mismo patrón que hizo fuerte a comisiones
 ("la comisión se gana cuando el dinero entra al banco"): nombrar un problema que el que compra
