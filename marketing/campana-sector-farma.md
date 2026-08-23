@@ -98,8 +98,16 @@ conversación:
 - **Referido**: quién más del gremio conoce. Su enlace está en la app (`/m/referir`) y **ya viaja en
   cada factura, cotización y estado de cuenta que ellos mandan** — casi ninguno lo sabe.
 
-> Recordatorio incómodo: la tabla `referrals` de la maestra **no existe todavía**, o sea que el
-> programa nunca ha acreditado ni un solo referido. No está roto: está sin estrenar.
+> ~~Recordatorio incómodo: la tabla `referrals` de la maestra **no existe todavía**~~
+> **Corregido el 22-ago-2026 tras auditar el código:** la tabla **sí existe** — se crea sola
+> (`CREATE TABLE IF NOT EXISTS`) la primera vez que se provisiona un referido. Sigue siendo
+> cierto que está **sin estrenar**, pero por otra razón: hace falta que alguien copie a mano
+> el `referrer_rnc`/`referrer_user` del correo del lead al JSON de provisionamiento. Si ese
+> paso se salta, el referido **no se acredita en silencio**.
+>
+> ⚠️ **Y el hallazgo que importa: no hay recompensa definida en ninguna parte del código.**
+> El mecanismo mide y atribuye bien, pero no paga nada — el propio código dice *"el dueño
+> premia desde aquí"*. Detalle completo en `marketing/referidos-semana-1-envio.md`.
 
 ### Movimiento 2 — Contenido de rubro (continuo)
 Posts que solo le hablan a farma/médico. Publicar en IG (vitrina) y replicar a estado de WhatsApp

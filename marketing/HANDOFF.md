@@ -6,6 +6,32 @@ Documento para que **otra computadora (siempre activa)** retome el trabajo de ma
 
 ---
 
+## ⚠️ CAMBIO DE ENFOQUE (Rubén, 22-ago-2026) — leer antes que nada
+
+**Instagram pasó a MANTENIMIENTO y el esfuerzo se movió al MOTOR DE REFERIDOS.**
+
+Casi todo lo que este documento describe abajo (producir carruseles, programar posts, la
+campaña "Sea cual sea tu negocio", la línea verde) **está en pausa**. Lo que sigue vivo de
+la sección 4 es únicamente el **monitoreo de DMs y comentarios**, una vez al día.
+
+Las dos cosas que Rubén dejó claras:
+1. **El canal de Instagram no está funcionando** y **el carrusel verde tampoco.**
+2. **Los likes se dan en WhatsApp, no en IG.** Un post con cero likes de Instagram está
+   midiendo el canal muerto, **no la calidad de la pieza**. No diagnostiques contenido con
+   ese número, y no propongas "mejorar el post" como respuesta a un cero.
+
+**Lo que sí se trabaja:** el motor de referidos, que **ya está construido en PVenta** — no
+hay que inventarlo. Enlace `xoultec.com/r?t=<RNC>&u=<usuario>` (lleva quién refirió), se
+saca de la app móvil en `/m/referir`, viaja embebido en facturas, cotizaciones y estados de
+cuenta que el cliente ya manda, y acredita una "referral star" en la tabla `referrals` del
+master al provisionarse la empresa referida. Mandar a `xoultec.com/r` pelado **pierde la
+atribución**.
+
+⚠️ **Bloqueo:** no hay recompensa concreta documentada (ni monto, ni porcentaje, ni premio).
+Publicar una cifra inventada crea una obligación con clientes. **La define Rubén.**
+
+---
+
 ## 1. Qué es esto (resumen ultra-rápido)
 Estamos llevando el Instagram **@xoultec** (cuenta Business) como canal de promoción de **XoulTec**, empresa de software de gestión (RD + área NY/NJ). Producto insignia: **PVenta ERP**. Campaña activa: **"Sea cual sea tu negocio"**.
 
@@ -109,7 +135,15 @@ que es inofensivo en máquinas que no llevan el monitoreo.
   rearma cuando Rubén escribe algo (después de `/compact` sí sigue solo).
 
 **Instrucciones del loop (lo que debe hacer el asistente al despertar):**
-> Verifica la hora. Si ya pasaron las horas de los posts (o en el chequeo diario), entra a instagram.com/xoultec, abre los posts y revisa comentarios/DMs nuevos. Si hay actividad nueva, reporta a Rubén con resumen + respuestas listas (usa `banco-respuestas.md`). Si no hay nada nuevo, no envíes reporte vacío: solo reprograma. Si Chrome NO está logueado en Instagram, avisa a Rubén. Cadencia: alrededor de 9am y 6pm, luego diario. Sigue reprogramando para mantener el monitoreo activo.
+> Verifica la hora **con `date`** (esta PC se suspende y los despertares llegan tarde). En el chequeo diario, entra a instagram.com/xoultec y revisa comentarios/DMs nuevos. Si hay actividad nueva, reporta a Rubén con resumen + respuestas listas (usa `banco-respuestas.md`). Si no hay nada nuevo, no envíes reporte vacío: solo reprograma. Si Chrome NO está logueado en Instagram, avisa a Rubén. Cadencia: **una vez al día**. Sigue reprogramando para mantener el monitoreo activo.
+> **NO publiques. NO propongas piezas nuevas ni carruseles** — IG está en mantenimiento desde el 22-ago-2026 (ver el aviso de cambio de enfoque al inicio de este documento). Un post en cero likes **no** es diagnóstico de la pieza.
+
+⚠️ **`ScheduleWakeup` no es un reloj fiable en esta PC.** El 22-ago-2026 un despertar puesto
+para las 5:57am disparó ~8h tarde y el reloj del sistema saltó (`date` devolvió `22-ago
+2:38pm` y minutos después `23-ago 3:25am`, con Instagram marcando el mismo post como "1d").
+El chequeo de la mañana se perdió por eso y el hueco del latido fue real. **Verifica la hora
+con `date` en cada pasada antes de concluir nada**; si hace falta horario de verdad, esto
+pide una tarea programada de Windows (como el propio centinela) o un `/schedule` en la nube.
 
 **Autorización de respuestas (Rubén, 28-jun-2026):** El asistente está autorizado a **responder solo** (sin pedir OK cada vez) los comentarios/DMs **positivos y las preguntas estándar ya guionadas** en `banco-respuestas.md` (precio→DM, ¿sirve para mi negocio?, app, DGII/e-CF, demo, ubicación, "me interesa", felicitaciones/emojis). Siempre deja registro de lo enviado.
 > **Excepciones que SIEMPRE se escalan a Rubén (NO auto-enviar):**
