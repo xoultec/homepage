@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.21.1] - 2026-08-23
+- fix(móvil): las **seis capacidades del Agente caben también en el teléfono** — se apilaban en seis filas (~690px) y ahora van en dos columnas solo con el título (~250px); la descripción aparece de `sm` en adelante. Escritorio sin cambios
+
 ## [1.21.0] - 2026-08-23
 - feat(portada): **todo lo que decide la compra cabe en la primera pantalla** — de 843px a 699px hasta el final del bloque del Agente: titular, promesa, los dos protagonistas, los botones de WhatsApp, las seis capacidades y el call center, sin scroll
 - feat(portada): la franja pasa a **tres columnas** — Agente, app móvil y **contacto**; quien se convence leyendo las dos primeras tiene los botones de WhatsApp al lado
