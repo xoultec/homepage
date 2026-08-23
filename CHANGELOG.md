@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0] - 2026-08-23
+- feat(ecf): **el Agente de Marketing pasa al frente** — el h1 deja de decir "y todo tu negocio en un sistema" (que dice cualquier ERP) y pasa a "y un ERP que además sale a trabajar tu cartera"; el cintillo del hero, que es el sitio de más peso, deja la certificación DGII y pasa al Agente
+- feat(ecf): **la franja de la fecha límite se elimina entera** — obligación, plazo y multas de 5 a 50 salarios mínimos. La DGII ya insiste bastante con los clientes; esa franja ahora dice "Tu cartera es más grande de lo que tus vendedores alcanzan a atender"
+- fix(ecf): fuera las afirmaciones comparativas públicas — "Ningún otro ERP hace esto" pasa a "No solo factura:"; la página habla de lo que hace este producto, no de lo que no hacen los demás
+- fix(ecf): fuera "— incluida" de la app móvil, misma línea que el mes gratis
+- fix(ecf): la certificación DGII vuelve a la parrilla de capacidades, donde ya no queda duplicada con el cintillo
+
 ## [1.19.0] - 2026-08-23
 - feat(ecf): entra el **Agente de Marketing**, que no aparecía en la landing y es lo que diferencia a PVenta de cualquier ERP — reorden por historial, persecución de cobros, recuperación del cliente dormido, piezas de redes con IA y la **cola del call center**, donde el Agente asigna el canal y la pantalla explica por qué hay que llamar
 - feat(ecf): se dice explícitamente que el Agente se cobra por uso y no va en la mensualidad
