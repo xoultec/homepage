@@ -6,7 +6,6 @@ import * as icons from 'lucide-react'
 import { Phone, MessageCircle } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 import { products } from '~/lib/products'
-import { promos } from '~/lib/promos'
 import { MarketBadge } from '~/components/MarketBadge'
 import { DmCta } from '~/components/DmCta'
 
@@ -21,44 +20,28 @@ export default function OfertasPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const topPromos = [...promos].sort((a, b) => a.priority - b.priority).slice(0, 4)
-
   return (
     <main className="min-h-screen bg-gray-50">
       <section className="hero-gradient text-white px-4 py-10 text-center">
         <h1 className="text-2xl font-extrabold mb-2">{t('Descubre XoulTec', 'Discover XoulTec')}</h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
           {t(
-            'Software empresarial para hacer crecer tu negocio. Mira nuestras soluciones y aprovecha un descuento exclusivo.',
-            'Business software to grow your company. Explore our solutions and claim an exclusive discount.',
+            'Software empresarial para hacer crecer tu negocio. Estas son nuestras soluciones.',
+            'Business software to grow your company. These are our solutions.',
           )}
         </p>
       </section>
 
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-10">
+        {/* Sin oferta (Rubén, 22-ago-2026): el mes gratis no dio resultado. La CTA por
+            defecto de DmCta es contacto, no promoción. */}
         <DmCta />
 
-        {topPromos.length > 0 && (
-          <section>
-            <h2 className="text-lg font-bold text-dark mb-4">{t('Ofertas', 'Offers')}</h2>
-            <div className="space-y-3">
-              {topPromos.map(promo => (
-                <Link
-                  key={promo.id}
-                  href={promo.url}
-                  className="product-card block bg-white rounded-xl p-4 shadow-sm"
-                >
-                  <h3 className="font-semibold text-dark">{t(promo.titleEs, promo.titleEn)}</h3>
-                  <p className="text-gray-600 text-sm mt-1">{t(promo.descEs, promo.descEn)}</p>
-                  <span className="text-secondary text-sm font-semibold mt-2 inline-block">
-                    {t(promo.ctaEs, promo.ctaEn)} →
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
+        {/* Aquí había una sección "Ofertas" que listaba los 4 primeros de `promos` — pero
+            no eran ofertas (sin precio, sin condición, sin vencimiento), eran los mismos
+            productos que ya salen abajo con icono y bandera. Catálogo duplicado en una
+            sola página. Se quitó el 22-ago-2026. `promos` sigue vivo y en uso: alimenta
+            /api/promos, que es lo que consumen los logins de PVenta/eLoan/FRI. */}
         <section>
           <h2 className="text-lg font-bold text-dark mb-4">{t('Nuestros productos', 'Our products')}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
