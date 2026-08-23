@@ -295,7 +295,14 @@ export function EcfLanding() {
           {/* 2 filas de 3 en vez de 3 filas de 2 (Rubén, 23-ago-2026): las seis
               capacidades entran de un vistazo y se ahorra una fila entera de scroll.
               En tablet siguen siendo 2 columnas y en móvil una. */}
-          <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {/* En el teléfono: 2 columnas y SOLO el título; la descripción aparece de `sm`
+              en adelante. Se probó con descripción en dos columnas y quedaba PEOR que en
+              una sola — el texto rompe en columnas de 170px, cada tarjeta se va a nueve o
+              diez líneas, no se ahorra alto y encima cuesta leerlo.
+              Los seis títulos se explican solos ("Persigue los cobros", "Te dice qué poner
+              en oferta"), así que en móvil funcionan como índice: las seis capacidades de
+              un vistazo, y el detalle en pantallas más anchas. */}
+          <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-3">
             {[
               {
                 icon: Bell,
@@ -354,11 +361,11 @@ export function EcfLanding() {
                 ),
               },
             ].map(f => (
-              <div key={f.titulo} className="bg-white border border-gray-200 rounded-2xl p-4 flex items-start gap-3">
-                <f.icon className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
+              <div key={f.titulo} className="bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 flex items-start gap-2 sm:gap-3">
+                <f.icon className="w-5 h-5 sm:w-6 sm:h-6 text-secondary shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-dark text-sm mb-1">{f.titulo}</h3>
-                  <p className="text-gray-600 text-sm">{f.texto}</p>
+                  <h3 className="font-bold text-dark text-sm sm:mb-1">{f.titulo}</h3>
+                  <p className="hidden sm:block text-gray-600 text-sm">{f.texto}</p>
                 </div>
               </div>
             ))}
