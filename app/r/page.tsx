@@ -23,7 +23,7 @@ export default function ReferralPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <section className="hero-gradient text-white px-4 py-10 text-center">
+      <section className="hero-gradient text-white px-4 pt-20 pb-10 text-center">
         <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
           {t('Vienes recomendado 🎉', "You've been referred 🎉")}
         </span>

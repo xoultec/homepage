@@ -22,7 +22,7 @@ export default function OfertasPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <section className="hero-gradient text-white px-4 py-10 text-center">
+      <section className="hero-gradient text-white px-4 pt-20 pb-10 text-center">
         <h1 className="text-2xl font-extrabold mb-2">{t('Descubre XoulTec', 'Discover XoulTec')}</h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
           {t(
