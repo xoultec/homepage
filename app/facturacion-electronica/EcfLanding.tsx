@@ -46,12 +46,18 @@ const ecfFeatures: Feature[] = [
     descEs: 'Verificación del RNC contra la DGII (activo/suspendido) antes de emitir, para evitar rechazos.',
     descEn: 'RNC verification against DGII (active/suspended) before issuing, to avoid rejections.',
   },
-  // Aquí había una tarjeta "Te dejamos listo ante la DGII" que repetía, casi palabra
-  // por palabra, el cintillo que ya está en el hero justo debajo del botón. El mismo
-  // mensaje dos veces en la misma página (Rubén, 23-ago-2026). Se conserva el cintillo,
-  // que se ve de entrada; esta parrilla queda solo con capacidades técnicas de e-CF.
-  // La línea sobre la firma digital ("tú solo gestionas tu firma") se movió al cintillo
-  // para no perderla.
+  {
+    // Esta tarjeta salió un rato: repetía el cintillo del hero palabra por palabra.
+    // Vuelve porque el cintillo pasó a ser el Agente de Marketing, así que ya no hay
+    // duplicado — y la promesa de que el trámite lo hacemos nosotros no se puede perder.
+    // Sin "gratis" ni "sin costo": lo que vende es que lo hacemos, no que no se cobre.
+    icon: 'Award',
+    titleEs: 'Te dejamos listo ante la DGII',
+    titleEn: 'We get you ready with DGII',
+    descEs: 'Hacemos por ti todo el proceso de certificación como emisor electrónico ante la DGII. Tú solo gestionas tu firma digital.',
+    descEn: 'We handle the entire electronic-issuer certification process before DGII for you. You only manage your own digital signature.',
+    highlight: true,
+  },
   {
     icon: 'FlaskConical',
     titleEs: 'Modo demo para probar',
@@ -105,16 +111,22 @@ export function EcfLanding() {
           <AlertTriangle className="w-4 h-4" />
           {t('Ley 32-23 · Fecha límite 15 de noviembre de 2026', 'Law 32-23 · Deadline November 15, 2026')}
         </span>
+        {/* El hero abría por e-CF y "todo tu negocio en un sistema", que es lo que dice
+            cualquier ERP. Rubén (23-ago-2026): "lo que ha funcionado es el Agente de
+            Marketing, eso es lo que hay que resaltar… ningún ERP tiene eso, probado".
+            El e-CF se queda en el h1 porque es la razón por la que la gente llega a esta
+            página (Ley 32-23, plazo legal, y es el término por el que se busca), pero la
+            promesa pasa a ser el Agente. */}
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 max-w-3xl mx-auto leading-tight">
           {t(
-            'Factura e-CF ante la DGII — y todo tu negocio en un sistema',
-            'DGII e-CF invoicing — and your whole business in one system',
+            'Factura e-CF ante la DGII — y un ERP que además sale a trabajar tu cartera',
+            'DGII e-CF invoicing — and an ERP that also goes out and works your customer list',
           )}
         </h1>
         <p className="text-white font-semibold text-lg max-w-2xl mx-auto mb-8">
           {t(
-            'Factura en minutos. Tú creas la factura; PVenta hace el resto.',
-            'Invoice in minutes. You create it; PVenta does the rest.',
+            'Cumples con la Ley 32-23 y el sistema no se queda esperando: sale a buscarte la venta.',
+            'You comply with Law 32-23 and the system does not sit and wait: it goes out after the sale.',
           )}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -136,26 +148,49 @@ export function EcfLanding() {
           </a>
         </div>
 
+        {/* Este cintillo llevaba la certificación DGII. Ahora lleva el Agente: es el sitio
+            de más peso de la página —justo debajo de los botones— y es lo que diferencia.
+            La certificación volvió a la parrilla de capacidades, donde estaba antes de que
+            la quitara por duplicada. */}
         <div className="mt-7 max-w-2xl mx-auto inline-flex items-start gap-3 bg-white/10 border border-accent/40 rounded-xl px-5 py-3 text-left">
-          <Award className="w-7 h-7 text-accent shrink-0" />
+          <Megaphone className="w-7 h-7 text-accent shrink-0" />
           <p className="text-sm text-white/90">
-            {/* Iba precedido de "Gratis:" en color de acento. Fuera (Rubén, 23-ago-2026):
-                el argumento es que el trámite lo hacemos nosotros, no que sea gratis. */}
+            {/* Decía "Ningún otro ERP hace esto". Fuera (Rubén, 23-ago-2026): es una
+                afirmación comparativa pública, discutible por cualquiera y que habría que
+                venir a cambiar el día que un competidor saque algo parecido. La frase
+                ahora habla de lo que hace ESTE producto, que es igual de fuerte y no
+                depende de lo que hagan los demás. */}
+            <b className="text-accent">{t('No solo factura: ', 'It does not just invoice: ')}</b>
             {t(
-              'Te dejamos listo ante la DGII — hacemos por ti todo el proceso de certificación como emisor electrónico. Tú solo gestionas tu firma digital.',
-              'We get you ready with DGII — we handle your entire electronic-issuer certification process for you. You only manage your own digital signature.',
+              'el Agente de Marketing le escribe a cada cliente cuándo le toca reordenar, persigue los cobros vencidos y, cuando hace falta una llamada, arma la cola y dice por qué llamar.',
+              'the Marketing Agent writes to each customer when it is time to reorder, chases overdue payments and, when a call is needed, builds the queue and says why to call.',
             )}
           </p>
         </div>
       </section>
 
-      {/* Deadline urgency strip */}
-      <section className="bg-amber-50 border-y border-amber-200 px-4 py-4">
-        <p className="max-w-3xl mx-auto text-center text-sm text-amber-900">
-          {t(
-            'Las micro, pequeñas empresas y contribuyentes no clasificados deben emitir e-CF antes del 15 de noviembre de 2026. Vencido el plazo, no cumplir conlleva multas de 5 a 50 salarios mínimos. No esperes al último día.',
-            'Micro, small businesses and unclassified taxpayers must issue e-CF before November 15, 2026. After the deadline, non-compliance carries fines of 5 to 50 minimum wages. Don’t wait until the last day.',
-          )}
+      {/* Esta franja era la del plazo de la DGII: obligación, fecha límite y multas de 5 a
+          50 salarios mínimos. Fuera (Rubén, 23-ago-2026): "la DGII ha insistido mucho con
+          los clientes; lo nuestro es hacerles saber que nuestros productos tienen la
+          capacidad para trabajar en eso, pero no dedicarle una franja entera".
+          El cliente ya llega asustado — repetirle la amenaza no aporta y gasta el mejor
+          sitio de la página en el argumento de otro. La capacidad de e-CF sigue dicha
+          donde toca: la insignia de Ley 32-23 en el hero, el h1, y la parrilla completa
+          de capacidades más abajo. Esta franja pasa a ser del Agente de Marketing. */}
+      <section className="bg-primary/5 border-y border-primary/20 px-4 py-5">
+        <p className="max-w-3xl mx-auto text-center text-dark">
+          <b>
+            {t(
+              'Tu cartera es más grande de lo que tus vendedores alcanzan a atender.',
+              'Your customer list is bigger than your reps can cover.',
+            )}
+          </b>{' '}
+          <span className="text-gray-600">
+            {t(
+              'El Agente de Marketing se ocupa de la diferencia.',
+              'The Marketing Agent takes care of the difference.',
+            )}
+          </span>
         </p>
       </section>
 
@@ -307,7 +342,10 @@ export function EcfLanding() {
                   m.depositar + "efectivo en la calle", m.inventario-fisico, m.visitar,
                   y m.compra.tsx, que lee la factura de compra DE UNA FOTO y crea la CxP
                   guardando la imagen como respaldo. */}
-              <b>{t('App para tu fuerza de ventas — incluida.', 'Sales-force app — included.')}</b>{' '}
+              {/* Sin "— incluida" (Rubén, 23-ago-2026): misma línea que el mes gratis y
+                  el "sin costo" de la DGII — lo que vende es lo que la app hace, no que
+                  venga sin cobrar. */}
+              <b>{t('App para tu fuerza de ventas.', 'Sales-force app.')}</b>{' '}
               {t(
                 'No es solo tomar pedidos: tus vendedores facturan, cobran y depositan el efectivo de la calle, hacen inventario físico, registran la visita y hasta cargan una factura de compra con una foto. Todo desde el celular, sin volver a la oficina.',
                 'It is not just taking orders: your reps invoice, collect and deposit street cash, run physical counts, log the visit and even upload a purchase invoice from a photo. All from the phone, without going back to the office.',
@@ -341,7 +379,8 @@ export function EcfLanding() {
                sin letra chica" sería crear justo la letra chica que dice no tener. */}
         <section>
           <h2 className="text-2xl font-bold text-dark text-center mb-2">
-            {t('Y algo que ningún ERP hace: trabajar tu cartera', 'And something no ERP does: work your customer list')}
+            {/* Mismo motivo que el cintillo: iba "Y algo que ningún ERP hace". */}
+            {t('El Agente de Marketing: tu cartera completa, atendida', 'The Marketing Agent: your whole customer list, handled')}
           </h2>
           <p className="text-gray-600 text-center text-sm mb-6">
             {t(
