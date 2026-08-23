@@ -12,10 +12,14 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-dark font-bold text-lg">X</span>
-              </div>
-              <span className="text-white font-bold text-xl">Xoul<span className="text-secondary">Tec</span></span>
+              {/* Mismo PNG de marca que el Navbar. */}
+              <img
+                src="/logo-xoultec.png"
+                alt="XoulTec"
+                width={900}
+                height={220}
+                className="h-9 w-auto"
+              />
             </div>
             <p className="text-sm max-w-sm">
               {t(
