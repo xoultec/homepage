@@ -195,6 +195,124 @@ export function EcfLanding() {
       </section>
 
       <div className="max-w-5xl mx-auto px-4 py-14 space-y-16">
+        {/* Agente de Marketing — la punta de lanza (Rubén, 23-ago-2026): es lo que
+            diferencia a PVenta de cualquier ERP y no aparecía en esta página.
+            Cada afirmación de aquí está verificada contra pventa-repo:
+            - reorden predictivo por historial + recordatorio por correo/WhatsApp
+              (modules/sales/reorder/service.go, plantilla `reorden_recordatorio`)
+            - CxC: recordatorios +7/+15 y estado de cuenta consolidado, uno por
+              cliente y no uno por factura (cxcreminder.go, cxcstatement.go:1-8)
+            - winback por segmento: dormido / nuevo / con saldo (winback.go:16-42)
+            - redes: imagen + texto generados con IA (social.go:424, clave Anthropic)
+            - enriquecer: WhatsApp/correo desde la web + validación de RNC (enrich.go)
+            ⚠️ DOS LÍMITES A TENER PRESENTES:
+            1. Publicación automática: social.go:19-23 todavía dice "manual bridge… No
+               platform API is used yet" — hoy genera la pieza y la publica una persona.
+               Rubén confirmó el 23-ago-2026 que **eso está en desarrollo**: una vez
+               programada la campaña habrá publicación y monitoreo de redes. Por eso el
+               texto NO dice "tú les das publicar" (se quedaría corto en cuanto salga)
+               pero TAMPOCO dice "publica por ti" (sería falso hoy): dice que tú
+               programas la campaña y él genera la pieza, que es cierto en los dos
+               estados. Cuando la publicación esté viva, aquí se puede prometer
+               publicar y monitorear — y conviene añadirlo, porque es diferencial.
+            2. NO va incluido en la mensualidad: se cobra por uso contra un monedero
+               de crédito (credit.go). Callarlo en una página titulada "Precios claros,
+               sin letra chica" sería crear justo la letra chica que dice no tener. */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-2">
+            {/* Mismo motivo que el cintillo: iba "Y algo que ningún ERP hace". */}
+            {t('El Agente de Marketing: tu cartera completa, atendida', 'The Marketing Agent: your whole customer list, handled')}
+          </h2>
+          <p className="text-gray-600 text-center text-sm mb-6">
+            {t(
+              'Un vendedor alcanza a llamar a diez clientes al día. El Agente de Marketing los atiende a todos.',
+              'A rep can call ten customers a day. The Marketing Agent handles all of them.',
+            )}
+          </p>
+
+          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                icon: Bell,
+                titulo: t('Sabe cuándo toca reordenar', 'It knows when to reorder'),
+                texto: t(
+                  'Aprende el ritmo de compra de cada cliente y le recuerda por correo o WhatsApp antes de que se le acabe.',
+                  'It learns each customer’s buying rhythm and reminds them by email or WhatsApp before they run out.',
+                ),
+              },
+              {
+                icon: MessageCircle,
+                titulo: t('Persigue los cobros', 'It chases collections'),
+                texto: t(
+                  'Recordatorios de facturas vencidas y estado de cuenta consolidado: uno por cliente, no uno por factura.',
+                  'Overdue-invoice reminders and a consolidated statement: one per customer, not one per invoice.',
+                ),
+              },
+              {
+                icon: Activity,
+                titulo: t('Recupera al que dejó de comprar', 'It wins back who stopped buying'),
+                texto: t(
+                  'Detecta al cliente dormido, al nuevo que nunca compró y al que quedó con saldo, y le escribe según su caso.',
+                  'It spots the dormant customer, the new one who never bought and the one left with a balance, and writes to each accordingly.',
+                ),
+              },
+              {
+                icon: Megaphone,
+                titulo: t('Te arma las piezas para redes con IA', 'It builds your social posts with AI'),
+                texto: t(
+                  'Programas la campaña y él genera imagen y texto, con tu logo y tu rubro.',
+                  'You schedule the campaign and it generates image and caption, with your logo and your industry.',
+                ),
+              },
+            ].map(f => (
+              <div key={f.titulo} className="bg-white border border-gray-200 rounded-2xl p-5 flex items-start gap-3">
+                <f.icon className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-bold text-dark text-sm mb-1">{f.titulo}</h3>
+                  <p className="text-gray-600 text-sm">{f.texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call center — verificado en pventa-repo:
+              - El Agente levanta la cola y ASIGNA EL CANAL: correo/WhatsApp si puede
+                alcanzar al cliente él mismo, teléfono cuando hace falta una persona
+                (database/schema.go:1090-1095).
+              - `reason` guarda QUÉ señal puso ahí a ese cliente, "so the screen can
+                explain the call instead of showing a bare phone list" (schema.go:1094).
+              - route_gap_calls: una fila por LLAMADA — quién marcó, cuándo, por qué
+                canal y cómo fue (schema.go:1119-1125).
+              - Atribución: resulted_invoice / resulted_receipt enlazan la factura y el
+                cobro que entraron detrás de la gestión.
+              - Marcador por gestora con meta sacada del ritmo real de cada una +10%
+                (reports/operatorboard/callcenter.go:16-46).
+              ⚠️ La telefonía NO está conectada: `call_ref` y `duration_sec` son ganchos
+              para softphone/PBX y hoy quedan vacíos — la gestora marca y registra el
+              desenlace a mano (schema.go:1122-1125). NO decir que llama solo. */}
+          <div className="max-w-3xl mx-auto mt-6 bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 flex items-start gap-3">
+            <Headset className="w-7 h-7 text-primary shrink-0 hidden sm:block" />
+            <div>
+              <h3 className="font-bold text-dark text-sm mb-1">
+                {t('Y cuando hace falta una llamada, arma la cola', 'And when a call is needed, it builds the queue')}
+              </h3>
+              <p className="text-sm text-gray-700">
+                {t(
+                  'No todo se resuelve por correo. Cuando el cliente no tiene WhatsApp ni correo, o el caso pide voz, el Agente lo pasa a la cola del call center — y la pantalla dice por qué hay que llamarlo, no solo el teléfono. Cada intento queda registrado, y la factura o el cobro que entra después queda enlazado a la gestión que lo trajo. El supervisor ve el marcador por gestora, con metas sacadas del ritmo real de cada una.',
+                  'Not everything gets solved by email. When the customer has no WhatsApp or email, or the case needs a voice, the Agent moves them into the call-center queue — and the screen says why they must be called, not just the phone number. Every attempt is logged, and the invoice or payment that comes in afterwards is linked to the follow-up that brought it. Supervisors get a per-operator scoreboard, with targets drawn from each person’s real pace.',
+                )}
+              </p>
+            </div>
+          </div>
+
+          <p className="max-w-3xl mx-auto mt-5 text-center text-gray-500 text-xs">
+            {t(
+              'El Agente se activa aparte y se cobra por uso: no va incluido en la mensualidad. Lo enciendes cuando quieras y ves en pantalla lo que consume.',
+              'The Agent is activated separately and billed per use: it is not part of the monthly plan. Turn it on whenever you want and watch what it spends on screen.',
+            )}
+          </p>
+        </section>
+
         {/* Pricing */}
         <section>
           <h2 className="text-2xl font-bold text-dark text-center mb-4">
@@ -352,124 +470,6 @@ export function EcfLanding() {
               )}
             </p>
           </div>
-        </section>
-
-        {/* Agente de Marketing — la punta de lanza (Rubén, 23-ago-2026): es lo que
-            diferencia a PVenta de cualquier ERP y no aparecía en esta página.
-            Cada afirmación de aquí está verificada contra pventa-repo:
-            - reorden predictivo por historial + recordatorio por correo/WhatsApp
-              (modules/sales/reorder/service.go, plantilla `reorden_recordatorio`)
-            - CxC: recordatorios +7/+15 y estado de cuenta consolidado, uno por
-              cliente y no uno por factura (cxcreminder.go, cxcstatement.go:1-8)
-            - winback por segmento: dormido / nuevo / con saldo (winback.go:16-42)
-            - redes: imagen + texto generados con IA (social.go:424, clave Anthropic)
-            - enriquecer: WhatsApp/correo desde la web + validación de RNC (enrich.go)
-            ⚠️ DOS LÍMITES A TENER PRESENTES:
-            1. Publicación automática: social.go:19-23 todavía dice "manual bridge… No
-               platform API is used yet" — hoy genera la pieza y la publica una persona.
-               Rubén confirmó el 23-ago-2026 que **eso está en desarrollo**: una vez
-               programada la campaña habrá publicación y monitoreo de redes. Por eso el
-               texto NO dice "tú les das publicar" (se quedaría corto en cuanto salga)
-               pero TAMPOCO dice "publica por ti" (sería falso hoy): dice que tú
-               programas la campaña y él genera la pieza, que es cierto en los dos
-               estados. Cuando la publicación esté viva, aquí se puede prometer
-               publicar y monitorear — y conviene añadirlo, porque es diferencial.
-            2. NO va incluido en la mensualidad: se cobra por uso contra un monedero
-               de crédito (credit.go). Callarlo en una página titulada "Precios claros,
-               sin letra chica" sería crear justo la letra chica que dice no tener. */}
-        <section>
-          <h2 className="text-2xl font-bold text-dark text-center mb-2">
-            {/* Mismo motivo que el cintillo: iba "Y algo que ningún ERP hace". */}
-            {t('El Agente de Marketing: tu cartera completa, atendida', 'The Marketing Agent: your whole customer list, handled')}
-          </h2>
-          <p className="text-gray-600 text-center text-sm mb-6">
-            {t(
-              'Un vendedor alcanza a llamar a diez clientes al día. El Agente de Marketing los atiende a todos.',
-              'A rep can call ten customers a day. The Marketing Agent handles all of them.',
-            )}
-          </p>
-
-          <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
-            {[
-              {
-                icon: Bell,
-                titulo: t('Sabe cuándo toca reordenar', 'It knows when to reorder'),
-                texto: t(
-                  'Aprende el ritmo de compra de cada cliente y le recuerda por correo o WhatsApp antes de que se le acabe.',
-                  'It learns each customer’s buying rhythm and reminds them by email or WhatsApp before they run out.',
-                ),
-              },
-              {
-                icon: MessageCircle,
-                titulo: t('Persigue los cobros', 'It chases collections'),
-                texto: t(
-                  'Recordatorios de facturas vencidas y estado de cuenta consolidado: uno por cliente, no uno por factura.',
-                  'Overdue-invoice reminders and a consolidated statement: one per customer, not one per invoice.',
-                ),
-              },
-              {
-                icon: Activity,
-                titulo: t('Recupera al que dejó de comprar', 'It wins back who stopped buying'),
-                texto: t(
-                  'Detecta al cliente dormido, al nuevo que nunca compró y al que quedó con saldo, y le escribe según su caso.',
-                  'It spots the dormant customer, the new one who never bought and the one left with a balance, and writes to each accordingly.',
-                ),
-              },
-              {
-                icon: Megaphone,
-                titulo: t('Te arma las piezas para redes con IA', 'It builds your social posts with AI'),
-                texto: t(
-                  'Programas la campaña y él genera imagen y texto, con tu logo y tu rubro.',
-                  'You schedule the campaign and it generates image and caption, with your logo and your industry.',
-                ),
-              },
-            ].map(f => (
-              <div key={f.titulo} className="bg-white border border-gray-200 rounded-2xl p-5 flex items-start gap-3">
-                <f.icon className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-dark text-sm mb-1">{f.titulo}</h3>
-                  <p className="text-gray-600 text-sm">{f.texto}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Call center — verificado en pventa-repo:
-              - El Agente levanta la cola y ASIGNA EL CANAL: correo/WhatsApp si puede
-                alcanzar al cliente él mismo, teléfono cuando hace falta una persona
-                (database/schema.go:1090-1095).
-              - `reason` guarda QUÉ señal puso ahí a ese cliente, "so the screen can
-                explain the call instead of showing a bare phone list" (schema.go:1094).
-              - route_gap_calls: una fila por LLAMADA — quién marcó, cuándo, por qué
-                canal y cómo fue (schema.go:1119-1125).
-              - Atribución: resulted_invoice / resulted_receipt enlazan la factura y el
-                cobro que entraron detrás de la gestión.
-              - Marcador por gestora con meta sacada del ritmo real de cada una +10%
-                (reports/operatorboard/callcenter.go:16-46).
-              ⚠️ La telefonía NO está conectada: `call_ref` y `duration_sec` son ganchos
-              para softphone/PBX y hoy quedan vacíos — la gestora marca y registra el
-              desenlace a mano (schema.go:1122-1125). NO decir que llama solo. */}
-          <div className="max-w-3xl mx-auto mt-6 bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 flex items-start gap-3">
-            <Headset className="w-7 h-7 text-primary shrink-0 hidden sm:block" />
-            <div>
-              <h3 className="font-bold text-dark text-sm mb-1">
-                {t('Y cuando hace falta una llamada, arma la cola', 'And when a call is needed, it builds the queue')}
-              </h3>
-              <p className="text-sm text-gray-700">
-                {t(
-                  'No todo se resuelve por correo. Cuando el cliente no tiene WhatsApp ni correo, o el caso pide voz, el Agente lo pasa a la cola del call center — y la pantalla dice por qué hay que llamarlo, no solo el teléfono. Cada intento queda registrado, y la factura o el cobro que entra después queda enlazado a la gestión que lo trajo. El supervisor ve el marcador por gestora, con metas sacadas del ritmo real de cada una.',
-                  'Not everything gets solved by email. When the customer has no WhatsApp or email, or the case needs a voice, the Agent moves them into the call-center queue — and the screen says why they must be called, not just the phone number. Every attempt is logged, and the invoice or payment that comes in afterwards is linked to the follow-up that brought it. Supervisors get a per-operator scoreboard, with targets drawn from each person’s real pace.',
-                )}
-              </p>
-            </div>
-          </div>
-
-          <p className="max-w-3xl mx-auto mt-5 text-center text-gray-500 text-xs">
-            {t(
-              'El Agente se activa aparte y se cobra por uso: no va incluido en la mensualidad. Lo enciendes cuando quieras y ves en pantalla lo que consume.',
-              'The Agent is activated separately and billed per use: it is not part of the monthly plan. Turn it on whenever you want and watch what it spends on screen.',
-            )}
-          </p>
         </section>
 
         {/* Comparison: one subscription vs four */}
