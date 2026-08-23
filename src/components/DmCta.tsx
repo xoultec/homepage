@@ -4,10 +4,9 @@ import { useState } from 'react'
 import { MessageCircle, Instagram, Check } from 'lucide-react'
 import { track } from '@vercel/analytics'
 import { useLanguage } from '~/lib/i18n'
+import { WA_RD, WA_USA, WA_RD_DISPLAY, WA_USA_DISPLAY, waLink } from '~/lib/contact'
 
 const IG_DM = 'https://ig.me/m/xoultec'
-const WA_RD = '18092524007'
-const WA_USA = '19134136583'
 
 // Puente temporal de captura de leads: los forms de /ofertas y /r hacen POST a
 // /api/leads, deshabilitado hasta configurar LEADS_API_KEY en Vercel. Mientras
@@ -60,7 +59,7 @@ export function DmCta({
           `Hi XoulTec 👋 I'd like to know how PVenta could work for my business.`,
         )
 
-  const wa = (num: string) => `https://wa.me/${num}?text=${encodeURIComponent(message)}`
+  const wa = (num: string) => waLink(num, message)
 
   // Deja rastro del contacto aunque la conversación nunca llegue a ocurrir.
   // Es best-effort a propósito: si el registro falla, el usuario igual pasa a
@@ -107,7 +106,7 @@ export function DmCta({
         onClick={() => record('whatsapp_rd')}
         className="w-full flex items-center justify-center gap-2 py-3 bg-green-600 text-white font-bold rounded-xl hover:opacity-90 transition"
       >
-        <MessageCircle className="w-5 h-5" /> WhatsApp RD · (809) 252-4007
+        <MessageCircle className="w-5 h-5" /> WhatsApp RD · {WA_RD_DISPLAY}
       </a>
       <a
         href={wa(WA_USA)}
@@ -116,7 +115,7 @@ export function DmCta({
         onClick={() => record('whatsapp_usa')}
         className="w-full flex items-center justify-center gap-2 py-2.5 bg-green-700 text-white font-semibold rounded-xl hover:opacity-90 transition"
       >
-        <MessageCircle className="w-5 h-5" /> WhatsApp USA · (913) 413-6583
+        <MessageCircle className="w-5 h-5" /> WhatsApp USA · {WA_USA_DISPLAY}
       </a>
 
       {/* Instagram DM — opción (canal monitoreado) */}
