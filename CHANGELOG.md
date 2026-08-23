@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.21.0] - 2026-08-23
+- feat(portada): **todo lo que decide la compra cabe en la primera pantalla** — de 843px a 699px hasta el final del bloque del Agente: titular, promesa, los dos protagonistas, los botones de WhatsApp, las seis capacidades y el call center, sin scroll
+- feat(portada): la franja pasa a **tres columnas** — Agente, app móvil y **contacto**; quien se convence leyendo las dos primeras tiene los botones de WhatsApp al lado
+- feat(portada): botones de WhatsApp de verdad (verde sólido) con la bandera del país y el **glifo real de WhatsApp** — se agrega `WhatsAppIcon`, porque lucide no trae iconos de marca y se venía usando un bocadillo genérico
+- feat(portada): la lista del Agente suma las **dos capacidades que faltaban** — "te dice qué poner en oferta" y "completa los datos que faltan"; la consola tiene seis pestañas y la página contaba cuatro
+- fix(portada): fuera los dos botones del hero, que competían entre sí justo encima de lo que hay que leer (uno de ellos parpadeando)
+- fix(hero): **el titular quedaba parcialmente debajo de la barra de navegación** en `/`, `/ofertas`, `/r` y `/solicitar-apertura` — la navbar es fija y ocupa 104px, y el hero solo dejaba 80px de margen; tres de esas páginas ya venían rotas
+- refactor(portada): el call center pasa de caja a una línea, y los textos de franja y tarjetas se aprietan a 3 y 2 líneas sin perder contenido
+
 ## [1.20.1] - 2026-08-23
 - refactor(ecf): la sección del Agente de Marketing sube por encima de precios — se ve qué hace el sistema antes de ver cuánto cuesta, y encadena directo con la franja que plantea el problema
 
