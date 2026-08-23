@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback, type FormEvent } from 'react'
 import { MessageCircle, X, Send, Bot, Loader2, RotateCcw, Headset, ShoppingBag, Wrench } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
+import { WA_RD, WA_USA, WA_RD_DISPLAY, WA_USA_DISPLAY, waLink } from '~/lib/contact'
 
 type ChatMessage = {
   role: 'user' | 'assistant'
@@ -11,8 +12,14 @@ type ChatMessage = {
 
 type TransferType = 'sales' | 'support' | null
 
-const WHATSAPP_SALES = 'https://wa.me/18169193349'
-const WHATSAPP_SUPPORT = 'https://wa.me/18092524007'
+// El traspaso a ventas apuntaba a +1 (816) 919-3349, que es un Google Voice y
+// por tanto NUNCA pudo tener WhatsApp: cada persona que pulsó "hablar con
+// ventas" desde 2024 aterrizó en la pantalla de "este número no está en
+// WhatsApp". No es que los mensajes se perdieran — no había dónde escribir.
+//
+// Ahora ventas ofrece LOS DOS números y elige la persona (Rubén, 22-ago-2026).
+// Soporte sigue yendo al de RD, que es donde se atiende. Los números salen de
+// ~/lib/contact: no se vuelven a escribir a mano en ningún componente.
 
 export function ChatWidget() {
   const { lang, t } = useLanguage()
@@ -38,7 +45,6 @@ export function ChatWidget() {
     setTransferring(type)
 
     setTimeout(() => {
-      const waUrl = type === 'sales' ? WHATSAPP_SALES : WHATSAPP_SUPPORT
       const waText = type === 'sales'
         ? (lang === 'es' ? 'Hola, me interesa conocer más sobre sus productos.' : 'Hi, I\'m interested in learning more about your products.')
         : (lang === 'es' ? 'Hola, necesito soporte técnico.' : 'Hi, I need technical support.')
@@ -47,14 +53,18 @@ export function ChatWidget() {
         ? t('Equipo de Ventas', 'Sales Team')
         : t('Soporte Técnico', 'Technical Support')
 
+      // Ventas: los dos números, para que elija la persona. Soporte: solo RD.
+      const linkRd = `[🇩🇴 WhatsApp RD · ${WA_RD_DISPLAY}](${waLink(WA_RD, waText)})`
+      const linkUsa = `[🇺🇸 WhatsApp USA · ${WA_USA_DISPLAY}](${waLink(WA_USA, waText)})`
+
       const agentMessage = type === 'sales'
         ? t(
-            `Hola! Soy del equipo de ventas de XoulTec. Para atenderte de forma personalizada, continuemos por WhatsApp.\n\n📱 [Abrir WhatsApp](${waUrl}?text=${encodeURIComponent(waText)})`,
-            `Hi! I'm from the XoulTec sales team. For personalized attention, let's continue on WhatsApp.\n\n📱 [Open WhatsApp](${waUrl}?text=${encodeURIComponent(waText)})`
+            `Hola! Soy del equipo de ventas de XoulTec. Para atenderte de forma personalizada, continuemos por WhatsApp.\n\n📱 ${linkRd}\n📱 ${linkUsa}`,
+            `Hi! I'm from the XoulTec sales team. For personalized attention, let's continue on WhatsApp.\n\n📱 ${linkRd}\n📱 ${linkUsa}`
           )
         : t(
-            `Hola! Soy del equipo de soporte de XoulTec. Para ayudarte con tu caso, continuemos por WhatsApp.\n\n📱 [Abrir WhatsApp](${waUrl}?text=${encodeURIComponent(waText)})`,
-            `Hi! I'm from the XoulTec support team. To help you with your case, let's continue on WhatsApp.\n\n📱 [Open WhatsApp](${waUrl}?text=${encodeURIComponent(waText)})`
+            `Hola! Soy del equipo de soporte de XoulTec. Para ayudarte con tu caso, continuemos por WhatsApp.\n\n📱 ${linkRd}`,
+            `Hi! I'm from the XoulTec support team. To help you with your case, let's continue on WhatsApp.\n\n📱 ${linkRd}`
           )
 
       setMessages(prev => [...prev, { role: 'assistant', content: `[AGENT:${agentName}]${agentMessage}` }])
