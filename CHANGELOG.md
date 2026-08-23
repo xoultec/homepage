@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.18.0] - 2026-08-23
+- fix(contacto): **el WhatsApp de la web apuntaba a un número muerto desde 2024** — el formulario de la portada y el traspaso a ventas del chat mandaban a un Google Voice que nunca pudo tener WhatsApp; quien pulsaba "escríbenos" veía "este número no está en WhatsApp"
+- fix(contacto): los números viven ahora en `src/lib/contact.ts` en vez de copiados en tres componentes, que fue la causa de que uno se quedara dos años atrás
+- feat(contacto): la persona **elige entre RD y USA**, y hay un camino directo de un toque sin llenar el formulario
+- fix(contacto): se quita la redirección automática a `mailto:` que secuestraba la pantalla justo cuando WhatsApp intentaba abrir
+- fix(marca): **el favicon era un hexágono de otra plantilla**, y la X del navbar y el footer era una letra en peso 700 en vez de la marca; ahora usan el PNG exacto del avatar de Instagram/WhatsApp
+- feat(marca): se agrega la **imagen de enlace (Open Graph)**, que no existía — compartir xoultec.com por WhatsApp salía sin logo
+- feat(cta): `/r` y `/ofertas` pasan de promoción a contacto ("Hablemos de tu negocio"); el "primer mes GRATIS" sale de las dos páginas
+- feat(cta): cada clic de contacto registra canal y referidor en Vercel Analytics, para que la atribución no dependa de que la persona mande el mensaje
+- fix(ofertas): se elimina la sección "Ofertas", que repetía los mismos productos de la parrilla de abajo
+- docs(marketing): el enfoque pasa al motor de referidos e Instagram queda en mantenimiento; se agrega el paquete de envío de la Semana 1
+
 ## [1.17.0] - 2026-08-21
 - feat(marketing): gráfica "El acuerdo que vive en la memoria de alguien"
 - docs(marketing): publicado el carrusel verde de la segunda mitad (`DcTJmXlFk5o`) y el estado del WhatsApp 913; queda registrada la receta del **upload de imágenes locales a estados**, que sí se puede automatizar
