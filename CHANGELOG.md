@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.20.1] - 2026-08-23
+- refactor(ecf): la sección del Agente de Marketing sube por encima de precios — se ve qué hace el sistema antes de ver cuánto cuesta, y encadena directo con la franja que plantea el problema
+
 ## [1.20.0] - 2026-08-23
 - feat(ecf): **el Agente de Marketing pasa al frente** — el h1 deja de decir "y todo tu negocio en un sistema" (que dice cualquier ERP) y pasa a "y un ERP que además sale a trabajar tu cartera"; el cintillo del hero, que es el sitio de más peso, deja la certificación DGII y pasa al Agente
 - feat(ecf): **la franja de la fecha límite se elimina entera** — obligación, plazo y multas de 5 a 50 salarios mínimos. La DGII ya insiste bastante con los clientes; esa franja ahora dice "Tu cartera es más grande de lo que tus vendedores alcanzan a atender"
