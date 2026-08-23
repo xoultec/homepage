@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.19.0] - 2026-08-23
+- feat(ecf): entra el **Agente de Marketing**, que no aparecía en la landing y es lo que diferencia a PVenta de cualquier ERP — reorden por historial, persecución de cobros, recuperación del cliente dormido, piezas de redes con IA y la **cola del call center**, donde el Agente asigna el canal y la pantalla explica por qué hay que llamar
+- feat(ecf): se dice explícitamente que el Agente se cobra por uso y no va en la mensualidad
+- fix(ecf): fuera el banner "Promo de lanzamiento: 1 mes gratis", que iba justo debajo del título "Precios claros, sin letra chica"
+- fix(ecf): fuera "Te certificamos ante la DGII — gratis", su badge y el "sin costo"; el argumento es que el trámite lo hacemos nosotros
+- fix(ecf): fuera "y descuento" del botón y del formulario, y la etiqueta "PRECIO DE LANZAMIENTO" sobre los US$49
+- fix(ecf): se elimina el duplicado — la tarjeta "Te dejamos listo ante la DGII" repetía el cintillo del hero casi palabra por palabra
+- fix(ecf): la app móvil estaba descrita como "toman pedidos y cotizaciones"; son 48 pantallas — facturar, cobrar, depositar el efectivo de la calle, inventario físico, visita y carga de factura de compra por foto
+- chore(public): se eliminan cinco assets sobrantes de la plantilla original (dos hexágonos, una captura de "SIC - Accounts Payable" y dos duplicados)
+
 ## [1.18.0] - 2026-08-23
 - fix(contacto): **el WhatsApp de la web apuntaba a un número muerto desde 2024** — el formulario de la portada y el traspaso a ventas del chat mandaban a un Google Voice que nunca pudo tener WhatsApp; quien pulsaba "escríbenos" veía "este número no está en WhatsApp"
 - fix(contacto): los números viven ahora en `src/lib/contact.ts` en vez de copiados en tres componentes, que fue la causa de que uno se quedara dos años atrás
