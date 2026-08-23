@@ -32,8 +32,8 @@ export default function ReferralPage() {
         </h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
           {t(
-            'Déjanos los datos de tu empresa y nuestro equipo de ventas te contacta — sin compromiso.',
-            'Leave your company details and our sales team will reach out — no commitment.',
+            'Escríbenos y conversamos sobre tu negocio — sin compromiso.',
+            'Message us and we’ll talk about your business — no commitment.',
           )}
         </p>
       </section>
