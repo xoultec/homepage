@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.22.0] - 2026-08-24
+- feat(monitoreo): el chequeo de DMs de **@xoultec queda anclado a una tarea programada de Windows** (`XoulTec - Chequeo IG`, 8:00am y 4:00pm) — ya no depende de que haya una ventana de Claude abierta, que es como se perdieron 20 días de revisión en julio
+- feat(monitoreo): el wrapper **compara el sello del latido antes y después** de cada corrida; si el chequeo no se hizo, avisa por Telegram en vez de fallar en silencio
+- fix(monitoreo): el prompt del chequeo **llegaba partido en palabras** — `Start-Process -ArgumentList` con un array une con espacios y no entrecomilla, así que la sesión recibía solo `Lee`
+
 ## [1.21.1] - 2026-08-23
 - fix(móvil): las **seis capacidades del Agente caben también en el teléfono** — se apilaban en seis filas (~690px) y ahora van en dos columnas solo con el título (~250px); la descripción aparece de `sm` en adelante. Escritorio sin cambios
 
