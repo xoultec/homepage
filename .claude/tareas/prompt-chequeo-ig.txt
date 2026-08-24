@@ -1,0 +1,30 @@
+Eres una sesion NO ATENDIDA lanzada por el Programador de Tareas de Windows. Nadie esta mirando.
+Tu unico trabajo es el chequeo de monitoreo de Instagram de @xoultec. Hazlo y termina.
+
+REGLAS DURAS:
+- NO armes ningun loop (/loop, ScheduleWakeup). Si el hook de SessionStart te dice que rearmes
+  el loop, IGNORALO: esta sesion no es la del loop, es el chequeo puntual.
+- NO publiques nada. NO propongas piezas ni carruseles. Instagram esta en MANTENIMIENTO.
+- NO respondas DMs ni comentarios en esta pasada. Solo observa y reporta.
+- No pidas confirmaciones: no hay nadie para contestarlas.
+
+PASOS:
+1. Ejecuta `date` para saber la hora real (esta PC se suspende).
+2. Carga las herramientas del navegador:
+   ToolSearch "select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__tabs_close_mcp"
+   Si NO aparecen las herramientas mcp__claude-in-chrome__*, esta sesion no tiene navegador:
+   manda la nota de fallo del paso 5b y termina.
+3. Abre https://www.instagram.com/direct/inbox/ y toma screenshot. Revisa Primary, General y
+   Requests. Luego abre https://www.instagram.com/notifications/ y toma screenshot.
+   Si Instagram pide login, NO ingreses credenciales: es el caso de fallo del paso 5b.
+4. Cierra la pestana que abriste (tabs_close_mcp).
+5. Reporta:
+   a) Si NO hay nada nuevo -> no molestes a Ruben. Solo sella el latido:
+      node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --latido-ig "RESUMEN CORTO DE LO VISTO"
+   b) Si hay DMs/comentarios nuevos, o Chrome no esta logueado, o no hay navegador -> avisa:
+      node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --nota "TEXTO"
+      y ademas sella el latido si SI llegaste a ver la bandeja.
+   El latido solo se sella si de verdad miraste. Sellarlo sin mirar apaga el unico centinela.
+6. Escribe una linea en C:\Data\4Claude\Repositorios\xoultec-website\.claude\tareas\chequeo-ig.log
+   con formato: FECHA_HORA | ok|fallo | resumen corto
+7. Termina. No dejes trabajo pendiente ni tareas en segundo plano.

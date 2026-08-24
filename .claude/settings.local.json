@@ -126,7 +126,22 @@
       "Bash(schtasks /query /fo LIST /v)",
       "Bash(npm -v)",
       "Bash(npx *)",
-      "PowerShell(Get-Process *)"
+      "PowerShell(Get-Process *)",
+      "Bash(grep -rnoE \"[0-9]{2,4}\\\\s?%\" --include=\"*.md\" --include=\"*.tsx\" --include=\"*.ts\" --include=\"*.html\" .)",
+      "Bash(awk '{print $5}')",
+      "Bash(xargs -r -I{} powershell -NoProfile -Command \"Stop-Process -Id {} -Force\")",
+      "PowerShell($paths = @\\(\"$env:ProgramFiles\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\", \"${env:ProgramFiles\\(x86\\)}\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\", \"$env:LOCALAPPDATA\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { $p; break } })",
+      "Bash(grep -v \"^.*//\")",
+      "Bash(grep -oE '\"[a-zA-Z0-9áéíóúñ .\\\\-]{4,40}\"')",
+      "Bash(grep -oE '\"[a-zA-ZáéíóúñÁÉÍÓÚ][a-zA-Z0-9áéíóúñ .\\\\-]{4,40}\"')",
+      "Bash(cd *)",
+      "Bash(grep -n \"import\\\\|<[A-Z][a-zA-Z]*\\\\|{/\\\\*\" app/page.tsx)",
+      "Bash(grep -o \"Precios claros, sin letra chica.\\\\{0,80\\\\}\")",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__tabs_close_mcp",
+      "Bash(date)"
     ]
   },
   "hooks": {

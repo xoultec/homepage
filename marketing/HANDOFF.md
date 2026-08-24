@@ -145,6 +145,38 @@ El chequeo de la mañana se perdió por eso y el hueco del latido fue real. **Ve
 con `date` en cada pasada antes de concluir nada**; si hace falta horario de verdad, esto
 pide una tarea programada de Windows (como el propio centinela) o un `/schedule` en la nube.
 
+### Tarea programada `XoulTec - Chequeo IG` (instalada 24-ago-2026)
+Ancla el chequeo al Programador de Tareas para que **no dependa de que haya una ventana de
+Claude abierta**. Dispara **8:00am y 4:00pm** (esos dos huecos mantienen el latido por debajo
+de las 11h del centinela dentro de la ventana 10am–10pm), con `StartWhenAvailable` para que se
+recupere si la PC estaba suspendida.
+
+- Wrapper: `.claude/tareas/chequeo-ig.ps1` — lanza una sesión de Claude, la mata a los 12 min
+  si se cuelga, y **compara el sello del latido antes y después**. Si no se selló, el chequeo
+  NO se hizo: manda `--nota` por Telegram. El fallo nunca es silencioso.
+- Prompt de la sesión hija: `.claude/tareas/prompt-chequeo-ig.txt` (no publica, no responde,
+  no arma loops — solo mira y reporta).
+- Bitácora: `.claude/tareas/chequeo-ig.log` (gitignored), una línea por pasada.
+
+⚠️ **Por qué tiene que ser una sesión interactiva y no `claude -p`:** headless no tiene las
+herramientas `mcp__claude-in-chrome__*` (verificado 9-ago-2026). La extensión la inyecta la
+sesión interactiva vía el host nativo. Por eso la tarea exige **sesión de Windows iniciada,
+Chrome abierto y logueado en @xoultec** — no basta con la PC encendida.
+
+⚠️ **Permisos:** la sesión hija corre con `--permission-mode acceptEdits` y un **allowlist
+acotado** en `.claude/settings.local.json` (`mcp__claude-in-chrome__` tabs_context / navigate /
+computer / tabs_close, más `Bash(node:*)` y `Bash(date)`). No se usó
+`--dangerously-skip-permissions`: fue decisión de Rubén el 24-ago mantenerlo acotado. Si un día
+el chequeo empieza a fallar tras una actualización de Claude Code, sospechar primero de un
+permiso nuevo que no está en esa lista.
+
+⚠️ **Sin verificar en producción al momento de escribirlo.** Un asistente no puede lanzar la
+sesión hija con permisos automáticos (el clasificador lo bloquea, con razón: sería un agente
+que se auto-aprueba). La primera corrida la tiene que disparar Rubén a mano
+(`Start-ScheduledTask -TaskName 'XoulTec - Chequeo IG'`) y confirmar que el log dice `ok`. Si
+dice `fallo`, la vía interactiva-por-Programador no sirve y hay que volver a `/schedule` en la
+nube. **La tarea no reemplaza al loop de sesión hasta que esa corrida salga `ok`.**
+
 **Autorización de respuestas (Rubén, 28-jun-2026):** El asistente está autorizado a **responder solo** (sin pedir OK cada vez) los comentarios/DMs **positivos y las preguntas estándar ya guionadas** en `banco-respuestas.md` (precio→DM, ¿sirve para mi negocio?, app, DGII/e-CF, demo, ubicación, "me interesa", felicitaciones/emojis). Siempre deja registro de lo enviado.
 > **Excepciones que SIEMPRE se escalan a Rubén (NO auto-enviar):**
 > - **Comentarios negativos / críticas / quejas** → avisar de inmediato con el texto completo, extraer el aprendizaje (qué mejorar) y dejar borrador de respuesta calmada, pero **esperar el OK de Rubén**. Los negativos ayudan a mejorar: requieren su atención.
