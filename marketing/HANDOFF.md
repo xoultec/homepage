@@ -210,10 +210,16 @@ fuera del allowlist**, no Chrome. Para diagnosticar, leer el final de su transcr
 `~/.claude/projects/C--Data-4Claude-Repositorios-xoultec-website/*.jsonl` — la última línea dice
 exactamente en qué tool se quedó.
 
-⚠️ **Falta probar el disparo automático.** Lo verificado es el disparo **manual**
-(`Start-ScheduledTask`). Los triggers de las 8:00am y 4:00pm no se han visto correr solos. Si uno
-falla, hay dos redes independientes de la sesión: el wrapper manda `--nota` por Telegram, y el
-centinela `XoulTec - Monitor campana` grita a las 11h sin latido.
+✅ **Disparo automático VERIFICADO (24-ago-2026, 4:00pm).** Corrió solo, `resultado=0`, log en
+`ok`, latido sellado a las 4:02pm — dos minutos de punta a punta. Con esto la cadena está probada
+entera: **el Programador dispara, la sesión hija tiene navegador, hace el chequeo y sella.** La
+tarea ya puede sostener el monitoreo sin una ventana de Claude abierta.
+
+Historial del día, por si vuelve a fallar y hay que comparar: 6:08 manual `ok` · 8:00 automático
+`fallo` (eligió PowerShell) · 16:00 automático `ok` (con el prompt exigiendo Bash).
+
+⚠️ **Pendiente opcional:** `PowerShell(node:*)` sigue sin estar en el allowlist. El prompt ya evita
+el caso, así que no es bloqueante — es la red por si una sesión futura se desvía igual.
 
 ⚠️ **Un asistente no puede disparar esta tarea por sí solo.** Lanzar la sesión hija con permisos
 automáticos lo bloquea el clasificador, con razón: sería un agente que se auto-aprueba. Las
