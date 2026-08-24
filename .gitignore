@@ -12,3 +12,4 @@ data/
 
 # Bandera del monitoreo de IG: dice si ESTA maquina lleva el loop (ver marketing/HANDOFF.md §4)
 .claude/ig-loop.on
+.claude/tareas/chequeo-ig.log
