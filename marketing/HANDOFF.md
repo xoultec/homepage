@@ -191,6 +191,25 @@ por el Programador de Tareas sí arranca en modo interactivo y sí tiene la exte
   `StartWhenAvailable` recupera el disparo perdido.
 - **Chrome abierto y logueado en @xoultec**, con la extensión de Claude activa.
 
+**Primer disparo automático (24-ago, 8:00am) — falló por un permiso, no por Chrome.** La sesión
+hija hizo el chequeo **completo y correcto** (abrió Instagram, revisó Primary/General/Requests y
+notificaciones, concluyó "nada nuevo", cerró la pestaña) y se congeló en el último paso: al sellar
+el latido eligió la herramienta **PowerShell**, y el allowlist solo cubría `Bash(node:*)`. Quedó
+esperando un permiso que nadie podía dar hasta que el wrapper la mató a los 12 min. La corrida de
+las 6:08 había funcionado sólo porque esa eligió Bash — **es azar cuál herramienta usa**.
+
+Doble arreglo, porque uno solo no basta:
+1. El prompt ahora **exige el tool Bash** para todo comando de consola, con el incidente citado.
+2. Falta añadir `PowerShell(node:*)` y `PowerShell(date)` al allowlist como red de seguridad.
+   **Un asistente no puede hacerlo**: el clasificador bloquea que Claude amplíe su propio
+   allowlist, por Edit y por la skill `update-config`. Lo tiene que escribir Rubén a mano en
+   `.claude/settings.local.json`.
+
+**Lección general:** cuando la sesión hija se cuelga, el sospechoso número uno es **una herramienta
+fuera del allowlist**, no Chrome. Para diagnosticar, leer el final de su transcript en
+`~/.claude/projects/C--Data-4Claude-Repositorios-xoultec-website/*.jsonl` — la última línea dice
+exactamente en qué tool se quedó.
+
 ⚠️ **Falta probar el disparo automático.** Lo verificado es el disparo **manual**
 (`Start-ScheduledTask`). Los triggers de las 8:00am y 4:00pm no se han visto correr solos. Si uno
 falla, hay dos redes independientes de la sesión: el wrapper manda `--nota` por Telegram, y el

@@ -7,9 +7,13 @@ REGLAS DURAS:
 - NO publiques nada. NO propongas piezas ni carruseles. Instagram esta en MANTENIMIENTO.
 - NO respondas DMs ni comentarios en esta pasada. Solo observa y reporta.
 - No pidas confirmaciones: no hay nadie para contestarlas.
+- Para CUALQUIER comando de consola usa el tool **Bash**, nunca PowerShell. El allowlist de
+  esta maquina cubre Bash(node:*) y Bash(date); si eliges PowerShell te quedas colgada
+  esperando un permiso que nadie va a dar. Paso el 24-ago-2026 a las 8:00am: la sesion hizo
+  el chequeo completo y se congelo justo al sellar el latido.
 
 PASOS:
-1. Ejecuta `date` para saber la hora real (esta PC se suspende).
+1. Ejecuta `date` con el tool Bash para saber la hora real (esta PC se suspende).
 2. Carga las herramientas del navegador:
    ToolSearch "select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__tabs_close_mcp"
    Si NO aparecen las herramientas mcp__claude-in-chrome__*, esta sesion no tiene navegador:
@@ -20,9 +24,9 @@ PASOS:
 4. Cierra la pestana que abriste (tabs_close_mcp).
 5. Reporta:
    a) Si NO hay nada nuevo -> no molestes a Ruben. Solo sella el latido:
-      node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --latido-ig "RESUMEN CORTO DE LO VISTO"
+      (con el tool Bash) node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --latido-ig "RESUMEN CORTO DE LO VISTO"
    b) Si hay DMs/comentarios nuevos, o Chrome no esta logueado, o no hay navegador -> avisa:
-      node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --nota "TEXTO"
+      (con el tool Bash) node "C:\Data\4Claude\Repositorios\Apify\monitor.js" --nota "TEXTO"
       y ademas sella el latido si SI llegaste a ver la bandeja.
    El latido solo se sella si de verdad miraste. Sellarlo sin mirar apaga el unico centinela.
 6. Escribe una linea en C:\Data\4Claude\Repositorios\xoultec-website\.claude\tareas\chequeo-ig.log
