@@ -178,14 +178,36 @@ sin instrucciones y el chequeo no se hizo. **No era Chrome ni el login** — la 
 manda el propio wrapper (`revisa que Chrome esté abierto…`) apunta a la causa equivocada en este
 caso. Arreglado: el prompt ahora viaja como **un solo argumento entrecomillado**
 (`'--permission-mode acceptEdits "{0}"' -f $ask`), verificado imprimiendo `process.argv` de un
-proceso lanzado igual. **Falta volver a correrla** y confirmar que el log dice `ok`.
+proceso lanzado igual.
 
-⚠️ **Sin verificar en producción al momento de escribirlo.** Un asistente no puede lanzar la
-sesión hija con permisos automáticos (el clasificador lo bloquea, con razón: sería un agente
-que se auto-aprueba). La primera corrida la tiene que disparar Rubén a mano
-(`Start-ScheduledTask -TaskName 'XoulTec - Chequeo IG'`) y confirmar que el log dice `ok`. Si
-dice `fallo`, la vía interactiva-por-Programador no sirve y hay que volver a `/schedule` en la
-nube. **La tarea no reemplaza al loop de sesión hasta que esa corrida salga `ok`.**
+✅ **VERIFICADA (24-ago-2026, 6:11am).** Segunda corrida con el prompt arreglado: `resultado=0`,
+log en `ok`, latido sellado. La sesión hija hizo el chequeo completo **sin nadie mirando** y su
+reporte coincidió con el chequeo manual de las 5:45am (no fue un `ok` falso). Con esto queda
+resuelta la "vía sin probar" que estaba anotada desde el 9-ago: **una sesión de Claude lanzada
+por el Programador de Tareas sí arranca en modo interactivo y sí tiene la extensión de Chrome.**
+
+**Lo que la tarea necesita para funcionar** (si falta algo, el wrapper avisa por Telegram):
+- Sesión de **Windows iniciada** — no basta la PC encendida. Suspendida está bien:
+  `StartWhenAvailable` recupera el disparo perdido.
+- **Chrome abierto y logueado en @xoultec**, con la extensión de Claude activa.
+
+⚠️ **Falta probar el disparo automático.** Lo verificado es el disparo **manual**
+(`Start-ScheduledTask`). Los triggers de las 8:00am y 4:00pm no se han visto correr solos. Si uno
+falla, hay dos redes independientes de la sesión: el wrapper manda `--nota` por Telegram, y el
+centinela `XoulTec - Monitor campana` grita a las 11h sin latido.
+
+⚠️ **Un asistente no puede disparar esta tarea por sí solo.** Lanzar la sesión hija con permisos
+automáticos lo bloquea el clasificador, con razón: sería un agente que se auto-aprueba. Las
+corridas de prueba las dispara Rubén.
+
+⚠️ **Pendientes menores (24-ago, sin tocar):** el mensaje de fallo del wrapper culpa a
+Chrome/login por defecto y en la corrida rota apuntaba a la causa equivocada; `Stop-ScheduledTask`
+deja al wrapper sin escribir log ni avisar; y el log recibe dos líneas `ok` por corrida (una la
+escribe la sesión hija, otra el wrapper).
+
+⚠️ **La bandera `.claude/ig-loop.on` sigue puesta.** Mientras exista, cada sesión nueva pide
+rearmar el loop — que ahora es redundante con la tarea. Decidir si se borra **después** de ver
+correr los disparos automáticos, no antes: el loop es hoy el único respaldo probado.
 
 **Autorización de respuestas (Rubén, 28-jun-2026):** El asistente está autorizado a **responder solo** (sin pedir OK cada vez) los comentarios/DMs **positivos y las preguntas estándar ya guionadas** en `banco-respuestas.md` (precio→DM, ¿sirve para mi negocio?, app, DGII/e-CF, demo, ubicación, "me interesa", felicitaciones/emojis). Siempre deja registro de lo enviado.
 > **Excepciones que SIEMPRE se escalan a Rubén (NO auto-enviar):**
