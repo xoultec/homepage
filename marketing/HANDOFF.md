@@ -170,6 +170,16 @@ computer / tabs_close, más `Bash(node:*)` y `Bash(date)`). No se usó
 el chequeo empieza a fallar tras una actualización de Claude Code, sospechar primero de un
 permiso nuevo que no está en esa lista.
 
+**Primera corrida real (24-ago-2026, 6:00am) — falló, ya corregida.** Rubén la disparó a mano y
+la tarea arrancó bien, pero el prompt llegó roto: `Start-Process -ArgumentList` con un **array**
+une los elementos con espacios y **no los entrecomilla** (Windows PowerShell 5.1), así que la
+frase se partió en palabras sueltas y la sesión hija recibió como prompt solo **`Lee`**. Se quedó
+sin instrucciones y el chequeo no se hizo. **No era Chrome ni el login** — la nota de fallo que
+manda el propio wrapper (`revisa que Chrome esté abierto…`) apunta a la causa equivocada en este
+caso. Arreglado: el prompt ahora viaja como **un solo argumento entrecomillado**
+(`'--permission-mode acceptEdits "{0}"' -f $ask`), verificado imprimiendo `process.argv` de un
+proceso lanzado igual. **Falta volver a correrla** y confirmar que el log dice `ok`.
+
 ⚠️ **Sin verificar en producción al momento de escribirlo.** Un asistente no puede lanzar la
 sesión hija con permisos automáticos (el clasificador lo bloquea, con razón: sería un agente
 que se auto-aprueba). La primera corrida la tiene que disparar Rubén a mano

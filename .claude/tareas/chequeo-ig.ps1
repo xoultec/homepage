@@ -31,8 +31,14 @@ $antes = Get-Sello
 
 $ask = 'Lee el archivo .claude\tareas\prompt-chequeo-ig.txt y ejecuta al pie de la letra lo que dice. No hagas nada mas.'
 
+# OJO: -ArgumentList con un ARRAY une los elementos con espacios y NO los entrecomilla
+# (Windows PowerShell 5.1). El 24-ago-2026, en la primera corrida real, eso partio el prompt
+# en palabras sueltas y la sesion hija recibio solo "Lee": se quedo sin instrucciones y el
+# chequeo no se hizo. El prompt tiene que viajar como UN solo argumento entrecomillado.
+$argumentos = '--permission-mode acceptEdits "{0}"' -f $ask
+
 $p = Start-Process -FilePath $claude `
-                   -ArgumentList @('--permission-mode','acceptEdits',$ask) `
+                   -ArgumentList $argumentos `
                    -WorkingDirectory $repo -PassThru
 
 $termino = $p.WaitForExit($limiteMin * 60 * 1000)
