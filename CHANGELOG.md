@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.22.1] - 2026-08-25
+- fix(monitoreo): el chequeo de IG **se colgaba al elegir PowerShell** — hacía la revisión completa y se congelaba al sellar el latido, porque el allowlist solo cubre `Bash(node:*)`; el prompt ahora exige Bash para todo comando de consola
+- docs(monitoreo): el chequeo **deja de vivir en un loop de sesión** y pasa a la tarea programada de Windows, verificada con un disparo manual y dos automáticos seguidos
+
 ## [1.22.0] - 2026-08-24
 - feat(monitoreo): el chequeo de DMs de **@xoultec queda anclado a una tarea programada de Windows** (`XoulTec - Chequeo IG`, 8:00am y 4:00pm) — ya no depende de que haya una ventana de Claude abierta, que es como se perdieron 20 días de revisión en julio
 - feat(monitoreo): el wrapper **compara el sello del latido antes y después** de cada corrida; si el chequeo no se hizo, avisa por Telegram en vez de fallar en silencio
