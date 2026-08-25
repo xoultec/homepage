@@ -145,6 +145,12 @@ El chequeo de la mañana se perdió por eso y el hueco del latido fue real. **Ve
 con `date` en cada pasada antes de concluir nada**; si hace falta horario de verdad, esto
 pide una tarea programada de Windows (como el propio centinela) o un `/schedule` en la nube.
 
+> **El monitoreo ya NO vive en un loop de sesión (desde el 25-ago-2026).** Lo sostiene la tarea
+> programada de abajo. La bandera `.claude/ig-loop.on` fue **borrada** por decisión de Rubén, así
+> que el hook de `SessionStart` ya no pide rearmar nada y una sesión nueva **no debe armar el
+> loop**. Todo lo que sigue sobre el loop se conserva como historia y como plan B: si la tarea
+> dejara de funcionar, se vuelve a crear la bandera y se relanza el loop.
+
 ### Tarea programada `XoulTec - Chequeo IG` (instalada 24-ago-2026)
 Ancla el chequeo al Programador de Tareas para que **no dependa de que haya una ventana de
 Claude abierta**. Dispara **8:00am y 4:00pm** (esos dos huecos mantienen el latido por debajo
