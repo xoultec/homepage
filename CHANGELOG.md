@@ -1,10 +1,9 @@
 # Changelog
 
-## [1.23.0] - 2026-09-18
+## [1.23.0] - 2026-09-17
 - feat(checkout): el sitio **ya puede cobrar** — las tarjetas de precio de `/facturacion-electronica` y `/nomina` estrenan botón de suscripción contra Stripe Payment Links, que hasta ahora eran texto sin salida: el 16-sep alguien intentó comprar la membresía y el único camino era un formulario que espera aprobación manual
 - feat(checkout): mientras un Payment Link no esté configurado, **el botón no promete un pago que no existe** — baja al formulario de la misma página, así que el sitio se puede desplegar antes o después de crear los links
 - feat(checkout): quien vuelve del pago con `?paid=1` ve **"Pago recibido"** en `/solicitar-apertura` y se le pide el **mismo correo** con el que pago — se cobra primero y se aprovisiona después, y el correo es el puente entre el cobro y la solicitud
-- ci(deploy): los despliegues del sitio pasan a la **ventana de las 6:00 AM RD** (10:00 UTC), el mismo estándar del resto de los sistemas — un push ya no despliega, se acumula en `main`; el express manual queda en Actions → Deploy → Run workflow
 - fix(monitoreo): el guardián de Chrome **miraba procesos, no navegadores** — diez procesos `--headless` colgados desde el 2-sep lo hacian dar Chrome por abierto, y un Chrome headless no carga extensiones: cinco pasadas seguidas del chequeo de IG murieron así
 - fix(monitoreo): el chequeo de IG **abre Chrome el mismo** si no hay ninguno, en vez de depender de que alguien se acuerde — cuatro pasadas programadas seguidas no revisaron la bandeja porque la PC reinició y nadie volvio a abrirlo
 - fix(monitoreo): un `select_browser` fallido **ya no aborta el chequeo** — esas herramientas no reportan el emparejamiento de forma fiable y el juez es `tabs_context_mcp`: si conecta, hay navegador
