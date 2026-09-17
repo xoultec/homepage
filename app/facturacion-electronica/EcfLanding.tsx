@@ -10,6 +10,7 @@ import { LeadForm } from '../ofertas/LeadForm'
 // formulario de la portada estuvo dos años apuntando a un número muerto.
 import { WA_RD, WA_USA, WA_RD_DISPLAY, WA_USA_DISPLAY, waLink } from '~/lib/contact'
 import { WhatsAppIcon } from '~/components/WhatsAppIcon'
+import { CheckoutButton } from '~/components/CheckoutButton'
 
 // Real, verifiable e-CF capabilities of PVenta (matches the ecf module: 9 doc
 // types, DGII signing/submission with polling, security code + QR, sequence
@@ -445,6 +446,7 @@ export function EcfLanding() {
                   </li>
                 ))}
               </ul>
+              <CheckoutButton plan="emprendedor" />
             </div>
             {/* Todo Incluido — ERP completo (recomendado) */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-md border-2 border-secondary relative">
@@ -478,6 +480,7 @@ export function EcfLanding() {
                   </li>
                 ))}
               </ul>
+              <CheckoutButton plan="todo-incluido" variant="solid" />
             </div>
             {/* Enterprise — a cotizar */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">

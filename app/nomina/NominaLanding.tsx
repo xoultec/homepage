@@ -6,6 +6,7 @@ import { useLanguage } from '~/lib/i18n'
 import type { Feature } from '~/lib/products'
 import { FeatureCard } from '~/components/FeatureCard'
 import { LeadForm } from '../ofertas/LeadForm'
+import { CheckoutButton } from '~/components/CheckoutButton'
 
 // Real capabilities of XoulTec Nómina (from products.ts: multi-country RD+USA,
 // configurable tax engine, severance, deductions, multi-currency).
@@ -152,6 +153,9 @@ export function NominaLanding() {
                   </li>
                 ))}
               </ul>
+              {/* El link de Nómina se cobra por cantidad: en Stripe hay que dejar
+                  que el cliente ajuste el número de empleados (US$4 c/u). */}
+              <CheckoutButton plan="nomina" variant="solid" />
             </div>
             <p className="text-center text-gray-500 text-sm mt-5">
               {t(
