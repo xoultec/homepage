@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.23.0] - 2026-09-18
+- feat(checkout): el sitio **ya puede cobrar** — las tarjetas de precio de `/facturacion-electronica` y `/nomina` estrenan botón de suscripción contra Stripe Payment Links, que hasta ahora eran texto sin salida: el 16-sep alguien intentó comprar la membresía y el único camino era un formulario que espera aprobación manual
+- feat(checkout): mientras un Payment Link no esté configurado, **el botón no promete un pago que no existe** — baja al formulario de la misma página, así que el sitio se puede desplegar antes o después de crear los links
+- feat(checkout): quien vuelve del pago con `?paid=1` ve **"Pago recibido"** en `/solicitar-apertura` y se le pide el **mismo correo** con el que pago — se cobra primero y se aprovisiona después, y el correo es el puente entre el cobro y la solicitud
+- ci(deploy): los despliegues del sitio pasan a la **ventana de las 6:00 AM RD** (10:00 UTC), el mismo estándar del resto de los sistemas — un push ya no despliega, se acumula en `main`; el express manual queda en Actions → Deploy → Run workflow
+- fix(monitoreo): el guardián de Chrome **miraba procesos, no navegadores** — diez procesos `--headless` colgados desde el 2-sep lo hacian dar Chrome por abierto, y un Chrome headless no carga extensiones: cinco pasadas seguidas del chequeo de IG murieron así
+- fix(monitoreo): el chequeo de IG **abre Chrome el mismo** si no hay ninguno, en vez de depender de que alguien se acuerde — cuatro pasadas programadas seguidas no revisaron la bandeja porque la PC reinició y nadie volvio a abrirlo
+- fix(monitoreo): un `select_browser` fallido **ya no aborta el chequeo** — esas herramientas no reportan el emparejamiento de forma fiable y el juez es `tabs_context_mcp`: si conecta, hay navegador
+- fix(monitoreo): la salida de la sesión hija **se lee en UTF-8** — sin `-Encoding UTF8` el log se llenaba de caracteres rotos
+- feat(marketing): las tres gráficas del **sector Construcción** (protocolo, unidades, obras en proceso), con sus fuentes re-renderizables y sello de SIMULACIÓN — no hay ninguna obra real corriendo
+- docs(marketing): campaña del sector Construcción publicada y programada en IG, con el riesgo aceptado por escrito (el modulo de obras no esta desplegado, así que el copy habla del rubro y nunca de clientes)
+- docs(marketing): queda documentado que **un post programado por Instagram no sella el latido ni saca los estados de WhatsApp** — la alarma POST MUDO del 8-sep era falsa por eso
+
 ## [1.22.1] - 2026-08-25
 - fix(monitoreo): el chequeo de IG **se colgaba al elegir PowerShell** — hacía la revisión completa y se congelaba al sellar el latido, porque el allowlist solo cubre `Bash(node:*)`; el prompt ahora exige Bash para todo comando de consola
 - docs(monitoreo): el chequeo **deja de vivir en un loop de sesión** y pasa a la tarea programada de Windows, verificada con un disparo manual y dos automáticos seguidos
