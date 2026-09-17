@@ -86,7 +86,7 @@ The project version lives in `package.json` (`"version"`) and follows [Semantic 
 5. Commit: `chore: bump version to x.y.z`
 6. Push
 
-**"Deploy" = commit all changes, update changelog, bump version, commit, push.** Every push to `main` is a production deploy.
+**"Deploy" = commit all changes, update changelog, bump version, commit, push.** A push no longer deploys by itself: it leaves the release **accumulated on `main`**, waiting for the 6:00 AM RD window (see [Deployment](#deployment-vercel)).
 
 ### Changelog Format
 
@@ -103,7 +103,17 @@ Single `CHANGELOG.md` at repo root. Newest version first. **Do not** include CLA
 
 ## Deployment (Vercel)
 
-Pushing to `main` auto-deploys to Vercel. **NEVER deploy manually.** Follow the [Pre-Push Workflow](#pre-push-workflow-must-follow) before pushing.
+**NEVER deploy manually** (no `vercel --prod`, no dashboard redeploy). Follow the [Pre-Push Workflow](#pre-push-workflow-must-follow) before pushing.
+
+**Deploy schedule (STANDARD across all systems).** A push to `main` does **NOT** deploy — changes **accumulate** on `main` (a push only runs the build job). Deployment happens only:
+- **On schedule, once daily: 6:00 AM RD** (República Dominicana is UTC-4 fixed → **10:00 UTC**), shipping everything accumulated on `main`; or
+- **On demand via a manual express deploy** — GitHub → Actions → **Deploy** → *Run workflow* (`workflow_dispatch`), for hotfixes that can't wait for the window.
+
+How it is wired here (Vercel has no CI of its own):
+- `vercel.json` sets `git.deploymentEnabled.main: false`, which turns off Vercel's auto-deploy on push. Preview deploys on other branches are unaffected.
+- `.github/workflows/deploy.yml` builds on every push, and on the window (or a manual run) POSTs the **Deploy Hook** stored in the `VERCEL_DEPLOY_HOOK` repo secret. Deploy Hooks are not affected by `git.deploymentEnabled` — only by the deprecated `github.enabled: false`, which this repo does not use.
+- If `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` are set as repo secrets, each deploy is announced; without them the workflow just logs it.
+- (GitHub cron is not exact — runs can start 5–15+ min late.)
 
 Environment variables (secrets) are managed in the Vercel dashboard. Never commit `.env` files.
 

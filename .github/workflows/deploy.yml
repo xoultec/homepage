@@ -1,0 +1,99 @@
+name: Deploy
+# Los cambios se ACUMULAN en main: un push ya NO despliega. Quien apaga el
+# despliegue automatico es vercel.json (`git.deploymentEnabled.main: false`);
+# este workflow es el que si despliega, y solo:
+#   - en la ventana fija de las 6:00 AM hora RD (UTC-4 fijo, sin horario de verano),
+#   - o de inmediato con un deploy express manual (workflow_dispatch), para hotfix.
+# El build si corre en cada push, para avisar al instante si algo rompe main.
+#
+# Es el mismo estandar de deploy que pventa-repo. Lo que NO se trajo de alla, a
+# proposito: el corte de las 7 AM y el guardian de despliegue duplicado. Alla
+# existen porque un deploy de Fly reinicia la unica maquina (caida real, 23s
+# medidos) y barre el esquema de los ~40 tenants, asi que un cron tardio en plena
+# manana ahoga la base. Aqui un deploy de Vercel se construye aparte y solo cambia
+# el alias cuando ya esta listo: no hay caida y no se toca ningun dato. Un cron
+# que llegue tarde no le cuesta nada al sitio. Si algun dia cuesta, el guardian de
+# pventa es el molde que hay que copiar.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 10 * * *'   # 06:00 RD (10:00 UTC) — deploy de lo acumulado
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # `next build` hace el typecheck completo ademas de construir: es la misma
+      # orden que corre Vercel, asi que lo que pase aqui pasa alla.
+      - run: npm run build
+
+  deploy:
+    needs: [build]
+    # Solo despliega en la ventana programada (6am RD) o en un deploy express
+    # manual. En un push normal el job se salta: los cambios quedan acumulados
+    # en main esperando la ventana.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Disparar el despliegue en Vercel
+        id: deploy
+        shell: bash
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          set -uo pipefail
+          # Un secreto ausente llega VACIO, sin aviso: si no se comprueba, el curl
+          # dispara contra una URL vacia y el job pasa en verde sin haber desplegado.
+          if [ -z "${HOOK:-}" ]; then
+            echo "Falta el secreto VERCEL_DEPLOY_HOOK (Vercel → Settings → Git → Deploy Hooks, rama main)."
+            exit 1
+          fi
+          resp="$(curl -s -S --max-time 30 -X POST "$HOOK")" || { echo "El hook no respondio."; exit 1; }
+          echo "$resp"
+          # El hook responde {"job":{"id":...,"state":"PENDING"}}. Sin ese id no se
+          # encolo nada, por mas que curl haya salido con codigo 0.
+          echo "$resp" | grep -q '"id"' || { echo "El hook no encolo ningun despliegue."; exit 1; }
+
+      # El despliegue es asincrono: aqui ya quedo ENCOLADO en Vercel, que construye
+      # y cambia el alias por su cuenta. Este aviso dice que se disparo, no que ya
+      # este en linea — no se inventa una confirmacion que este workflow no tiene.
+      - name: Avisar por Telegram
+        if: always()
+        shell: bash
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -uo pipefail
+          if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+            echo "Sin credenciales de Telegram; solo queda en el log."
+            exit 0
+          fi
+          version="$(node -p "require('./package.json').version" 2>/dev/null || echo '?')"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            trigger="⚡ express (manual)"
+          else
+            trigger="🕒 ventana de las 6:00 AM RD"
+          fi
+          if [ "${{ steps.deploy.outcome }}" = "success" ]; then
+            outcome="✅ despliegue encolado en Vercel"
+          else
+            outcome="❌ NO SE DISPARO (${{ steps.deploy.outcome }})"
+          fi
+          NL=$'\n'
+          TEXT="🚀 Deploy xoultec.com v${version} — $(date -u '+%Y-%m-%d %H:%M UTC')${NL}"
+          TEXT+="${trigger}${NL}${NL}"
+          TEXT+="${outcome}"
+          curl -s --max-time 20 "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode chat_id="${TELEGRAM_CHAT_ID}" \
+            --data-urlencode text="${TEXT}" -d disable_web_page_preview=true >/dev/null || true
