@@ -15,3 +15,8 @@ data/
 .claude/tareas/chequeo-ig.log
 .claude/tareas/chequeo-ig.out.txt
 .claude/tareas/chequeo-ig.err.txt
+
+# Material interno: NO va en este repo público (listas de clientes, campañas, tareas locales)
+marketing/
+.claude/tareas/
+.claude/settings.local.json
