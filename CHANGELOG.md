@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.23.1] - 2026-09-18
+- fix(api): `/api/chat`, `/api/leads` y `/api/signup` ahora limitan por IP, topan el tamaño del cuerpo y `/api/chat` acepta solo turnos `user`/`assistant` de largo acotado (ya no se puede inyectar un rol `system` ni gastar la cuota de Groq con mensajes gigantes)
+- chore(security): el repo deja de versionar `marketing/`, `.claude/tareas/` y `.claude/settings.local.json` (material interno; quedan en `.gitignore`)
+
 ## [1.23.0] - 2026-09-17
 - feat(checkout): el sitio **ya puede cobrar** — las tarjetas de precio de `/facturacion-electronica` y `/nomina` estrenan botón de suscripción contra Stripe Payment Links, que hasta ahora eran texto sin salida: el 16-sep alguien intentó comprar la membresía y el único camino era un formulario que espera aprobación manual
 - feat(checkout): mientras un Payment Link no esté configurado, **el botón no promete un pago que no existe** — baja al formulario de la misma página, así que el sitio se puede desplegar antes o después de crear los links
