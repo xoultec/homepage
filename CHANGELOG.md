@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.24.0] - 2026-10-20
+- feat(facturacion-electronica): el plan Todo Incluido pasa de US$49 (2 usuarios incluidos + US$3 c/u) a **US$125 base + US$4 por usuario, hasta 8** — a US$49 no era rentable y no todas las empresas aplicaban
+- fix(facturacion-electronica): fuera la promesa de "sin tope de ingresos" de la tarjeta del plan, de la tabla comparativa y de la descripción SEO/Open Graph
+
 ## [1.23.1] - 2026-09-18
 - fix(api): `/api/chat`, `/api/leads` y `/api/signup` ahora limitan por IP, topan el tamaño del cuerpo y `/api/chat` acepta solo turnos `user`/`assistant` de largo acotado (ya no se puede inyectar un rol `system` ni gastar la cuota de Groq con mensajes gigantes)
 - chore(security): el repo deja de versionar `marketing/`, `.claude/tareas/` y `.claude/settings.local.json` (material interno; quedan en `.gitignore`)
