@@ -457,15 +457,17 @@ export function EcfLanding() {
               <p className="text-gray-500 text-sm mt-1">
                 {t('Todo el ERP, sin límites', 'The full ERP, no limits')}
               </p>
-              {/* Iba "PRECIO DE LANZAMIENTO" sobre los US$49. Fuera (Rubén, 23-ago-2026):
+              {/* Iba "PRECIO DE LANZAMIENTO" sobre el precio. Fuera (Rubén, 23-ago-2026):
                   insinuar que el precio va a subir es el mismo empujón de urgencia que
-                  el mes gratis, y esta sección se titula "Precios claros, sin letra chica". */}
+                  el mes gratis, y esta sección se titula "Precios claros, sin letra chica".
+                  Era US$49 con 2 usuarios incluidos y +US$3 c/u. Subió el 20-oct-2026
+                  (Rubén): a US$49 "no es rentable" y no todas las empresas aplicaban. */}
               <div className="mt-4 mb-1">
-                <span className="text-3xl font-extrabold text-dark">US$49</span>
+                <span className="text-3xl font-extrabold text-dark">US$125</span>
                 <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
               <p className="text-gray-500 text-xs mb-5">
-                {t('Incluye 2 usuarios · +US$3 c/u, hasta 8', 'Includes 2 users · +US$3 each, up to 8')}
+                {t('Base · +US$4 por usuario, hasta 8', 'Base · +US$4 per user, up to 8')}
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[

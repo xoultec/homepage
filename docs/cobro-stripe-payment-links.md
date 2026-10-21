@@ -42,13 +42,13 @@ después **Payment links → + New**.
 | Plan | Precio | Modelo | Clave en `checkout.ts` |
 |---|---|---|---|
 | Emprendedor | US$19 / mes | Recurring · monthly | `emprendedor` |
-| Todo Incluido | US$49 / mes | Recurring · monthly | `todo-incluido` |
+| Todo Incluido | US$125 / mes | Recurring · monthly | `todo-incluido` |
 | XoulTec Nómina | US$4 / mes | Recurring · monthly, **cantidad ajustable** | `nomina` |
 
 Ojo con dos cosas de los precios que ya están publicados en el sitio:
 
-- **Todo Incluido incluye 2 usuarios y cada usuario extra son +US$3, hasta 8.** El
-  Payment Link cobra los US$49 base; los usuarios extra se facturan aparte hasta
+- **Todo Incluido es US$125 base + US$4 por usuario, hasta 8.** El
+  Payment Link cobra los US$125 base; los usuarios se facturan aparte hasta
   que exista un checkout con línea de cantidad.
 - **Nómina es por empleado.** En el link hay que activar *"Let customers adjust
   quantity"* y poner el mínimo en 1, o todos pagarán US$4 fijos.
