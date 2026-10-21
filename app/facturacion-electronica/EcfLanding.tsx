@@ -475,7 +475,6 @@ export function EcfLanding() {
                   t('Inventario y POS · hasta 3 bodegas', 'Inventory & POS · up to 3 warehouses'),
                   t('Contabilidad y bancos', 'Accounting & banking'),
                   t('Cuentas por cobrar y pagar', 'Accounts receivable & payable'),
-                  t('Sin tope de ingresos', 'No income cap'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
@@ -570,8 +569,8 @@ export function EcfLanding() {
           </h2>
           <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
             {t(
-              'En otros sistemas, cada módulo (facturación, contabilidad, POS, nómina) es una suscripción aparte que se suma — y cada plan tiene tope de ingresos. En PVenta todo está abierto en un solo lugar.',
-              'In other systems each module (invoicing, accounting, POS, payroll) is a separate subscription that stacks — and every plan has an income cap. In PVenta everything is open in one place.',
+              'En otros sistemas, cada módulo (facturación, contabilidad, POS, nómina) es una suscripción aparte que se suma. En PVenta todo está abierto en un solo lugar.',
+              'In other systems each module (invoicing, accounting, POS, payroll) is a separate subscription that stacks. In PVenta everything is open in one place.',
             )}
           </p>
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden max-w-3xl mx-auto">
@@ -585,12 +584,10 @@ export function EcfLanding() {
               otros={t('Una suscripción por producto', 'One subscription per product')}
               pventa={t('Una sola, todo incluido', 'A single one, all included')}
             />
-            <ComparisonRow
-              label={t('Tope de ingresos', 'Income cap')}
-              otros={t('Sí — subes de plan al crecer', 'Yes — you move up tiers as you grow')}
-              pventa={t('Sin tope', 'No cap')}
-            />
             {/* La tabla tenía 7 filas (526px). Se quedaron las 4 que de verdad separan.
+                El 20-oct-2026 salió también "Tope de ingresos · Sin tope" (Rubén): al
+                subir Todo Incluido a US$125 no todas las empresas aplican, y prometer que
+                no hay tope ya no se sostiene. Salió igual de la tarjeta y del SEO.
                 Salieron el 23-ago-2026, para acortar scroll:
                 - "Usuarios": US$3 c/u contra "incluidos por plan" no se lee como ventaja.
                 - "e-CF DGII": decía "Incluido" en las dos columnas. No diferencia nada.

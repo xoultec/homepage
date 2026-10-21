@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     siteName: 'XoulTec',
     title: 'Facturación Electrónica e-CF lista ante la DGII | PVenta',
     description:
-      'Cumple con la Ley 32-23 antes del 15 de noviembre de 2026. e-CF + todo tu negocio en un solo sistema, sin topes de ingresos.',
+      'Cumple con la Ley 32-23 antes del 15 de noviembre de 2026. e-CF + todo tu negocio en un solo sistema.',
   },
 }
 
