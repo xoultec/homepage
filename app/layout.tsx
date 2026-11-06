@@ -5,20 +5,21 @@ import { Navbar } from '~/components/Navbar'
 import { Footer } from '~/components/Footer'
 import { ChatWidget } from '~/components/ChatWidget'
 import { Analytics } from '@vercel/analytics/next'
+import { SITE_URL } from '~/lib/site'
 import '~/styles.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'XoulTec - Software Solutions',
+    default: 'XoulTec | Software de facturación, POS y nómina en RD y USA',
     template: '%s | XoulTec',
   },
-  description: 'XoulTec desarrolla soluciones de software empresarial para Rep. Dominicana y USA. POS, Nomina, Facturacion, Escuelas y mas.',
+  description: 'Software empresarial para República Dominicana y Estados Unidos: facturación electrónica e-CF, POS, nómina, clínicas, escuelas y préstamos.',
   // Iconos y OG generados desde el MISMO lockup del avatar de Instagram/WhatsApp
   // (marketing/logo-src/avatar-xoultec.html): caja #f59e0b, X #0f172a peso 900.
   // Antes el favicon era un hexágono del 5-mar-2026, sobra de la plantilla con la
   // que se armó el sitio — no tenía nada que ver con la marca. Y no había imagen
   // de OG, así que compartir xoultec.com por WhatsApp salía sin logo.
-  metadataBase: new URL('https://xoultec.com'),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },

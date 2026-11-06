@@ -60,7 +60,7 @@ export function Footer() {
               {t('Política de Protección de Datos', 'Data Protection Policy')}
             </Link>
           </p>
-          <p>&copy; 2025 XoulTec. {t('Todos los derechos reservados.', 'All rights reserved.')}</p>
+          <p>&copy; {new Date().getFullYear()} XoulTec. {t('Todos los derechos reservados.', 'All rights reserved.')}</p>
         </div>
       </div>
     </footer>
