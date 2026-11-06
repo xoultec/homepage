@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 // SEO/Open Graph for the Nómina (payroll) campaign landing. The page is a Client
 // Component (uses useLanguage), so metadata lives in this server layout.
 export const metadata: Metadata = {
-  title: 'Nómina RD + USA | XoulTec',
+  title: { absolute: 'Nómina RD + USA | XoulTec' },
   description:
     'Procesa tu nómina en República Dominicana y Estados Unidos desde un solo sistema. Cálculo automático de ISR, TSS e INFOTEP, liquidaciones, deducciones y multi-moneda (DOP/USD). US$4 por empleado, sin cuota base.',
   alternates: { canonical: '/nomina' },
