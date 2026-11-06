@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.25.0] - 2026-11-06
+- feat(seo): el sitio publica `sitemap.xml` y `robots.txt`, usa `www` como dirección oficial con canonical por página, y agrega datos estructurados de la empresa, del sitio y de cada producto.
+- feat(seo): cada producto publica su propio título y descripción, que estaban en el catálogo pero no salían; `/ofertas` y la política de datos estrenan los suyos, y la portada tiene un título orientado a lo que se busca.
+- fix(seo): las landings ya no repiten la marca en el título, y el pie de página muestra el año actual.
+
 ## [1.24.0] - 2026-10-20
 - feat(facturacion-electronica): el plan Todo Incluido pasa de US$49 (2 usuarios incluidos + US$3 c/u) a **US$125 base + US$4 por usuario, hasta 8** — a US$49 no era rentable y no todas las empresas aplicaban
 - fix(facturacion-electronica): fuera la promesa de "sin tope de ingresos" de la tarjeta del plan, de la tabla comparativa y de la descripción SEO/Open Graph
