@@ -8,18 +8,26 @@ import { DmCta } from '~/components/DmCta'
 // PVenta mobile app). A referral has had NO sales negotiation yet, so this is a LEAD
 // (sales follows up), NOT an apertura/provisioning request. The referrer is forwarded
 // with the lead so a converted referral can be credited to the seller for commission.
+//
+// The same link serves XoulTec's EXTERNAL promoters (/promotora): t=XOULTEC (no tenant
+// behind them) and u=<promoter code>. For them the copy can't say "a XoulTec client
+// recommended you". `tema=ecf` comes from the e-CF flyer's QR, so the landing talks about
+// the same thing the person had in hand.
 export default function ReferralPage() {
   const { t, lang, toggleLanguage } = useLanguage()
-  const [ref, setRef] = useState<{ rnc: string; user: string }>({ rnc: '', user: '' })
+  const [ref, setRef] = useState<{ rnc: string; user: string; tema: string }>({ rnc: '', user: '', tema: '' })
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search)
-    setRef({ rnc: q.get('t') || '', user: q.get('u') || '' })
+    setRef({ rnc: q.get('t') || '', user: q.get('u') || '', tema: q.get('tema') || '' })
     const qp = q.get('lang')
     if (qp === 'en' && lang === 'es') toggleLanguage()
     if (qp === 'es' && lang === 'en') toggleLanguage()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const promotora = ref.rnc.toUpperCase() === 'XOULTEC'
+  const ecf = ref.tema === 'ecf'
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -28,13 +36,22 @@ export default function ReferralPage() {
           {t('Vienes recomendado 🎉', "You've been referred 🎉")}
         </span>
         <h1 className="text-2xl font-extrabold mb-2">
-          {t('Un cliente de XoulTec te recomendó PVenta ERP', 'A XoulTec client recommended PVenta ERP to you')}
+          {ecf
+            ? t('Factura electrónica sin complicarte', 'Electronic invoicing made simple')
+            : promotora
+              ? t('Te recomendaron PVenta ERP', 'PVenta ERP was recommended to you')
+              : t('Un cliente de XoulTec te recomendó PVenta ERP', 'A XoulTec client recommended PVenta ERP to you')}
         </h1>
         <p className="text-white/80 text-sm max-w-md mx-auto">
-          {t(
-            'Escríbenos y conversamos sobre tu negocio — sin compromiso.',
-            'Message us and we’ll talk about your business — no commitment.',
-          )}
+          {ecf
+            ? t(
+                'Cumple con la DGII: XoulTec es proveedor autorizado y el trámite lo hacemos nosotros. Escríbenos — sin compromiso.',
+                'Comply with DGII: XoulTec is an authorized provider and we handle the paperwork. Message us — no commitment.',
+              )
+            : t(
+                'Escríbenos y conversamos sobre tu negocio — sin compromiso.',
+                'Message us and we’ll talk about your business — no commitment.',
+              )}
         </p>
       </section>
 
