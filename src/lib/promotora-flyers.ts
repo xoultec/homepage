@@ -1,5 +1,5 @@
-// Flyers de la estación de promotoras (/promotora). Cada uno se dibuja en el navegador con el QR
-// PERSONAL de la promotora, así que el mismo diseño sirve para todas y cada escaneo se le acredita.
+// Flyers de la estación de promotores (/promotores). Cada uno se dibuja en el navegador con el QR
+// PERSONAL de cada promotor, así que el mismo diseño sirve para todas y cada escaneo se le acredita.
 //
 // ⛔ `aprobado` lo cambia solo Rubén. Lo comercial (qué se promete, si van precios) lo confirma él
 // antes de que nada se imprima o se comparta. Mientras esté en false, el panel enseña el flyer con

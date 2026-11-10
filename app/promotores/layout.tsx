@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
-// Panel privado de las promotoras externas de XoulTec. No se indexa: se entra solo con el
-// enlace personal que XoulTec le envía a cada una.
+// Estación de los promotores externos de XoulTec: solicitud abierta y panel privado. No se
+// indexa por ahora: se comparte a mano con quien XoulTec quiera invitar.
 export const metadata: Metadata = {
-  title: { absolute: 'Mi estación de promoción | XoulTec' },
+  title: { absolute: 'Promotores XoulTec' },
   robots: { index: false, follow: false },
 }
 

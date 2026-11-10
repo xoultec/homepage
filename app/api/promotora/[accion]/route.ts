@@ -1,5 +1,5 @@
-// Proxy del panel de promotoras externas (/promotora) hacia la API de PVenta, donde viven sus
-// prospectos, clientes cerrados y comisiones (base master). La llave privada de la promotora
+// Proxy de la estación de promotores (/promotores) hacia la API de PVenta, donde viven sus
+// prospectos, clientes cerrados y comisiones (base master). La llave privada de cada promotor
 // viaja en el encabezado X-Promotora-Llave, nunca en la URL, para que no quede en ningún log de
 // acceso. Este proxy no guarda nada: solo reenvía.
 
@@ -8,21 +8,25 @@ import { allowRequest, clientIp, readJsonLimited, tooManyRequests } from '~/lib/
 const PVENTA_API = (process.env.PVENTA_API_URL || 'https://pventa.xoultec.com').replace(/\/$/, '')
 const HEADER = 'X-Promotora-Llave'
 
-// Solo estas dos acciones existen; cualquier otra ruta es 404 sin tocar PVenta.
+// Solo estas acciones existen; cualquier otra ruta es 404 sin tocar PVenta.
 const ACCIONES: Record<string, 'GET' | 'POST'> = {
   panel: 'GET',
   prospectos: 'POST',
+  registro: 'POST', // la solicitud: la única acción sin llave
 }
 
 async function reenviar(request: Request, accion: string, method: 'GET' | 'POST') {
   if (ACCIONES[accion] !== method) {
     return Response.json({ error: 'No encontrado' }, { status: 404 })
   }
-  if (!allowRequest(`promotora:${clientIp(request)}`, 60, 60_000)) {
+  const registro = accion === 'registro'
+  // La solicitud crea filas sin llave: límite estricto por persona (3 por hora).
+  if (registro ? !allowRequest(`promotora-registro:${clientIp(request)}`, 3, 3_600_000)
+               : !allowRequest(`promotora:${clientIp(request)}`, 60, 60_000)) {
     return tooManyRequests()
   }
   const llave = (request.headers.get(HEADER) || '').trim()
-  if (!/^[0-9a-f]{64}$/.test(llave)) {
+  if (!registro && !/^[0-9a-f]{64}$/.test(llave)) {
     return Response.json({ error: { message: 'Enlace de acceso no válido.' } }, { status: 401 })
   }
 
@@ -38,7 +42,10 @@ async function reenviar(request: Request, accion: string, method: 'GET' | 'POST'
   try {
     const resp = await fetch(`${PVENTA_API}/api/promotora/${accion}`, {
       method,
-      headers: { [HEADER]: llave, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+      headers: {
+        ...(registro ? {} : { [HEADER]: llave }),
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+      },
       body,
       cache: 'no-store',
     })

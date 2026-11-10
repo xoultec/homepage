@@ -1,12 +1,17 @@
 'use client'
 
-// Estación de promoción de las promotoras EXTERNAS de XoulTec. Funciona entera desde el
+// Estación de promoción de los promotores EXTERNOS de XoulTec. Funciona entera desde el
 // teléfono, por internet: su link y QR de referido, sus flyers con ese QR, los prospectos que
 // anota, los clientes que cerró y su comisión.
 //
-// Acceso: XoulTec le envía un enlace privado xoultec.com/promotora#k=<llave>. La llave va en el
-// fragmento (#), que el navegador nunca manda a ningún servidor ni a la analítica; se guarda en
-// este dispositivo para que vuelva a entrar con solo abrir /promotora, y se borra de la barra.
+// ABIERTA A SOLICITUDES, CON FILTRO (Rubén, 10-nov-2026): cualquiera puede solicitar aquí mismo;
+// entra quien XoulTec apruebe. La solicitud devuelve la llave y queda guardada en el teléfono,
+// pero mientras esté pendiente el panel solo dice "en revisión" (sin link, QR ni flyers). Al
+// aprobarla, basta con volver a abrir /promotores.
+//
+// Acceso en otro dispositivo: XoulTec le envía xoultec.com/promotores#k=<llave>. La llave va en
+// el fragmento (#), que el navegador nunca manda a ningún servidor ni a la analítica; se guarda
+// en este dispositivo y se borra de la barra.
 //
 // Reusa el sistema de referidos de PVenta: su link es /r?t=XOULTEC&u=<código>. Los datos los
 // sirve la API de PVenta (base master) a través de /api/promotora/*.
@@ -30,6 +35,8 @@ import {
   FileImage,
   LogOut,
   RefreshCw,
+  Clock,
+  Handshake,
 } from 'lucide-react'
 import { SITE_URL } from '~/lib/site'
 import { WA_RD_DISPLAY } from '~/lib/contact'
@@ -126,12 +133,14 @@ const ESTADO_PROSPECTO: Record<string, string> = {
   canjeado: 'En proceso',
 }
 
-export default function PromotoraPage() {
+export default function PromotoresPage() {
   const [llave, setLlave] = useState('')
   const [listo, setListo] = useState(false)
   const [panel, setPanel] = useState<Panel | null>(null)
   const [error, setError] = useState('')
   const [cargando, setCargando] = useState(false)
+  // pendiente = solicitó y XoulTec no ha decidido; cerrado = rechazada o desactivada.
+  const [acceso, setAcceso] = useState<'' | 'pendiente' | 'cerrado'>('')
 
   useEffect(() => {
     const m = window.location.hash.match(/k=([0-9a-f]{64})/i)
@@ -152,12 +161,17 @@ export default function PromotoraPage() {
     try {
       const r = await fetch('/api/promotora/panel', { headers: { [HEADER]: llave }, cache: 'no-store' })
       const data = await r.json().catch(() => ({}))
+      const code = data?.error?.code
+      setAcceso(code === 'promotora.pendiente' ? 'pendiente' : code === 'promotora.inactiva' ? 'cerrado' : '')
       if (!r.ok) {
-        setError(data?.error?.message || 'No pudimos abrir tu panel. Intenta otra vez.')
+        setPanel(null)
+        if (code !== 'promotora.pendiente') {
+          setError(data?.error?.message || 'No pudimos abrir tu panel. Intenta otra vez.')
+        }
         if (r.status === 401) {
           guardarLlave('')
+          setLlave('')
         }
-        setPanel(null)
       } else {
         setPanel(data as Panel)
       }
@@ -176,23 +190,41 @@ export default function PromotoraPage() {
     guardarLlave('')
     setLlave('')
     setPanel(null)
+    setAcceso('')
+  }
+
+  function solicitado(k: string) {
+    guardarLlave(k)
+    setLlave(k)
   }
 
   if (!listo) return <main className="min-h-screen bg-gray-50" />
 
-  if (!llave) {
+  if (!llave) return <Solicitud aviso={error} onListo={solicitado} />
+
+  if (acceso === 'pendiente') {
     return (
-      <main className="min-h-screen bg-gray-50 px-4 pt-28 pb-16">
-        <div className="max-w-md mx-auto bg-white rounded-2xl shadow-md p-6 text-center space-y-3">
-          <QrCode className="w-10 h-10 text-primary mx-auto" />
-          <h1 className="text-xl font-bold text-dark">Estación de promoción XoulTec</h1>
-          <p className="text-gray-600 text-sm">
-            Para entrar, abre el enlace personal que XoulTec te envió por WhatsApp. Si no lo tienes, escríbenos al{' '}
-            {WA_RD_DISPLAY}.
-          </p>
-          {error && <p className="text-red-600 text-sm">{error}</p>}
-        </div>
-      </main>
+      <Aviso icono={<Clock className="w-10 h-10 text-secondary mx-auto" />} titulo="Tu solicitud está en revisión">
+        <p>
+          XoulTec la está revisando. Cuando la aprueben te avisamos por WhatsApp y, desde este mismo teléfono,
+          vuelves a abrir <b>xoultec.com/promotores</b>: aquí tendrás tu link, tu QR y tus flyers.
+        </p>
+        <button onClick={cargar} className="mt-2 inline-flex items-center gap-1 text-primary font-semibold">
+          <RefreshCw className="w-4 h-4" /> Ver si ya me aprobaron
+        </button>
+      </Aviso>
+    )
+  }
+
+  if (acceso === 'cerrado') {
+    return (
+      <Aviso icono={<QrCode className="w-10 h-10 text-gray-400 mx-auto" />} titulo="Acceso no disponible">
+        <p>{error || 'Este acceso no está activo.'}</p>
+        <p>Si crees que es un error, escríbenos al WhatsApp {WA_RD_DISPLAY}.</p>
+        <button onClick={salir} className="mt-2 text-xs text-gray-400 underline">
+          Salir de este dispositivo
+        </button>
+      </Aviso>
     )
   }
 
@@ -383,7 +415,7 @@ function FlyerCard({ flyer, panel }: { flyer: Flyer; panel: Panel }) {
       if (!vivo || !canvas.current) return
       await dibujarFlyerEcf(canvas.current, {
         qr,
-        promotora: panel.promotora.nombre,
+        promotor: panel.promotora.nombre,
         whatsapp: WA_RD_DISPLAY,
         borrador: !flyer.aprobado,
       })
@@ -643,5 +675,100 @@ function ComoFunciona() {
       </ol>
       <p className="text-xs text-gray-400">¿Dudas? Escríbenos al WhatsApp {WA_RD_DISPLAY}.</p>
     </section>
+  )
+}
+
+function Aviso({ icono, titulo, children }: { icono: React.ReactNode; titulo: string; children: React.ReactNode }) {
+  return (
+    <main className="min-h-screen bg-gray-50 px-4 pt-28 pb-16">
+      <div className="max-w-md mx-auto bg-white rounded-2xl shadow-md p-6 text-center space-y-3 text-sm text-gray-600">
+        {icono}
+        <h1 className="text-xl font-bold text-dark">{titulo}</h1>
+        {children}
+      </div>
+    </main>
+  )
+}
+
+// Solicitud para promover XoulTec. Pide lo que XoulTec necesita para decidir (el filtro): quién
+// es, dónde está y a qué se dedica / a qué negocios llega. No aprueba nada por sí sola.
+function Solicitud({ aviso, onListo }: { aviso: string; onListo: (llave: string) => void }) {
+  const [f, setF] = useState({ nombre: '', telefono: '', email: '', ciudad: '', perfil: '', acepta: false })
+  const [enviando, setEnviando] = useState(false)
+  const [msg, setMsg] = useState('')
+
+  async function enviar(e: React.FormEvent) {
+    e.preventDefault()
+    setEnviando(true)
+    setMsg('')
+    try {
+      const r = await fetch('/api/promotora/registro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(f),
+      })
+      const data = await r.json().catch(() => ({}))
+      if (!r.ok || !data?.llave) {
+        setMsg(data?.error?.message || 'No se pudo enviar. Intenta otra vez.')
+      } else {
+        onListo(String(data.llave))
+      }
+    } catch {
+      setMsg('Sin conexión. Intenta otra vez.')
+    } finally {
+      setEnviando(false)
+    }
+  }
+
+  const campo = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary'
+
+  return (
+    <main className="min-h-screen bg-gray-50">
+      <section className="hero-gradient text-white px-4 pt-24 pb-10 text-center">
+        <Handshake className="w-10 h-10 mx-auto mb-2 text-secondary" />
+        <h1 className="text-2xl md:text-3xl font-extrabold mb-2">Recomienda XoulTec y gana por cada cliente</h1>
+        <p className="text-white/80 text-sm max-w-md mx-auto">
+          ¿Conoces negocios que necesitan facturar con la DGII o un sistema para vender? Solicita tu link
+          personal: cada negocio que llegue por ti y empiece con XoulTec cuenta a tu nombre.
+        </p>
+      </section>
+
+      <div className="max-w-md mx-auto px-4 py-8 space-y-4">
+        {aviso && <p className="bg-red-50 text-red-700 rounded-xl p-3 text-sm">{aviso}</p>}
+        <form onSubmit={enviar} className="bg-white rounded-2xl shadow-md p-5 space-y-3">
+          <h2 className="font-bold text-dark text-lg">Solicitud</h2>
+          <input className={campo} placeholder="Nombre completo *" value={f.nombre}
+            onChange={(e) => setF({ ...f, nombre: e.target.value })} />
+          <input className={campo} placeholder="WhatsApp *" inputMode="tel" value={f.telefono}
+            onChange={(e) => setF({ ...f, telefono: e.target.value })} />
+          <input className={campo} placeholder="Correo (opcional)" inputMode="email" value={f.email}
+            onChange={(e) => setF({ ...f, email: e.target.value })} />
+          <input className={campo} placeholder="Ciudad o zona *" value={f.ciudad}
+            onChange={(e) => setF({ ...f, ciudad: e.target.value })} />
+          <textarea className={campo} rows={3} placeholder="¿A qué te dedicas y a qué negocios llegas? *"
+            value={f.perfil} onChange={(e) => setF({ ...f, perfil: e.target.value })} />
+          <label className="flex gap-2 items-start text-xs text-gray-600">
+            <input type="checkbox" className="mt-0.5" checked={f.acepta}
+              onChange={(e) => setF({ ...f, acepta: e.target.checked })} />
+            <span>
+              Entiendo que XoulTec revisa cada solicitud y decide quién participa, que recomiendo a XoulTec por mi
+              cuenta (no como empleado), y que la comisión la define XoulTec. Acepto la{' '}
+              <a href="/politica-de-proteccion-de-datos" className="underline" target="_blank">
+                política de protección de datos
+              </a>
+              .
+            </span>
+          </label>
+          {msg && <p className="text-sm text-red-600">{msg}</p>}
+          <button type="submit" disabled={enviando}
+            className="w-full py-3 bg-secondary text-dark font-bold rounded-xl hover:opacity-90 disabled:opacity-50">
+            {enviando ? 'Enviando…' : 'Enviar solicitud'}
+          </button>
+        </form>
+        <p className="text-xs text-gray-400 text-center">
+          ¿Ya te aprobaron y cambiaste de teléfono? Escríbenos al WhatsApp {WA_RD_DISPLAY} y te enviamos tu enlace.
+        </p>
+      </div>
+    </main>
   )
 }

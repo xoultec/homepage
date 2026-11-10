@@ -1,6 +1,6 @@
 // Dibuja el flyer de facturación electrónica (e-CF) en un <canvas> de 1080×1350 (4:5: sirve para
 // estado de WhatsApp, Instagram e impresión en media carta). Va en el navegador para que cada
-// promotora baje el suyo con SU QR, sin servidor de por medio.
+// promotor baje el suyo con SU QR, sin servidor de por medio.
 //
 // Contenido: lo que XoulTec INCLUYE en el servicio e-CF (alcance definido por Rubén, 10-nov-2026),
 // dicho corto. ⛔ Sin precios ni condiciones de pago: lo comercial lo confirma Rubén antes de
@@ -30,7 +30,7 @@ const PUNTOS = [
 
 export type FlyerEcfDatos = {
   qr: HTMLCanvasElement | HTMLImageElement
-  promotora: string
+  promotor: string
   whatsapp: string
   borrador: boolean
 }
@@ -150,7 +150,7 @@ export async function dibujarFlyerEcf(canvas: HTMLCanvasElement, d: FlyerEcfDato
   ctx.fillStyle = '#334155'
   ctx.font = `500 30px ${FONT}`
   let yy = ty + 130
-  for (const l of partir(ctx, `Te atiende ${d.promotora}, de XoulTec.`, tw)) {
+  for (const l of partir(ctx, `Te lo recomienda ${d.promotor}.`, tw)) {
     ctx.fillText(l, tx, yy)
     yy += 40
   }
