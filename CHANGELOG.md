@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.28.4] - 2026-11-14
+- fix(chat): XoulBot volvía a responder "hubo un error" a todo porque Groq retiró el modelo llama-3.3-70b-versatile. Ahora usa openai/gpt-oss-120b, que se puede cambiar con la variable GROQ_MODEL.
+
 ## [1.28.3] - 2026-11-14
 - fix(soporte-pventa): la tabla de horario muestra también la hora Central de EE. UU. (6:00 a. m. a 4:00 p. m. y sábados 6:00 a. m. a 12:00 p. m.) y una nota con el horario de verano de EE. UU.
 
