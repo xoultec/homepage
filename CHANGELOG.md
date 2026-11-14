@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.26.1] - 2026-11-14
+- fix(servicios): el soporte técnico remoto pasa a tarifa única de US$50/h para cualquier país, para empresas y personas. Antes tenía precio por país: US$40 en RD y US$75 en EE. UU. Videojuegos sigue en US$60/h.
+
 ## [1.26.0] - 2026-11-14
 - feat(servicios): nueva página `/servicios` con el soporte técnico remoto para empresas (RD US$40/h, EE. UU. US$75/h) y la unidad de Videojuegos (US$60/h). Explica cómo funciona: escribes por WhatsApp, autorizas el acceso temporal, pagas la primera hora con Stripe y retiras el acceso al terminar. Muestra el horario de atención. "Servicios" entra al menú y al sitemap, y el chat conoce estos servicios, sus precios y el horario.
 
