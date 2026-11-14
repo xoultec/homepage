@@ -227,13 +227,13 @@ export function ServiciosLanding() {
           </div>
           <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
             {t(
-              'Nuestra unidad especialista en videojuegos, por WhatsApp en RD y Estados Unidos.',
-              'Our gaming specialist unit, on WhatsApp in the DR and the United States.',
+              'Nuestra unidad especialista en videojuegos, por WhatsApp.',
+              'Our gaming specialist unit, on WhatsApp.',
             )}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start">
             <PriceCard
-              market={t('RD y Estados Unidos', 'DR and United States')}
+              market={t('Tarifa única', 'One rate')}
               title={t('Soporte gamer', 'Gamer support')}
               price="US$60"
               per={t('hora', 'hour')}
