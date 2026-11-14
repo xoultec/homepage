@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.26.2] - 2026-11-14
+- fix(servicios): la tarjeta de Videojuegos ya no dice "RD y Estados Unidos"; muestra "Tarifa única", igual que el soporte remoto.
+
 ## [1.26.1] - 2026-11-14
 - fix(servicios): el soporte técnico remoto pasa a tarifa única de US$50/h para cualquier país, para empresas y personas. Antes tenía precio por país: US$40 en RD y US$75 en EE. UU. Videojuegos sigue en US$60/h.
 
