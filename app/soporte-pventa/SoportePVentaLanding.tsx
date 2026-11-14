@@ -26,13 +26,23 @@ function effectiveSentence(iso: string, lang: 'es' | 'en'): string {
 }
 
 const WA_URL = 'https://wa.me/18092524007'
+const WA_URL_US = 'https://wa.me/19134136583'
 const SUPPORT_EMAIL = 'support@xoultec.com'
 
+// Los dos números de WhatsApp del Help Desk: 809 (RD) y 913 (EE. UU.).
 function WaLink() {
+  const cls = 'font-semibold text-primary underline underline-offset-2 hover:text-secondary'
   return (
-    <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline underline-offset-2 hover:text-secondary">
-      809-252-4007
-    </a>
+    <>
+      <a href={WA_URL} target="_blank" rel="noopener noreferrer" className={cls}>
+        809-252-4007
+      </a>{' '}
+      (RD) ·{' '}
+      <a href={WA_URL_US} target="_blank" rel="noopener noreferrer" className={cls}>
+        +1 913-413-6583
+      </a>{' '}
+      (USA)
+    </>
   )
 }
 
