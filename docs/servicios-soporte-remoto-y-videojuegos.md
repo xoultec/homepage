@@ -112,3 +112,14 @@ Así están configurados los links:
 3. **Desarrollo de juegos:** confirmar si sale en el sitio desde ya o cuando haya portafolio.
 
 No nombrar clientes en el código ni en los textos del sitio.
+
+---
+
+## Actualización 14-nov-2026: tarifa única
+
+Rubén: "es mejor dejar tarifa única" (no se sabe de dónde viene el cliente). El soporte remoto ya no
+tiene precio por país:
+- **US$50/h** (US$25 cada 30 min); fuera de horario **US$75/h** (US$37.50 cada 30 min).
+- Videojuegos no cambia: US$60/h y US$90/h.
+- Los links nuevos están en `C:\Data\4Claude\MonitorWA\stripe-links.tsv`. Los 10 links por país están desactivados en Stripe.
+- `/servicios` muestra una sola tarjeta. Las tablas por país de arriba quedan solo como historial.

@@ -45,7 +45,7 @@ ${productSummaries}
 - Application Support, Engineering and Gaming: Monday to Friday 8:00 AM-6:00 PM and Saturday 8:00 AM-2:00 PM, Dominican Republic time (UTC-4). Engineering is NOT 24/7.
 
 ## Hourly services (/servicios)
-- Remote tech support for businesses (PCs, printers, networks, internet, Windows, connection to their systems): US$40/hour in the Dominican Republic, US$75/hour in the United States.
+- Remote tech support for businesses and individuals (PCs, printers, networks, internet, Windows, connection to their systems): US$50/hour, the same price in any country.
 - Gaming unit: gamer support for gaming PCs, consoles, controllers, drivers, lag and online connection, plus Steam/PlayStation Network/Xbox/Epic accounts: US$60/hour. Advice and sales of gear, games and accessories are quoted on WhatsApp. Custom game development is quoted per project.
 - Minimum 1 hour, then 30-minute blocks, paid in advance by card (Stripe). Page: https://www.xoultec.com/servicios
 - XoulTec only accesses a device with the customer's express authorization, through temporary access that the customer installs and removes when the work is done.

@@ -181,32 +181,41 @@ export function ServiciosLanding() {
           </div>
           <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
             {t(
-              'Para empresas: PCs, impresoras, redes, internet, Windows y conexión a tus sistemas.',
-              'For businesses: PCs, printers, networks, internet, Windows and connection to your systems.',
+              'Para empresas y personas, en RD, Estados Unidos o donde estés: el mismo precio para todos.',
+              'For businesses and individuals, in the DR, the US or wherever you are: one price for everyone.',
             )}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start">
             <PriceCard
-              market={t('República Dominicana', 'Dominican Republic')}
-              title={t('Empresa', 'Business')}
-              price="US$40"
+              market={t('Tarifa única', 'One rate')}
+              title={t('Soporte remoto', 'Remote support')}
+              price="US$50"
               per={t('hora', 'hour')}
-              items={[minimo, adelantado, t('Atención en español', 'Support in Spanish')]}
-              service="remoto-rd-1h"
-              wa={waLink(WA_RD, 'Hola, necesito soporte técnico remoto para mi empresa.')}
+              items={[minimo, adelantado, t('Atención en español o inglés', 'Support in Spanish or English')]}
+              service="remoto-1h"
+              wa={waLink(WA_RD, 'Hola, necesito soporte técnico remoto.')}
               waLabel={t('Escribir por WhatsApp', 'Message on WhatsApp')}
               highlight
             />
-            <PriceCard
-              market={t('Estados Unidos', 'United States')}
-              title={t('Empresa', 'Business')}
-              price="US$75"
-              per={t('hora', 'hour')}
-              items={[minimo, adelantado, t('Atención en español o inglés', 'Support in English or Spanish')]}
-              service="remote-us-1h"
-              wa={waLink(WA_USA, 'Hi, I need remote tech support for my business.')}
-              waLabel={t('Escribir por WhatsApp', 'Message on WhatsApp')}
-            />
+            <div className="bg-white rounded-2xl p-7 shadow-md border border-gray-200 text-center">
+              <h3 className="font-bold text-lg text-dark">{t('Qué cubre', "What's covered")}</h3>
+              <ul className="mt-4 space-y-3 text-sm text-gray-700 text-left">
+                {[
+                  t('PCs y laptops: Windows, lentitud, virus, programas', 'PCs and laptops: Windows, slowness, viruses, software'),
+                  t('Impresoras, escáneres y periféricos', 'Printers, scanners and peripherals'),
+                  t('Redes, internet y Wi-Fi', 'Networks, internet and Wi-Fi'),
+                  t('Conexión a tus sistemas y servidores', 'Connection to your systems and servers'),
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <WhatsAppButton
+                href={waLink(WA_USA, 'Hi, I need remote tech support.')}
+                label={t('WhatsApp en inglés (EE. UU.)', 'WhatsApp in English (US)')}
+              />
+            </div>
           </div>
         </section>
 
