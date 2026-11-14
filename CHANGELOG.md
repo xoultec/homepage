@@ -1,7 +1,7 @@
 # Changelog
 
 ## [1.28.0] - 2026-11-14
-- feat(chat): XoulBot conoce los planes de PVenta (precios, usuarios, módulos, horas de acompañamiento), el alcance del soporte y el compromiso con el cliente, y envía a `/soporte-pventa`. Ya no responde que el precio de PVenta "depende de las necesidades".
+- feat(chat): XoulBot conoce los planes de PVenta (precios, usuarios y módulos principales) y envía a `/soporte-pventa` para el alcance del soporte. Ya no responde que el precio de PVenta "depende de las necesidades".
 
 ## [1.27.0] - 2026-11-14
 - feat(pventa): nueva página `/soporte-pventa`, "Alcance del soporte de PVenta", vigente desde el 14 de noviembre de 2026, en español y en inglés. Muestra los planes con precios y lo que incluye cada uno, los opcionales, lo que no incluye la mensualidad, la asesoría financiera y contable, los servicios adicionales y los paquetes de horas prepagados, las personas de contacto, las sesiones con costo, el horario y los canales (WhatsApp y correo con enlace), los tiempos de respuesta, nuestro compromiso con el cliente y las preguntas frecuentes. Las tablas se desplazan de lado dentro de su caja en el celular. Se enlaza desde la página de PVenta y el pie de página, y entra al sitemap.
