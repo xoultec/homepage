@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.28.5] - 2026-11-14
+- fix(chat): el prompt de XoulBot lleva los productos solo en el idioma de la página (unos 4 mil tokens en vez de 8 mil). Con el plan gratis de Groq (8 mil tokens por minuto, contando la respuesta) cada pregunta se rechazaba con 413 y el chat contestaba "hubo un error".
+
 ## [1.28.4] - 2026-11-14
 - fix(chat): XoulBot volvía a responder "hubo un error" a todo porque Groq retiró el modelo llama-3.3-70b-versatile. Ahora usa openai/gpt-oss-120b, que se puede cambiar con la variable GROQ_MODEL.
 

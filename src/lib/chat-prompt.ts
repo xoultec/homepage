@@ -1,16 +1,20 @@
 import { products } from '~/lib/products'
 
 export function buildSystemPrompt(userLang: 'es' | 'en'): string {
+  // Solo el idioma de la página. Con español E inglés el prompt pasaba de 13 mil tokens, y el
+  // plan gratis de Groq corta en 8 mil por minuto (413 "Request too large", contando también
+  // max_tokens): el chat contestaba "hubo un error" a todo. El bot igual responde en el idioma
+  // en que le escriban.
+  const es = userLang === 'es'
   const productSummaries = products.map(p => {
     const market = p.market === 'both' ? 'RD + USA' : p.market === 'rd' ? 'RD only' : 'USA only'
     const features = p.features.map(f =>
-      `  - ${f.titleEs} / ${f.titleEn}: ${f.descEs} | ${f.descEn}`
+      `  - ${es ? f.titleEs : f.titleEn}: ${es ? f.descEs : f.descEn}`
     ).join('\n')
 
     return `## ${p.name}${p.nameAccent ? ' ' + p.nameAccent : ''} (/productos/${p.slug})
 - Market: ${market}
-- ES: ${p.descEs}
-- EN: ${p.descEn}
+- ${es ? p.descEs : p.descEn}
 - Features:
 ${features}`
   }).join('\n\n')
