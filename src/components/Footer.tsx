@@ -55,9 +55,12 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm space-y-2">
-          <p>
+          <p className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link href="/politica-de-proteccion-de-datos" className="hover:text-white transition">
               {t('Política de Protección de Datos', 'Data Protection Policy')}
+            </Link>
+            <Link href="/soporte-pventa" className="hover:text-white transition">
+              {t('Alcance del soporte de PVenta', 'PVenta support scope')}
             </Link>
           </p>
           <p>&copy; {new Date().getFullYear()} XoulTec. {t('Todos los derechos reservados.', 'All rights reserved.')}</p>

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useParams, notFound } from 'next/navigation'
 import { useLanguage } from '~/lib/i18n'
 import { getProduct, products } from '~/lib/products'
@@ -43,6 +44,23 @@ export default function ProductPage() {
       </section>
 
       {product.slug === 'pventa' && <DashboardPreview />}
+
+      {product.slug === 'pventa' && (
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold text-dark mb-3">{t('Planes y alcance del soporte', 'Plans and support scope')}</h2>
+            <p className="text-gray-600 mb-6">
+              {t(
+                'Precios de cada plan, qué incluye el soporte, servicios adicionales, horario y nuestro compromiso con usted.',
+                'Prices for each plan, what support includes, additional services, hours and our commitment to you.',
+              )}
+            </p>
+            <Link href="/soporte-pventa" className="inline-block border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-semibold hover:bg-primary hover:text-white transition">
+              {t('Ver alcance del soporte de PVenta', 'See PVenta support scope')}
+            </Link>
+          </div>
+        </section>
+      )}
 
       <section className="py-16 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 text-center fade-in visible">
