@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.28.2] - 2026-11-14
+- fix(soporte-pventa): la página de alcance del soporte muestra los dos WhatsApp, 809-252-4007 (RD) y +1 913-413-6583 (EE. UU.).
+
 ## [1.28.1] - 2026-11-14
 - fix(chat): la sección de planes de PVenta del prompt queda corta.
 
