@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.28.3] - 2026-11-14
+- fix(soporte-pventa): la tabla de horario muestra también la hora Central de EE. UU. (6:00 a. m. a 4:00 p. m. y sábados 6:00 a. m. a 12:00 p. m.) y una nota con el horario de verano de EE. UU.
+
 ## [1.28.2] - 2026-11-14
 - fix(soporte-pventa): la página de alcance del soporte muestra los dos WhatsApp, 809-252-4007 (RD) y +1 913-413-6583 (EE. UU.).
 
