@@ -108,7 +108,7 @@ Así están configurados los links:
    soporte). Publicar las tarifas "fuera de horario" en el sitio lo anuncia de
    hecho. Opciones: publicar solo las de horario laboral hasta la fase 2, o
    publicarlas todas.
-2. **ITBIS:** el contador tiene que confirmar si al cliente RD que paga en dólares le corresponde ITBIS.
+2. **ITBIS:** no se cobra. Todo va por Stripe, a nombre de XoulTec, LLC, en USD (Rubén, 14-nov-2026).
 3. **Desarrollo de juegos:** confirmar si sale en el sitio desde ya o cuando haya portafolio.
 
 No nombrar clientes en el código ni en los textos del sitio.
