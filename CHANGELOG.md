@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.26.3] - 2026-11-14
+- fix(servicios): el subtítulo del soporte remoto ya no menciona países.
+
 ## [1.26.2] - 2026-11-14
 - fix(servicios): la tarjeta de Videojuegos ya no dice "RD y Estados Unidos"; muestra "Tarifa única", igual que el soporte remoto.
 
