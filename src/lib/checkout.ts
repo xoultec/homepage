@@ -16,7 +16,7 @@
 // Cómo se crean los links (y a dónde deben redirigir después del pago):
 // docs/cobro-stripe-payment-links.md
 
-export type PlanId = 'emprendedor' | 'todo-incluido' | 'nomina'
+export type PlanId = 'emprendedor' | 'comercial' | 'todo-incluido' | 'nomina'
 
 /**
  * Pega aquí la URL que da Stripe al crear cada Payment Link
@@ -24,6 +24,7 @@ export type PlanId = 'emprendedor' | 'todo-incluido' | 'nomina'
  */
 export const PAYMENT_LINKS: Record<PlanId, string> = {
   emprendedor: '',
+  comercial: '',
   'todo-incluido': '',
   nomina: '',
 }

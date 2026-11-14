@@ -42,12 +42,15 @@ export function SignupForm() {
     if (qp.get('paid') !== '1') return
     const plan = qp.get('plan')
     setPaidPlan(
-      plan === 'emprendedor' || plan === 'todo-incluido' || plan === 'nomina' ? plan : 'unknown',
+      plan === 'emprendedor' || plan === 'comercial' || plan === 'todo-incluido' || plan === 'nomina'
+        ? plan
+        : 'unknown',
     )
   }, [])
 
   const planLabel: Record<PlanId, string> = {
     emprendedor: t('Emprendedor', 'Starter'),
+    comercial: t('Comercial', 'Commercial'),
     'todo-incluido': t('Todo Incluido', 'All Included'),
     nomina: t('XoulTec Nómina', 'XoulTec Payroll'),
   }

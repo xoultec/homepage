@@ -423,7 +423,7 @@ export function EcfLanding() {
               claros, sin letra chica" y justo debajo una promo con fecha de vencimiento.
               La fecha del 15-nov-2026 que sigue en la página NO es de promoción: es el
               plazo legal de la Ley 32-23, y eso se queda. */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Emprendedor — solo e-CF */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg text-dark">{t('Emprendedor', 'Starter')}</h3>
@@ -448,6 +448,33 @@ export function EcfLanding() {
               </ul>
               <CheckoutButton plan="emprendedor" />
             </div>
+            {/* Comercial — vender, cobrar e inventario (14-nov-2026, planes por módulo:
+                mismos precios y módulos que /soporte-pventa, que es la fuente). */}
+            <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+              <h3 className="font-bold text-lg text-dark">{t('Comercial', 'Commercial')}</h3>
+              <p className="text-gray-500 text-sm mt-1">
+                {t('Vender, cobrar y llevar inventario', 'Sell, collect and track inventory')}
+              </p>
+              <div className="mt-4 mb-1">
+                <span className="text-3xl font-extrabold text-dark">US$59</span>
+                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
+              </div>
+              <p className="text-gray-500 text-xs mb-5">{t('3 usuarios', '3 users')}</p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                {[
+                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
+                  t('Cotizaciones, cobros y cuentas por cobrar', 'Quotes, collections and accounts receivable'),
+                  t('Cajas y punto de venta (POS)', 'Cash registers and point of sale (POS)'),
+                  t('Inventario · 1 bodega', 'Inventory · 1 warehouse'),
+                  t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <CheckoutButton plan="comercial" />
+            </div>
             {/* Todo Incluido — ERP completo (recomendado) */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-md border-2 border-secondary relative">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -455,7 +482,7 @@ export function EcfLanding() {
               </span>
               <h3 className="font-bold text-lg text-dark">{t('Todo Incluido', 'All Included')}</h3>
               <p className="text-gray-500 text-sm mt-1">
-                {t('Todo el ERP, sin límites', 'The full ERP, no limits')}
+                {t('Llevar toda la empresa en PVenta', 'Run the whole company on PVenta')}
               </p>
               {/* Iba "PRECIO DE LANZAMIENTO" sobre el precio. Fuera (Rubén, 23-ago-2026):
                   insinuar que el precio va a subir es el mismo empujón de urgencia que
@@ -483,14 +510,16 @@ export function EcfLanding() {
               </ul>
               <CheckoutButton plan="todo-incluido" variant="solid" />
             </div>
-            {/* Enterprise — a cotizar */}
+            {/* Enterprise — desde US$249 (14-nov-2026; antes "A cotizar") */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg text-dark">Enterprise</h3>
               <p className="text-gray-500 text-sm mt-1">
                 {t('Para empresas grandes o alto volumen', 'For large or high-volume businesses')}
               </p>
               <div className="mt-4 mb-5">
-                <span className="text-3xl font-extrabold text-dark">{t('A cotizar', 'Custom')}</span>
+                <span className="text-gray-500 text-sm">{t('Desde', 'From')} </span>
+                <span className="text-3xl font-extrabold text-dark">US$249</span>
+                <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
@@ -520,6 +549,11 @@ export function EcfLanding() {
               'Empieza con Emprendedor y crece a Todo Incluido sin migrar de sistema ni perder tus datos.',
               'Start with Starter and grow to All Included without switching systems or losing your data.',
             )}
+          </p>
+          <p className="text-center text-sm mt-2">
+            <a href="/soporte-pventa" className="font-semibold text-primary underline underline-offset-2">
+              {t('Ver todos los módulos de cada plan y el alcance del soporte', "See every plan's modules and the support scope")}
+            </a>
           </p>
           {/* Este aviso estaba al pie de la sección del Agente, que ahora va ARRIBA de los
               precios: se leía "no va incluido en la mensualidad" antes de saber cuál era la
@@ -596,7 +630,7 @@ export function EcfLanding() {
             <ComparisonRow
               label={t('Inventario, CxC/CxP, bancos', 'Inventory, AR/AP, banking')}
               otros={t('Según el plan / producto', 'Depends on plan / product')}
-              pventa={t('Todo abierto', 'All open')}
+              pventa={t('Se activan al subir de plan, sin migrar', 'Unlocked by upgrading, no migration')}
             />
             <ComparisonRow
               label={t('App móvil de ventas', 'Mobile sales app')}
