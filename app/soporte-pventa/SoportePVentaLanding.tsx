@@ -154,6 +154,12 @@ export function SoportePVentaLanding() {
     'Lunes a viernes, 8:00 a. m. a 6:00 p. m.; sábados, 8:00 a. m. a 2:00 p. m.',
     'Monday to Friday, 8:00 a.m. to 6:00 p.m.; Saturdays, 8:00 a.m. to 2:00 p.m.',
   )
+  // El 913 y los teléfonos de WhatsApp están en hora Central de EE. UU. En invierno (CST) es RD − 2 h;
+  // del 8-mar al 1-nov (CDT) es RD − 1 h, por eso la nota de abajo.
+  const hoursCT = t(
+    'Lunes a viernes, 6:00 a. m. a 4:00 p. m.; sábados, 6:00 a. m. a 12:00 p. m.',
+    'Monday to Friday, 6:00 a.m. to 4:00 p.m.; Saturdays, 6:00 a.m. to 12:00 p.m.',
+  )
   const toContact = <SectionLink href="#horario">{t('ver Horario y canales de contacto', 'see Hours and contact channels')}</SectionLink>
   const toServices = <SectionLink href="#servicios-adicionales">{t('ver Servicios adicionales', 'see Additional services')}</SectionLink>
 
@@ -460,12 +466,22 @@ export function SoportePVentaLanding() {
         {/* Horario y canales */}
         <Section id="horario" title={t('Horario y canales de contacto', 'Hours and contact channels')}>
           <Table
-            head={[t('Departamento', 'Department'), t('Horario (hora de República Dominicana)', 'Hours (Dominican Republic time)')]}
+            head={[
+              t('Departamento', 'Department'),
+              t('Horario (hora de República Dominicana)', 'Hours (Dominican Republic time)'),
+              t('Horario (hora Central de EE. UU.)', 'Hours (US Central Time)'),
+            ]}
             rows={[
-              [t('Soporte de Aplicaciones', 'Applications Support'), hours],
-              [t('Departamento de Ingeniería (equipos, redes, servidores)', 'Engineering Department (computers, networks, servers)'), hours],
+              [t('Soporte de Aplicaciones', 'Applications Support'), hours, hoursCT],
+              [t('Departamento de Ingeniería (equipos, redes, servidores)', 'Engineering Department (computers, networks, servers)'), hours, hoursCT],
             ]}
           />
+          <p className="text-xs text-gray-500">
+            {t(
+              'Del segundo domingo de marzo al primer domingo de noviembre (horario de verano en EE. UU.), la hora Central es 1 hora menos que RD: lunes a viernes 7:00 a. m. a 5:00 p. m. y sábados 7:00 a. m. a 1:00 p. m.',
+              'From the second Sunday in March to the first Sunday in November (US daylight saving time), Central Time is 1 hour behind the DR: Monday to Friday 7:00 a.m. to 5:00 p.m. and Saturdays 7:00 a.m. to 1:00 p.m.',
+            )}
+          </p>
           <p>
             {t(
               'Fuera de este horario también le atendemos, con un cargo adicional por hora',
