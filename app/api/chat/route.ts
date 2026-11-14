@@ -21,6 +21,10 @@ export async function OPTIONS() {
   return new Response(null, { status: 204, headers: corsHeaders })
 }
 
+// Groq retiró llama-3.3-70b-versatile (14-nov-2026: XoulBot respondía "hubo un error" a todo).
+// El modelo se puede cambiar sin tocar el código con GROQ_MODEL en Vercel.
+const DEFAULT_MODEL = 'openai/gpt-oss-120b'
+
 const MAX_BODY_BYTES = 64_000
 const MAX_MESSAGES = 20
 const MAX_MESSAGE_CHARS = 4000
@@ -72,7 +76,7 @@ export async function POST(request: Request) {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: process.env.GROQ_MODEL || DEFAULT_MODEL,
         max_tokens: 1024,
         messages: [
           { role: 'system', content: systemPrompt },
