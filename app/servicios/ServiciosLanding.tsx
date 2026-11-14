@@ -181,8 +181,8 @@ export function ServiciosLanding() {
           </div>
           <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
             {t(
-              'Para empresas y personas, en RD, Estados Unidos o donde estés: el mismo precio para todos.',
-              'For businesses and individuals, in the DR, the US or wherever you are: one price for everyone.',
+              'Para empresas y personas: PCs, impresoras, redes, internet y Windows.',
+              'For businesses and individuals: PCs, printers, networks, internet and Windows.',
             )}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start">
