@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.28.1] - 2026-11-14
+- fix(chat): la sección de planes de PVenta del prompt queda corta.
+
 ## [1.28.0] - 2026-11-14
 - feat(chat): XoulBot conoce los planes de PVenta (precios, usuarios y módulos principales) y envía a `/soporte-pventa` para el alcance del soporte. Ya no responde que el precio de PVenta "depende de las necesidades".
 
