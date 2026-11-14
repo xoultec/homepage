@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.26.0] - 2026-11-14
+- feat(servicios): nueva página `/servicios` con el soporte técnico remoto para empresas (RD US$40/h, EE. UU. US$75/h) y la unidad de Videojuegos (US$60/h). Explica cómo funciona: escribes por WhatsApp, autorizas el acceso temporal, pagas la primera hora con Stripe y retiras el acceso al terminar. Muestra el horario de atención. "Servicios" entra al menú y al sitemap, y el chat conoce estos servicios, sus precios y el horario.
+
 ## [1.25.0] - 2026-11-06
 - feat(seo): el sitio publica `sitemap.xml` y `robots.txt`, usa `www` como dirección oficial con canonical por página, y agrega datos estructurados de la empresa, del sitio y de cada producto.
 - feat(seo): cada producto publica su propio título y descripción, que estaban en el catálogo pero no salían; `/ofertas` y la política de datos estrenan los suyos, y la portada tiene un título orientado a lo que se busca.
