@@ -36,6 +36,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <a href="/#inicio" className="text-gray-300 hover:text-white transition">{t('Inicio', 'Home')}</a>
             <a href="/#productos" className="text-gray-300 hover:text-white transition">{t('Productos', 'Products')}</a>
+            <a href="/servicios" className="text-gray-300 hover:text-white transition">{t('Servicios', 'Services')}</a>
             <a href="/#nosotros" className="text-gray-300 hover:text-white transition">{t('Nosotros', 'About')}</a>
             <a href="/#contacto" className="text-gray-300 hover:text-white transition">{t('Contacto', 'Contact')}</a>
             <a href="https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition flex items-center gap-1">
@@ -58,6 +59,7 @@ export function Navbar() {
         <div className={`mobile-menu md:hidden pb-4 ${menuOpen ? 'open' : ''}`}>
           <a href="/#inicio" className="block text-gray-300 hover:text-white py-2" onClick={() => setMenuOpen(false)}>{t('Inicio', 'Home')}</a>
           <a href="/#productos" className="block text-gray-300 hover:text-white py-2" onClick={() => setMenuOpen(false)}>{t('Productos', 'Products')}</a>
+          <a href="/servicios" className="block text-gray-300 hover:text-white py-2" onClick={() => setMenuOpen(false)}>{t('Servicios', 'Services')}</a>
           <a href="/#nosotros" className="block text-gray-300 hover:text-white py-2" onClick={() => setMenuOpen(false)}>{t('Nosotros', 'About')}</a>
           <a href="/#contacto" className="block text-gray-300 hover:text-white py-2" onClick={() => setMenuOpen(false)}>{t('Contacto', 'Contact')}</a>
           <a href="https://pay.xoultec.com/p/login/6oE8xf7s9bKQ1xKaEE" target="_blank" rel="noopener noreferrer" className="block text-gray-300 hover:text-white py-2">

@@ -28,6 +28,22 @@ export const PAYMENT_LINKS: Record<PlanId, string> = {
   nomina: '',
 }
 
+/**
+ * Servicios por hora (/servicios), cobrados por adelantado: soporte técnico remoto e
+ * Ingeniería, y la unidad de Videojuegos. Son Payment Links de pay.xoultec.com con
+ * cantidad ajustable (1 a 99 bloques) y sin impuesto automático. En el sitio solo se
+ * publica la primera hora en horario laboral; los bloques de 30 minutos y las tarifas
+ * fuera de horario se envían por WhatsApp. Lista completa:
+ * docs/servicios-soporte-remoto-y-videojuegos.md
+ */
+export type ServiceId = 'remoto-rd-1h' | 'remote-us-1h' | 'gaming-1h'
+
+export const SERVICE_LINKS: Record<ServiceId, string> = {
+  'remoto-rd-1h': 'https://pay.xoultec.com/b/8x2dR8bs99uOahpcKR1kA01',
+  'remote-us-1h': 'https://pay.xoultec.com/b/dRm14m7bT5ey3T18uB1kA05',
+  'gaming-1h': 'https://pay.xoultec.com/b/4gM28qbs94augFNaCJ1kA09',
+}
+
 /** ¿Este plan ya se puede pagar solo, sin pasar por ventas? */
 export function hasCheckout(plan: PlanId) {
   return PAYMENT_LINKS[plan].trim().length > 0
