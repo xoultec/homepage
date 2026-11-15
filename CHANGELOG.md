@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.32.1] - 2026-11-15
+- fix(products): el texto de Contabilidad Automática de PVenta describe lo que hace la herramienta, sin garantías de resultado, y aclara que la revisión contable de nuestro equipo es un servicio aparte.
+
 ## [1.32.0] - 2026-11-15
 - feat(products): PVenta muestra la contabilidad automática entre sus módulos: postea cada noche ventas, compras, cobros y pagos, completa las cuentas del catálogo, cierra cada mes y el año, con revisión del equipo financiero de XoulTec.
 
