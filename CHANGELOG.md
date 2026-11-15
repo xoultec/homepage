@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.31.0] - 2026-11-15
+- feat(cuestionario-empresas): página nueva `/cuestionario-empresas` con el cuestionario para todas las empresas que no son constructoras (18 preguntas en 7 secciones, más "2. Su rubro"), para recomendarles el plan de PVenta para la facturación electrónica. Como el de constructoras: se empieza por el RNC, el nombre sale de la DGII y las respuestas se guardan en PVenta por RNC (tipo `business`), con borrador en el navegador y enlace de edición por correo.
+- feat(cuestionario-empresas): la pregunta 1 (a qué se dedica la empresa) es obligatoria y decide qué bloque de "Su rubro" se ve: solo el de su tipo. "Constructora" muestra un enlace a `/cuestionario-constructoras`; "Otro" pide especificar y abre el bloque "Otro tipo de empresa", con sus tres preguntas obligatorias. Elegir "Otro" en el tipo de lo que distribuye, vende o presta obliga a especificarlo. Solo se envían las respuestas del bloque que se ve, y el resumen que llega a ventas las incluye.
+- feat(cuestionario-empresas): ruta `/api/cuestionario-empresas` hacia PVenta con la clave del servidor y el mismo límite por IP que el de constructoras. La página entra en el sitemap, y `/soporte-pventa` y `/facturacion-electronica` la enlazan ("¿Necesita facturar electrónicamente? Complete el cuestionario y le recomendamos su plan").
+- refactor(cuestionario-constructoras): el cuestionario por RNC pasa a un componente común que usan las dos páginas. El de constructoras no cambia: mismas preguntas, claves, borrador y resumen.
+
 ## [1.30.0] - 2026-11-15
 - feat(cuestionario-constructoras): nueva sección "9. Lo que hoy les cuesta" (5 preguntas sobre sus puntos débiles: tiempo, pérdidas de dinero o control, información que no tienen a tiempo, errores que se repiten y lo que cambiarían). Prioridades pasa a ser la sección 10; el cuestionario queda en 44 preguntas.
 
