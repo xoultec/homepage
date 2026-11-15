@@ -9,9 +9,9 @@
 import { YES_NO, area, text, yesNo, type Section } from '~/components/questionnaire/model'
 
 export const INTRO_ES =
-  'Este cuestionario nos ayuda a entender cómo trabaja su empresa para proponerle la solución que le corresponde, sin cobrarle por lo que no necesita. Toma unos 15 minutos. Si alguna pregunta no aplica, déjela en blanco.'
+  'Este cuestionario nos ayuda a entender cómo trabaja su empresa para proponerle la solución que le corresponde, sin cobrarle por lo que no necesita. Toma unos 20 minutos. Si alguna pregunta no aplica, déjela en blanco. Sus respuestas son confidenciales y solo se usan para preparar su propuesta.'
 export const INTRO_EN =
-  "This questionnaire helps us understand how your company works so we can propose the solution that fits you, without charging you for what you don't need. It takes about 15 minutes. If a question does not apply, leave it blank."
+  "This questionnaire helps us understand how your company works so we can propose the solution that fits you, without charging you for what you don't need. It takes about 20 minutes. If a question does not apply, leave it blank. Your answers are confidential and are used only to prepare your proposal."
 
 export const THANKS_ES = 'Con sus respuestas le preparamos una propuesta a la medida de su operación.'
 export const THANKS_EN = 'With your answers we will prepare a proposal tailored to your operation.'
@@ -39,7 +39,7 @@ export const SECTIONS: Section[] = [
           },
         ],
       },
-      { n: 2, es: '¿Cuántos años tiene operando?', en: 'How many years have you been operating?', fields: [text('q2')] },
+      { n: 2, es: '¿Cuántos años tiene la empresa operando?', en: 'How many years has the company been operating?', fields: [text('q2')] },
       {
         n: 3,
         es: '¿Tiene empresas relacionadas o varias razones sociales (RNC) que deban llevarse juntas?',
