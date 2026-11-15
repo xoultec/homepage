@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, type ReactNode } from 'react'
-import { Building2, Check, Clock, LifeBuoy, Mail, MessageCircle } from 'lucide-react'
+import { Building2, Check, ClipboardList, Clock, LifeBuoy, Mail, MessageCircle } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 
 // Alcance del soporte de PVenta: la versión para clientes del documento aprobado por el
@@ -184,17 +184,31 @@ export function SoportePVentaLanding() {
       </section>
 
       <div className="max-w-5xl mx-auto px-4 py-14 space-y-14">
-        {/* Aviso para constructoras: no es parte del documento de alcance, es un enlace aparte. */}
-        <a
-          href="/cuestionario-constructoras"
-          className="flex items-center gap-3 rounded-2xl border border-secondary/40 bg-secondary/10 px-5 py-4 text-dark hover:bg-secondary/20 transition"
-        >
-          <Building2 className="w-6 h-6 shrink-0 text-secondary" aria-hidden="true" />
-          <span>
-            <b>{t('¿Es constructora?', 'Are you a construction company?')}</b>{' '}
-            <span className="underline underline-offset-2">{t('Complete el cuestionario', 'Fill in the questionnaire')}</span>
-          </span>
-        </a>
+        {/* Avisos de los cuestionarios: no son parte del documento de alcance, son enlaces aparte. */}
+        <div className="grid gap-4 md:grid-cols-2">
+          <a
+            href="/cuestionario-empresas"
+            className="flex items-center gap-3 rounded-2xl border border-secondary/40 bg-secondary/10 px-5 py-4 text-dark hover:bg-secondary/20 transition"
+          >
+            <ClipboardList className="w-6 h-6 shrink-0 text-secondary" aria-hidden="true" />
+            <span>
+              <b>{t('¿Necesita facturar electrónicamente?', 'Do you need to invoice electronically?')}</b>{' '}
+              <span className="underline underline-offset-2">
+                {t('Complete el cuestionario y le recomendamos su plan', 'Fill in the questionnaire and we will recommend your plan')}
+              </span>
+            </span>
+          </a>
+          <a
+            href="/cuestionario-constructoras"
+            className="flex items-center gap-3 rounded-2xl border border-secondary/40 bg-secondary/10 px-5 py-4 text-dark hover:bg-secondary/20 transition"
+          >
+            <Building2 className="w-6 h-6 shrink-0 text-secondary" aria-hidden="true" />
+            <span>
+              <b>{t('¿Es constructora?', 'Are you a construction company?')}</b>{' '}
+              <span className="underline underline-offset-2">{t('Complete el cuestionario', 'Fill in the questionnaire')}</span>
+            </span>
+          </a>
+        </div>
 
         {/* Planes */}
         <Section id="planes" title={t('Elija el plan que le conviene', 'Choose the plan that suits you')}>

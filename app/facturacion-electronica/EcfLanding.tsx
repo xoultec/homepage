@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Check, MessageCircle, ShieldCheck, FilePlus2, Send, QrCode, Award, Smartphone, Bell, Activity, Megaphone, Headset, Tag, Globe } from 'lucide-react'
+import { Check, ClipboardList, MessageCircle, ShieldCheck, FilePlus2, Send, QrCode, Award, Smartphone, Bell, Activity, Megaphone, Headset, Tag, Globe } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 import type { Feature } from '~/lib/products'
 import { FeatureCard } from '~/components/FeatureCard'
@@ -255,6 +255,22 @@ export function EcfLanding() {
       </section>
 
       <div className="max-w-5xl mx-auto px-4 pt-4 pb-8 space-y-8">
+        {/* Enlace al cuestionario para empresas (/cuestionario-empresas): con las respuestas
+            ventas recomienda el plan. Las constructoras tienen el suyo y la pregunta 1 de
+            ese cuestionario las manda allá. */}
+        <a
+          href="/cuestionario-empresas"
+          className="flex items-center gap-3 rounded-2xl border border-secondary/40 bg-secondary/10 px-5 py-4 text-dark hover:bg-secondary/20 transition"
+        >
+          <ClipboardList className="w-6 h-6 shrink-0 text-secondary" aria-hidden="true" />
+          <span>
+            <b>{t('¿Necesita facturar electrónicamente?', 'Do you need to invoice electronically?')}</b>{' '}
+            <span className="underline underline-offset-2">
+              {t('Complete el cuestionario y le recomendamos su plan', 'Fill in the questionnaire and we will recommend your plan')}
+            </span>
+          </span>
+        </a>
+
         {/* Agente de Marketing — la punta de lanza (Rubén, 23-ago-2026): es lo que
             diferencia a PVenta de cualquier ERP y no aparecía en esta página.
             Cada afirmación de aquí está verificada contra pventa-repo:
