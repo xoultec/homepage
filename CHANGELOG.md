@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.29.0] - 2026-11-15
+- feat(cuestionario-constructoras): página nueva `/cuestionario-constructoras` con el cuestionario para constructoras (39 preguntas en 9 secciones). Se empieza por el RNC y el nombre de la empresa sale de la DGII. Las respuestas se guardan en PVenta por RNC: volver a entrar con el mismo RNC en el mismo navegador, o con el enlace que llega al correo del contacto, carga lo enviado para actualizarlo. Lo que se va escribiendo queda como borrador en el navegador hasta pulsar Enviar. Español por defecto, con inglés.
+- feat(cuestionario-constructoras): ruta `/api/cuestionario-constructoras` que pasa las peticiones a PVenta con la clave del servidor (`LEADS_API_KEY`, la misma de los leads), con límite por IP. La página entra en el sitemap y `/soporte-pventa` la enlaza ("¿Es constructora? Complete el cuestionario").
+
 ## [1.28.5] - 2026-11-14
 - fix(chat): el prompt de XoulBot lleva los productos solo en el idioma de la página (unos 4 mil tokens en vez de 8 mil). Con el plan gratis de Groq (8 mil tokens por minuto, contando la respuesta) cada pregunta se rechazaba con 413 y el chat contestaba "hubo un error".
 
