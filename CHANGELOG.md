@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.32.0] - 2026-11-15
+- feat(products): PVenta muestra la contabilidad automática entre sus módulos: postea cada noche ventas, compras, cobros y pagos, completa las cuentas del catálogo, cierra cada mes y el año, con revisión del equipo financiero de XoulTec.
+
 ## [1.31.2] - 2026-11-15
 - fix(cuestionario-constructoras): textos iguales al documento: "¿Cuántos años tiene la empresa operando?", unos 20 minutos y nota de confidencialidad.
 - fix(cuestionario-empresas): la presentación y la descripción de la página recomiendan "el plan de PVenta que más le conviene", sin limitarlo a la facturación electrónica; nota de confidencialidad.
