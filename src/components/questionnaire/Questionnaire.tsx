@@ -1,20 +1,18 @@
 'use client'
 
 import { useEffect, useState, type FormEvent } from 'react'
-import { Building2, CheckCircle2, Loader2, Mail, MessageCircle } from 'lucide-react'
+import { CheckCircle2, Loader2, Mail, MessageCircle, type LucideIcon } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
-import { INTRO_EN, INTRO_ES, SECTIONS, THANKS_EN, THANKS_ES, buildSummary, type Answers, type Field } from './questions'
+import { OTHER, buildSummary, isVisible, missingRequired, withoutHidden, type Answers, type Field, type Question, type Section } from './model'
 
+// Cuestionario por RNC, común a /cuestionario-constructoras y /cuestionario-empresas: cada
+// página le pasa sus secciones, sus textos, la ruta de su proxy y su clave de almacenamiento.
+//
 // El cuestionario se guarda en PVenta por RNC. Para volver a abrir unas respuestas ya enviadas
 // no basta el RNC (es público): hace falta la clave de edición que devuelve el primer envío.
 // La guardamos en este navegador y PVenta la manda también por correo como enlace
 // (?rnc=…&t=…), para seguir desde otro equipo. Lo que se va escribiendo se guarda solo en
 // este navegador (borrador) hasta que se pulsa Enviar.
-
-const STORE = 'xoultec-cuestionario-constructoras'
-const tokenKey = (rnc: string) => `${STORE}:token:${rnc}`
-const draftKey = (rnc: string) => `${STORE}:draft:${rnc}`
-const LAST_RNC_KEY = `${STORE}:last-rnc`
 
 const WA_URL = 'https://wa.me/18092524007'
 const WA_URL_US = 'https://wa.me/19134136583'
@@ -26,6 +24,20 @@ const inputCls =
 type Contact = { name: string; email: string; phone: string }
 type Draft = { company: string; contact: Contact; answers: Answers }
 type Step = 'rnc' | 'form' | 'done'
+type Text = { es: string; en: string }
+
+export type QuestionnaireProps = {
+  /** Prefijo de localStorage (clave de edición, borrador y último RNC). */
+  store: string
+  /** Ruta del proxy del sitio, p. ej. /api/cuestionario-constructoras. */
+  apiPath: string
+  icon: LucideIcon
+  badge: Text
+  title: Text
+  intro: Text
+  thanks: Text
+  sections: Section[]
+}
 
 function readStore(key: string): string | null {
   try {
@@ -43,9 +55,9 @@ function writeStore(key: string, value: string | null) {
   }
 }
 
-async function call(action: string, payload: Record<string, unknown>) {
+async function call(apiPath: string, action: string, payload: Record<string, unknown>) {
   try {
-    const res = await fetch('/api/cuestionario-constructoras', {
+    const res = await fetch(apiPath, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action, ...payload }),
@@ -59,8 +71,14 @@ async function call(action: string, payload: Record<string, unknown>) {
 
 const cleanRnc = (s: string) => s.replace(/\D/g, '')
 
-export function ConstructionQuestionnaire() {
+// Ancla de una pregunta: por número, o por la clave de su primer campo si no tiene número.
+const questionId = (q: Question) => (q.n ? `p-${q.n}` : `p-${q.fields[0]?.key ?? 'x'}`)
+
+export function Questionnaire({ store, apiPath, icon: Icon, badge, title, intro, thanks, sections }: QuestionnaireProps) {
   const { t, lang, toggleLanguage } = useLanguage()
+  const tokenKey = (rnc: string) => `${store}:token:${rnc}`
+  const draftKey = (rnc: string) => `${store}:draft:${rnc}`
+  const lastRncKey = `${store}:last-rnc`
 
   const [step, setStep] = useState<Step>('rnc')
   const [rncInput, setRncInput] = useState('')
@@ -76,6 +94,8 @@ export function ConstructionQuestionnaire() {
   const [info, setInfo] = useState('')
   const [conflict, setConflict] = useState(false)
   const [created, setCreated] = useState(false)
+  // Preguntas obligatorias que faltaban al pulsar Enviar (se marcan en rojo hasta responderlas).
+  const [flagged, setFlagged] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     const qs = new URLSearchParams(window.location.search)
@@ -93,7 +113,7 @@ export function ConstructionQuestionnaire() {
       void start(linkRnc)
       return
     }
-    const last = readStore(LAST_RNC_KEY)
+    const last = readStore(lastRncKey)
     if (last) setRncInput(last)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -103,6 +123,7 @@ export function ConstructionQuestionnaire() {
     if (step !== 'form' || !rnc) return
     const draft: Draft = { company, contact, answers }
     writeStore(draftKey(rnc), JSON.stringify(draft))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, rnc, company, contact, answers])
 
   async function start(value: string) {
@@ -110,13 +131,14 @@ export function ConstructionQuestionnaire() {
     setError('')
     setInfo('')
     setConflict(false)
+    setFlagged(new Set())
     if (r.length !== 9 && r.length !== 11) {
       setError(t('El RNC debe tener 9 dígitos (o 11 si es una cédula).', 'The RNC must have 9 digits (or 11 for a cédula).'))
       return
     }
     setBusy(true)
 
-    const lookup = await call('lookup', { rnc: r })
+    const lookup = await call(apiPath, 'lookup', { rnc: r })
     let name = ''
     let locked = false
     if (lookup.status === 200 && lookup.data?.nombre) {
@@ -145,7 +167,7 @@ export function ConstructionQuestionnaire() {
 
     const saved = readStore(tokenKey(r))
     if (saved) {
-      const loaded = await call('load', { rnc: r, token: saved })
+      const loaded = await call(apiPath, 'load', { rnc: r, token: saved })
       if (loaded.status === 200) {
         const d = loaded.data
         nextToken = saved
@@ -171,7 +193,7 @@ export function ConstructionQuestionnaire() {
       }
     }
 
-    writeStore(LAST_RNC_KEY, r)
+    writeStore(lastRncKey, r)
     setRnc(r)
     setCompany(nextCompany)
     setCompanyLocked(locked)
@@ -193,17 +215,30 @@ export function ConstructionQuestionnaire() {
       setError(t('Complete el nombre de la empresa, la persona de contacto y su correo.', 'Fill in the company name, the contact person and their email.'))
       return
     }
+    const lacking = missingRequired(sections, answers)
+    setFlagged(new Set(lacking.map(questionId)))
+    if (lacking.length > 0) {
+      setError(
+        t('Falta responder: ', 'Please answer: ') +
+          lacking.map((q) => (q.n ? `${q.n}. ${t(q.es, q.en)}` : t(q.es, q.en))).join(' · '),
+      )
+      document.getElementById(questionId(lacking[0]))?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      return
+    }
+    // Solo se envía lo que se ve: las respuestas de un bloque que ya no aplica (p. ej. el
+    // rubro de otro tipo de empresa elegido antes) se quedan en el borrador, no llegan a PVenta.
+    const sent = withoutHidden(sections, answers)
     setBusy(true)
-    const res = await call('save', {
+    const res = await call(apiPath, 'save', {
       rnc,
       token,
       companyName: company.trim(),
       contactName: contact.name.trim(),
       contactEmail: contact.email.trim(),
       contactPhone: contact.phone.trim(),
-      answers,
+      answers: sent,
       lang,
-      summary: buildSummary(answers),
+      summary: buildSummary(sections, sent),
     })
     setBusy(false)
     if (res.status === 200 || res.status === 201) {
@@ -239,7 +274,7 @@ export function ConstructionQuestionnaire() {
 
   async function resend() {
     setBusy(true)
-    await call('resend', { rnc, lang })
+    await call(apiPath, 'resend', { rnc, lang })
     setBusy(false)
     setConflict(false)
     setInfo(
@@ -250,10 +285,43 @@ export function ConstructionQuestionnaire() {
     )
   }
 
-  const setAnswer = (key: string, value: string | string[]) => setAnswers((prev) => ({ ...prev, [key]: value }))
+  // `clears`: respuestas que dependen de esta y se vacían cuando cambia.
+  const setAnswer = (key: string, value: string | string[], clears?: string[]) =>
+    setAnswers((prev) => {
+      const next: Answers = { ...prev, [key]: value }
+      if (clears && prev[key] !== value) for (const k of clears) delete next[k]
+      return next
+    })
 
-  function renderField(f: Field, qn: number) {
+  function otherInput(f: Extract<Field, { type: 'radio' | 'checkbox' }>) {
+    if (!f.otherKey) return null
+    const otherKey = f.otherKey
+    return (
+      <input
+        type="text"
+        value={String(answers[otherKey] ?? '')}
+        onChange={(e) => setAnswer(otherKey, e.target.value)}
+        aria-label={t(f.otherEs ?? 'Especifique', f.otherEn ?? 'Please specify')}
+        placeholder={f.otherRequired ? t('Especifique (obligatorio)', 'Please specify (required)') : undefined}
+        className={`${inputCls} sm:max-w-xs`}
+      />
+    )
+  }
+
+  function renderField(f: Field, groupLabel: string) {
     const id = `f-${f.key}`
+
+    if (f.type === 'note') {
+      return (
+        <p key={f.key} className="text-sm text-gray-700 rounded-lg bg-secondary/10 border border-secondary/30 px-4 py-3">
+          {t(f.es, f.en)}{' '}
+          <a href={f.href} className="font-semibold text-primary underline underline-offset-2 hover:text-secondary">
+            {t(f.linkEs, f.linkEn)}
+          </a>
+        </p>
+      )
+    }
+
     const label = f.es ? <span className="text-sm text-gray-700 font-medium">{t(f.es, f.en ?? f.es)}</span> : null
 
     if (f.type === 'radio') {
@@ -261,7 +329,7 @@ export function ConstructionQuestionnaire() {
       return (
         <div key={f.key} className="space-y-2">
           {label}
-          <div role="radiogroup" aria-label={f.es ? t(f.es, f.en ?? f.es) : `${qn}`} className="flex flex-wrap gap-2">
+          <div role="radiogroup" aria-label={f.es ? t(f.es, f.en ?? f.es) : groupLabel} className="flex flex-wrap gap-2">
             {f.options.map((o) => {
               const on = current === o.value
               return (
@@ -276,8 +344,8 @@ export function ConstructionQuestionnaire() {
                     name={id}
                     value={o.value}
                     checked={on}
-                    onChange={() => setAnswer(f.key, o.value)}
-                    onClick={() => on && setAnswer(f.key, '')}
+                    onChange={() => setAnswer(f.key, o.value, f.clears)}
+                    onClick={() => on && setAnswer(f.key, '', f.clears)}
                     className="sr-only"
                   />
                   {t(o.es, o.en)}
@@ -285,6 +353,7 @@ export function ConstructionQuestionnaire() {
               )
             })}
           </div>
+          {current === OTHER && otherInput(f)}
         </div>
       )
     }
@@ -292,7 +361,7 @@ export function ConstructionQuestionnaire() {
     if (f.type === 'checkbox') {
       const picked = Array.isArray(answers[f.key]) ? (answers[f.key] as string[]) : []
       const toggle = (v: string) =>
-        setAnswer(f.key, picked.includes(v) ? picked.filter((x) => x !== v) : [...picked, v])
+        setAnswer(f.key, picked.includes(v) ? picked.filter((x) => x !== v) : [...picked, v], f.clears)
       return (
         <div key={f.key} className="space-y-2">
           {label}
@@ -307,15 +376,7 @@ export function ConstructionQuestionnaire() {
                 />
                 <span>{t(o.es, o.en)}</span>
               </label>
-              {o.value === 'otro' && f.otherKey && picked.includes('otro') && (
-                <input
-                  type="text"
-                  value={String(answers[f.otherKey] ?? '')}
-                  onChange={(e) => setAnswer(f.otherKey!, e.target.value)}
-                  aria-label={t('Otro tipo de obra', 'Other project type')}
-                  className={`${inputCls} sm:max-w-xs`}
-                />
-              )}
+              {o.value === OTHER && picked.includes(OTHER) && otherInput(f)}
             </div>
           ))}
         </div>
@@ -325,10 +386,18 @@ export function ConstructionQuestionnaire() {
     const value = typeof answers[f.key] === 'string' ? (answers[f.key] as string) : ''
     if (f.type === 'textarea') {
       return (
-        <div key={f.key}>
+        <div key={f.key} className={f.es ? 'space-y-1' : undefined}>
           {label}
           <textarea id={id} rows={3} value={value} onChange={(e) => setAnswer(f.key, e.target.value)} className={inputCls} />
         </div>
+      )
+    }
+    if (f.type === 'text' && f.stacked) {
+      return (
+        <label key={f.key} htmlFor={id} className="block space-y-1">
+          {label}
+          <input id={id} type="text" value={value} onChange={(e) => setAnswer(f.key, e.target.value)} className={inputCls} />
+        </label>
       )
     }
     return (
@@ -367,13 +436,11 @@ export function ConstructionQuestionnaire() {
     <>
       <section className="hero-gradient text-white px-4 pt-24 pb-14 text-center">
         <span className="inline-flex items-center gap-2 bg-accent/20 text-accent font-semibold text-xs px-3 py-1 rounded-full mb-4">
-          <Building2 className="w-4 h-4" />
-          {t('Constructoras', 'Construction companies')}
+          <Icon className="w-4 h-4" />
+          {t(badge.es, badge.en)}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 max-w-3xl mx-auto leading-tight">
-          {t('Cuestionario para constructoras', 'Questionnaire for construction companies')}
-        </h1>
-        <p className="text-white/80 max-w-2xl mx-auto">{t(INTRO_ES, INTRO_EN)}</p>
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4 max-w-3xl mx-auto leading-tight">{t(title.es, title.en)}</h1>
+        <p className="text-white/80 max-w-2xl mx-auto">{t(intro.es, intro.en)}</p>
       </section>
 
       <div className="max-w-3xl mx-auto px-4 py-10 space-y-8">
@@ -502,22 +569,38 @@ export function ConstructionQuestionnaire() {
               </p>
             </div>
 
-            {SECTIONS.map((s) => (
-              <section key={s.id} id={s.id} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-5 scroll-mt-28">
-                <div>
-                  <h2 className="text-xl font-bold text-dark">{t(s.es, s.en)}</h2>
-                  {s.noteEs && <p className="text-sm italic text-gray-500 mt-1">{t(s.noteEs, s.noteEn ?? s.noteEs)}</p>}
-                </div>
-                {s.questions.map((q) => (
-                  <div key={q.n} className="space-y-2">
-                    <p className="font-semibold text-dark">
-                      {q.n}. {t(q.es, q.en)}
-                    </p>
-                    <div className="space-y-3">{q.fields.map((f) => renderField(f, q.n))}</div>
+            {sections.map((s) => {
+              const questions = s.questions.filter((q) => isVisible(q, answers))
+              if (questions.length === 0) return null
+              return (
+                <section key={s.id} id={s.id} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 space-y-5 scroll-mt-28">
+                  <div>
+                    <h2 className="text-xl font-bold text-dark">{t(s.es, s.en)}</h2>
+                    {s.noteEs && <p className="text-sm italic text-gray-500 mt-1">{t(s.noteEs, s.noteEn ?? s.noteEs)}</p>}
                   </div>
-                ))}
-              </section>
-            ))}
+                  {questions.map((q) => {
+                    const qid = questionId(q)
+                    const required = q.fields.some((f) => f.type !== 'note' && f.required)
+                    const lacking = flagged.has(qid) && missingRequired([{ ...s, questions: [q] }], answers).length > 0
+                    return (
+                      <div key={qid} id={qid} className={`space-y-2 scroll-mt-28 ${lacking ? 'rounded-lg ring-2 ring-red-300 p-3 -m-3' : ''}`}>
+                        <p className="font-semibold text-dark">
+                          {q.n ? `${q.n}. ` : ''}
+                          {t(q.es, q.en)}
+                          {required && (
+                            <span className="text-red-600" title={t('Obligatoria', 'Required')}>
+                              {' '}
+                              *
+                            </span>
+                          )}
+                        </p>
+                        <div className="space-y-3">{q.fields.map((f) => renderField(f, q.n ? String(q.n) : t(q.es, q.en)))}</div>
+                      </div>
+                    )
+                  })}
+                </section>
+              )
+            })}
 
             <div className="bg-white rounded-2xl p-6 shadow-md space-y-3">
               {error && <p className="text-red-600 text-sm">{error}</p>}
@@ -556,7 +639,7 @@ export function ConstructionQuestionnaire() {
           <div className="bg-white rounded-2xl p-8 shadow-md text-center space-y-4">
             <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" aria-hidden="true" />
             <h2 className="font-bold text-2xl text-dark">{t('Gracias.', 'Thank you.')}</h2>
-            <p className="text-gray-700">{t(THANKS_ES, THANKS_EN)}</p>
+            <p className="text-gray-700">{t(thanks.es, thanks.en)}</p>
             <p className="text-sm text-gray-500">
               {created
                 ? t(

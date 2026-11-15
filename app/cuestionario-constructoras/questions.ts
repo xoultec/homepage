@@ -6,24 +6,7 @@
 // (questionnaire_responses.answers). No cambiarlos: un cuestionario ya enviado dejaría de
 // cargar sus respuestas. Una pregunta nueva lleva una clave nueva.
 
-export type Option = { value: string; es: string; en: string }
-
-export type Field =
-  | { key: string; type: 'text' | 'textarea'; es?: string; en?: string }
-  | { key: string; type: 'radio' | 'checkbox'; es?: string; en?: string; options: Option[]; otherKey?: string }
-
-export type Question = { n: number; es: string; en: string; fields: Field[] }
-
-export type Section = { id: string; es: string; en: string; noteEs?: string; noteEn?: string; questions: Question[] }
-
-const YES_NO: Option[] = [
-  { value: 'si', es: 'Sí', en: 'Yes' },
-  { value: 'no', es: 'No', en: 'No' },
-]
-
-const text = (key: string, es?: string, en?: string): Field => ({ key, type: 'text', es, en })
-const area = (key: string): Field => ({ key, type: 'textarea' })
-const yesNo = (key: string, es?: string, en?: string): Field => ({ key, type: 'radio', es, en, options: YES_NO })
+import { YES_NO, area, text, yesNo, type Section } from '~/components/questionnaire/model'
 
 export const INTRO_ES =
   'Este cuestionario nos ayuda a entender cómo trabaja su empresa para proponerle la solución que le corresponde, sin cobrarle por lo que no necesita. Toma unos 15 minutos. Si alguna pregunta no aplica, déjela en blanco.'
@@ -87,6 +70,8 @@ export const SECTIONS: Section[] = [
             key: 'q7',
             type: 'checkbox',
             otherKey: 'q7_otro',
+            otherEs: 'Otro tipo de obra',
+            otherEn: 'Other project type',
             options: [
               { value: 'edificios', es: 'Edificios / torres', en: 'Buildings / towers' },
               { value: 'casas', es: 'Residenciales de casas', en: 'Housing developments' },
@@ -371,36 +356,3 @@ export const SECTIONS: Section[] = [
     ],
   },
 ]
-
-export type Answers = Record<string, string | string[]>
-
-/** Answers as readable Spanish text (question + answer), for the sales email. */
-export function buildSummary(answers: Answers): string {
-  const lines: string[] = []
-  for (const s of SECTIONS) {
-    lines.push(`== ${s.es} ==`)
-    for (const q of s.questions) {
-      const parts: string[] = []
-      for (const f of q.fields) {
-        const v = answers[f.key]
-        let shown = ''
-        if (f.type === 'radio') {
-          shown = f.options.find((o) => o.value === v)?.es ?? ''
-        } else if (f.type === 'checkbox') {
-          const picked = Array.isArray(v) ? v : []
-          shown = f.options
-            .filter((o) => picked.includes(o.value))
-            .map((o) => (o.value === 'otro' && f.otherKey ? `${o.es} ${String(answers[f.otherKey] ?? '').trim()}` : o.es))
-            .join('; ')
-        } else {
-          shown = typeof v === 'string' ? v.trim() : ''
-        }
-        if (shown) parts.push(f.es ? `${f.es} ${shown}` : shown)
-      }
-      lines.push(`${q.n}. ${q.es}`)
-      lines.push(`   ${parts.length ? parts.join(' | ') : '—'}`)
-    }
-    lines.push('')
-  }
-  return lines.join('\n')
-}
