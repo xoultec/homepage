@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.31.2] - 2026-11-15
+- fix(cuestionario-constructoras): textos iguales al documento: "¿Cuántos años tiene la empresa operando?", unos 20 minutos y nota de confidencialidad.
+- fix(cuestionario-empresas): la presentación y la descripción de la página recomiendan "el plan de PVenta que más le conviene", sin limitarlo a la facturación electrónica; nota de confidencialidad.
+
 ## [1.31.1] - 2026-11-15
 - fix(cuestionario-empresas): el aviso de `/facturacion-electronica` y `/soporte-pventa` invita a adquirir un plan ("¿Desea adquirir uno de nuestros planes?"), no solo a facturar electrónicamente.
 
