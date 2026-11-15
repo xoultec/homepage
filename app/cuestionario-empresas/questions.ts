@@ -33,9 +33,9 @@ const rubroTipo = (options: Option[]): Field => ({
 const is = (value: string) => (a: Answers) => a.q1 === value
 
 export const INTRO_ES =
-  'Con sus respuestas le recomendamos el plan de PVenta que le corresponde para cumplir con la facturación electrónica de la DGII, sin pagar por lo que no necesita. Toma unos 10 minutos. Si alguna pregunta no aplica, déjela en blanco.'
+  'Con sus respuestas le recomendamos el plan de PVenta que más le conviene, sin pagar por lo que no necesita. Toma unos 10 minutos. Si alguna pregunta no aplica, déjela en blanco. Sus respuestas son confidenciales y solo se usan para preparar su recomendación.'
 export const INTRO_EN =
-  "With your answers we will recommend the PVenta plan that fits you to comply with DGII electronic invoicing, without paying for what you don't need. It takes about 10 minutes. If a question does not apply, leave it blank."
+  "With your answers we will recommend the PVenta plan that suits you best, without paying for what you don't need. It takes about 10 minutes. If a question does not apply, leave it blank. Your answers are confidential and are used only to prepare our recommendation."
 
 export const THANKS_ES = 'Con sus respuestas le recomendamos el plan que le corresponde.'
 export const THANKS_EN = 'With your answers we will recommend the plan that fits you.'

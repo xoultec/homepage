@@ -5,14 +5,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: { absolute: 'Cuestionario para empresas | XoulTec' },
   description:
-    'Cuéntenos cómo trabaja su empresa y le recomendamos el plan de PVenta que le corresponde para cumplir con la facturación electrónica de la DGII, sin pagar por lo que no necesita. Toma unos 10 minutos.',
+    'Cuéntenos cómo trabaja su empresa y le recomendamos el plan de PVenta que más le conviene, sin pagar por lo que no necesita. Toma unos 10 minutos.',
   alternates: { canonical: '/cuestionario-empresas' },
   openGraph: {
     type: 'website',
     locale: 'es_DO',
     siteName: 'XoulTec',
     title: 'Cuestionario para empresas | XoulTec',
-    description: 'Con sus respuestas le recomendamos el plan de PVenta que le corresponde para la facturación electrónica.',
+    description: 'Con sus respuestas le recomendamos el plan de PVenta que más le conviene.',
     url: '/cuestionario-empresas',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'XoulTec' }],
   },
