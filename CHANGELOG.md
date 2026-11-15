@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.30.0] - 2026-11-15
+- feat(cuestionario-constructoras): nueva sección "9. Lo que hoy les cuesta" (5 preguntas sobre sus puntos débiles: tiempo, pérdidas de dinero o control, información que no tienen a tiempo, errores que se repiten y lo que cambiarían). Prioridades pasa a ser la sección 10; el cuestionario queda en 44 preguntas.
+
 ## [1.29.0] - 2026-11-15
 - feat(cuestionario-constructoras): página nueva `/cuestionario-constructoras` con el cuestionario para constructoras (39 preguntas en 9 secciones). Se empieza por el RNC y el nombre de la empresa sale de la DGII. Las respuestas se guardan en PVenta por RNC: volver a entrar con el mismo RNC en el mismo navegador, o con el enlace que llega al correo del contacto, carga lo enviado para actualizarlo. Lo que se va escribiendo queda como borrador en el navegador hasta pulsar Enviar. Español por defecto, con inglés.
 - feat(cuestionario-constructoras): ruta `/api/cuestionario-constructoras` que pasa las peticiones a PVenta con la clave del servidor (`LEADS_API_KEY`, la misma de los leads), con límite por IP. La página entra en el sitemap y `/soporte-pventa` la enlaza ("¿Es constructora? Complete el cuestionario").
