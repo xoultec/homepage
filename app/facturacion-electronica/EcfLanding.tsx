@@ -264,9 +264,9 @@ export function EcfLanding() {
         >
           <ClipboardList className="w-6 h-6 shrink-0 text-secondary" aria-hidden="true" />
           <span>
-            <b>{t('¿Necesita facturar electrónicamente?', 'Do you need to invoice electronically?')}</b>{' '}
+            <b>{t('¿Desea adquirir uno de nuestros planes?', 'Would you like one of our plans?')}</b>{' '}
             <span className="underline underline-offset-2">
-              {t('Complete el cuestionario y le recomendamos su plan', 'Fill in the questionnaire and we will recommend your plan')}
+              {t('Complete el cuestionario y le recomendamos el que más le conviene', 'Fill in the questionnaire and we will recommend the one that suits you best')}
             </span>
           </span>
         </a>
