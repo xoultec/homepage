@@ -481,7 +481,7 @@ export function EcfLanding() {
                   t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
                   t('Cotizaciones, cobros y cuentas por cobrar', 'Quotes, collections and accounts receivable'),
                   t('Cajas y punto de venta (POS)', 'Cash registers and point of sale (POS)'),
-                  t('Inventario · 1 bodega', 'Inventory · 1 warehouse'),
+                  t('Inventario, compras y recepción · 1 bodega', 'Inventory, purchasing and receiving · 1 warehouse'),
                   t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">

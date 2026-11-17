@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.33.0] - 2026-11-17
+- feat(pricing): el plan Comercial de PVenta incluye órdenes de compra y recepción de mercancía junto con el inventario; cuentas por pagar y pagos a suplidores siguen en Todo Incluido (tabla de planes, tarjeta del Comercial y chat).
+
 ## [1.32.1] - 2026-11-15
 - fix(products): el texto de Contabilidad Automática de PVenta describe lo que hace la herramienta, sin garantías de resultado, y aclara que la revisión contable de nuestro equipo es un servicio aparte.
 
