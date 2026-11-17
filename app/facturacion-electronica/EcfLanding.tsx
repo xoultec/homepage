@@ -482,7 +482,6 @@ export function EcfLanding() {
                   t('Cotizaciones, cobros y cuentas por cobrar', 'Quotes, collections and accounts receivable'),
                   t('Cajas y punto de venta (POS)', 'Cash registers and point of sale (POS)'),
                   t('Inventario, compras y recepción · 1 bodega', 'Inventory, purchasing and receiving · 1 warehouse'),
-                  t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
@@ -517,6 +516,7 @@ export function EcfLanding() {
                   t('Todo lo del Comercial, y además:', 'Everything in Commercial, plus:'),
                   t('Contabilidad automática y bancos', 'Automatic accounting & banking'),
                   t('Cuentas por pagar y pagos a suplidores (606)', 'Accounts payable & supplier payments (606)'),
+                  t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
                   t('Hasta 3 bodegas', 'Up to 3 warehouses'),
                   t('Dashboard de indicadores y perfiles a medida', 'KPI dashboard & custom user profiles'),
                 ].map(item => (
