@@ -514,10 +514,11 @@ export function EcfLanding() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
-                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
-                  t('Inventario y POS · hasta 3 bodegas', 'Inventory & POS · up to 3 warehouses'),
-                  t('Contabilidad y bancos', 'Accounting & banking'),
-                  t('Cuentas por cobrar y pagar', 'Accounts receivable & payable'),
+                  t('Todo lo del Comercial, y además:', 'Everything in Commercial, plus:'),
+                  t('Contabilidad automática y bancos', 'Automatic accounting & banking'),
+                  t('Cuentas por pagar y pagos a suplidores (606)', 'Accounts payable & supplier payments (606)'),
+                  t('Hasta 3 bodegas', 'Up to 3 warehouses'),
+                  t('Dashboard de indicadores y perfiles a medida', 'KPI dashboard & custom user profiles'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
