@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.33.2] - 2026-11-17
+- fix(pricing): vendedores, comisiones y app móvil se muestran en Todo Incluido (tarjetas, tabla de planes, nota de la app y chat), igual que en PVenta.
+
 ## [1.33.1] - 2026-11-17
 - fix(pricing): la tarjeta de Todo Incluido parte de "Todo lo del Comercial, y además" (contabilidad automática y bancos, cuentas por pagar y 606, hasta 3 bodegas, dashboard y perfiles) en vez de listar menos renglones que el Comercial.
 
