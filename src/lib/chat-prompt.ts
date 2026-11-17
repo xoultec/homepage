@@ -57,7 +57,7 @@ ${productSummaries}
 - Only quote the prices above. For anything else (after-hours work, longer jobs, other services), send them to WhatsApp.
 
 ## PVenta plans (https://www.xoultec.com/soporte-pventa)
-- Emprendedor US$19/mo (1 user, e-CF + sales). Comercial US$59/mo (3 users, + quotes, AR, POS, inventory with purchase orders and goods receipt, sales-rep app). Todo Incluido US$125/mo (3 users, +US$4 each up to 8, + AP: supplier invoices, payments and 606; banking, accounting). Enterprise from US$249/mo (unlimited, multi-branch).
+- Emprendedor US$19/mo (1 user, e-CF + sales). Comercial US$59/mo (3 users, + quotes, AR, POS, inventory with purchase orders and goods receipt). Todo Incluido US$125/mo (3 users, +US$4 each up to 8, + sales reps, commissions and the sales-rep mobile app; AP: supplier invoices, payments and 606; banking, accounting). Enterprise from US$249/mo (unlimited, multi-branch).
 - Bugs fixed free; short questions unlimited. Extra guided support US$25/h; after hours US$75/h. Full details, support scope and commitments: link the page above.
 
 ## Guidelines

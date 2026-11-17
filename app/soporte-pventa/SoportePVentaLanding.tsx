@@ -242,7 +242,7 @@ export function SoportePVentaLanding() {
               [t('Cotizaciones, cobros y cuentas por cobrar', 'Quotations, collections and accounts receivable'), no, yes, yes, yes],
               [t('Cajas y punto de venta (POS)', 'Cash registers and point of sale (POS)'), no, yes, yes, yes],
               [t('Inventario', 'Inventory'), no, t('1 bodega', '1 warehouse'), t('Hasta 3 bodegas', 'Up to 3 warehouses'), t('Ilimitado', 'Unlimited')],
-              [t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'), no, yes, yes, yes],
+              [t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'), no, no, yes, yes],
               [t('Compras: órdenes de compra y recepción de mercancía', 'Purchasing: purchase orders and goods receipt'), no, yes, yes, yes],
               [t('Cuentas por pagar y pagos a suplidores', 'Accounts payable and supplier payments'), no, no, yes, yes],
               [t('Bancos y conciliación', 'Banking and reconciliation'), no, no, yes, yes],
@@ -263,8 +263,8 @@ export function SoportePVentaLanding() {
           <p>
             {b(t('La app de vendedores', 'The sales rep app'))}{' '}
             {t(
-              'viene incluida desde el plan Comercial: sus vendedores atienden clientes, cotizan, toman pedidos, facturan, cobran y llevan su ruta desde el celular.',
-              'is included starting with the Commercial plan: your sales reps serve customers, prepare quotes, take orders, invoice, collect payments and manage their route from their phone.',
+              'viene incluida desde el plan Todo Incluido: sus vendedores atienden clientes, cotizan, toman pedidos, facturan, cobran y llevan su ruta desde el celular.',
+              'is included starting with the All Included plan: your sales reps serve customers, prepare quotes, take orders, invoice, collect payments and manage their route from their phone.',
             )}
           </p>
 
