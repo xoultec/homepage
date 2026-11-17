@@ -228,7 +228,7 @@ export function SoportePVentaLanding() {
               'Enterprise',
             ]}
             rows={[
-              [b(t('Precio al mes', 'Price per month')), 'US$19', 'US$59', 'US$125', t('Desde US$249', 'From US$249')],
+              [b(t('Precio al mes', 'Price per month')), 'US$19', 'US$59', 'US$125', t('Desde US$299', 'From US$299')],
               [b(t('Usuarios', 'Users')), '1', '3', t('3 incluidos (+US$4 c/u, hasta 8)', '3 included (+US$4 each, up to 8)'), t('Ilimitados', 'Unlimited')],
               [
                 b(t('Ideal para', 'Ideal for')),
