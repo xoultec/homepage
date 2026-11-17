@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.33.1] - 2026-11-17
+- fix(pricing): la tarjeta de Todo Incluido parte de "Todo lo del Comercial, y además" (contabilidad automática y bancos, cuentas por pagar y 606, hasta 3 bodegas, dashboard y perfiles) en vez de listar menos renglones que el Comercial.
+
 ## [1.33.0] - 2026-11-17
 - feat(pricing): el plan Comercial de PVenta incluye órdenes de compra y recepción de mercancía junto con el inventario; cuentas por pagar y pagos a suplidores siguen en Todo Incluido (tabla de planes, tarjeta del Comercial y chat).
 
