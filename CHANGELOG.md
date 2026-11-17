@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.34.0] - 2026-11-17
+- feat(pricing): Enterprise pasa a "desde US$299" y su tarjeta parte de "Todo lo del Todo Incluido, y además" (varias empresas y sucursales con consolidado, usuarios y bodegas ilimitados, alto volumen, 8 h de acompañamiento, soporte prioritario); tabla de planes y chat actualizados.
+
 ## [1.33.2] - 2026-11-17
 - fix(pricing): vendedores, comisiones y app móvil se muestran en Todo Incluido (tarjetas, tabla de planes, nota de la app y chat), igual que en PVenta.
 

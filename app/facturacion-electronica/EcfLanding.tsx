@@ -527,25 +527,26 @@ export function EcfLanding() {
               </ul>
               <CheckoutButton plan="todo-incluido" variant="solid" />
             </div>
-            {/* Enterprise — desde US$249 (14-nov-2026; antes "A cotizar") */}
+            {/* Enterprise — desde US$299 (17-nov-2026, Rubén; antes US$249 y "A cotizar"). Se diferencia
+                del Todo Incluido por varias empresas, escala y servicio, no por la contabilidad. */}
             <div className="pricing-card bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg text-dark">Enterprise</h3>
               <p className="text-gray-500 text-sm mt-1">
-                {t('Para empresas grandes o alto volumen', 'For large or high-volume businesses')}
+                {t('Grupos de empresas, sucursales o alto volumen', 'Company groups, branches or high volume')}
               </p>
               <div className="mt-4 mb-5">
                 <span className="text-gray-500 text-sm">{t('Desde', 'From')} </span>
-                <span className="text-3xl font-extrabold text-dark">US$249</span>
+                <span className="text-3xl font-extrabold text-dark">US$299</span>
                 <span className="text-gray-500 text-sm"> /{t('mes', 'mo')}</span>
               </div>
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
-                  t('Facturación electrónica e-CF', 'e-CF electronic invoicing'),
-                  t('Todo el ERP completo', 'The complete ERP'),
-                  t('Usuarios ilimitados', 'Unlimited users'),
-                  t('Bodegas ilimitadas', 'Unlimited warehouses'),
-                  t('Multi-sucursal', 'Multi-branch'),
-                  t('Soporte dedicado', 'Dedicated support'),
+                  t('Todo lo del Todo Incluido, y además:', 'Everything in All Included, plus:'),
+                  t('Varias empresas y sucursales, con consolidado del grupo', 'Multiple companies and branches, with group consolidation'),
+                  t('Usuarios y bodegas ilimitados', 'Unlimited users and warehouses'),
+                  t('Alto volumen de facturación', 'High invoicing volume'),
+                  t('8 h de acompañamiento al mes y capacitación a medida', '8 h of guided support per month and tailored training'),
+                  t('Soporte prioritario con contacto asignado', 'Priority support with an assigned contact'),
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-600" /> {item}
