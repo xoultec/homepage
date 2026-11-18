@@ -514,7 +514,8 @@ export function EcfLanding() {
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
                   t('Todo lo del Comercial, y además:', 'Everything in Commercial, plus:'),
-                  t('Contabilidad automática y bancos', 'Automatic accounting & banking'),
+                  t('Le llevamos la contabilidad automática y la conciliación de bancos (no sustituye a su contador)', "We keep your automatic accounting and bank reconciliation (it does not replace your accountant)"),
+                  t('Le registramos las compras desde la factura del suplidor', 'We record your purchases from the supplier invoice'),
                   t('Cuentas por pagar y pagos a suplidores (606)', 'Accounts payable & supplier payments (606)'),
                   t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
                   t('Hasta 3 bodegas', 'Up to 3 warehouses'),
@@ -612,6 +613,71 @@ export function EcfLanding() {
               </span>
             ))}
           </div>
+        </section>
+
+        {/* "Lo hacemos por usted" (18-nov-2026, Rubén: "esa info es vital en la página web"). Es el
+            servicio que va con Todo Incluido y Enterprise: XoulTec lleva la contabilidad automática,
+            concilia bancos y registra las compras desde la factura del suplidor. El contador del
+            cliente sigue revisando y presentando; el cliente revisa sus libros. */}
+        <section>
+          <h2 className="text-2xl font-bold text-dark text-center mb-2">
+            {t('Nosotros lo hacemos por usted', 'We do it for you')}
+          </h2>
+          <p className="text-gray-600 text-center text-sm max-w-2xl mx-auto mb-8">
+            {t(
+              'Con los planes Todo Incluido y Enterprise no solo tiene el sistema: nuestro equipo le lleva el registro del día a día, y su contador sigue a cargo.',
+              'With the All Included and Enterprise plans you get more than software: our team handles the day-to-day work for you.',
+            )}
+          </p>
+          <div className="max-w-3xl mx-auto mb-6 rounded-xl border border-amber-300 bg-amber-50 px-5 py-4 text-sm text-amber-900">
+            <p className="font-bold">
+              {t('La contabilidad automática NO sustituye al contador de su empresa.', "Automatic accounting does NOT replace your company's accountant.")}
+            </p>
+            <p className="mt-1">
+              {t(
+                'Su contador sigue siendo el responsable: audita, revisa, decide los criterios contables y presenta sus declaraciones ante la DGII. Lo que automatizamos es el registro (la digitación), para que él trabaje con los libros al día.',
+                'Your accountant remains responsible: they audit, review, decide the accounting criteria and file your returns with the tax authority. What we automate is the data entry, so they work with up-to-date books.',
+              )}
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3 max-w-4xl mx-auto">
+            {[
+              {
+                title: t('Contabilidad automática', 'Automatic accounting'),
+                text: t(
+                  'Ventas, cobros, compras y pagos se registran solos en la contabilidad. Hacemos los cierres de mes y le dejamos el 606 y el 607 listos para que su contador los revise y presente.',
+                  'Sales, collections, purchases and payments post themselves to the books. We close each month and leave your 606 and 607 ready for your accountant to review and file.',
+                ),
+              },
+              {
+                title: t('Conciliación de bancos', 'Bank reconciliation'),
+                text: t(
+                  'Con sus estados de banco (mejor en Excel) conciliamos sus cuentas contra los libros cada mes.',
+                  'With your bank statements (Excel is best) we reconcile your accounts against the books every month.',
+                ),
+              },
+              {
+                title: t('Compras desde la factura', 'Purchases from the invoice'),
+                text: t(
+                  'Nos envía o escanea la factura del suplidor y le hacemos la orden de compra, la recepción con lotes y vencimientos y la factura por pagar. Si el producto o el suplidor no existe, lo creamos.',
+                  'Send or scan the supplier invoice and we create the purchase order, the goods receipt with lots and expiry dates, and the bill. If the product or supplier is new, we add it.',
+                ),
+              },
+            ].map(card => (
+              <div key={card.title} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-dark flex items-center gap-2">
+                  <Check className="w-4 h-4 text-emerald-600" /> {card.title}
+                </h3>
+                <p className="text-gray-600 text-sm mt-2">{card.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="max-w-3xl mx-auto mt-5 text-center text-gray-500 text-xs">
+            {t(
+              'Esto no sustituye al contador de su empresa: él sigue auditando, revisando y presentando sus declaraciones. Nosotros automatizamos el registro para que trabaje con los libros al día. Usted revisa sus libros cuando quiera.',
+              "This does not replace your company's accountant: they still audit, review and file your returns. We automate the bookkeeping so they work with up-to-date books. You can review your books anytime.",
+            )}
+          </p>
         </section>
 
         {/* Comparison: one subscription vs four */}

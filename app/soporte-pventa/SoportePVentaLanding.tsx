@@ -247,6 +247,8 @@ export function SoportePVentaLanding() {
               [t('Cuentas por pagar y pagos a suplidores', 'Accounts payable and supplier payments'), no, no, yes, yes],
               [t('Bancos y conciliación', 'Banking and reconciliation'), no, no, yes, yes],
               [t('Contabilidad general', 'General accounting'), no, no, yes, yes],
+              [t('Le llevamos la contabilidad automática y la conciliación de bancos (no sustituye a su contador)', "We keep your automatic accounting and bank reconciliation (it does not replace your accountant)"), no, no, yes, yes],
+              [t('Le registramos las compras desde la factura del suplidor', 'We record your purchases from the supplier invoice'), no, no, yes, yes],
               [t('Varias sucursales', 'Multiple branches'), no, no, no, yes],
               [b(t('Preguntas cortas por chat', 'Short questions via chat')), unlimited, unlimited, unlimited, unlimited],
               [b(t('Acompañamiento al mes', 'Guided support per month')), '1 h', '2 h', '3 h', '8 h'],
@@ -693,6 +695,13 @@ export function SoportePVentaLanding() {
                 t(
                   'Le mostramos dónde se registra en PVenta. Decidir cómo se contabiliza lo hace su contador, o nuestro servicio de Asesoría Financiera si lo contrata.',
                   'We show you where it is recorded in PVenta. Deciding how it is accounted for is done by your accountant, or by our Financial Advisory service if you hire it.',
+                ),
+              ],
+              [
+                t('¿La contabilidad automática sustituye a mi contador?', 'Does automatic accounting replace my accountant?'),
+                t(
+                  'No. La contabilidad automática registra los asientos por usted, pero su contador sigue siendo el responsable: audita, revisa, decide los criterios contables y presenta sus declaraciones. Lo que se elimina es la digitación, no el contador.',
+                  'No. Automatic accounting records the entries for you, but your accountant remains responsible: they audit, review, decide the accounting criteria and file your returns. What goes away is the data entry, not the accountant.',
                 ),
               ],
               [
