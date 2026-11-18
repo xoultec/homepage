@@ -514,7 +514,7 @@ export function EcfLanding() {
               <ul className="space-y-2 text-sm text-gray-700">
                 {[
                   t('Todo lo del Comercial, y además:', 'Everything in Commercial, plus:'),
-                  t('Le llevamos la contabilidad automática y la conciliación de bancos', 'We keep your automatic accounting and bank reconciliation'),
+                  t('Le llevamos la contabilidad automática y la conciliación de bancos (no sustituye a su contador)', "We keep your automatic accounting and bank reconciliation (it does not replace your accountant)"),
                   t('Le registramos las compras desde la factura del suplidor', 'We record your purchases from the supplier invoice'),
                   t('Cuentas por pagar y pagos a suplidores (606)', 'Accounts payable & supplier payments (606)'),
                   t('Vendedores, comisiones y app móvil', 'Sales reps, commissions and mobile app'),
@@ -629,13 +629,24 @@ export function EcfLanding() {
               'With the All Included and Enterprise plans you get more than software: our team handles the day-to-day work for you.',
             )}
           </p>
+          <div className="max-w-3xl mx-auto mb-6 rounded-xl border border-amber-300 bg-amber-50 px-5 py-4 text-sm text-amber-900">
+            <p className="font-bold">
+              {t('La contabilidad automática NO sustituye al contador de su empresa.', "Automatic accounting does NOT replace your company's accountant.")}
+            </p>
+            <p className="mt-1">
+              {t(
+                'Su contador sigue siendo el responsable: audita, revisa, decide los criterios contables y presenta sus declaraciones ante la DGII. Lo que automatizamos es el registro (la digitación), para que él trabaje con los libros al día.',
+                'Your accountant remains responsible: they audit, review, decide the accounting criteria and file your returns with the tax authority. What we automate is the data entry, so they work with up-to-date books.',
+              )}
+            </p>
+          </div>
           <div className="grid gap-4 sm:grid-cols-3 max-w-4xl mx-auto">
             {[
               {
                 title: t('Contabilidad automática', 'Automatic accounting'),
                 text: t(
-                  'Ventas, cobros, compras y pagos se registran solos en la contabilidad. Hacemos los cierres de mes y le dejamos el 606 y el 607 listos.',
-                  'Sales, collections, purchases and payments post themselves to the books. We close each month and leave your 606 and 607 ready.',
+                  'Ventas, cobros, compras y pagos se registran solos en la contabilidad. Hacemos los cierres de mes y le dejamos el 606 y el 607 listos para que su contador los revise y presente.',
+                  'Sales, collections, purchases and payments post themselves to the books. We close each month and leave your 606 and 607 ready for your accountant to review and file.',
                 ),
               },
               {
