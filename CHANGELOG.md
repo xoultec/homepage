@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.35.0] - 2026-11-18
+- feat(pricing): sección "Nosotros lo hacemos por usted" (contabilidad automática con cierres y 606/607, conciliación de bancos, compras desde la factura del suplidor con orden, recepción y factura); la tarjeta Todo Incluido, la tabla de planes y el chat lo destacan. Aclara que no sustituye al contador de la empresa: él sigue auditando, revisando y presentando.
+
 ## [1.34.0] - 2026-11-17
 - feat(pricing): Enterprise pasa a "desde US$299" y su tarjeta parte de "Todo lo del Todo Incluido, y además" (varias empresas y sucursales con consolidado, usuarios y bodegas ilimitados, alto volumen, 8 h de acompañamiento, soporte prioritario); tabla de planes y chat actualizados.
 
