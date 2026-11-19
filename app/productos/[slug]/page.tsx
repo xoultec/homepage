@@ -8,6 +8,7 @@ import { ProductHero } from '~/components/ProductHero'
 import { FeatureCard } from '~/components/FeatureCard'
 import { ScreenshotSection } from '~/components/ScreenshotSection'
 import { DashboardPreview } from '~/components/DashboardPreview'
+import { CustomerRatings } from '~/components/CustomerRatings'
 
 export default function ProductPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -44,6 +45,8 @@ export default function ProductPage() {
       </section>
 
       {product.slug === 'pventa' && <DashboardPreview />}
+
+      <CustomerRatings className="bg-white" />
 
       {product.slug === 'pventa' && (
         <section className="py-12 bg-gray-50">
