@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.36.0] - 2026-11-19
+- feat(products): PVenta muestra Centros de Costo y Presupuesto (resultado y margen por obra, proyecto o departamento, y presupuesto contra lo real) y Liquidación de Importación (costo real por producto del embarque y precio sugerido). Nueva sección "Pruébalo en línea" con el enlace a la demo de PVenta (comercial, clínica y constructora), y el chat la ofrece cuando preguntan por PVenta, constructoras, centros de costo o presupuestos.
+
 ## [1.35.0] - 2026-11-18
 - feat(pricing): sección "Nosotros lo hacemos por usted" (contabilidad automática con cierres y 606/607, conciliación de bancos, compras desde la factura del suplidor con orden, recepción y factura); la tarjeta Todo Incluido, la tabla de planes y el chat lo destacan. Aclara que no sustituye al contador de la empresa: él sigue auditando, revisando y presentando. El aviso "La contabilidad automática NO sustituye al contador" va destacado al inicio de la sección, en la tarjeta Todo Incluido, en la tabla de planes, en las preguntas frecuentes de Soporte PVenta y en la ficha de Contabilidad Automática.
 
