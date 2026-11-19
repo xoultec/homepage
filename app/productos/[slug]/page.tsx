@@ -46,6 +46,23 @@ export default function ProductPage() {
       {product.slug === 'pventa' && <DashboardPreview />}
 
       {product.slug === 'pventa' && (
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold text-dark mb-3">{t('Pruébalo en línea', 'Try it online')}</h2>
+            <p className="text-gray-600 mb-6">
+              {t(
+                'Entra sin registrarte a una empresa de ejemplo: comercial, clínica o constructora (obras como centros de costo, presupuesto contra lo real y resultado por obra). Los datos se reinician cada noche.',
+                'Log in without signing up to a sample company: retail, clinic or construction (projects as cost centers, budget vs. actual and result per project). Data resets every night.',
+              )}
+            </p>
+            <a href="https://pventa.xoultec.com/demo" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition">
+              {t('Abrir la demo de PVenta', 'Open the PVenta demo')}
+            </a>
+          </div>
+        </section>
+      )}
+
+      {product.slug === 'pventa' && (
         <section className="py-12 bg-white">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-2xl font-bold text-dark mb-3">{t('Planes y alcance del soporte', 'Plans and support scope')}</h2>
