@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.37.0] - 2026-11-19
+- feat(ratings): sección "Lo que dicen nuestros clientes" en la portada y en cada producto, con la calificación del 1 al 5 que dan los clientes al cerrar sus casos de soporte, leída en vivo de PVenta (se actualiza cada hora): promedio, cantidad y los testimonios que el cliente permitió publicar y XoulTec aprobó, firmados con el nombre del negocio. Si no hay datos, la sección no se muestra.
+
 ## [1.36.0] - 2026-11-19
 - feat(products): PVenta muestra Centros de Costo y Presupuesto (resultado y margen por obra, proyecto o departamento, y presupuesto contra lo real) y Liquidación de Importación (costo real por producto del embarque y precio sugerido). Nueva sección "Pruébalo en línea" con el enlace a la demo de PVenta (comercial, clínica y constructora), y el chat la ofrece cuando preguntan por PVenta, constructoras, centros de costo o presupuestos.
 
