@@ -197,7 +197,7 @@ export function FloatingRatings() {
           className="w-72 max-w-[calc(100vw-2rem)] rounded-2xl bg-white text-left text-dark shadow-xl border border-gray-100 overflow-hidden"
           aria-label={t('Lo que dicen nuestros clientes', 'What our clients say')}
         >
-          <RatingsCardBody data={data} height="h-40" onClose={() => setMin(true)} />
+          <RatingsCardBody data={data} height="h-80 max-h-[calc(100vh-20rem)]" onClose={() => setMin(true)} />
         </aside>
       ) : (
         <button
