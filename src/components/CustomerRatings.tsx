@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from 'react'
 import { Star, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { useLanguage } from '~/lib/i18n'
 
 /**
@@ -147,13 +148,14 @@ export function RatingsTicker() {
 }
 
 const FLOATING_KEY = 'xoultec-ratings-min'
+const HERO_BLOCK_PATHS = ['/', '/facturacion-electronica']
 
 /**
  * El mismo bloque, flotando en TODAS las páginas mientras el visitante se mueve por el sitio
  * (Rubén, 21-nov-2026: "los sistemas se venden por seguridad; si te mueves en la página web,
  * los clientes verán calificaciones, tienen más peso para tomar decisiones").
- * - Aparece al bajar de los primeros 500px, así no tapa el hero (y en la portada no se
- *   duplica con el bloque del hero mientras ese se ve).
+ * - En la portada y en /facturacion-electronica (que ya lo tienen en el hero) aparece al bajar
+ *   500px, para no duplicarlo; en las demás páginas se ve desde que se entra.
  * - Siempre a la DERECHA, como el bloque del hero (Rubén, 21-nov-2026: "si muestras a la
  *   derecha, que sea siempre ahí"), encima del botón del chat (bottom-6, 56px de alto).
  * - Abierto es una COLUMNA de alto completo: arriba alineada con el inicio del contenido
@@ -166,6 +168,7 @@ const FLOATING_KEY = 'xoultec-ratings-min'
  */
 export function FloatingRatings() {
   const { t, lang } = useLanguage()
+  const pathname = usePathname()
   const data = useRatings()
   const [visible, setVisible] = useState(false)
   const [open, setOpen] = useState<boolean | null>(null)
@@ -176,11 +179,17 @@ export function FloatingRatings() {
       min = sessionStorage.getItem(FLOATING_KEY) === '1'
     } catch {}
     setOpen(!min && window.matchMedia('(min-width: 1700px)').matches)
-    const onScroll = () => setVisible(window.scrollY > 500)
+  }, [])
+
+  useEffect(() => {
+    // Las páginas con el bloque en el hero (portada y e-CF) lo muestran al bajar; las demás,
+    // desde que se entra (Rubén, 21-nov-2026: en /servicios "falta aquí").
+    const heroHasBlock = HERO_BLOCK_PATHS.includes(pathname)
+    const onScroll = () => setVisible(!heroHasBlock || window.scrollY > 500)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [pathname])
 
   if (!data || open === null) return null
   const setMin = (min: boolean) => {
