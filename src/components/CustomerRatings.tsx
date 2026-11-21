@@ -154,7 +154,8 @@ const FLOATING_KEY = 'xoultec-ratings-min'
  * los clientes verán calificaciones, tienen más peso para tomar decisiones").
  * - Aparece al bajar de los primeros 500px, así no tapa el hero (y en la portada no se
  *   duplica con el bloque del hero mientras ese se ve).
- * - Abajo a la IZQUIERDA: abajo a la derecha está el botón del chat.
+ * - Siempre a la DERECHA, como el bloque del hero (Rubén, 21-nov-2026: "si muestras a la
+ *   derecha, que sea siempre ahí"), encima del botón del chat (bottom-6, 56px de alto).
  * - Escritorio: abierto. Móvil: solo una pastilla "5.0 ★ · N clientes" que se abre al tocarla.
  * - La X lo minimiza a la pastilla (se recuerda en esta pestaña); nunca desaparece del todo.
  */
@@ -186,7 +187,7 @@ export function FloatingRatings() {
   const avg = formatAverage(data.average, lang)
   return (
     <div
-      className={`fixed bottom-6 left-4 z-40 transition-all duration-300 ${
+      className={`fixed bottom-24 right-6 z-40 flex justify-end transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-hidden={!visible}
