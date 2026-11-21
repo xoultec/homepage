@@ -141,7 +141,7 @@ export function RatingsTicker() {
       className="w-full max-w-sm mx-auto rounded-2xl bg-white text-left text-dark shadow-lg overflow-hidden"
       aria-label={t('Lo que dicen nuestros clientes', 'What our clients say')}
     >
-      <RatingsCardBody data={data} />
+      <RatingsCardBody data={data} height="h-36" />
     </aside>
   )
 }

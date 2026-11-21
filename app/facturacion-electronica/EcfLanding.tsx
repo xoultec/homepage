@@ -153,8 +153,10 @@ export function EcfLanding() {
             tamaño de letra. */}
         {/* Dos columnas desde lg: titular a la izquierda y, a la derecha, el bloque de
             calificaciones con los testimonios desplazándose solos (Rubén, 21-nov-2026). En
-            móvil el bloque va debajo del subtítulo. */}
-        <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-center">
+            móvil el bloque va debajo del subtítulo. Alineado ARRIBA con el titular (no
+            centrado): centrado, al ser más alto que el texto, subía por encima del titular y la
+            barra fija le cortaba el encabezado (Rubén, 21-nov-2026). */}
+        <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start">
         <div>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 max-w-4xl mx-auto leading-tight">
           {t(
