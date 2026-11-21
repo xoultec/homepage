@@ -16,7 +16,10 @@ export default function HomePage() {
     <>
       {/* e-CF campaign landing leads the home: direct compliance pitch + signup,
           so visitors convert without hunting routes. */}
-      <div id="inicio">
+      {/* scroll-mt-10: "Inicio" en el menú lleva a /#inicio. Sin este margen el salto dejaba la
+          parte de arriba del hero (titular y bloque de calificaciones) debajo de la barra fija;
+          con 40px queda igual que al abrir la página (Rubén, 21-nov-2026). */}
+      <div id="inicio" className="scroll-mt-10">
         <EcfLanding />
       </div>
 
