@@ -156,7 +156,12 @@ const FLOATING_KEY = 'xoultec-ratings-min'
  *   duplica con el bloque del hero mientras ese se ve).
  * - Siempre a la DERECHA, como el bloque del hero (Rubén, 21-nov-2026: "si muestras a la
  *   derecha, que sea siempre ahí"), encima del botón del chat (bottom-6, 56px de alto).
- * - Escritorio: abierto. Móvil: solo una pastilla "5.0 ★ · N clientes" que se abre al tocarla.
+ * - Abierto es una COLUMNA de alto completo: arriba alineada con el inicio del contenido
+ *   (debajo de la barra, top-32) y abajo encima del chat (Rubén, 21-nov-2026: "que coincida
+ *   con el borde de los 3 cuadros y más alta").
+ * - Abierto de entrada solo en pantallas de 1700px o más: ahí cabe al lado del contenido
+ *   (max-w-7xl) sin taparlo. En pantallas más chicas y en móvil arranca como pastilla
+ *   "5.0 ★ · N clientes" que se abre al tocarla.
  * - La X lo minimiza a la pastilla (se recuerda en esta pestaña); nunca desaparece del todo.
  */
 export function FloatingRatings() {
@@ -170,7 +175,7 @@ export function FloatingRatings() {
     try {
       min = sessionStorage.getItem(FLOATING_KEY) === '1'
     } catch {}
-    setOpen(!min && window.matchMedia('(min-width: 1024px)').matches)
+    setOpen(!min && window.matchMedia('(min-width: 1700px)').matches)
     const onScroll = () => setVisible(window.scrollY > 500)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -187,17 +192,17 @@ export function FloatingRatings() {
   const avg = formatAverage(data.average, lang)
   return (
     <div
-      className={`fixed bottom-24 right-6 z-40 flex justify-end transition-all duration-300 ${
+      className={`fixed bottom-24 right-6 z-40 flex flex-col justify-end transition-all duration-300 ${open ? 'top-32' : ''} ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       aria-hidden={!visible}
     >
       {open ? (
         <aside
-          className="w-72 max-w-[calc(100vw-2rem)] rounded-2xl bg-white text-left text-dark shadow-xl border border-gray-100 overflow-hidden"
+          className="h-full w-72 max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl bg-white text-left text-dark shadow-xl border border-gray-100 overflow-hidden"
           aria-label={t('Lo que dicen nuestros clientes', 'What our clients say')}
         >
-          <RatingsCardBody data={data} height="h-80 max-h-[calc(100vh-20rem)]" onClose={() => setMin(true)} />
+          <RatingsCardBody data={data} height="flex-1 min-h-0" onClose={() => setMin(true)} />
         </aside>
       ) : (
         <button
