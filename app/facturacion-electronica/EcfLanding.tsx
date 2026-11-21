@@ -8,6 +8,7 @@ import { FeatureCard } from '~/components/FeatureCard'
 import { LeadForm } from '../ofertas/LeadForm'
 // Los números salen de ~/lib/contact y no se escriben a mano: fue por copiarlos que el
 // formulario de la portada estuvo dos años apuntando a un número muerto.
+import { CustomerRatings, RatingBadge } from '~/components/CustomerRatings'
 import { WA_RD, WA_USA, WA_RD_DISPLAY, WA_USA_DISPLAY, waLink } from '~/lib/contact'
 import { WhatsAppIcon } from '~/components/WhatsAppIcon'
 import { CheckoutButton } from '~/components/CheckoutButton'
@@ -164,6 +165,9 @@ export function EcfLanding() {
             'It works your whole customer list and builds the campaigns that bring new ones.',
           )}
         </p>
+        {/* Calificaciones del soporte, en vivo desde PVenta (Rubén, 21-nov-2026: que pesen más
+            en la página principal). Lleva a la sección completa. */}
+        <RatingBadge />
         {/* Aquí iban dos botones: "Solicita tu demo" (con animación `cta-pulse`) y "Habla
             con un asesor". Fuera el 23-ago-2026 — "te están haciendo ruido": dos llamados
             compitiendo en el hero, uno de ellos parpadeando, justo encima de la franja que
@@ -426,6 +430,11 @@ export function EcfLanding() {
               planes, el lector leía "no va incluido en la mensualidad" antes de saber
               cuál era la mensualidad. Ahora está donde se habla de dinero. */}
         </section>
+
+        {/* Lo que dicen nuestros clientes, justo antes de los precios (Rubén, 21-nov-2026:
+            las calificaciones pesan más en la página principal). Antes iba al final de la
+            portada, debajo de "Por qué XoulTec"; ahí casi nadie llegaba. */}
+        <CustomerRatings className="" />
 
         {/* Pricing */}
         <section>

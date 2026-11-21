@@ -36,26 +36,71 @@ function Stars({ value, size = 'w-5 h-5' }: { value: number; size?: string }) {
   )
 }
 
-export function CustomerRatings({ className = 'bg-gray-50' }: { className?: string }) {
-  const { t, lang } = useLanguage()
-  const [data, setData] = useState<Summary | null>(null)
+// Una sola lectura de /api/ratings por visita, compartida por la insignia del hero y la sección.
+let ratingsRequest: Promise<Summary | null> | null = null
+function loadRatings(): Promise<Summary | null> {
+  if (!ratingsRequest) {
+    ratingsRequest = fetch('/api/ratings')
+      .then((r) => (r.status === 200 ? r.json() : null))
+      .then((d: Summary | null) => (d && d.count > 0 ? d : null))
+      .catch(() => null)
+  }
+  return ratingsRequest
+}
 
+function useRatings(): Summary | null {
+  const [data, setData] = useState<Summary | null>(null)
   useEffect(() => {
     let alive = true
-    fetch('/api/ratings')
-      .then((r) => (r.status === 200 ? r.json() : null))
-      .then((d: Summary | null) => {
-        if (alive && d && d.count > 0) setData(d)
-      })
-      .catch(() => {})
+    loadRatings().then((d) => {
+      if (alive) setData(d)
+    })
     return () => {
       alive = false
     }
   }, [])
+  return data
+}
 
+function formatAverage(value: number, lang: string) {
+  return value.toLocaleString(lang === 'es' ? 'es-DO' : 'en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+}
+
+/**
+ * Insignia compacta para el hero: promedio + estrellas + cantidad de casos calificados, con
+ * enlace a la sección completa. Le da peso a las calificaciones apenas se entra a la página
+ * (Rubén, 21-nov-2026: "los ratings son de más peso en la página principal"). Sin datos no
+ * se muestra.
+ */
+export function RatingBadge() {
+  const { t, lang } = useLanguage()
+  const data = useRatings()
+  if (!data) return null
+  const avg = formatAverage(data.average, lang)
+  return (
+    <a
+      href="/#calificaciones"
+      className="mt-4 inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full bg-white/10 border border-white/25 px-4 py-2 text-white hover:bg-white/20 transition"
+    >
+      <Stars value={data.average} size="w-5 h-5" />
+      <span className="font-bold">{avg}</span>
+      <span className="text-white/90 text-sm">
+        {t(
+          `· ${data.count} ${data.count === 1 ? 'cliente calificó' : 'clientes calificaron'} nuestro soporte`,
+          `· ${data.count} ${data.count === 1 ? 'client rated' : 'clients rated'} our support`,
+        )}
+      </span>
+      <span className="sr-only">{t(`${avg} de 5 estrellas`, `${avg} out of 5 stars`)}</span>
+    </a>
+  )
+}
+
+export function CustomerRatings({ className = 'bg-gray-50' }: { className?: string }) {
+  const { t, lang } = useLanguage()
+  const data = useRatings()
   if (!data) return null
 
-  const avg = data.average.toLocaleString(lang === 'es' ? 'es-DO' : 'en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+  const avg = formatAverage(data.average, lang)
   const monthName = (m: string) => {
     const [y, mo] = m.split('-').map(Number)
     if (!y || !mo) return ''

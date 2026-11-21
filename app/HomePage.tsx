@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { Database, Layers, ArrowRightLeft, Globe, Building2, Hexagon, Atom, Wind, Zap, CreditCard } from 'lucide-react'
 import * as icons from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
-import { CustomerRatings } from '~/components/CustomerRatings'
 import { ContactForm } from '~/components/ContactForm'
 import { MarketBadge } from '~/components/MarketBadge'
 import { products } from '~/lib/products'
@@ -136,9 +135,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Customer ratings (live from PVenta support closings) */}
-      <CustomerRatings />
 
       {/* Tech Stack */}
       <section className="bg-dark py-12">
