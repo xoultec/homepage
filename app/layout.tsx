@@ -4,6 +4,7 @@ import { PrivacyBanner } from '~/components/PrivacyBanner'
 import { Navbar } from '~/components/Navbar'
 import { Footer } from '~/components/Footer'
 import { ChatWidget } from '~/components/ChatWidget'
+import { FloatingRatings } from '~/components/CustomerRatings'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL } from '~/lib/site'
 import '~/styles.css'
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <div className="pt-10">{children}</div>
           <Footer />
+          <FloatingRatings />
           <ChatWidget />
           <Analytics />
         </Providers>
