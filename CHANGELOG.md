@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.38.0] - 2026-11-21
+- feat(ratings): las calificaciones de los clientes pesan más en el sitio: en la portada, un bloque a la derecha del titular con el promedio y los testimonios desplazándose solos; en todas las páginas, la misma columna flotante a la derecha (encima del chat), de alto completo en pantallas anchas y como botón "★ 5.0 · N clientes" en pantallas chicas y móvil, minimizable. Se quitó la sección completa de la portada.
+- fix(home): los enlaces Inicio, Contacto y Nosotros ya no dejan el título debajo de la barra fija; la columna de testimonios ya no muestra un hueco en blanco.
+
 ## [1.37.0] - 2026-11-19
 - feat(ratings): sección "Lo que dicen nuestros clientes" en la portada y en cada producto, con la calificación del 1 al 5 que dan los clientes al cerrar sus casos de soporte, leída en vivo de PVenta (se actualiza cada hora): promedio, cantidad y los testimonios que el cliente permitió publicar y XoulTec aprobó, firmados con el nombre del negocio. Si no hay datos, la sección no se muestra.
 
