@@ -8,7 +8,7 @@ import { FeatureCard } from '~/components/FeatureCard'
 import { LeadForm } from '../ofertas/LeadForm'
 // Los números salen de ~/lib/contact y no se escriben a mano: fue por copiarlos que el
 // formulario de la portada estuvo dos años apuntando a un número muerto.
-import { CustomerRatings, RatingBadge } from '~/components/CustomerRatings'
+import { RatingsTicker } from '~/components/CustomerRatings'
 import { WA_RD, WA_USA, WA_RD_DISPLAY, WA_USA_DISPLAY, waLink } from '~/lib/contact'
 import { WhatsAppIcon } from '~/components/WhatsAppIcon'
 import { CheckoutButton } from '~/components/CheckoutButton'
@@ -151,6 +151,11 @@ export function EcfLanding() {
         {/* `max-w-4xl` en vez de 3xl: el titular es largo y con más ancho baja de tres
             líneas a dos, que es alto de franja que se ahorra sin tocar el texto ni el
             tamaño de letra. */}
+        {/* Dos columnas desde lg: titular a la izquierda y, a la derecha, el bloque de
+            calificaciones con los testimonios desplazándose solos (Rubén, 21-nov-2026). En
+            móvil el bloque va debajo del subtítulo. */}
+        <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-center">
+        <div>
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 max-w-4xl mx-auto leading-tight">
           {t(
             'Facturar es lo mínimo. El Agente de Marketing hace que tus clientes vuelvan a comprar.',
@@ -165,9 +170,9 @@ export function EcfLanding() {
             'It works your whole customer list and builds the campaigns that bring new ones.',
           )}
         </p>
-        {/* Calificaciones del soporte, en vivo desde PVenta (Rubén, 21-nov-2026: que pesen más
-            en la página principal). Lleva a la sección completa. */}
-        <RatingBadge />
+        </div>
+        <RatingsTicker />
+        </div>
         {/* Aquí iban dos botones: "Solicita tu demo" (con animación `cta-pulse`) y "Habla
             con un asesor". Fuera el 23-ago-2026 — "te están haciendo ruido": dos llamados
             compitiendo en el hero, uno de ellos parpadeando, justo encima de la franja que
@@ -430,11 +435,6 @@ export function EcfLanding() {
               planes, el lector leía "no va incluido en la mensualidad" antes de saber
               cuál era la mensualidad. Ahora está donde se habla de dinero. */}
         </section>
-
-        {/* Lo que dicen nuestros clientes, justo antes de los precios (Rubén, 21-nov-2026:
-            las calificaciones pesan más en la página principal). Antes iba al final de la
-            portada, debajo de "Por qué XoulTec"; ahí casi nadie llegaba. */}
-        <CustomerRatings className="" />
 
         {/* Pricing */}
         <section>

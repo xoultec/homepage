@@ -120,3 +120,20 @@ html { scroll-behavior: smooth; }
   font-size: 0.7rem;
   font-weight: 600;
 }
+
+/* Testimonios del hero: desplazamiento vertical continuo. La lista va duplicada, así que
+   moverla -50% deja el segundo bloque exactamente donde empezó el primero (sin salto).
+   Se detiene al pasar el ratón y no se mueve si el usuario pidió menos animación. */
+@keyframes ratings-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.ratings-scroll {
+  animation: ratings-scroll var(--ratings-duration, 30s) linear infinite;
+}
+.ratings-scroll:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ratings-scroll { animation: none; }
+}

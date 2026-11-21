@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { Star } from 'lucide-react'
 import { useLanguage } from '~/lib/i18n'
 
@@ -67,31 +67,60 @@ function formatAverage(value: number, lang: string) {
 }
 
 /**
- * Insignia compacta para el hero: promedio + estrellas + cantidad de casos calificados, con
- * enlace a la sección completa. Le da peso a las calificaciones apenas se entra a la página
- * (Rubén, 21-nov-2026: "los ratings son de más peso en la página principal"). Sin datos no
- * se muestra.
+ * Bloque a la derecha del hero: promedio + estrellas arriba y, debajo, los testimonios
+ * aprobados desplazándose solos hacia arriba (Rubén, 21-nov-2026: "no una página completa,
+ * un bloque a la derecha, scrolleable auto"). Solo testimonios con comentario; con uno
+ * solo no se mueve. Sin datos no se muestra.
  */
-export function RatingBadge() {
+export function RatingsTicker() {
   const { t, lang } = useLanguage()
   const data = useRatings()
   if (!data) return null
   const avg = formatAverage(data.average, lang)
+  const quotes = data.testimonials.filter((x) => x.comment.trim() !== '')
+  const moving = quotes.length > 1
+  const list = moving ? [...quotes, ...quotes] : quotes
   return (
-    <a
-      href="/#calificaciones"
-      className="mt-4 inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full bg-white/10 border border-white/25 px-4 py-2 text-white hover:bg-white/20 transition"
+    <aside
+      id="calificaciones"
+      className="w-full max-w-sm mx-auto rounded-2xl bg-white text-left text-dark shadow-lg overflow-hidden"
+      aria-label={t('Lo que dicen nuestros clientes', 'What our clients say')}
     >
-      <Stars value={data.average} size="w-5 h-5" />
-      <span className="font-bold">{avg}</span>
-      <span className="text-white/90 text-sm">
-        {t(
-          `· ${data.count} ${data.count === 1 ? 'cliente calificó' : 'clientes calificaron'} nuestro soporte`,
-          `· ${data.count} ${data.count === 1 ? 'client rated' : 'clients rated'} our support`,
-        )}
-      </span>
-      <span className="sr-only">{t(`${avg} de 5 estrellas`, `${avg} out of 5 stars`)}</span>
-    </a>
+      <div className="px-5 pt-4 pb-3 border-b border-gray-100">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+          {t('Lo que dicen nuestros clientes', 'What our clients say')}
+        </p>
+        <div className="mt-1 flex items-center gap-2">
+          <span className="text-2xl font-bold">{avg}</span>
+          <Stars value={data.average} size="w-5 h-5" />
+        </div>
+        <p className="text-xs text-gray-500">
+          {t(
+            `${data.count} ${data.count === 1 ? 'caso' : 'casos'} de soporte calificados, del 1 al 5`,
+            `${data.count} rated support ${data.count === 1 ? 'case' : 'cases'}, 1 to 5`,
+          )}
+        </p>
+        <p className="sr-only">{t(`${avg} de 5 estrellas`, `${avg} out of 5 stars`)}</p>
+      </div>
+      {quotes.length > 0 && (
+        <div className="relative h-48 overflow-hidden">
+          <ul
+            className={moving ? 'ratings-scroll' : ''}
+            style={moving ? ({ '--ratings-duration': `${quotes.length * 7}s` } as CSSProperties) : undefined}
+          >
+            {list.map((x, i) => (
+              <li key={i} aria-hidden={i >= quotes.length} className="px-5 py-3 border-b border-gray-100">
+                <Stars value={x.score} size="w-3.5 h-3.5" />
+                <p className="mt-1 text-sm text-gray-700 leading-snug">“{x.comment}”</p>
+                <p className="mt-1 text-xs font-semibold text-dark">{x.business}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent" />
+        </div>
+      )}
+    </aside>
   )
 }
 
