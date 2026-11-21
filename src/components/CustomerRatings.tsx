@@ -77,7 +77,11 @@ function RatingsCardBody({ data, height = 'h-48', onClose }: { data: Summary; he
   const avg = formatAverage(data.average, lang)
   const quotes = data.testimonials.filter((x) => x.comment.trim() !== '')
   const moving = quotes.length > 1
-  const list = moving ? [...quotes, ...quotes] : quotes
+  // Cada mitad de la cinta debe ser más alta que la ventana visible: si no, al subir -50%
+  // queda un hueco en blanco abajo (pasaba en la columna alta con 3 testimonios). Se repiten
+  // los testimonios hasta tener al menos 8 por mitad.
+  const half = moving ? Array.from({ length: Math.ceil(8 / quotes.length) }, () => quotes).flat() : quotes
+  const list = moving ? [...half, ...half] : quotes
   return (
     <>
       <div className="relative px-5 pt-4 pb-3 border-b border-gray-100">
@@ -110,7 +114,7 @@ function RatingsCardBody({ data, height = 'h-48', onClose }: { data: Summary; he
         <div className={`relative ${height} overflow-hidden`}>
           <ul
             className={moving ? 'ratings-scroll' : ''}
-            style={moving ? ({ '--ratings-duration': `${quotes.length * 7}s` } as CSSProperties) : undefined}
+            style={moving ? ({ '--ratings-duration': `${half.length * 7}s` } as CSSProperties) : undefined}
           >
             {list.map((x, i) => (
               <li key={i} aria-hidden={i >= quotes.length} className="px-5 py-3 border-b border-gray-100">

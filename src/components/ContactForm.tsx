@@ -68,7 +68,9 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contacto" className="py-4 scroll-mt-16 bg-gray-50">
+    <section id="contacto" className="py-4 scroll-mt-28 bg-gray-50">
+      {/* scroll-mt-28: con py-4 el título quedaba debajo de la barra fija (aviso + menú = 104px)
+          al entrar por /#contacto (Rubén, 21-nov-2026). */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-6 items-start">
           <div className="fade-in visible pt-2">
