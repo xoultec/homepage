@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.38.1] - 2026-11-23
+- fix(seo): la descripción para buscadores y redes de Facturación Electrónica ya no dice "antes del 15 de noviembre de 2026", un plazo que ya venció; se redacta sin fecha.
+
 ## [1.38.0] - 2026-11-21
 - feat(ratings): las calificaciones de los clientes pesan más en el sitio: en la portada, un bloque a la derecha del titular con el promedio y los testimonios desplazándose solos; en todas las páginas, la misma columna flotante a la derecha (encima del chat), de alto completo en pantallas anchas y como botón "★ 5.0 · N clientes" en pantallas chicas y móvil, minimizable. Se quitó la sección completa de la portada.
 - fix(home): los enlaces Inicio, Contacto y Nosotros ya no dejan el título debajo de la barra fija; la columna de testimonios ya no muestra un hueco en blanco.
