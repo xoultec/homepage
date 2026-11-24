@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.39.1] - 2026-11-24
+- fix(ecf): la homologación e-CF sin costo se aclara como oferta para clientes nuevos, en la página de Facturación Electrónica y en el chat.
+
 ## [1.39.0] - 2026-11-24
 - feat(ecf): la homologación ante la DGII como emisor de e-CF aparece como sin costo con XoulTec en la página de Facturación Electrónica (tarjeta "Te dejamos listo ante la DGII") y en las respuestas del chat, con la misma frase que la campaña de correos.
 
