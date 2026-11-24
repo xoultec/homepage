@@ -50,6 +50,8 @@ export function Footer() {
               <li>sales@xoultec.com</li>
               <li><img src="https://flagcdn.com/16x12/us.png" alt="USA" className="inline align-middle mr-1" />+1 (913) 413-6583 <span className="text-xs text-green-400">(Solo WhatsApp)</span></li>
               <li><img src="https://flagcdn.com/16x12/do.png" alt="RD" className="inline align-middle mr-1" />+1 (809) 252-4007</li>
+              <li><a href="https://www.instagram.com/xoultec/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Instagram @xoultec</a></li>
+              <li><a href="https://whatsapp.com/channel/0029VbDcsgj5kg72WOClq33W" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">{t('Canal de WhatsApp', 'WhatsApp Channel')}</a></li>
             </ul>
           </div>
         </div>
