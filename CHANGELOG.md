@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.39.0] - 2026-11-24
+- feat(ecf): la homologación ante la DGII como emisor de e-CF aparece como sin costo con XoulTec en la página de Facturación Electrónica (tarjeta "Te dejamos listo ante la DGII") y en las respuestas del chat, con la misma frase que la campaña de correos.
+
 ## [1.38.1] - 2026-11-23
 - fix(seo): la descripción para buscadores y redes de Facturación Electrónica ya no dice "antes del 15 de noviembre de 2026", un plazo que ya venció; se redacta sin fecha.
 

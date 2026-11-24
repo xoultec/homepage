@@ -56,12 +56,14 @@ const ecfFeatures: Feature[] = [
     // Esta tarjeta salió un rato: repetía el cintillo del hero palabra por palabra.
     // Vuelve porque el cintillo pasó a ser el Agente de Marketing, así que ya no hay
     // duplicado — y la promesa de que el trámite lo hacemos nosotros no se puede perder.
-    // Sin "gratis" ni "sin costo": lo que vende es que lo hacemos, no que no se cobre.
+    // 24-nov-2026 (Rubén): la homologación sin costo pasa a ser el gancho de la campaña de
+    // marketing, así que la tarjeta lo dice con la misma frase que los correos. Antes (ago-2026)
+    // se evitaba "sin costo"; esa decisión quedó reemplazada.
     icon: 'Award',
     titleEs: 'Te dejamos listo ante la DGII',
     titleEn: 'We get you ready with DGII',
-    descEs: 'Hacemos el trámite completo por ti. Tú solo gestionas tu firma digital.',
-    descEn: 'We do the whole process for you. You only manage your digital signature.',
+    descEs: 'La homologación ante la DGII como emisor de e-CF no tiene costo con XoulTec. Hacemos el trámite completo por ti; tú solo gestionas tu firma digital.',
+    descEn: 'Certification with DGII as an e-CF issuer has no cost with XoulTec. We do the whole process for you; you only manage your digital signature.',
     highlight: true,
   },
   {
