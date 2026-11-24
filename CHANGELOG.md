@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.40.0] - 2026-11-24
+- feat(footer): el pie de página enlaza a Instagram @xoultec y al canal de WhatsApp "XoulTec – Facturación y Ventas".
+
 ## [1.39.1] - 2026-11-24
 - fix(ecf): la homologación e-CF sin costo se aclara como oferta para clientes nuevos, en la página de Facturación Electrónica y en el chat.
 
